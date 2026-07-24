@@ -1,0 +1,67 @@
+---
+title: "End-to-End Global Trade Lifecycle"
+section: "Normative Core"
+---
+
+<ContentPage
+  title="End-to-End Global Trade Lifecycle"
+  section="Normative Core"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Normative Core", href: "/content" },
+    { label: "End-to-End Global Trade Lifecycle" }
+  ]}
+>
+
+<br />
+<p>The canonical lifecycle contains 27 stages:</p>
+<br />
+<p>1. Organization identity and onboarding.</p>
+<p>2. Demand and requirement definition.</p>
+<p>3. Request for quotation.</p>
+<p>4. Supplier discovery and qualification.</p>
+<p>5. Quotation invitation and submission.</p>
+<p>6. Comparison and normalization.</p>
+<p>7. Negotiation and supplier selection.</p>
+<p>8. Contract and accepted terms.</p>
+<p>9. Proforma Invoice.</p>
+<p>10. Payment and risk approval.</p>
+<p>11. Purchase Order and acknowledgement.</p>
+<p>12. Production planning and capacity commitment.</p>
+<p>13. Production execution and milestones.</p>
+<p>14. Quality inspection, nonconformance, and release.</p>
+<p>15. Packing List and Commercial Invoice.</p>
+<p>16. Export customs and legal release.</p>
+<p>17. Transport planning and booking.</p>
+<p>18. Pickup, custody, and handover.</p>
+<p>19. International transport and tracking.</p>
+<p>20. Import customs, duties, and legal release.</p>
+<p>21. Delivery and warehouse receiving.</p>
+<p>22. Inventory synchronization and availability.</p>
+<p>23. Product publication and marketplace eligibility.</p>
+<p>24. Checkout and customer order.</p>
+<p>25. Allocation, fulfilment, and last-mile delivery.</p>
+<p>26. Returns, claims, refunds, and disputes.</p>
+<p>27. Settlement, reporting, ESG, and learning.</p>
+<br />
+<h2 id="stage-contract">Stage contract</h2>
+<br />
+<p>Every stage must specify:</p>
+<br />
+<p>- owner and external authority;</p>
+<p>- entry and exit criteria;</p>
+<p>- canonical subjects and versions;</p>
+<p>- state machines and invariants;</p>
+<p>- Decisions, Commands, Events, and queries;</p>
+<p>- evidence and documents;</p>
+<p>- workflow, deadlines, retries, and compensation;</p>
+<p>- APIs, database ownership, and Portal journeys;</p>
+<p>- AI participation and autonomy;</p>
+<p>- security, privacy, SLOs, tests, and recovery;</p>
+<p>- correction and dispute behavior.</p>
+<br />
+<h2 id="lifecycle-orchestration">Lifecycle orchestration</h2>
+<br />
+<p>The lifecycle is not a single central transaction. Durable workflows coordinate independently owned aggregates. State is advanced only by verified facts. If an external outcome is unknown, the process enters an explicit reconciliation state rather than assuming success or repeating the action blindly.</p>
+<br />
+</ContentPage>

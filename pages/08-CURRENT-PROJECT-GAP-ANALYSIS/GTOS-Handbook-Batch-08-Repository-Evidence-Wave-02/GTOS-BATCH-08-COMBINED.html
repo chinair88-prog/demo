@@ -1,0 +1,1395 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ابتدا جست‌وجوی کد انجام شد و سپس فایل‌های منتخب Java، TypeScript و SQL مستقیماً خوانده شدند. وجود نام فایل یا route به‌تنهایی Implementation محسوب نشد. در تمام فصل‌ها این تمایزها حفظ شده‌اند: frontend presentation در برابر backend execution؛ 2. software quality در برابر trade-goo…">
+<meta name="color-scheme" content="light dark">
+<title>GTOS Batch 08 — Repository Evidence Wave 02 Combined Edition · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/GTOS-BATCH-08-COMBINED.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 08 Repository Evidence Wave 02</span><span class="sep">/</span><span>GTOS Batch 08 — Repository Evidence Wave 02 Combined Edition</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>4,461 words</span></div>
+        <h1>GTOS Batch 08 — Repository Evidence Wave 02 Combined Edition</h1>
+        <p class="lede">ابتدا جست‌وجوی کد انجام شد و سپس فایل‌های منتخب Java، TypeScript و SQL مستقیماً خوانده شدند. وجود نام فایل یا route به‌تنهایی Implementation محسوب نشد. در تمام فصل‌ها این تمایزها حفظ شده‌اند: frontend presentation در برابر backend execution؛ 2. software quality در برابر trade-goo…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<hr/>
+<!-- SOURCE: 00-SCOPE-METHOD-AND-SNAPSHOT.md -->
+<h1 id="00-scope-method-and-repository-snapshot">00 — Scope, Method, and Repository Snapshot</h1>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository</td>
+<td><code>chinair88-prog/allinb2c</code></td>
+</tr>
+<tr>
+<td>Evidence snapshot</td>
+<td><code>14cc83805e7386c3d5cdec6ad191b1078fd502ff</code></td>
+</tr>
+<tr>
+<td>Handbook branch</td>
+<td><code>gtos/handbook-repository-grounded-expansion-v2</code></td>
+</tr>
+<tr>
+<td>Wave</td>
+<td>Repository Evidence Wave 02</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Quality؛ documents؛ customs؛ transport؛ warehouse؛ inventory</td>
+</tr>
+<tr>
+<td>Evidence standard</td>
+<td>ادعای محدود و پشتیبانی‌شده با فایل اجرایی بررسی‌شده</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="روش-بررسی">روش بررسی<a aria-label="Link to section" class="heading-anchor" href="#روش-بررسی">#</a></h2>
+<p>ابتدا جست‌وجوی کد انجام شد و سپس فایل‌های منتخب Java، TypeScript و SQL مستقیماً خوانده شدند. وجود نام فایل یا route به‌تنهایی Implementation محسوب نشد.</p>
+<p>در تمام فصل‌ها این تمایزها حفظ شده‌اند:</p>
+<ol>
+<li>frontend presentation در برابر backend execution؛</li>
+<li>software quality در برابر trade-goods quality؛</li>
+<li>platform status در برابر external legal authority؛</li>
+<li>وجود جدول در برابر lifecycle کامل؛</li>
+<li>ذخیره idempotency key در برابر جلوگیری واقعی از duplicate؛</li>
+<li>وجود tenant field در برابر tenant enforcement قابل اعتماد؛</li>
+<li>status string در برابر state machine کنترل‌شده؛</li>
+<li>فراخوانی Event publisher در برابر delivery تضمین‌شده و outbox.</li>
+</ol>
+<h2 id="محدودیت-ها">محدودیت‌ها<a aria-label="Link to section" class="heading-anchor" href="#محدودیت-ها">#</a></h2>
+<ul>
+<li>Deployment این snapshot اثبات نشده است.</li>
+<li>وجود فایل Test به‌معنی اجرای موفق Test یا CI نیست.</li>
+<li>migrationها از روی source بررسی شده‌اند، نه اجرای مستقل.</li>
+<li>outcomeهای customs، carrier، inspector و warehouse فقط با authority evidence می‌توانند authoritative شوند.</li>
+<li>بخشی از controllerها direct JDBC دارند و هماهنگی runtime datasource با migration نیازمند integration test است.</li>
+</ul>
+<hr/>
+<!-- SOURCE: 01-QUALITY-INSPECTION-QC-HOLD-AND-RELEASE.md -->
+<h1 id="01-quality-inspection-qc-hold-and-release">01 — Quality Inspection, QC Hold, and Release</h1>
+<h2 id="نتیجه-اجرایی">نتیجه اجرایی<a aria-label="Link to section" class="heading-anchor" href="#نتیجه-اجرایی">#</a></h2>
+<p>Aggregate مستقل و canonical برای بازرسی کیفیت کالای تجاری در شواهد بررسی‌شده پیدا نشد. سه مفهوم متفاوت با واژه Quality مخلوط شده‌اند:</p>
+<ol>
+<li>صفحه <code>apps/quality-dashboard/app/inspections/page.tsx</code> داده‌های Inspection را از یک آرایه ثابت محلی می‌خواند.</li>
+<li><code>QualityController</code> در dashboard-service کیفیت نرم‌افزار/پروژه، metric، gate و report را مدیریت می‌کند.</li>
+<li>Inventory و Warehouse یک فرآیند محدودتر QC Hold و stock disposition دارند.</li>
+</ol>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Capability</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trade inspection planning and evidence</td>
+<td><code>REFERENCE_ARCHITECTURE</code></td>
+</tr>
+<tr>
+<td>Quality Dashboard inspection page</td>
+<td><code>FRONTEND_MOCK</code></td>
+</tr>
+<tr>
+<td>Software-quality gates/reports</td>
+<td><code>VERIFIED_IMPLEMENTED</code>، اما Domain متفاوت</td>
+</tr>
+<tr>
+<td>Stock QC hold and disposition</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td>Final release certificate</td>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="صفحه-inspection">صفحه Inspection<a aria-label="Link to section" class="heading-anchor" href="#صفحه-inspection">#</a></h2>
+<p>صفحه Quality Dashboard نوع‌های <code>incoming</code>، <code>in-process</code>، <code>final</code> و <code>outgoing</code> و نتیجه‌های <code>pass</code>، <code>fail</code> و <code>pending</code> را نمایش می‌دهد، اما رکوردها در ثابت <code>INSPECTIONS</code> تعریف شده‌اند. فیلتر، جست‌وجو و آمار نیز فقط روی همان آرایه اجرا می‌شوند.</p>
+<p>این صفحه نباید به‌عنوان اثبات backend inspection معرفی شود.</p>
+<h2 id="software-quality-controller">Software Quality Controller<a aria-label="Link to section" class="heading-anchor" href="#software-quality-controller">#</a></h2>
+<p>مسیر <code>/api/quality</code> رفتارهای زیر را دارد:</p>
+<ul>
+<li>dashboard و score بر اساس projectId؛</li>
+<li>trendهای metric؛</li>
+<li>ingestion و aggregation metric؛</li>
+<li>check و status و failed conditions برای quality gate؛</li>
+<li>تولید، export و schedule report.</li>
+</ul>
+<p>این مدل فاقد Production Lot، Sample، Measurement، Specification، Inspector، Laboratory، Defect و Release Certificate است؛ بنابراین متعلق به Stage کیفیت کالا نیست.</p>
+<h2 id="رفتار-واقعی-inventory-qc">رفتار واقعی Inventory QC<a aria-label="Link to section" class="heading-anchor" href="#رفتار-واقعی-inventory-qc">#</a></h2>
+<p><code>InventoryPostingService</code> رفتارهای زیر را پیاده‌سازی می‌کند:</p>
+<ul>
+<li>انتقال quantity از Available به QC Hold؛</li>
+<li>کنترل کافی‌بودن available quantity؛</li>
+<li>disposition نوع <code>PASS</code> و بازگشت به Available؛</li>
+<li><code>FAIL_DAMAGED</code> و انتقال به Damaged؛</li>
+<li><code>FAIL_BLOCKED</code> و انتقال به Blocked؛</li>
+<li>ثبت ledger eventهای <code>QC_HOLD</code>، <code>QC_PASS</code>، <code>QC_FAIL_DAMAGED</code> و <code>QC_FAIL_BLOCKED</code>.</li>
+</ul>
+<p>این رفتار stock disposition را ثابت می‌کند، اما ثابت نمی‌کند چه کسی بازرسی کرده، چه specification و sampling plan استفاده شده، چه measurementهایی ثبت شده و چه authorityای release را صادر کرده است.</p>
+<h2 id="qc-hold-workbench">QC Hold Workbench<a aria-label="Link to section" class="heading-anchor" href="#qc-hold-workbench">#</a></h2>
+<p>Warehouse UI:</p>
+<ul>
+<li>از <code>inventoryApi.listQcHolds()</code> استفاده می‌کند؛</li>
+<li><code>PATCH /api/proxy/quality/status</code> را با actionهای inspect/release/reject فراخوانی می‌کند؛</li>
+<li>stateهای <code>PENDING</code>، <code>INSPECTING</code>، <code>RELEASED</code> و <code>REJECTED</code> دارد؛</li>
+<li>ادعا می‌کند Release باعث Inventory Restock و Reject باعث Stock Adjustment می‌شود.</li>
+</ul>
+<p>backend متناظر <code>/quality/status</code> در شواهد این Wave پیدا نشد؛ بنابراین این side effectها <code>CLIENT_CONTRACT_UNVERIFIED</code> هستند.</p>
+<h2 id="subjects-مفقود">Subjects مفقود<a aria-label="Link to section" class="heading-anchor" href="#subjects-مفقود">#</a></h2>
+<p>برای تکمیل Stage کیفیت هنوز این Subjects لازم‌اند:</p>
+<ul>
+<li><code>InspectionPlan</code></li>
+<li><code>Inspection</code></li>
+<li><code>Sample</code></li>
+<li><code>Measurement</code></li>
+<li><code>SpecificationVersion</code></li>
+<li><code>Defect</code></li>
+<li><code>Nonconformance</code></li>
+<li><code>CorrectiveAction</code></li>
+<li><code>QualityDecision</code></li>
+<li><code>ReleaseCertificate</code></li>
+<li><code>ReleaseRevocation</code></li>
+<li>Inspector/Laboratory mandate و calibration evidence</li>
+</ul>
+<h2 id="اقدامات-اصلاحی">اقدامات اصلاحی<a aria-label="Link to section" class="heading-anchor" href="#اقدامات-اصلاحی">#</a></h2>
+<ol>
+<li>Software Quality از Trade Quality نام‌گذاری و ownership جدا داشته باشد.</li>
+<li>Mock inspection UI به API واقعی متصل یا صریحاً Demo علامت‌گذاری شود.</li>
+<li>Quality Domain مستقل از Inventory ایجاد شود.</li>
+<li>Quality Decision از طریق Command تایپ‌شده به Inventory disposition متصل شود.</li>
+<li>specification version، inspector identity، evidence، rationale و revocation ثبت شوند.</li>
+<li>proxy مربوط به <code>/quality/status</code> پیدا، مستند و integration-test شود.</li>
+</ol>
+<hr/>
+<!-- SOURCE: 02-PACKING-LIST-AND-COMMERCIAL-INVOICE.md -->
+<h1 id="02-packing-list-and-commercial-invoice">02 — Packing List and Commercial Invoice</h1>
+<h2 id="نتیجه-ownership">نتیجه Ownership<a aria-label="Link to section" class="heading-anchor" href="#نتیجه-ownership">#</a></h2>
+<p>دو مدل Packing List وجود دارد:</p>
+<ul>
+<li>Tajerestan با JPA و جدول <code>tb_packing_list</code>؛</li>
+<li>Provider/Partner با direct JDBC و جدول <code>partner.packing_lists</code>.</li>
+</ul>
+<p>Commercial Invoice نیز در <code>partner.commercial_invoices</code> نگهداری می‌شود.</p>
+<p>تا زمان تعیین System of Record، وضعیت Packing List برابر <code>CONFLICT_REQUIRES_CANONICALIZATION</code> است.</p>
+<h2 id="tajerestan-packing-list">Tajerestan Packing List<a aria-label="Link to section" class="heading-anchor" href="#tajerestan-packing-list">#</a></h2>
+<p>Entity واقعی شامل این فیلدهاست:</p>
+<ul>
+<li>شماره PL؛</li>
+<li>PI و Purchase Order reference؛</li>
+<li>supplier؛</li>
+<li>box count؛</li>
+<li>net/gross weight و volume؛</li>
+<li>packing method و marks؛</li>
+<li>status و company؛</li>
+<li>child boxes.</li>
+</ul>
+<p>Service واقعی:</p>
+<ul>
+<li>شماره <code>PL-...</code> تولید می‌کند؛</li>
+<li>package count، gross weight و volume را جمع می‌کند؛</li>
+<li>boxها را ذخیره می‌کند؛</li>
+<li>get و list دارد؛</li>
+<li>Event با نام <code>trade.packing-list.created</code> منتشر می‌کند.</li>
+</ul>
+<h3 id="gapهای-قطعی">Gapهای قطعی<a aria-label="Link to section" class="heading-anchor" href="#gapهای-قطعی">#</a></h3>
+<ul>
+<li><code>DEFAULT_COMPANY_ID</code> هم برای supplier و هم company استفاده می‌شود.</li>
+<li><code>totalNetWeight</code> صفر می‌ماند.</li>
+<li><code>netWeightKg</code> هر box صفر ثبت می‌شود.</li>
+<li>immutable issued version، signature و supersession دیده نشد.</li>
+<li>status transition guard و optimistic locking دیده نشد.</li>
+<li>outbox تراکنشی اثبات نشد.</li>
+</ul>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h2 id="partner-packing-list">Partner Packing List<a aria-label="Link to section" class="heading-anchor" href="#partner-packing-list">#</a></h2>
+<p>Partner Logistics Controller:</p>
+<ul>
+<li>list و get از <code>partner.packing_lists</code>؛</li>
+<li>PATCH محدودشده به Partner احراز‌شده؛</li>
+<li>audit log برای update؛</li>
+<li>merge metadata.</li>
+</ul>
+<p>اما POST create با 503 و پیام <code>notAvailable</code> پاسخ می‌دهد. مدل update نیز طیف بزرگی از فیلدها را مستقیم تغییر می‌دهد و version immutable ندارد.</p>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Operation</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>List/Get</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>Partner-scoped Patch/Audit</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Create</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="commercial-invoice">Commercial Invoice<a aria-label="Link to section" class="heading-anchor" href="#commercial-invoice">#</a></h2>
+<p>Migration واقعی این اطلاعات را ذخیره می‌کند:</p>
+<ul>
+<li>unique invoice number؛</li>
+<li>Packing List، Shipment، Quotation و Order references؛</li>
+<li>Partner و Customer؛</li>
+<li>invoice date، currency، amount؛</li>
+<li>Incoterm و payment terms؛</li>
+<li>ports، origin و destination؛</li>
+<li>HS code و declared value؛</li>
+<li>status، issuer، lineItems و metadata.</li>
+</ul>
+<p>Controller list، get و Partner-scoped patch را اجرا می‌کند. بااین‌حال:</p>
+<ul>
+<li>create با 503 پاسخ می‌دهد؛</li>
+<li>generate-from-packing-list با 503 پاسخ می‌دهد؛</li>
+<li>issue/sign/version/supersede workflow وجود ندارد.</li>
+</ul>
+<h2 id="canonicalization-موردنیاز">Canonicalization موردنیاز<a aria-label="Link to section" class="heading-anchor" href="#canonicalization-موردنیاز">#</a></h2>
+<ol>
+<li>یک Packing List System of Record انتخاب شود.</li>
+<li>Document identity، version، issuance، signature، supersession و cancellation تعریف شوند.</li>
+<li>JSON line items و relational boxes reconciliation شوند.</li>
+<li>quantities/weights با Production، Quality Release، PO و Shipment تطبیق داده شوند.</li>
+<li>HS-code suggestion از legal classification جدا باشد.</li>
+<li>discrepancy/correction به‌صورت Aggregate ثبت شود، نه mutable patch.</li>
+</ol>
+<hr/>
+<!-- SOURCE: 03-EXPORT-CUSTOMS-AND-LEGAL-RELEASE.md -->
+<h1 id="03-export-customs-and-legal-release">03 — Export Customs and Legal Release</h1>
+<h2 id="provider-implementation">Provider implementation<a aria-label="Link to section" class="heading-anchor" href="#provider-implementation">#</a></h2>
+<p>Migration واقعی <code>partner.export_declarations</code> را با این داده‌ها ایجاد می‌کند:</p>
+<ul>
+<li>declaration number و customs office؛</li>
+<li>shipment، commercial invoice و packing list؛</li>
+<li>Partner و declarant؛</li>
+<li>transport، vessel، voyage و container؛</li>
+<li>ports و destination country؛</li>
+<li>package/weight/value/currency؛</li>
+<li>status، customs response و metadata.</li>
+</ul>
+<p>Partner Logistics Controller رفتارهای list، detail، create، update و submit را دارد و status history و audit ثبت می‌کند.</p>
+<p>ثبت <code>SUBMITTED</code> فقط یک platform fact است: سیستم ثبت کرده کاربر submission action انجام داده است. این وضعیت اثبات نمی‌کند Customs Authority اظهارنامه را پذیرفته یا کالا را release کرده است.</p>
+<p>Customs document add/remove هنوز با 503 پاسخ می‌دهند.</p>
+<h2 id="tajerestan-customs">Tajerestan Customs<a aria-label="Link to section" class="heading-anchor" href="#tajerestan-customs">#</a></h2>
+<p>Tajerestan مسیرهای زیر را دارد:</p>
+<ul>
+<li><code>POST /api/v1/trade/customs/{poId}/clear</code></li>
+<li>get status؛</li>
+<li>list و stats.</li>
+</ul>
+<p>Service مستقیماً فیلدهای customs روی Purchase Order را تغییر می‌دهد و <code>trade.customs.cleared</code> منتشر می‌کند. External customs adapter، signed authority response یا declaration aggregate در فایل‌های بررسی‌شده دیده نشد.</p>
+<p>این رابطه نادرست است:</p>
+<div class="code-block"><div class="code-toolbar"><span>text</span><button class="copy-code" type="button">Copy</button></div><div class="highlight"><pre><span></span>Application user sets PO.customsStatus = CLEARED
+    ≠
+Customs authority issued legal release
+</pre></div>
+</div><p>این بخش برای ثبت internal status، <code>IMPLEMENTED_WITH_GAP</code> است؛ برای legal release، <code>REFERENCE_ARCHITECTURE</code>.</p>
+<h2 id="gapهای-اصلی">Gapهای اصلی<a aria-label="Link to section" class="heading-anchor" href="#gapهای-اصلی">#</a></h2>
+<ul>
+<li>statusها string آزاد هستند.</li>
+<li>Partner ownership در همه SQL statementها یکدست دیده نمی‌شود.</li>
+<li>callback signature، response correlation، Outcome Unknown و revocation وجود ندارد.</li>
+<li>document attachment executable نیست.</li>
+<li>history در JSON mutable ذخیره می‌شود.</li>
+<li>Partner declaration و Tajerestan PO customs دو مدل رقیب‌اند.</li>
+</ul>
+<h2 id="تصمیم-canonical">تصمیم canonical<a aria-label="Link to section" class="heading-anchor" href="#تصمیم-canonical">#</a></h2>
+<p>Export Customs باید این Truthها را جدا کند:</p>
+<ol>
+<li><code>ExportDeclarationPrepared</code></li>
+<li><code>ExportDeclarationSubmitted</code></li>
+<li><code>AuthorityResponseObserved</code></li>
+<li><code>ExportLegalReleaseObserved</code></li>
+<li><code>AuthorityDecisionCorrectedOrRevoked</code></li>
+<li>derived shipment-readiness perspective</li>
+</ol>
+<p>Legal release فقط با authority evidence معتبر است.</p>
+<hr/>
+<!-- SOURCE: 04-IMPORT-CUSTOMS-DUTIES-AND-RELEASE.md -->
+<h1 id="04-import-customs-duties-and-release">04 — Import Customs, Duties, and Release</h1>
+<h2 id="evidence-maturity">Evidence maturity<a aria-label="Link to section" class="heading-anchor" href="#evidence-maturity">#</a></h2>
+<p>Import Customs یکی از بالغ‌ترین بخش‌های بررسی‌شده در Wave 02 است.</p>
+<p>Migration V16 این جدول‌ها را ایجاد می‌کند:</p>
+<ul>
+<li><code>partner.import_declarations</code></li>
+<li><code>partner.wms_inbound_orders</code></li>
+<li><code>partner.wms_inbound_items</code></li>
+<li><code>partner.warehouse_receipts</code></li>
+</ul>
+<p>Controller یک lifecycle Partner-scoped دارد:</p>
+<ul>
+<li>list و detail؛</li>
+<li>create از Shipment متعلق به Partner؛</li>
+<li>generic update فقط در <code>DRAFT</code> و <code>CUSTOMS_HOLD</code>؛</li>
+<li>submit اختصاصی؛</li>
+<li>mark-duty-paid اختصاصی؛</li>
+<li>mark-cleared اختصاصی؛</li>
+<li>status history و audit؛</li>
+<li>sync وضعیت Shipment به <code>CUSTOMS_CLEARED</code>.</li>
+</ul>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h2 id="کنترل-های-مثبت">کنترل‌های مثبت<a aria-label="Link to section" class="heading-anchor" href="#کنترل-های-مثبت">#</a></h2>
+<ul>
+<li>Partner ID از JWT principal گرفته می‌شود.</li>
+<li>بسیاری از read/writeها با Partner ID محدود می‌شوند.</li>
+<li>create بررسی می‌کند Shipment متعلق به Partner باشد.</li>
+<li>terminal status از generic PATCH ممنوع است.</li>
+<li>submit فقط از <code>DRAFT</code> مجاز است.</li>
+<li>clear به Shipment لینک‌شده نیاز دارد.</li>
+<li>audit snapshot و history ثبت می‌شود.</li>
+</ul>
+<h2 id="gapهای-مهم">Gapهای مهم<a aria-label="Link to section" class="heading-anchor" href="#gapهای-مهم">#</a></h2>
+<ol>
+<li>Migration عمداً <code>partner.import_declarations</code> را DROP و recreate می‌کند؛ این رفتار destructive است.</li>
+<li><code>mark-duty-paid</code> از وضعیت <code>CLEARED</code> نیز مجاز است که lifecycle را غیرمنطقی می‌کند.</li>
+<li>duty/tax صفر یا null فقط warning ایجاد می‌کند و عملیات را block نمی‌کند.</li>
+<li><code>mark-cleared</code> یک application action است و authority response خارجی اثبات نشده.</li>
+<li>Shipment status با direct cross-table mutation تغییر می‌کند.</li>
+<li>JDBC updateها optimistic version predicate ندارند.</li>
+<li>status history در JSON mutable است.</li>
+<li>Provider WMS tables با Warehouse/Inventory ownership هم‌پوشانی دارند.</li>
+</ol>
+<h2 id="مدل-canonical">مدل canonical<a aria-label="Link to section" class="heading-anchor" href="#مدل-canonical">#</a></h2>
+<p>Truthهای زیر باید مستقل باشند:</p>
+<ul>
+<li><code>ImportDeclarationSubmitted</code> — platform fact؛</li>
+<li><code>DutyAssessmentObserved</code> — authority observation؛</li>
+<li><code>DutyPaymentIntent</code> و <code>DutyPaymentOutcome</code> — Finance/Payment؛</li>
+<li><code>ImportReleaseObserved</code> — authority observation؛</li>
+<li><code>ShipmentCustomsPerspectiveChanged</code> — projection.</li>
+</ul>
+<p>هیچ کاربر برنامه نباید بدون authority evidence بتواند legal clearance بسازد.</p>
+<hr/>
+<!-- SOURCE: 05-TRANSPORT-BOOKING-HANDOVER-SHIPMENT-AND-TRACKING.md -->
+<h1 id="05-transport-booking-handover-shipment-and-tracking">05 — Transport Booking, Handover, Shipment, and Tracking</h1>
+<h2 id="contextهای-اجرایی">Contextهای اجرایی<a aria-label="Link to section" class="heading-anchor" href="#contextهای-اجرایی">#</a></h2>
+<p>دو Context اصلی وجود دارد:</p>
+<ol>
+<li><code>provider-service</code> برای Partner logistics و Booking؛</li>
+<li><code>shipping-service</code> برای <code>shipping.trade_shipments</code> و API حمل B2B.</li>
+</ol>
+<p>مرزهای Booking، Shipment، Carrier Observation، Handover و Custody هنوز canonical نشده‌اند.</p>
+<h2 id="booking">Booking<a aria-label="Link to section" class="heading-anchor" href="#booking">#</a></h2>
+<p>Migration <code>partner.bookings</code> اطلاعات carrier، mode، vessel/flight، container، ports، dates، transit estimate، agent، confirmation، status، Partner و metadata را ذخیره می‌کند.</p>
+<p>Export Handover Portal از API واقعی <code>/api/v1/logistics/bookings</code> استفاده می‌کند و این stateها را نمایش می‌دهد:</p>
+<ul>
+<li><code>REQUESTED</code></li>
+<li><code>CONFIRMED</code></li>
+<li><code>LOADED</code></li>
+<li><code>HANDED_OVER</code></li>
+<li><code>CANCELLED</code></li>
+</ul>
+<p>Portal همچنین pickup address، loading time، contact، seal number و referenceهای Packing List و Commercial Invoice را می‌گیرد.</p>
+<p>این journey اجرایی مفید است، اما <code>HANDED_OVER</code> به‌تنهایی Custody Transfer معتبر نیست.</p>
+<h2 id="trade-shipment">Trade Shipment<a aria-label="Link to section" class="heading-anchor" href="#trade-shipment">#</a></h2>
+<p><code>TradeShipmentEntity</code> شامل این داده‌هاست:</p>
+<ul>
+<li>Purchase Order و Trade Order reference؛</li>
+<li>carrier و tracking number؛</li>
+<li>transport mode و booking reference؛</li>
+<li>master/house bill؛</li>
+<li>container count و forwarder؛</li>
+<li>origin/destination؛</li>
+<li>status، ETA و actual delivery؛</li>
+<li>weight، volume و package count؛</li>
+<li>metadata و tenant.</li>
+</ul>
+<p>Service رفتار create، list/filter، get، update، tracking append، stats و Kafka send را دارد. Controller نیز <code>/api/shipping/trade/shipments</code> را ارائه می‌دهد.</p>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h2 id="یافته-های-بحرانی-کد">یافته‌های بحرانی کد<a aria-label="Link to section" class="heading-anchor" href="#یافته-های-بحرانی-کد">#</a></h2>
+<ul>
+<li>هنگام ساخت Shipment Item، <code>tenantId</code> برابر Shipment UUID قرار داده می‌شود، نه tenant واقعی.</li>
+<li>list/get/update/track در Service بررسی‌شده tenant-scoped نیستند.</li>
+<li>items با <code>findAll()</code> گرفته و in-memory فیلتر می‌شوند.</li>
+<li>status string بدون transition guard است.</li>
+<li>tracking history در metadata JSON mutable ذخیره می‌شود.</li>
+<li>متد publish پارامتر <code>eventType</code> می‌گیرد، اما آن را داخل payload قرار نمی‌دهد.</li>
+<li>خطای Kafka catch و log می‌شود و DB transaction می‌تواند بدون Event موفق بماند.</li>
+<li>outbox تراکنشی پیدا نشد.</li>
+<li>delayed count برابر صفر hard-code شده است.</li>
+<li>observationهای carrier فاقد source event ID، observed/received time، confidence و correction lineage هستند.</li>
+</ul>
+<h2 id="custody">Custody<a aria-label="Link to section" class="heading-anchor" href="#custody">#</a></h2>
+<p>وضعیت <code>HANDED_OVER</code> در Booking و Portal دیده می‌شود، اما Aggregate مستقل Custody پیدا نشد.</p>
+<p>Custody معتبر باید شامل این موارد باشد:</p>
+<ul>
+<li>Cargo/Package Set مشخص؛</li>
+<li>handing party و mandate؛</li>
+<li>receiving party و mandate؛</li>
+<li>time و location؛</li>
+<li>seal، package count و weight observation؛</li>
+<li>attestation دو طرف یا exception؛</li>
+<li>refusal/discrepancy؛</li>
+<li>correction؛</li>
+<li>onward transfer یا custody termination.</li>
+</ul>
+<p>نتیجه: Booking و Shipment <code>IMPLEMENTED_WITH_GAP</code>؛ Custody <code>REFERENCE_ARCHITECTURE</code>.</p>
+<hr/>
+<!-- SOURCE: 06-WAREHOUSE-RECEIVING-AND-RECEIPT.md -->
+<h1 id="06-warehouse-receiving-and-receipt">06 — Warehouse Receiving and Receipt</h1>
+<h2 id="warehouse-service">Warehouse Service<a aria-label="Link to section" class="heading-anchor" href="#warehouse-service">#</a></h2>
+<p><code>AsnEntity</code> این اطلاعات را ذخیره می‌کند:</p>
+<ul>
+<li>ASN number و reference؛</li>
+<li>Purchase Order، warehouse، tenant و supplier؛</li>
+<li>carrier و tracking؛</li>
+<li>pallet count، line count و expected quantity؛</li>
+<li>estimated/actual arrival؛</li>
+<li>dock appointment؛</li>
+<li>line items در JSON؛</li>
+<li>status و timestamps.</li>
+</ul>
+<p><code>AsnService</code> رفتارهای زیر را دارد:</p>
+<ul>
+<li>create ASN؛</li>
+<li>update status؛</li>
+<li>link به Dock Appointment؛</li>
+<li>get/list/pending؛</li>
+<li>conflict detection برای dock؛</li>
+<li>create/check-in/complete/cancel appointment؛</li>
+<li>receiving summary.</li>
+</ul>
+<p><code>AsnController</code> مسیرهای <code>/api/v1/warehouse/receiving</code> را ارائه می‌دهد.</p>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h2 id="provider-wms">Provider WMS<a aria-label="Link to section" class="heading-anchor" href="#provider-wms">#</a></h2>
+<p>Migration V16 در Provider schema نیز این‌ها را ایجاد می‌کند:</p>
+<ul>
+<li><code>wms_inbound_orders</code></li>
+<li><code>wms_inbound_items</code></li>
+<li><code>warehouse_receipts</code></li>
+</ul>
+<p>این مدل با Warehouse Service هم‌پوشانی دارد و وضعیت آن <code>CONFLICT_REQUIRES_CANONICALIZATION</code> است.</p>
+<h2 id="gapهای-قطعی-2">Gapهای قطعی<a aria-label="Link to section" class="heading-anchor" href="#gapهای-قطعی-2">#</a></h2>
+<ul>
+<li>ASN status مستقیماً از string درخواست پذیرفته می‌شود.</li>
+<li>get/update/link بر اساس ID، tenant scope آشکار ندارند.</li>
+<li>optimistic lock روی ASN یا Dock Appointment دیده نشد.</li>
+<li>Event/outbox برای اتصال Receiving به Inventory پیدا نشد.</li>
+<li>line items در TEXT/JSON ذخیره می‌شوند.</li>
+<li>summary تعداد کل dock door را همیشه ۱۰ فرض می‌کند.</li>
+<li>receipt line scan، package identity، damage evidence، quarantine، discrepancy و signed proof در Service بررسی‌شده وجود ندارند.</li>
+<li>Provider warehouse receipt می‌تواند به System of Record دوم تبدیل شود.</li>
+<li>Delivery/POD و Warehouse Receipt از هم به‌وضوح تفکیک نشده‌اند.</li>
+</ul>
+<h2 id="مرز-canonical">مرز canonical<a aria-label="Link to section" class="heading-anchor" href="#مرز-canonical">#</a></h2>
+<p>Warehouse باید Physical Receiving Execution و Receipt Observation را مالک باشد. Inventory باید Stock Position را مالک بماند. Provider tableها باید integration projection باشند، مگر اینکه تصمیم معماری خلاف آن را رسماً ثبت کند.</p>
+<p>جریان هدف:</p>
+<div class="code-block"><div class="code-toolbar"><span>text</span><button class="copy-code" type="button">Copy</button></div><div class="highlight"><pre><span></span>ASN + Dock Appointment
+→ Arrival Observation
+→ Package/Line Receiving
+→ Damage/Discrepancy/Quarantine
+→ Authorized Warehouse Receipt
+→ Inventory Posting Command
+→ Stock Position and Ledger
+</pre></div>
+</div><hr/>
+<!-- SOURCE: 07-INVENTORY-SYNCHRONIZATION-RESERVATION-AND-QC.md -->
+<h1 id="07-inventory-synchronization-reservation-and-qc-disposition">07 — Inventory Synchronization, Reservation, and QC Disposition</h1>
+<h2 id="stock-model">Stock Model<a aria-label="Link to section" class="heading-anchor" href="#stock-model">#</a></h2>
+<p><code>StockBalanceEntity</code> یک composite identity دارد:</p>
+<ul>
+<li>tenant</li>
+<li>company</li>
+<li>warehouse</li>
+<li>SKU</li>
+<li>bin</li>
+<li>batch</li>
+</ul>
+<p>مقادیر زیر جدا نگهداری می‌شوند:</p>
+<ul>
+<li>on hand</li>
+<li>available</li>
+<li>reserved</li>
+<li>damaged</li>
+<li>QC hold</li>
+<li>blocked</li>
+<li>in transit</li>
+</ul>
+<p>وجود <code>@Version</code> optimistic locking را در سطح Entity فراهم می‌کند.</p>
+<h2 id="inventory-posting">Inventory Posting<a aria-label="Link to section" class="heading-anchor" href="#inventory-posting">#</a></h2>
+<p><code>InventoryPostingService</code> رفتارهای transactional زیر را دارد:</p>
+<ul>
+<li>Receipt؛</li>
+<li>Transfer؛</li>
+<li>Adjustment؛</li>
+<li>انتقال Available به QC Hold؛</li>
+<li>QC PASS به Available؛</li>
+<li>QC FAIL به Damaged یا Blocked؛</li>
+<li>ثبت Stock Ledger.</li>
+</ul>
+<h2 id="reservation">Reservation<a aria-label="Link to section" class="heading-anchor" href="#reservation">#</a></h2>
+<p><code>ReservationService</code>:</p>
+<ul>
+<li>quantity مثبت را validate می‌کند؛</li>
+<li>balanceهای tenant/company/warehouse/SKU را می‌خواند؛</li>
+<li>اولین balance دارای available کافی را انتخاب می‌کند؛</li>
+<li>Available را کم و Reserved را زیاد می‌کند؛</li>
+<li>Reservation با state <code>ACTIVE</code> می‌سازد؛</li>
+<li>در Release مقدار آزادشدنی را به Available برمی‌گرداند.</li>
+</ul>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h2 id="نقاط-قوت">نقاط قوت<a aria-label="Link to section" class="heading-anchor" href="#نقاط-قوت">#</a></h2>
+<ul>
+<li>stock states صریح و تفکیک‌شده؛</li>
+<li>tenant/company در composite key؛</li>
+<li>optimistic locking؛</li>
+<li>ledger دارای source و idempotency field؛</li>
+<li>insufficient-stock check برای reservation و QC hold؛</li>
+<li>Reservation Entity مستقل.</li>
+</ul>
+<h2 id="gapهای-بحرانی">Gapهای بحرانی<a aria-label="Link to section" class="heading-anchor" href="#gapهای-بحرانی">#</a></h2>
+<ol>
+<li>Controller، tenant، company و user را از query parameter می‌گیرد؛ این اطلاعات authority قابل اعتماد نیستند.</li>
+<li><code>GET /stock/ledger</code> در Controller بررسی‌شده بدون tenant filter است.</li>
+<li>Posting APIهای عمومی در همان Controller دیده نشدند و caller/orchestration هنوز verify نشده است.</li>
+<li>idempotency key در ledger ذخیره می‌شود، اما قبل از balance mutation duplicate lookup انجام نمی‌شود.</li>
+<li>Transfer و Adjustment می‌توانند quantity منفی بسازند.</li>
+<li>Reservation اولین balance مناسب را بدون policy مشخص انتخاب می‌کند.</li>
+<li>retry strategy برای optimistic-lock conflict پیدا نشد.</li>
+<li>Receipt، good quantity را فوراً Available می‌کند و quarantine/quality gate اجباری ندارد.</li>
+<li>Event/outbox برای Inventory facts پیدا نشد.</li>
+<li>Provider WMS و Warehouse Receiving با Inventory ownership مرز روشن ندارند.</li>
+</ol>
+<h2 id="اصلاح-لازم">اصلاح لازم<a aria-label="Link to section" class="heading-anchor" href="#اصلاح-لازم">#</a></h2>
+<p>Warehouse Receipt باید ورودی governed برای Inventory باشد. Availability باید با Policyهایی مانند Quality، Quarantine، Lot، Expiry، Compliance و Channel Eligibility محاسبه شود؛ نه صرفاً با receipt فیزیکی.</p>
+<hr/>
+<!-- SOURCE: 08-CROSS-DOMAIN-CONTRADICTIONS.md -->
+<h1 id="08-cross-domain-contradictions-and-canonicalization-register">08 — Cross-Domain Contradictions and Canonicalization Register</h1>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Conflict</th>
+<th>Required canonical decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-201</td>
+<td>Quality به software gates، mock inspection و stock QC اشاره می‌کند</td>
+<td>Trade Quality Domain مستقل ایجاد شود</td>
+</tr>
+<tr>
+<td>C-202</td>
+<td>Packing List در Tajerestan و Partner وجود دارد</td>
+<td>یک System of Record و migration direction تعیین شود</td>
+</tr>
+<tr>
+<td>C-203</td>
+<td>Commercial Invoice table/read/update دارد، ولی create/generate ندارد</td>
+<td>Document lifecycle کامل شود</td>
+</tr>
+<tr>
+<td>C-204</td>
+<td>Customs با تغییر PO یا declaration action می‌تواند Cleared شود</td>
+<td>legal release فقط authority observation باشد</td>
+</tr>
+<tr>
+<td>C-205</td>
+<td>Import Controller مستقیماً Shipment table را تغییر می‌دهد</td>
+<td>Event/contract یا ownership مشترک رسمی تعریف شود</td>
+</tr>
+<tr>
+<td>C-206</td>
+<td>Booking و Trade Shipment بدون boundary واضح جدا شده‌اند</td>
+<td>Booking، Shipment، Leg و Observation ownership تعیین شود</td>
+</tr>
+<tr>
+<td>C-207</td>
+<td><code>HANDED_OVER</code> به‌جای Custody evidence استفاده می‌شود</td>
+<td>CustodyRelationship مستقل ایجاد شود</td>
+</tr>
+<tr>
+<td>C-208</td>
+<td>Receiving هم در Warehouse Service و هم Provider WMS وجود دارد</td>
+<td>Warehouse owner و Provider projection مشخص شود</td>
+</tr>
+<tr>
+<td>C-209</td>
+<td>Inventory Receipt بلافاصله Available می‌شود</td>
+<td>quarantine/quality/channel policy اعمال شود</td>
+</tr>
+<tr>
+<td>C-210</td>
+<td>tenant field وجود دارد ولی APIها گاهی request parameter یا unscoped lookup دارند</td>
+<td>trusted identity context و isolation test</td>
+</tr>
+<tr>
+<td>C-211</td>
+<td>Eventها بدون outbox فرستاده و خطا swallow می‌شود</td>
+<td>outbox/inbox استاندارد شود</td>
+</tr>
+<tr>
+<td>C-212</td>
+<td>status history در metadata JSON mutable است</td>
+<td>append-only transition journal ایجاد شود</td>
+</tr>
+</tbody>
+</table></div>
+<hr/>
+<!-- SOURCE: 09-IMPLEMENTATION-STATUS-MATRIX.md -->
+<h1 id="09-implementation-status-matrix">09 — Implementation Status Matrix</h1>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Area</th>
+<th>Narrow verified behavior</th>
+<th>Classification</th>
+<th>Main blocker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trade Quality Inspection</td>
+<td>Mock inspection UI only</td>
+<td><code>REFERENCE_ARCHITECTURE</code></td>
+<td>Aggregate/API/Evidence missing</td>
+</tr>
+<tr>
+<td>Software Quality Gates</td>
+<td>Metrics, gates, reports</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+<td>Different Domain</td>
+</tr>
+<tr>
+<td>Inventory QC Hold</td>
+<td>Hold and disposition</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+<td>Inspection Decision absent</td>
+</tr>
+<tr>
+<td>Tajerestan Packing List</td>
+<td>Entity, create/get/list/Event</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>identity, weights, versioning</td>
+</tr>
+<tr>
+<td>Partner Packing List</td>
+<td>list/get/patch/audit</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>create unavailable, duplicate owner</td>
+</tr>
+<tr>
+<td>Commercial Invoice</td>
+<td>table/list/get/patch</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+<td>create/generate/issue missing</td>
+</tr>
+<tr>
+<td>Export Declaration</td>
+<td>table/create/list/update/submit</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>authority evidence/doc operations</td>
+</tr>
+<tr>
+<td>PO Customs</td>
+<td>mutable PO status and Event</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>not legal release</td>
+</tr>
+<tr>
+<td>Import Declaration</td>
+<td>full operational lifecycle</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>manual authority/state/migration gaps</td>
+</tr>
+<tr>
+<td>Booking</td>
+<td>table and real Portal/API</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>custody boundary</td>
+</tr>
+<tr>
+<td>Trade Shipment</td>
+<td>entity/API/tracking/Kafka</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>tenant and Event reliability</td>
+</tr>
+<tr>
+<td>Custody Transfer</td>
+<td>HANDED_OVER status only</td>
+<td><code>CLIENT_CONTRACT_PRESENT</code></td>
+<td>no bilateral evidence</td>
+</tr>
+<tr>
+<td>Warehouse ASN/Dock</td>
+<td>create/status/schedule/check-in</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>scoping, receipt evidence, Event</td>
+</tr>
+<tr>
+<td>Provider WMS</td>
+<td>tables and references</td>
+<td><code>VERIFIED_IMPLEMENTED</code> schema</td>
+<td>competing owner/runtime verification</td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td>balance/posting/QC/reservation</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>auth, idempotency, invariants</td>
+</tr>
+</tbody>
+</table></div>
+<hr/>
+<!-- SOURCE: 10-WAVE-02-ISSUE-REGISTER.md -->
+<h1 id="10-wave-02-issue-register">10 — Wave 02 Issue Register</h1>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Severity</th>
+<th>Area</th>
+<th>Finding</th>
+<th>Required action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W2-001</td>
+<td>Critical</td>
+<td>Quality</td>
+<td>Inspection page uses static mock records</td>
+<td>Replace with real API or label as demo.</td>
+</tr>
+<tr>
+<td>W2-002</td>
+<td>Critical</td>
+<td>Quality</td>
+<td>No canonical trade Inspection/Measurement/Release aggregate</td>
+<td>Create Quality Domain and authority model.</td>
+</tr>
+<tr>
+<td>W2-003</td>
+<td>High</td>
+<td>Quality</td>
+<td>Warehouse client claims /quality/status side effects; backend target not located</td>
+<td>Resolve route and add integration tests.</td>
+</tr>
+<tr>
+<td>W2-004</td>
+<td>Critical</td>
+<td>Packing</td>
+<td>Tajerestan and Partner packing lists compete</td>
+<td>Declare System of Record and migration.</td>
+</tr>
+<tr>
+<td>W2-005</td>
+<td>High</td>
+<td>Packing</td>
+<td>PackingListService calculates no net weight</td>
+<td>Extend request model and validate totals.</td>
+</tr>
+<tr>
+<td>W2-006</td>
+<td>Critical</td>
+<td>Packing</td>
+<td>Default UUID used as supplier and company</td>
+<td>Use trusted tenant/organization context.</td>
+</tr>
+<tr>
+<td>W2-007</td>
+<td>High</td>
+<td>Documents</td>
+<td>Commercial Invoice create/generate endpoints return 503</td>
+<td>Implement governed creation.</td>
+</tr>
+<tr>
+<td>W2-008</td>
+<td>High</td>
+<td>Documents</td>
+<td>Issued document version/signature model absent</td>
+<td>Add immutable versions and signing.</td>
+</tr>
+<tr>
+<td>W2-009</td>
+<td>Critical</td>
+<td>Customs</td>
+<td>PO customs clear can be mistaken for legal release</td>
+<td>Require authority evidence and rename internal action.</td>
+</tr>
+<tr>
+<td>W2-010</td>
+<td>High</td>
+<td>Export Customs</td>
+<td>Customs document endpoints return 503</td>
+<td>Implement evidence attachment.</td>
+</tr>
+<tr>
+<td>W2-011</td>
+<td>High</td>
+<td>Export Customs</td>
+<td>Partner predicate not visible in all SQL operations</td>
+<td>Enforce ownership on every query/update.</td>
+</tr>
+<tr>
+<td>W2-012</td>
+<td>Critical</td>
+<td>Import Customs</td>
+<td>Migration drops import_declarations</td>
+<td>Add environment/data gate and non-destructive migration.</td>
+</tr>
+<tr>
+<td>W2-013</td>
+<td>High</td>
+<td>Import Customs</td>
+<td>CLEARED may transition to DUTY_PAID</td>
+<td>Correct state machine.</td>
+</tr>
+<tr>
+<td>W2-014</td>
+<td>High</td>
+<td>Import Customs</td>
+<td>Zero duty/tax values only produce warnings</td>
+<td>Require policy/exception approval.</td>
+</tr>
+<tr>
+<td>W2-015</td>
+<td>Critical</td>
+<td>Import Customs</td>
+<td>Manual mark-cleared lacks authority adapter evidence</td>
+<td>Store signed authority observation.</td>
+</tr>
+<tr>
+<td>W2-016</td>
+<td>High</td>
+<td>Shipping</td>
+<td>Shipment item tenantId is assigned shipment UUID</td>
+<td>Correct code and migrate data.</td>
+</tr>
+<tr>
+<td>W2-017</td>
+<td>Critical</td>
+<td>Shipping</td>
+<td>Shipment reads/writes are not visibly tenant-scoped</td>
+<td>Apply trusted tenant context and isolation tests.</td>
+</tr>
+<tr>
+<td>W2-018</td>
+<td>High</td>
+<td>Shipping</td>
+<td>Kafka failure is swallowed after DB mutation</td>
+<td>Use transactional outbox.</td>
+</tr>
+<tr>
+<td>W2-019</td>
+<td>High</td>
+<td>Shipping</td>
+<td>eventType is not included in payload</td>
+<td>Use governed Event envelope.</td>
+</tr>
+<tr>
+<td>W2-020</td>
+<td>High</td>
+<td>Shipping</td>
+<td>Status is unrestricted string</td>
+<td>Add typed transitions.</td>
+</tr>
+<tr>
+<td>W2-021</td>
+<td>High</td>
+<td>Shipping</td>
+<td>Tracking history is mutable JSON</td>
+<td>Create qualified observation journal.</td>
+</tr>
+<tr>
+<td>W2-022</td>
+<td>Critical</td>
+<td>Custody</td>
+<td>HANDED_OVER status is not custody proof</td>
+<td>Implement bilateral custody evidence.</td>
+</tr>
+<tr>
+<td>W2-023</td>
+<td>Critical</td>
+<td>Warehouse</td>
+<td>ASN ID operations lack visible tenant scoping</td>
+<td>Scope repository methods.</td>
+</tr>
+<tr>
+<td>W2-024</td>
+<td>High</td>
+<td>Warehouse</td>
+<td>ASN status accepts arbitrary string</td>
+<td>Use typed Commands and guards.</td>
+</tr>
+<tr>
+<td>W2-025</td>
+<td>Medium</td>
+<td>Warehouse</td>
+<td>Receiving summary assumes ten dock doors</td>
+<td>Model facility capacity.</td>
+</tr>
+<tr>
+<td>W2-026</td>
+<td>Critical</td>
+<td>Warehouse</td>
+<td>Provider WMS and Warehouse Service overlap</td>
+<td>Canonicalize ownership.</td>
+</tr>
+<tr>
+<td>W2-027</td>
+<td>Critical</td>
+<td>Inventory</td>
+<td>Tenant/company/user are accepted via query parameters</td>
+<td>Derive from auth context.</td>
+</tr>
+<tr>
+<td>W2-028</td>
+<td>Critical</td>
+<td>Inventory</td>
+<td>Ledger endpoint appears globally unscoped</td>
+<td>Add tenant/warehouse filtering and authorization.</td>
+</tr>
+<tr>
+<td>W2-029</td>
+<td>High</td>
+<td>Inventory</td>
+<td>Idempotency key is stored but not checked first</td>
+<td>Add duplicate guard before mutation.</td>
+</tr>
+<tr>
+<td>W2-030</td>
+<td>High</td>
+<td>Inventory</td>
+<td>Transfer/adjustment can create negative stock</td>
+<td>Add invariants and DB constraints.</td>
+</tr>
+<tr>
+<td>W2-031</td>
+<td>High</td>
+<td>Inventory</td>
+<td>Receipt immediately increases available stock</td>
+<td>Apply quarantine/quality policy.</td>
+</tr>
+<tr>
+<td>W2-032</td>
+<td>Medium</td>
+<td>Inventory</td>
+<td>Reservation uses first matching balance</td>
+<td>Define deterministic allocation policy.</td>
+</tr>
+<tr>
+<td>W2-033</td>
+<td>High</td>
+<td>Cross-domain</td>
+<td>No transactional outbox found for reviewed flows</td>
+<td>Standardize outbox/inbox.</td>
+</tr>
+<tr>
+<td>W2-034</td>
+<td>Medium</td>
+<td>Testing</td>
+<td>Test-file existence is not execution evidence</td>
+<td>Run CI and attach logs/results.</td>
+</tr>
+</tbody>
+</table></div>
+<hr/>
+<!-- SOURCE: 11-WAVE-02-TRACEABILITY-MATRIX.md -->
+<h1 id="11-wave-02-traceability-matrix">11 — Wave 02 Traceability Matrix</h1>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Evidence ID</th>
+<th>Repository path</th>
+<th>Blob SHA</th>
+<th>Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>QUALITY-UI-MOCK</code></td>
+<td><code>apps/quality-dashboard/app/inspections/page.tsx</code></td>
+<td><code>ca8b5c61b956a6d96ea8010180d6fc4c3f3ee093</code></td>
+<td><code>FRONTEND_MOCK</code></td>
+</tr>
+<tr>
+<td><code>QUALITY-SOFTWARE-GATES</code></td>
+<td><code>backend/domain/engagement/dashboard-service/src/main/java/com/allinb2c/engagement/dashboard/quality/controller/QualityController.java</code></td>
+<td><code>6410c6402611f0d78e82cff2e2480b644de751a2</code></td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td><code>QUALITY-QC-WORKBENCH</code></td>
+<td><code>apps/warehouse-operator/components/qc-hold/qc-hold-workbench.tsx</code></td>
+<td><code>fc4a0f3087df0a08f97b4ceece24d739d9955ff5</code></td>
+<td><code>CLIENT_CONTRACT_UNVERIFIED</code></td>
+</tr>
+<tr>
+<td><code>PACKING-ENTITY</code></td>
+<td><code>backend/domain/commerce/tajerestan-services/src/main/java/com/allinb2c/commerce/tajerestan/entity/PackingListEntity.java</code></td>
+<td><code>5317c771765edadf8483d0a8827d2ddd56cb14f2</code></td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td><code>PACKING-SERVICE</code></td>
+<td><code>backend/domain/commerce/tajerestan-services/src/main/java/com/allinb2c/commerce/tajerestan/service/PackingListService.java</code></td>
+<td><code>7502b07ed6b29882c904ac69862e667c7443f6a7</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>COMMERCIAL-INVOICE-DDL</code></td>
+<td><code>backend/domain/commerce/provider-service/src/main/resources/db/migration/V7__phase_3c_commercial_invoices.sql</code></td>
+<td><code>9c8133be1f5805cb64af021770819e173bd9af25</code></td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td><code>PARTNER-LOGISTICS</code></td>
+<td><code>backend/domain/commerce/provider-service/src/main/java/com/allinb2c/commerce/provider/api/PartnerLogisticsController.java</code></td>
+<td><code>8e49184334fb4b87228876c38eb40e59d15a08fb</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>EXPORT-DDL</code></td>
+<td><code>backend/domain/commerce/provider-service/src/main/resources/db/migration/V10__phase_4b_export_declarations.sql</code></td>
+<td><code>5f110ad3c3ad3d5cfb609c4aecae3f26d2ad8743</code></td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td><code>TAJERESTAN-CUSTOMS</code></td>
+<td><code>backend/domain/commerce/tajerestan-services/src/main/java/com/allinb2c/commerce/tajerestan/service/CustomsService.java</code></td>
+<td><code>7fcb117de233e9900881479d42a96d35c7b74d22</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>IMPORT-CONTROLLER</code></td>
+<td><code>backend/domain/commerce/provider-service/src/main/java/com/allinb2c/commerce/provider/api/PartnerImportController.java</code></td>
+<td><code>40a0fb1f289fea319a7822945932bcb242e40852</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>IMPORT-WMS-DDL</code></td>
+<td><code>backend/domain/commerce/provider-service/src/main/resources/db/migration/V16__phase_6a_import_wms.sql</code></td>
+<td><code>c32d37a25ad374acf6dc9bc356e1d1349b551780</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>TRADE-SHIPMENT-ENTITY</code></td>
+<td><code>backend/domain/fulfillment/shipping-service/src/main/java/com/allinb2c/fulfillment/shipping/domain/TradeShipmentEntity.java</code></td>
+<td><code>dbd89d171bcf44274d46dd75bd8117e806eaecde</code></td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td><code>TRADE-SHIPMENT-SERVICE</code></td>
+<td><code>backend/domain/fulfillment/shipping-service/src/main/java/com/allinb2c/fulfillment/shipping/service/TradeShipmentService.java</code></td>
+<td><code>3e663f6f02c8ab0adaa6b1258c6b142085c45c9d</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>TRADE-SHIPMENT-CONTROLLER</code></td>
+<td><code>backend/domain/fulfillment/shipping-service/src/main/java/com/allinb2c/fulfillment/shipping/controller/TradeShipmentController.java</code></td>
+<td><code>f4e2677a455a200240629367ac851fb9752af7ca</code></td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td><code>BOOKING-DDL</code></td>
+<td><code>backend/domain/commerce/provider-service/src/main/resources/db/migration/V9__phase_4b_bookings.sql</code></td>
+<td><code>cbce5a59c3be64d2f1d731cfdadc193714833ad8</code></td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td><code>EXPORT-HANDOVER-PORTAL</code></td>
+<td><code>apps/partner-portal/app/partner/export-handover/page.tsx</code></td>
+<td><code>b4d1831a45b9cd93e0f2cd92ed755bb34a7b0ef5</code></td>
+<td><code>CLIENT_CONTRACT_PRESENT</code></td>
+</tr>
+<tr>
+<td><code>ASN-ENTITY</code></td>
+<td><code>backend/domain/fulfillment/warehouse-service/src/main/java/com/allinb2c/fulfillment/warehouse/domain/AsnEntity.java</code></td>
+<td><code>2cf9087a494877821f2488caeb2ad9a86a7b31c9</code></td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td><code>ASN-SERVICE</code></td>
+<td><code>backend/domain/fulfillment/warehouse-service/src/main/java/com/allinb2c/fulfillment/warehouse/service/AsnService.java</code></td>
+<td><code>6fcd4eb6f1e92262f73106f08e3c4f968cd1d75e</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>ASN-CONTROLLER</code></td>
+<td><code>backend/domain/fulfillment/warehouse-service/src/main/java/com/allinb2c/fulfillment/warehouse/controller/AsnController.java</code></td>
+<td><code>94aabea2d7743182a8de8d45427657a164192ee4</code></td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td><code>STOCK-BALANCE</code></td>
+<td><code>backend/domain/fulfillment/inventory-service/src/main/java/com/allinb2c/fulfillment/inventory/model/entity/StockBalanceEntity.java</code></td>
+<td><code>4b8cfad0e6cfec626c5c6f0c7835d34cc7fea68c</code></td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td><code>INVENTORY-POSTING</code></td>
+<td><code>backend/domain/fulfillment/inventory-service/src/main/java/com/allinb2c/fulfillment/inventory/service/InventoryPostingService.java</code></td>
+<td><code>a7efd075874daee8e6a849cb61f82ac65b738962</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>INVENTORY-CONTROLLER</code></td>
+<td><code>backend/domain/fulfillment/inventory-service/src/main/java/com/allinb2c/fulfillment/inventory/controller/InventoryController.java</code></td>
+<td><code>02b1c4dce7367fe41e733fe5315aa726ebfd35ef</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>RESERVATION-SERVICE</code></td>
+<td><code>backend/domain/fulfillment/inventory-service/src/main/java/com/allinb2c/fulfillment/inventory/service/ReservationService.java</code></td>
+<td><code>fec768ef4cfd702328660bccab6ffcae73268566</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+</tbody>
+</table></div>
+<hr/>
+<!-- SOURCE: 12-REMEDIATION-AND-VERIFICATION-PLAN.md -->
+<h1 id="12-remediation-and-verification-plan">12 — Remediation and Verification Plan</h1>
+<h2 id="priority-0-جلوگیری-از-false-authority">Priority 0 — جلوگیری از False Authority<a aria-label="Link to section" class="heading-anchor" href="#priority-0-جلوگیری-از-false-authority">#</a></h2>
+<ol>
+<li>PO یا declaration application status نباید legal customs release نامیده شود.</li>
+<li>tenant/company/user از request به‌عنوان authority پذیرفته نشود.</li>
+<li>Shipping، Warehouse، Inventory و Partner SQL کاملاً tenant-scoped شوند.</li>
+<li>مالکیت Packing List، Warehouse Receipt، Shipment و Customs canonical شود.</li>
+<li>tenant assignment اشتباه Shipment Item اصلاح و داده موجود migrate شود.</li>
+</ol>
+<h2 id="priority-1-truth-preservation-و-execution-safety">Priority 1 — Truth Preservation و Execution Safety<a aria-label="Link to section" class="heading-anchor" href="#priority-1-truth-preservation-و-execution-safety">#</a></h2>
+<ol>
+<li>document version/signature immutable اضافه شود.</li>
+<li>outbox/inbox برای Trade Documents، Customs، Shipping، Warehouse و Inventory ایجاد شود.</li>
+<li>JSON history با append-only journal جایگزین شود.</li>
+<li>idempotency قبل از stock mutation بررسی شود.</li>
+<li>state transition guard و optimistic version predicate اضافه شود.</li>
+<li>external outcome دارای source reference، observed time، received time و correction باشد.</li>
+</ol>
+<h2 id="priority-2-تکمیل-capability">Priority 2 — تکمیل Capability<a aria-label="Link to section" class="heading-anchor" href="#priority-2-تکمیل-capability">#</a></h2>
+<ol>
+<li>Trade Quality Aggregate ساخته شود.</li>
+<li>Commercial Invoice create و PL-to-CI reconciliation پیاده‌سازی شود.</li>
+<li>customs document و authority-response ingestion ساخته شود.</li>
+<li>CustodyRelationship با attestations پیاده شود.</li>
+<li>Warehouse Receipt با typed contract به Inventory متصل شود.</li>
+<li>quarantine و channel eligibility قبل از availability اعمال شود.</li>
+</ol>
+<h2 id="evidence-لازم-برای-ارتقای-status">Evidence لازم برای ارتقای Status<a aria-label="Link to section" class="heading-anchor" href="#evidence-لازم-برای-ارتقای-status">#</a></h2>
+<ul>
+<li>migration روی empty و upgrade database؛</li>
+<li>tenant-isolation tests؛</li>
+<li>concurrent posting/reservation tests؛</li>
+<li>duplicate/replay tests؛</li>
+<li>outbox failure/recovery؛</li>
+<li>customs/provider signature verification؛</li>
+<li>cross-document reconciliation؛</li>
+<li>Portal E2E بدون mock fallback؛</li>
+<li>audit reconstruction و backup/restore.</li>
+</ul>
+<hr/>
+<!-- SOURCE: 13-NEXT-WAVE-PLAN.md -->
+<h1 id="13-repository-evidence-wave-03-plan">13 — Repository Evidence Wave 03 Plan</h1>
+<p>Wave 03 باید مسیر Customer-facing Commerce را بررسی کند:</p>
+<ol>
+<li>Product Catalog و Product Identity</li>
+<li>Pricing و Price Version</li>
+<li>Marketplace Offer و Publication Eligibility</li>
+<li>Cart و Checkout</li>
+<li>Customer Order Acceptance/Cancellation</li>
+<li>Allocation و Fulfilment</li>
+<li>Pick، Pack و Dispatch</li>
+<li>Last-Mile Delivery و Proof</li>
+<li>Returns، Claims، Refunds و Disputes</li>
+<li>Settlement، Reporting، ESG و AI Evaluation</li>
+</ol>
+<p>قانون ثابت است: route، plan، README یا UI contract به‌تنهایی Implementation را اثبات نمی‌کند.</p>
+<hr/>
+<!-- SOURCE: IMPLEMENTATION-STATUS-VOCABULARY.md -->
+<h1 id="implementation-and-evidence-status-vocabulary">Implementation and Evidence Status Vocabulary</h1>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+<td>فایل اجرایی یا migration بررسی شده و ادعای محدود را اثبات می‌کند</td>
+</tr>
+<tr>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>رفتار اجرایی وجود دارد ولی Gap مهم دارد</td>
+</tr>
+<tr>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+<td>فقط بخشی از Capability اجرا شده</td>
+</tr>
+<tr>
+<td><code>CLIENT_CONTRACT_PRESENT</code></td>
+<td>Client contract وجود دارد؛ backend ممکن است کامل نباشد</td>
+</tr>
+<tr>
+<td><code>CLIENT_CONTRACT_UNVERIFIED</code></td>
+<td>Client side effect یا endpoint ادعا می‌کند ولی backend پیدا نشده</td>
+</tr>
+<tr>
+<td><code>FRONTEND_MOCK</code></td>
+<td>UI از داده ثابت/ساختگی محلی استفاده می‌کند</td>
+</tr>
+<tr>
+<td><code>DOCUMENTATION_ONLY_CLAIM</code></td>
+<td>فقط سند یا plan وجود دارد</td>
+</tr>
+<tr>
+<td><code>CONFLICT_REQUIRES_CANONICALIZATION</code></td>
+<td>Implementation یا ownershipهای رقیب وجود دارند</td>
+</tr>
+<tr>
+<td><code>REFERENCE_ARCHITECTURE</code></td>
+<td>طراحی هدف؛ بدون ادعای Implementation</td>
+</tr>
+<tr>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+<td>شواهد بیشتری لازم است</td>
+</tr>
+<tr>
+<td><code>TEST_FILE_DISCOVERED</code></td>
+<td>فایل Test پیدا شده ولی اجرا/نتیجه اثبات نشده</td>
+</tr>
+</tbody>
+</table></div>
+<hr/>
+<!-- SOURCE: README.md -->
+<h1 id="gtos-handbook-batch-08">GTOS Handbook — Batch 08</h1>
+<h2 id="repository-evidence-wave-02">Repository Evidence Wave 02<a aria-label="Link to section" class="heading-anchor" href="#repository-evidence-wave-02">#</a></h2>
+<p>این بسته حوزه‌های زیر را از متن عمومی معماری به گزارش‌های code-grounded تبدیل می‌کند:</p>
+<ul>
+<li>Quality Inspection و QC disposition</li>
+<li>Packing List و Commercial Invoice</li>
+<li>Export Customs</li>
+<li>Import Customs و Duties</li>
+<li>Booking، Handover، Shipment و Tracking</li>
+<li>Warehouse Receiving</li>
+<li>Inventory Synchronization و Reservation</li>
+</ul>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository</td>
+<td><code>chinair88-prog/allinb2c</code></td>
+</tr>
+<tr>
+<td>Snapshot</td>
+<td><code>14cc83805e7386c3d5cdec6ad191b1078fd502ff</code></td>
+</tr>
+<tr>
+<td>Handbook Branch</td>
+<td><code>gtos/handbook-repository-grounded-expansion-v2</code></td>
+</tr>
+<tr>
+<td>Publication maturity</td>
+<td>Review artifact؛ نه نسخه نهایی کتاب</td>
+</tr>
+</tbody>
+</table></div>
+<p>نتیجه این Wave به‌معنی تکمیل نرم‌افزار نیست. هر ادعا فقط به کوچک‌ترین رفتار قابل اثبات محدود شده و outcomeهای گمرک، حمل، بازرسی و تحویل به‌عنوان حقیقت خارجی جعل نشده‌اند.</p>
+<hr/>
+<!-- SOURCE: RELEASE-REPORT.md -->
+<h1 id="batch-08-release-report">Batch 08 Release Report</h1>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Release</td>
+<td>Repository Evidence Wave 02</td>
+</tr>
+<tr>
+<td>Repository snapshot</td>
+<td><code>14cc83805e7386c3d5cdec6ad191b1078fd502ff</code></td>
+</tr>
+<tr>
+<td>Publication maturity</td>
+<td>Code-grounded review artifact</td>
+</tr>
+<tr>
+<td>Final handbook status</td>
+<td>Not complete</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="principal-conclusions">Principal conclusions<a aria-label="Link to section" class="heading-anchor" href="#principal-conclusions">#</a></h2>
+<ul>
+<li>Trade Quality Inspection در حد mock UI و stock disposition است.</li>
+<li>دو Packing List implementation رقیب وجود دارد.</li>
+<li>Commercial Invoice persistence/read/update دارد، ولی create/generate کامل نیست.</li>
+<li>Export/Import workflow اجرایی دارد، ولی application status معادل legal authority نیست.</li>
+<li>Shipping اجرا شده اما tenant isolation و Event delivery Gap بحرانی دارد.</li>
+<li>Warehouse ASN/Dock و Provider WMS هم‌پوشانی دارند.</li>
+<li>Inventory مدل قوی دارد، اما request-derived identity، idempotency و invariant Gap دارد.</li>
+</ul>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#روش-بررسی">روش بررسی</a><a class="toc-level-2" href="#محدودیت-ها">محدودیت‌ها</a><a class="toc-level-2" href="#نتیجه-اجرایی">نتیجه اجرایی</a><a class="toc-level-2" href="#صفحه-inspection">صفحه Inspection</a><a class="toc-level-2" href="#software-quality-controller">Software Quality Controller</a><a class="toc-level-2" href="#رفتار-واقعی-inventory-qc">رفتار واقعی Inventory QC</a><a class="toc-level-2" href="#qc-hold-workbench">QC Hold Workbench</a><a class="toc-level-2" href="#subjects-مفقود">Subjects مفقود</a><a class="toc-level-2" href="#اقدامات-اصلاحی">اقدامات اصلاحی</a><a class="toc-level-2" href="#نتیجه-ownership">نتیجه Ownership</a><a class="toc-level-2" href="#tajerestan-packing-list">Tajerestan Packing List</a><a class="toc-level-3" href="#gapهای-قطعی">Gapهای قطعی</a><a class="toc-level-2" href="#partner-packing-list">Partner Packing List</a><a class="toc-level-2" href="#commercial-invoice">Commercial Invoice</a><a class="toc-level-2" href="#canonicalization-موردنیاز">Canonicalization موردنیاز</a><a class="toc-level-2" href="#provider-implementation">Provider implementation</a><a class="toc-level-2" href="#tajerestan-customs">Tajerestan Customs</a><a class="toc-level-2" href="#gapهای-اصلی">Gapهای اصلی</a><a class="toc-level-2" href="#تصمیم-canonical">تصمیم canonical</a><a class="toc-level-2" href="#evidence-maturity">Evidence maturity</a><a class="toc-level-2" href="#کنترل-های-مثبت">کنترل‌های مثبت</a><a class="toc-level-2" href="#gapهای-مهم">Gapهای مهم</a><a class="toc-level-2" href="#مدل-canonical">مدل canonical</a><a class="toc-level-2" href="#contextهای-اجرایی">Contextهای اجرایی</a><a class="toc-level-2" href="#booking">Booking</a><a class="toc-level-2" href="#trade-shipment">Trade Shipment</a><a class="toc-level-2" href="#یافته-های-بحرانی-کد">یافته‌های بحرانی کد</a><a class="toc-level-2" href="#custody">Custody</a><a class="toc-level-2" href="#warehouse-service">Warehouse Service</a><a class="toc-level-2" href="#provider-wms">Provider WMS</a><a class="toc-level-2" href="#gapهای-قطعی-2">Gapهای قطعی</a><a class="toc-level-2" href="#مرز-canonical">مرز canonical</a><a class="toc-level-2" href="#stock-model">Stock Model</a><a class="toc-level-2" href="#inventory-posting">Inventory Posting</a><a class="toc-level-2" href="#reservation">Reservation</a><a class="toc-level-2" href="#نقاط-قوت">نقاط قوت</a><a class="toc-level-2" href="#gapهای-بحرانی">Gapهای بحرانی</a><a class="toc-level-2" href="#اصلاح-لازم">اصلاح لازم</a><a class="toc-level-2" href="#priority-0-جلوگیری-از-false-authority">Priority 0 — جلوگیری از False Authority</a><a class="toc-level-2" href="#priority-1-truth-preservation-و-execution-safety">Priority 1 — Truth Preservation و Execution Safety</a><a class="toc-level-2" href="#priority-2-تکمیل-capability">Priority 2 — تکمیل Capability</a><a class="toc-level-2" href="#evidence-لازم-برای-ارتقای-status">Evidence لازم برای ارتقای Status</a><a class="toc-level-2" href="#repository-evidence-wave-02">Repository Evidence Wave 02</a><a class="toc-level-2" href="#principal-conclusions">Principal conclusions</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="13-NEXT-WAVE-PLAN.html"><span>Previous</span><strong>13 — Repository Evidence Wave 03 Plan</strong></a>
+        <a class="next" href="IMPLEMENTATION-STATUS-VOCABULARY.html"><span>Next</span><strong>Implementation and Evidence Status Vocabulary</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

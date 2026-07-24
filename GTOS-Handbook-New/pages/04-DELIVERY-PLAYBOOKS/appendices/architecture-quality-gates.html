@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Architecture Quality Gates · GTOS Handbook</title>
+<meta name="description" content="Architecture Quality Gates Gate 1 — Semantic Integrity All business concepts use glossary definitions. Ownership, identity, time, state, and relationship semant">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/appendices/index.html">Appendices</a> <span class="sep">›</span> <span>Architecture Quality Gates</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Architecture Quality Gates</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#gate-1-semantic-integrity">Gate 1 — Semantic Integrity</a></li><li class="toc-level-2"><a href="#gate-2-authority-and-decision">Gate 2 — Authority and Decision</a></li><li class="toc-level-2"><a href="#gate-3-data-and-history">Gate 3 — Data and History</a></li><li class="toc-level-2"><a href="#gate-4-security-and-privacy">Gate 4 — Security and Privacy</a></li><li class="toc-level-2"><a href="#gate-5-resilience-and-operations">Gate 5 — Resilience and Operations</a></li><li class="toc-level-2"><a href="#gate-6-change-safety">Gate 6 — Change Safety</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="architecture-quality-gates">Architecture Quality Gates</h1>
+<br>
+<h2 id="gate-1-semantic-integrity">Gate 1 — Semantic Integrity <a href="#gate-1-semantic-integrity" class="heading-anchor">#</a></h2>
+<br>
+<p>All business concepts use glossary definitions. Ownership, identity, time, state, and relationship semantics are explicit. Commands and Events are distinct.</p>
+<br>
+<h2 id="gate-2-authority-and-decision">Gate 2 — Authority and Decision <a href="#gate-2-authority-and-decision" class="heading-anchor">#</a></h2>
+<br>
+<p>Decision classes identify authority, evidence, policy, escalation, appeal, and expected outcome. AI outputs are typed. Execution traces to Intent.</p>
+<br>
+<h2 id="gate-3-data-and-history">Gate 3 — Data and History <a href="#gate-3-data-and-history" class="heading-anchor">#</a></h2>
+<br>
+<p>Authoritative and derived data are distinguishable. Temporal semantics, lineage, quality, retention, correction, and reconstruction are testable.</p>
+<br>
+<h2 id="gate-4-security-and-privacy">Gate 4 — Security and Privacy <a href="#gate-4-security-and-privacy" class="heading-anchor">#</a></h2>
+<br>
+<p>Identity, delegation, purpose, jurisdiction, classification, authorization, audit, and threat controls are complete.</p>
+<br>
+<h2 id="gate-5-resilience-and-operations">Gate 5 — Resilience and Operations <a href="#gate-5-resilience-and-operations" class="heading-anchor">#</a></h2>
+<br>
+<p>SLO, RTO, RPO, degradation, replay, reconciliation, runbooks, incident evidence, and recovery exercises exist.</p>
+<br>
+<h2 id="gate-6-change-safety">Gate 6 — Change Safety <a href="#gate-6-change-safety" class="heading-anchor">#</a></h2>
+<br>
+<p>Contracts, compatibility, migration, rollback, observability, and deprecation are defined.</p>
+<br>
+<p>A release failing a mandatory Gate SHALL not claim architectural conformance.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

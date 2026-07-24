@@ -1,0 +1,95 @@
+---
+title: "01 — Quality Inspection, QC Hold, and Release"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="01 — Quality Inspection, QC Hold, and Release"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "01 — Quality Inspection, QC Hold, and Release" }
+  ]}
+>
+
+<br />
+<h2 id="-">نتیجه اجرایی</h2>
+<br />
+<p>Aggregate مستقل و canonical برای بازرسی کیفیت کالای تجاری در شواهد بررسی‌شده پیدا نشد. سه مفهوم متفاوت با واژه Quality مخلوط شده‌اند:</p>
+<br />
+<p>1. صفحه <code class="code-inline">apps/quality-dashboard/app/inspections/page.tsx</code> داده‌های Inspection را از یک آرایه ثابت محلی می‌خواند.</p>
+<p>2. <code class="code-inline">QualityController</code> در dashboard-service کیفیت نرم‌افزار/پروژه، metric، gate و report را مدیریت می‌کند.</p>
+<p>3. Inventory و Warehouse یک فرآیند محدودتر QC Hold و stock disposition دارند.</p>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Capability","sortable":true},{"key":"col1","label":"Status","sortable":true}]} data={[{"col0":"Trade inspection planning and evidence","col1":"<code class=\"code-inline\">REFERENCE_ARCHITECTURE</code>"},{"col0":"Quality Dashboard inspection page","col1":"<code class=\"code-inline\">FRONTEND_MOCK</code>"},{"col0":"Software-quality gates/reports","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>، اما Domain متفاوت"},{"col0":"Stock QC hold and disposition","col1":"<code class=\"code-inline\">PARTIAL_IMPLEMENTATION</code>"},{"col0":"Final release certificate","col1":"<code class=\"code-inline\">REQUIRES_REPOSITORY_REVIEW</code>"}]} />
+<br />
+<h2 id="-inspection">صفحه Inspection</h2>
+<br />
+<p>صفحه Quality Dashboard نوع‌های <code class="code-inline">incoming</code>، <code class="code-inline">in-process</code>، <code class="code-inline">final</code> و <code class="code-inline">outgoing</code> و نتیجه‌های <code class="code-inline">pass</code>، <code class="code-inline">fail</code> و <code class="code-inline">pending</code> را نمایش می‌دهد، اما رکوردها در ثابت <code class="code-inline">INSPECTIONS</code> تعریف شده‌اند. فیلتر، جست‌وجو و آمار نیز فقط روی همان آرایه اجرا می‌شوند.</p>
+<br />
+<p>این صفحه نباید به‌عنوان اثبات backend inspection معرفی شود.</p>
+<br />
+<h2 id="software-quality-controller">Software Quality Controller</h2>
+<br />
+<p>مسیر <code class="code-inline">/api/quality</code> رفتارهای زیر را دارد:</p>
+<br />
+<p>- dashboard و score بر اساس projectId؛</p>
+<p>- trendهای metric؛</p>
+<p>- ingestion و aggregation metric؛</p>
+<p>- check و status و failed conditions برای quality gate؛</p>
+<p>- تولید، export و schedule report.</p>
+<br />
+<p>این مدل فاقد Production Lot، Sample، Measurement، Specification، Inspector، Laboratory، Defect و Release Certificate است؛ بنابراین متعلق به Stage کیفیت کالا نیست.</p>
+<br />
+<h2 id="-inventory-qc">رفتار واقعی Inventory QC</h2>
+<br />
+<p><code class="code-inline">InventoryPostingService</code> رفتارهای زیر را پیاده‌سازی می‌کند:</p>
+<br />
+<p>- انتقال quantity از Available به QC Hold؛</p>
+<p>- کنترل کافی‌بودن available quantity؛</p>
+<p>- disposition نوع <code class="code-inline">PASS</code> و بازگشت به Available؛</p>
+<p>- <code class="code-inline">FAIL_DAMAGED</code> و انتقال به Damaged؛</p>
+<p>- <code class="code-inline">FAIL_BLOCKED</code> و انتقال به Blocked؛</p>
+<p>- ثبت ledger eventهای <code class="code-inline">QC_HOLD</code>، <code class="code-inline">QC_PASS</code>، <code class="code-inline">QC_FAIL_DAMAGED</code> و <code class="code-inline">QC_FAIL_BLOCKED</code>.</p>
+<br />
+<p>این رفتار stock disposition را ثابت می‌کند، اما ثابت نمی‌کند چه کسی بازرسی کرده، چه specification و sampling plan استفاده شده، چه measurementهایی ثبت شده و چه authorityای release را صادر کرده است.</p>
+<br />
+<h2 id="qc-hold-workbench">QC Hold Workbench</h2>
+<br />
+<p>Warehouse UI:</p>
+<br />
+<p>- از <code class="code-inline">inventoryApi.listQcHolds()</code> استفاده می‌کند؛</p>
+<p>- <code class="code-inline">PATCH /api/proxy/quality/status</code> را با actionهای inspect/release/reject فراخوانی می‌کند؛</p>
+<p>- stateهای <code class="code-inline">PENDING</code>، <code class="code-inline">INSPECTING</code>، <code class="code-inline">RELEASED</code> و <code class="code-inline">REJECTED</code> دارد؛</p>
+<p>- ادعا می‌کند Release باعث Inventory Restock و Reject باعث Stock Adjustment می‌شود.</p>
+<br />
+<p>backend متناظر <code class="code-inline">/quality/status</code> در شواهد این Wave پیدا نشد؛ بنابراین این side effectها <code class="code-inline">CLIENT_CONTRACT_UNVERIFIED</code> هستند.</p>
+<br />
+<h2 id="subjects-">Subjects مفقود</h2>
+<br />
+<p>برای تکمیل Stage کیفیت هنوز این Subjects لازم‌اند:</p>
+<br />
+<p>- <code class="code-inline">InspectionPlan</code></p>
+<p>- <code class="code-inline">Inspection</code></p>
+<p>- <code class="code-inline">Sample</code></p>
+<p>- <code class="code-inline">Measurement</code></p>
+<p>- <code class="code-inline">SpecificationVersion</code></p>
+<p>- <code class="code-inline">Defect</code></p>
+<p>- <code class="code-inline">Nonconformance</code></p>
+<p>- <code class="code-inline">CorrectiveAction</code></p>
+<p>- <code class="code-inline">QualityDecision</code></p>
+<p>- <code class="code-inline">ReleaseCertificate</code></p>
+<p>- <code class="code-inline">ReleaseRevocation</code></p>
+<p>- Inspector/Laboratory mandate و calibration evidence</p>
+<br />
+<h2 id="-">اقدامات اصلاحی</h2>
+<br />
+<p>1. Software Quality از Trade Quality نام‌گذاری و ownership جدا داشته باشد.</p>
+<p>2. Mock inspection UI به API واقعی متصل یا صریحاً Demo علامت‌گذاری شود.</p>
+<p>3. Quality Domain مستقل از Inventory ایجاد شود.</p>
+<p>4. Quality Decision از طریق Command تایپ‌شده به Inventory disposition متصل شود.</p>
+<p>5. specification version، inspector identity، evidence، rationale و revocation ثبت شوند.</p>
+<p>6. proxy مربوط به <code class="code-inline">/quality/status</code> پیدا، مستند و integration-test شود.</p>
+<br />
+</ContentPage>

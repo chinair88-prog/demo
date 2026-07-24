@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy and Purpose Standard · GTOS Handbook</title>
+<meta name="description" content="Privacy and Purpose Standard Purpose Binding Sensitive data processing SHALL identify a legitimate purpose. Access granted for one purpose does not automaticall">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/standards/index.html">Standards</a> <span class="sep">›</span> <span>Privacy and Purpose Standard</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Privacy and Purpose Standard</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#purpose-binding">Purpose Binding</a></li><li class="toc-level-2"><a href="#data-minimization">Data Minimization</a></li><li class="toc-level-2"><a href="#data-subject-and-organization-rights">Data Subject and Organization Rights</a></li><li class="toc-level-2"><a href="#jurisdiction">Jurisdiction</a></li><li class="toc-level-2"><a href="#ai">AI</a></li><li class="toc-level-2"><a href="#deletion">Deletion</a></li><li class="toc-level-2"><a href="#observability">Observability</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="privacy-and-purpose-standard">Privacy and Purpose Standard</h1>
+<br>
+<h2 id="purpose-binding">Purpose Binding <a href="#purpose-binding" class="heading-anchor">#</a></h2>
+<br>
+<p>Sensitive data processing SHALL identify a legitimate purpose. Access granted for one purpose does not automatically permit another.</p>
+<br>
+<h2 id="data-minimization">Data Minimization <a href="#data-minimization" class="heading-anchor">#</a></h2>
+<br>
+<p>Contracts, Events, logs, AI contexts, and analytical products contain only data necessary for the declared purpose. Broad replication is discouraged when a reference or attestation is sufficient.</p>
+<br>
+<h2 id="data-subject-and-organization-rights">Data Subject and Organization Rights <a href="#data-subject-and-organization-rights" class="heading-anchor">#</a></h2>
+<br>
+<p>Where applicable, the architecture supports access, correction, restriction, deletion, and objection while reconciling legal hold, trade evidence, fraud prevention, and contractual obligations.</p>
+<br>
+<h2 id="jurisdiction">Jurisdiction <a href="#jurisdiction" class="heading-anchor">#</a></h2>
+<br>
+<p>Residency and transfer controls apply to primary storage, backups, logs, search indexes, vector stores, model prompts, support tooling, and incident evidence.</p>
+<br>
+<h2 id="ai">AI <a href="#ai" class="heading-anchor">#</a></h2>
+<br>
+<p>Personal or confidential data SHALL not enter model context unless the model route, processor, region, retention, and purpose are approved. Prompt and response logging follow classification.</p>
+<br>
+<h2 id="deletion">Deletion <a href="#deletion" class="heading-anchor">#</a></h2>
+<br>
+<p>Deletion is a governed workflow. It identifies authoritative sources, derived copies, caches, indexes, exports, model datasets, and legal exceptions. Historical integrity may require redaction, tokenization, restriction, or retained evidence rather than physical erasure.</p>
+<br>
+<h2 id="observability">Observability <a href="#observability" class="heading-anchor">#</a></h2>
+<br>
+<p>Privacy controls emit evidence of policy decisions, transfer, access, deletion completion, and unresolved exceptions.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

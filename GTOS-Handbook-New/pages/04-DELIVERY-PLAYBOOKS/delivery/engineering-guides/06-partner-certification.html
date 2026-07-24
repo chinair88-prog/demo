@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Partner Certification Guide · GTOS Handbook</title>
+<meta name="description" content="Partner Certification Guide Purpose Partner certification verifies that an external organization can exchange governed facts and requests safely, not merely con">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Partner Certification Guide</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Partner Certification Guide</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#purpose">Purpose</a></li><li class="toc-level-2"><a href="#identity-and-relationship">Identity and Relationship</a></li><li class="toc-level-2"><a href="#contract-profile">Contract Profile</a></li><li class="toc-level-2"><a href="#test-scenarios">Test Scenarios</a></li><li class="toc-level-2"><a href="#operational-certification">Operational Certification</a></li><li class="toc-level-2"><a href="#security">Security</a></li><li class="toc-level-2"><a href="#evidence-and-status">Evidence and Status</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="partner-certification-guide">Partner Certification Guide</h1>
+<br>
+<h2 id="purpose">Purpose <a href="#purpose" class="heading-anchor">#</a></h2>
+<br>
+<p>Partner certification verifies that an external organization can exchange governed facts and requests safely, not merely connect technically.</p>
+<br>
+<h2 id="identity-and-relationship">Identity and Relationship <a href="#identity-and-relationship" class="heading-anchor">#</a></h2>
+<br>
+<p>Certification begins with verified organizational identity, legal or contractual relationship, technical identities, credentials, purposes, jurisdictions, data scopes, authority, support contacts, and offboarding terms. Partner codes are linked to stable Party identities rather than used as universal identity.</p>
+<br>
+<h2 id="contract-profile">Contract Profile <a href="#contract-profile" class="heading-anchor">#</a></h2>
+<br>
+<p>The profile lists supported API, Command, Event, document, and bulk versions; optional fields; classification; time semantics; retry; ordering; signature or integrity; rate and volume; retention; and deprecation contacts.</p>
+<br>
+<h2 id="test-scenarios">Test Scenarios <a href="#test-scenarios" class="heading-anchor">#</a></h2>
+<br>
+<p>Tests include valid exchange, invalid schema, unauthorized subject, expired mandate, duplicate Command, replayed Event, late Event, corrected fact, unavailable dependency, partial batch, and credential revocation. High-impact domains include business reconciliation and negative authority cases.</p>
+<br>
+<h2 id="operational-certification">Operational Certification <a href="#operational-certification" class="heading-anchor">#</a></h2>
+<br>
+<p>Partners demonstrate monitoring, incident contact, maintenance communication, queue or retry handling, and recovery. GTOS verifies that partner downtime does not create invented approval or uncontrolled execution.</p>
+<br>
+<h2 id="security">Security <a href="#security" class="heading-anchor">#</a></h2>
+<br>
+<p>Certification assesses credential protection, network or channel controls, encryption, least privilege, audit, vulnerability management, and incident notification. A trust change may require re-certification.</p>
+<br>
+<h2 id="evidence-and-status">Evidence and Status <a href="#evidence-and-status" class="heading-anchor">#</a></h2>
+<br>
+<p>Certification records scope, version, environment, tests, findings, exceptions, approval, expiry, and next review. Certification does not grant broader access than the declared Relationship and purpose. Contract changes, acquisitions, jurisdiction changes, or security incidents can suspend status.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="APIs use resource or command-oriented contracts with explicit versions, idempotency, optimistic concurrency, pagination, filtering, problem details, authorization, and trace propagation. Tenant identity is derived from trusted authentication context, never from an untrusted brows…">
+<meta name="color-scheme" content="light dark">
+<title>API, Event, and Tool Architecture · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/search-index.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/01-NORMATIVE-CORE/07-API-EVENT-AND-TOOL-ARCHITECTURE.html" data-root="../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../index.html"><img src="../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../pdf-library.html">PDFs</a>
+    <a href="../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../index.html">Home</a><span class="sep">/</span><span>Normative Core</span><span class="sep">/</span><span>API, Event, and Tool Architecture</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Normative Core</span><span>168 words</span></div>
+        <h1>API, Event, and Tool Architecture</h1>
+        <p class="lede">APIs use resource or command-oriented contracts with explicit versions, idempotency, optimistic concurrency, pagination, filtering, problem details, authorization, and trace propagation. Tenant identity is derived from trusted authentication context, never from an untrusted brows…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="rest-and-bff">REST and BFF<a aria-label="Link to section" class="heading-anchor" href="#rest-and-bff">#</a></h2>
+<p>APIs use resource or command-oriented contracts with explicit versions, idempotency, optimistic concurrency, pagination, filtering, problem details, authorization, and trace propagation. Tenant identity is derived from trusted authentication context, never from an untrusted browser header.</p>
+<h2 id="events">Events<a aria-label="Link to section" class="heading-anchor" href="#events">#</a></h2>
+<p>Every Event includes event ID, type, schema version, subject, tenant, producer, occurred time, recorded time, correlation, causation, trace context, source version, and payload.</p>
+<p>Events are immutable completed facts. Consumers must tolerate duplicates and unknown fields. Breaking semantic changes require a new Event type or governed version migration.</p>
+<h2 id="webhooks-and-external-callbacks">Webhooks and external callbacks<a aria-label="Link to section" class="heading-anchor" href="#webhooks-and-external-callbacks">#</a></h2>
+<p>Verify provider identity, signature, timestamp, nonce/replay protection, payload schema, and correlation. Store the original message. Respond quickly, process asynchronously, and reconcile missing or contradictory outcomes.</p>
+<h2 id="files-and-edi">Files and EDI<a aria-label="Link to section" class="heading-anchor" href="#files-and-edi">#</a></h2>
+<p>File exchanges define format, encoding, naming, checksums, signatures, encryption, partial-file handling, duplicate detection, acknowledgement, retention, and reconciliation.</p>
+<h2 id="ai-and-mcp-tools">AI and MCP tools<a aria-label="Link to section" class="heading-anchor" href="#ai-and-mcp-tools">#</a></h2>
+<p>Tools expose narrow typed operations with schemas, policy, authorization, approval, idempotency, timeout, cost limit, audit, and outcome observation. Models never receive direct database credentials.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#rest-and-bff">REST and BFF</a><a class="toc-level-2" href="#events">Events</a><a class="toc-level-2" href="#webhooks-and-external-callbacks">Webhooks and external callbacks</a><a class="toc-level-2" href="#files-and-edi">Files and EDI</a><a class="toc-level-2" href="#ai-and-mcp-tools">AI and MCP tools</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="06-DATA-ARCHITECTURE.html"><span>Previous</span><strong>Data Architecture</strong></a>
+        <a class="next" href="08-WORKFLOW-SAGA-AND-RECOVERY-ARCHITECTURE.html"><span>Next</span><strong>Workflow, Saga, and Recovery Architecture</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

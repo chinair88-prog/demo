@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTOS Enterprise Engineering Handbook · Professional Edition</title>
+<meta name="description" content="The complete GTOS enterprise architecture and implementation handbook — 856 knowledge pages, 19 volumes, 37 domain packs, 23 PDF books.">
+<link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+<script defer src="assets/js/nav-data.js"></script>
+<script defer src="assets/js/app.js"></script>
+</head>
+<body class="landing-page">
+<div class="reading-progress"><div class="bar"></div></div>
+
+<!-- ═══ TOP BAR ═══ -->
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search 850+ handbook pages…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="architecture-atlas.html">Atlas</a>
+    <a href="pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer">
+      <a href="downloads/GTOS-Final-Handbook-Catalogue.xlsx">📥 Catalogue XLSX</a>
+      <a href="downloads/PDF-CATALOGUE.csv">📊 PDF Catalogue CSV</a>
+    </div>
+  </aside>
+
+  <main class="main-content landing-main">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero-section">
+      <div class="hero-copy animate-on-scroll">
+        <p class="eyebrow">Final Master Edition · 1.0</p>
+        <h1>GTOS Enterprise Engineering Handbook</h1>
+        <p>The normative target architecture, implementation system, operating model, and delivery playbook for building GTOS as a secure, AI-native, globally scalable trade operating system.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="pages/01-NORMATIVE-CORE/00-SYSTEM-BLUEPRINT.html">📖 System Blueprint</a>
+          <a class="btn btn-secondary" href="architecture-atlas.html">🗺 Architecture Atlas</a>
+          <a class="btn btn-ghost" href="downloads/pdfs/00-MASTER-OVERVIEW.pdf">📄 Master Overview PDF</a>
+        </div>
+        <div class="scope-note" style="margin-top:20px;padding:12px 16px;border-left:4px solid var(--primary);background:var(--surface-2);border-radius:0 8px 8px 0;font-size:.85rem;color:var(--text-muted)">
+          <strong>Publication scope:</strong> This site is the final 1.0 target-architecture and implementation guide. Current-project defects are isolated in a clearly marked appendix.
+        </div>
+      </div>
+      <div class="hero-visual animate-on-scroll delay-2">
+        <img src="diagrams/architecture-overview.svg" alt="GTOS Architecture Overview" onerror="this.style.display='none'">
+      </div>
+    </section>
+
+    <!-- ═══ STATS ═══ -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-value">859</div>
+          <div class="stat-label">HTML Knowledge Pages</div>
+        </div>
+        <div class="stat-card animate-on-scroll delay-1">
+          <div class="stat-value">1.32M</div>
+          <div class="stat-label">Source Words</div>
+        </div>
+        <div class="stat-card animate-on-scroll delay-2">
+          <div class="stat-value">19</div>
+          <div class="stat-label">Detailed Volumes</div>
+        </div>
+        <div class="stat-card animate-on-scroll delay-3">
+          <div class="stat-value">37</div>
+          <div class="stat-label">Domain Packs</div>
+        </div>
+        <div class="stat-card animate-on-scroll delay-4">
+          <div class="stat-value">23</div>
+          <div class="stat-label">PDF Books</div>
+        </div>
+        <div class="stat-card animate-on-scroll delay-5">
+          <div class="stat-value">4,825</div>
+          <div class="stat-label">PDF Pages</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ARCHITECTURE OVERVIEW ═══ -->
+    <section class="section-block">
+      <div class="section-heading">
+        <span class="sec-eyebrow">Architecture</span>
+        <h2>One Implementation System, From Vision to Production</h2>
+        <p>The handbook connects Domain ownership, service boundaries, data contracts, workflows, security controls, AI governance, testing and operational readiness into a single coherent system.</p>
+      </div>
+      <div class="diagram-feature animate-on-scroll">
+        <img src="diagrams/global-lifecycle.svg" alt="End-to-end Global Trade Lifecycle" onerror="this.parentElement.style.display='none'">
+      </div>
+    </section>
+
+    <!-- ═══ CORE COLLECTIONS ═══ -->
+    <section class="section-block">
+      <div class="section-heading">
+        <span class="sec-eyebrow">Core Collections</span>
+        <h2>Navigate by Engineering Intent</h2>
+      </div>
+      <div class="collection-grid">
+        <a class="collection-card animate-on-scroll" href="pages/01-NORMATIVE-CORE/00-SYSTEM-BLUEPRINT.html">
+          <div class="collection-icon">◫</div>
+          <div>
+            <h3>Normative Core</h3>
+            <p>Mandatory architectural principles, ownership, security, data, workflows and production-readiness standards.</p>
+            <span class="tag">17 governing chapters</span>
+          </div>
+        </a>
+        <a class="collection-card animate-on-scroll delay-1" href="pages/03-DETAILED-VOLUMES/volume-06-commerce-domain-architecture/01-PRODUCT-CATALOG/00-ORIENTATION-AND-EVIDENCE-BASELINE.html">
+          <div class="collection-icon">◎</div>
+          <div>
+            <h3>Domain Architecture</h3>
+            <p>Commerce, trade, supply chain, engagement, AI, platform, security and operations domain bibles.</p>
+            <span class="tag">37 domain packs</span>
+          </div>
+        </a>
+        <a class="collection-card animate-on-scroll delay-2" href="pages/04-DELIVERY-PLAYBOOKS/adr/index.html">
+          <div class="collection-icon">↗</div>
+          <div>
+            <h3>Delivery Playbooks</h3>
+            <p>Implementation blueprints, ADRs, standards, scenarios, reference patterns and visual atlases.</p>
+            <span class="tag">Execution-ready guidance</span>
+          </div>
+        </a>
+        <a class="collection-card animate-on-scroll delay-3" href="architecture-atlas.html">
+          <div class="collection-icon">◇</div>
+          <div>
+            <h3>Architecture Atlas</h3>
+            <p>High-level system maps and every workflow/state diagram rendered as scalable SVG.</p>
+            <span class="tag">27 diagram patterns</span>
+          </div>
+        </a>
+        <a class="collection-card animate-on-scroll delay-4" href="pdf-library.html">
+          <div class="collection-icon">▤</div>
+          <div>
+            <h3>PDF Library</h3>
+            <p>Twenty-three professionally paginated books for reading, review and controlled distribution.</p>
+            <span class="tag">4,825 pages</span>
+          </div>
+        </a>
+        <a class="collection-card animate-on-scroll delay-5" href="pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-07-Audit-Canonicalization-Evidence-Wave-01/README.html">
+          <div class="collection-icon">!</div>
+          <div>
+            <h3>Project Gap Appendix</h3>
+            <p>Repository observations and remediation evidence, explicitly separated from the target architecture.</p>
+            <span class="tag">Non-normative project reality</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══ DETAILED VOLUMES ═══ -->
+    <section class="section-block">
+      <div class="section-heading">
+        <span class="sec-eyebrow">Detailed Volumes</span>
+        <h2>Complete Reference Library</h2>
+      </div>
+      <div class="volume-grid">
+        <a class="volume-card animate-on-scroll" href="pages/03-DETAILED-VOLUMES/volume--02-repository-evidence-atlas/00-REPOSITORY-EVIDENCE-ATLAS-INTRODUCTION.html">
+          <div class="vol-num">02</div>
+          <h3>Repository Evidence Atlas</h3>
+          <p>39,647 words · 20 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-1" href="pages/03-DETAILED-VOLUMES/volume-03-end-to-end-global-trade-lifecycle/10-PUBLICATION-10-CANONICAL-STAGE-09-PROFORMA-INVOICE-LIFECYCLE.html">
+          <div class="vol-num">03</div>
+          <h3>End-to-End Global Trade Lifecycle</h3>
+          <p>55,810 words · 20 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-2" href="pages/03-DETAILED-VOLUMES/volume-04-portal-and-experience-architecture/01-web-shop/00-PORTAL-ORIENTATION-AND-INFORMATION-ARCHITECTURE.html">
+          <div class="vol-num">04</div>
+          <h3>Portal & Experience Architecture</h3>
+          <p>106,051 words · 53 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-3" href="pages/03-DETAILED-VOLUMES/volume-05-identity-tenant-organization/00-IDENTITY-AND-TENANT-ARCHITECTURE-INTRODUCTION.html">
+          <div class="vol-num">05</div>
+          <h3>Identity, Tenant & Organization</h3>
+          <p>41,609 words · 21 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-4" href="pages/03-DETAILED-VOLUMES/volume-06-commerce-domain-architecture/01-PRODUCT-CATALOG/00-ORIENTATION-AND-EVIDENCE-BASELINE.html">
+          <div class="vol-num">06</div>
+          <h3>Commerce Domain Architecture</h3>
+          <p>141,580 words · 71 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-5" href="pages/03-DETAILED-VOLUMES/volume-07-fulfilment-supply-chain-domain-architecture/01-SUPPLIER/00-ORIENTATION-AND-EVIDENCE-BASELINE.html">
+          <div class="vol-num">07</div>
+          <h3>Fulfilment & Supply Chain</h3>
+          <p>131,745 words · 66 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll" href="pages/03-DETAILED-VOLUMES/volume-08-engagement-communication-architecture/01-NOTIFICATION/00-ORIENTATION-OWNERSHIP-CONSENT-AND-CHANNEL-CAPABILITY.html">
+          <div class="vol-num">08</div>
+          <h3>Engagement & Communication</h3>
+          <p>81,851 words · 41 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-1" href="pages/03-DETAILED-VOLUMES/volume-09-ai-operating-system/00-AI-OPERATING-SYSTEM-INTRODUCTION.html">
+          <div class="vol-num">09</div>
+          <h3>AI Operating System</h3>
+          <p>91,815 words · 46 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-2" href="pages/03-DETAILED-VOLUMES/volume-10-data-database-reference/00-DATA-ARCHITECTURE-INTRODUCTION.html">
+          <div class="vol-num">10</div>
+          <h3>Data & Database Reference</h3>
+          <p>71,720 words · 36 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-3" href="pages/03-DETAILED-VOLUMES/volume-11-api-event-workflow-tool-contracts/00-CONTRACT-ARCHITECTURE-INTRODUCTION.html">
+          <div class="vol-num">11</div>
+          <h3>API, Event & Workflow Contracts</h3>
+          <p>51,788 words · 26 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-4" href="pages/03-DETAILED-VOLUMES/volume-12-platform-architecture/00-PLATFORM-ARCHITECTURE-INTRODUCTION.html">
+          <div class="vol-num">12</div>
+          <h3>Platform Architecture</h3>
+          <p>33,825 words · 17 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-5" href="pages/03-DETAILED-VOLUMES/volume-13-infrastructure-deployment/00-INFRASTRUCTURE-INTRODUCTION.html">
+          <div class="vol-num">13</div>
+          <h3>Infrastructure & Deployment</h3>
+          <p>41,778 words · 21 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll" href="pages/03-DETAILED-VOLUMES/volume-14-security-privacy-compliance/00-SECURITY-ARCHITECTURE-INTRODUCTION.html">
+          <div class="vol-num">14</div>
+          <h3>Security, Privacy & Compliance</h3>
+          <p>51,769 words · 26 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-1" href="pages/03-DETAILED-VOLUMES/volume-15-engineering-handbook/00-ENGINEERING-HANDBOOK-INTRODUCTION.html">
+          <div class="vol-num">15</div>
+          <h3>Engineering Handbook</h3>
+          <p>41,778 words · 21 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-2" href="pages/03-DETAILED-VOLUMES/volume-16-operations-sre/00-SRE-HANDBOOK-INTRODUCTION.html">
+          <div class="vol-num">16</div>
+          <h3>Operations & SRE</h3>
+          <p>41,753 words · 21 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-3" href="pages/03-DETAILED-VOLUMES/volume-17-testing-verification-conformance/00-TESTING-AND-CONFORMANCE-INTRODUCTION.html">
+          <div class="vol-num">17</div>
+          <h3>Testing & Conformance</h3>
+          <p>41,801 words · 21 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-4" href="pages/03-DETAILED-VOLUMES/volume-18-migration-legacy-evolution/00-MIGRATION-AND-EVOLUTION-INTRODUCTION.html">
+          <div class="vol-num">18</div>
+          <h3>Migration & Evolution</h3>
+          <p>31,829 words · 16 chapters</p>
+        </a>
+        <a class="volume-card animate-on-scroll delay-5" href="pages/03-DETAILED-VOLUMES/volume-19-implementation-profiles/00-CUSTOMER-PORTAL-PROFILE/00-PROFILE-SCOPE-ACTORS-CAPABILITIES-AND-CONSTRAINTS.html">
+          <div class="vol-num">19</div>
+          <h3>Implementation Profiles</h3>
+          <p>89,652 words · 45 chapters</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══ IMPLEMENTATION ROADMAP ═══ -->
+    <section class="section-block">
+      <div class="section-heading">
+        <span class="sec-eyebrow">Implementation Roadmap</span>
+        <h2>Build in Governed Dependency Order</h2>
+      </div>
+      <div class="roadmap-section">
+        <div class="roadmap-steps">
+          <div class="roadmap-step animate-on-scroll">
+            <div class="step-num">0</div>
+            <div>
+              <h4>Governance and Foundations</h4>
+              <p>Canon, Constitution, ownership, identity, ADR, standards, catalogues</p>
+              <span class="priority">Architecture Governance · P0</span>
+            </div>
+          </div>
+          <div class="roadmap-step animate-on-scroll delay-1">
+            <div class="step-num">1</div>
+            <div>
+              <h4>Platform Paved Roads</h4>
+              <p>Gateway, identity, secrets, observability, Events, workflows, migrations, developer platform</p>
+              <span class="priority">Platform Teams · P0</span>
+            </div>
+          </div>
+          <div class="roadmap-step animate-on-scroll delay-2">
+            <div class="step-num">2</div>
+            <div>
+              <h4>Core Commerce</h4>
+              <p>Product, Offer, Price, Cart, Checkout, Order, Payment, Inventory reservation</p>
+              <span class="priority">Commerce Teams · P0</span>
+            </div>
+          </div>
+          <div class="roadmap-step animate-on-scroll delay-3">
+            <div class="step-num">3</div>
+            <div>
+              <h4>Trade and Supply Chain</h4>
+              <p>Procurement through warehouse and fulfilment</p>
+              <span class="priority">Trade & Supply-Chain Teams · P1</span>
+            </div>
+          </div>
+          <div class="roadmap-step animate-on-scroll delay-4">
+            <div class="step-num">4</div>
+            <div>
+              <h4>After-sales and Finance</h4>
+              <p>Delivery evidence, returns, settlement, reporting, ESG</p>
+              <span class="priority">Finance & After-Sales Teams · P1</span>
+            </div>
+          </div>
+          <div class="roadmap-step animate-on-scroll delay-5">
+            <div class="step-num">5</div>
+            <div>
+              <h4>AI-native Operations</h4>
+              <p>RAG, agents, tools, evaluation, safety, supervised autonomy</p>
+              <span class="priority">AI Platform & Domain Teams · P2</span>
+            </div>
+          </div>
+          <div class="roadmap-step animate-on-scroll">
+            <div class="step-num">6</div>
+            <div>
+              <h4>Global Scale and Certification</h4>
+              <p>Multi-region, jurisdictions, certification, cost and resilience</p>
+              <span class="priority">Platform, Security, Compliance · P2</span>
+            </div>
+          </div>
+        </div>
+        <div class="feature-diagram animate-on-scroll delay-2">
+          <img src="diagrams/implementation-roadmap.svg" alt="Implementation Roadmap" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cta-section animate-on-scroll">
+      <h2>Use the Handbook as the Project's Implementation Authority</h2>
+      <p>Start with the normative core, adopt the Domain implementation template, and use the conformance and production-readiness gates before promoting any capability.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="pages/01-NORMATIVE-CORE/00-SYSTEM-BLUEPRINT.html">Open System Blueprint</a>
+        <a class="btn btn-secondary" href="pages/01-NORMATIVE-CORE/15-DOMAIN-IMPLEMENTATION-TEMPLATE.html">Domain Implementation Template</a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ═══ SEARCH MODAL ═══ -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search architecture, domains, APIs, workflows…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- ═══ DIAGRAM MODAL ═══ -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0 · Final Master Edition</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+
+<script>
+// Animate stat counters on scroll
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('animate-in');
+      statsObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: .3 });
+document.querySelectorAll('.stat-card').forEach(el => statsObserver.observe(el));
+</script>
+
+</body>
+</html>

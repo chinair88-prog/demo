@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The blueprint supports integration among independent organizations without requiring a shared internal data model or common technology stack. Each exchange contract declares producer, authority, subject, semantic version, schema version, temporal fields, security classification,…">
+<meta name="color-scheme" content="light dark">
+<title>Federated Integration Blueprint · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/implementation-blueprints/federated-integration-blueprint.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Implementation Blueprints</span><span class="sep">/</span><span>Federated Integration Blueprint</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>199 words</span></div>
+        <h1>Federated Integration Blueprint</h1>
+        <p class="lede">The blueprint supports integration among independent organizations without requiring a shared internal data model or common technology stack. Each exchange contract declares producer, authority, subject, semantic version, schema version, temporal fields, security classification,…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="objective">Objective<a aria-label="Link to section" class="heading-anchor" href="#objective">#</a></h2>
+<p>The blueprint supports integration among independent organizations without requiring a shared internal data model or common technology stack.</p>
+<h2 id="contract-boundary">Contract Boundary<a aria-label="Link to section" class="heading-anchor" href="#contract-boundary">#</a></h2>
+<p>Each exchange contract declares producer, authority, subject, semantic version, schema version, temporal fields, security classification, retention expectation, and compatibility policy.</p>
+<h2 id="trust-establishment">Trust Establishment<a aria-label="Link to section" class="heading-anchor" href="#trust-establishment">#</a></h2>
+<p>Participants establish organizational identity, technical credentials, legal or contractual Relationship, allowed purposes, data scopes, and incident contacts. Trust is not inherited merely because traffic arrives through an approved network.</p>
+<h2 id="exchange-modes">Exchange Modes<a aria-label="Link to section" class="heading-anchor" href="#exchange-modes">#</a></h2>
+<p>GTOS supports synchronous APIs, asynchronous Events, bulk manifests, evidence references, and policy queries. The mode is chosen by business latency, authority, consistency, volume, and recovery requirements.</p>
+<h2 id="delivery-semantics">Delivery Semantics<a aria-label="Link to section" class="heading-anchor" href="#delivery-semantics">#</a></h2>
+<p>Transport acknowledgement means receipt by infrastructure, not acceptance as authoritative truth. Consumers validate identity, signature or channel integrity, schema, authority, subject, time, and policy.</p>
+<h2 id="reconciliation">Reconciliation<a aria-label="Link to section" class="heading-anchor" href="#reconciliation">#</a></h2>
+<p>Reconciliation compares proposition identity, authority, temporal scope, and correction lineage. Record-count equality is insufficient. Disputes are represented explicitly and routed to the responsible authority.</p>
+<h2 id="partner-failure">Partner Failure<a aria-label="Link to section" class="heading-anchor" href="#partner-failure">#</a></h2>
+<p>If a partner is unavailable, GTOS applies the declared continuity policy: queue, degrade, substitute evidence, require manual review, or suspend execution. The platform SHALL not invent partner approval.</p>
+<h2 id="offboarding">Offboarding<a aria-label="Link to section" class="heading-anchor" href="#offboarding">#</a></h2>
+<p>Offboarding revokes credentials, Relationships, delegations, subscriptions, and data access while preserving required historical evidence.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#objective">Objective</a><a class="toc-level-2" href="#contract-boundary">Contract Boundary</a><a class="toc-level-2" href="#trust-establishment">Trust Establishment</a><a class="toc-level-2" href="#exchange-modes">Exchange Modes</a><a class="toc-level-2" href="#delivery-semantics">Delivery Semantics</a><a class="toc-level-2" href="#reconciliation">Reconciliation</a><a class="toc-level-2" href="#partner-failure">Partner Failure</a><a class="toc-level-2" href="#offboarding">Offboarding</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="domain-service-blueprint.html"><span>Previous</span><strong>Domain Service Blueprint</strong></a>
+        <a class="next" href="index.html"><span>Next</span><strong>Implementation Blueprints</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

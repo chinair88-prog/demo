@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A vertical slice proves one meaningful business outcome across user interaction, domain logic, contract, persistence, policy, observability, and operation. It is not a thin user-interface prototype connected to placeholder logic. The slice must demonstrate that the architecture c…">
+<meta name="color-scheme" content="light dark">
+<title>Vertical Slice Delivery Guide · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../../site.webmanifest">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/search-index.js"></script>
+<script defer src="../../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/01-vertical-slice-delivery.html" data-root="../../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../../index.html"><img src="../../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <a href="../../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Delivery</span><span class="sep">/</span><span>Engineering Guides</span><span class="sep">/</span><span>Vertical Slice Delivery Guide</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>334 words</span></div>
+        <h1>Vertical Slice Delivery Guide</h1>
+        <p class="lede">A vertical slice proves one meaningful business outcome across user interaction, domain logic, contract, persistence, policy, observability, and operation. It is not a thin user-interface prototype connected to placeholder logic. The slice must demonstrate that the architecture c…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="objective">Objective<a aria-label="Link to section" class="heading-anchor" href="#objective">#</a></h2>
+<p>A vertical slice proves one meaningful business outcome across user interaction, domain logic, contract, persistence, policy, observability, and operation. It is not a thin user-interface prototype connected to placeholder logic. The slice must demonstrate that the architecture can carry a real governed fact from observation or command through outcome and evidence.</p>
+<h2 id="slice-selection">Slice Selection<a aria-label="Link to section" class="heading-anchor" href="#slice-selection">#</a></h2>
+<p>Choose a slice with a clear subject, one or two critical invariants, a known truth owner, a small number of partner dependencies, and an observable business outcome. Avoid selecting the easiest technical endpoint if it bypasses identity, time, state, authority, or correction. A useful early slice often includes one Command, one Decision or policy check, two or three Events, a projection, and an operational alert.</p>
+<h2 id="required-design">Required Design<a aria-label="Link to section" class="heading-anchor" href="#required-design">#</a></h2>
+<p>The slice SHALL define the domain aggregate, identifiers, temporal fields, Command contract, Event contract, authorization context, failure behavior, idempotency, data classification, SLO, and recovery test. If AI is involved, the output type, evidence source, evaluation, and execution boundary are explicit.</p>
+<h2 id="implementation-sequence">Implementation Sequence<a aria-label="Link to section" class="heading-anchor" href="#implementation-sequence">#</a></h2>
+<ol>
+<li>Write scenario examples and acceptance evidence.</li>
+<li>Define state and invariants before data tables.</li>
+<li>Publish contract drafts and consumer expectations.</li>
+<li>Implement domain behavior with invariant tests.</li>
+<li>Add persistence and Event publication through an outbox or equivalent reliable pattern.</li>
+<li>Build the projection and user or partner interface.</li>
+<li>Add policy, security, telemetry, and runbook.</li>
+<li>Exercise retry, duplicate, late data, correction, and dependency failure.</li>
+<li>Demonstrate the end-to-end trace and business outcome.</li>
+</ol>
+<h2 id="review-questions">Review Questions<a aria-label="Link to section" class="heading-anchor" href="#review-questions">#</a></h2>
+<p>Can a domain expert explain every state transition? Is an Event a completed fact rather than a request? Can a repeated Command create a duplicate effect? What happens when the response is lost? Can an operator see why the slice is blocked? Can a historical decision be reviewed using knowledge available at the time?</p>
+<h2 id="completion">Completion<a aria-label="Link to section" class="heading-anchor" href="#completion">#</a></h2>
+<p>A vertical slice is complete when it runs in a production-like environment, contract tests pass, observability exposes technical and business state, security controls are enforced, a runbook is exercised, and Canon traceability is inspectable.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#objective">Objective</a><a class="toc-level-2" href="#slice-selection">Slice Selection</a><a class="toc-level-2" href="#required-design">Required Design</a><a class="toc-level-2" href="#implementation-sequence">Implementation Sequence</a><a class="toc-level-2" href="#review-questions">Review Questions</a><a class="toc-level-2" href="#completion">Completion</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="../definition-of-ready.html"><span>Previous</span><strong>Definition of Ready</strong></a>
+        <a class="next" href="02-backlog-decomposition.html"><span>Next</span><strong>Architecture-Aware Backlog Decomposition</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

@@ -1,0 +1,49 @@
+---
+title: "Federated Integration Blueprint"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Federated Integration Blueprint"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Federated Integration Blueprint" }
+  ]}
+>
+
+<br />
+<h2 id="objective">Objective</h2>
+<br />
+<p>The blueprint supports integration among independent organizations without requiring a shared internal data model or common technology stack.</p>
+<br />
+<h2 id="contract-boundary">Contract Boundary</h2>
+<br />
+<p>Each exchange contract declares producer, authority, subject, semantic version, schema version, temporal fields, security classification, retention expectation, and compatibility policy.</p>
+<br />
+<h2 id="trust-establishment">Trust Establishment</h2>
+<br />
+<p>Participants establish organizational identity, technical credentials, legal or contractual Relationship, allowed purposes, data scopes, and incident contacts. Trust is not inherited merely because traffic arrives through an approved network.</p>
+<br />
+<h2 id="exchange-modes">Exchange Modes</h2>
+<br />
+<p>GTOS supports synchronous APIs, asynchronous Events, bulk manifests, evidence references, and policy queries. The mode is chosen by business latency, authority, consistency, volume, and recovery requirements.</p>
+<br />
+<h2 id="delivery-semantics">Delivery Semantics</h2>
+<br />
+<p>Transport acknowledgement means receipt by infrastructure, not acceptance as authoritative truth. Consumers validate identity, signature or channel integrity, schema, authority, subject, time, and policy.</p>
+<br />
+<h2 id="reconciliation">Reconciliation</h2>
+<br />
+<p>Reconciliation compares proposition identity, authority, temporal scope, and correction lineage. Record-count equality is insufficient. Disputes are represented explicitly and routed to the responsible authority.</p>
+<br />
+<h2 id="partner-failure">Partner Failure</h2>
+<br />
+<p>If a partner is unavailable, GTOS applies the declared continuity policy: queue, degrade, substitute evidence, require manual review, or suspend execution. The platform SHALL not invent partner approval.</p>
+<br />
+<h2 id="offboarding">Offboarding</h2>
+<br />
+<p>Offboarding revokes credentials, Relationships, delegations, subscriptions, and data access while preserving required historical evidence.</p>
+<br />
+</ContentPage>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>12 — Remediation and Verification Plan · GTOS Handbook</title>
+<meta name="description" content="12 — Remediation and Verification Plan Priority 0 — جلوگیری از False Authority 1. PO یا declaration application status نباید legal customs release نامیده شود. 2">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/index.html">GTOS Handbook Batch 08 Repository Evidence Wave 02</a> <span class="sep">›</span> <span>12 — Remediation and Verification Plan</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>12 — Remediation and Verification Plan</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#priority-0-false-authority">Priority 0 — جلوگیری از False Authority</a></li><li class="toc-level-2"><a href="#priority-1-truth-preservation-execution-safety">Priority 1 — Truth Preservation و Execution Safety</a></li><li class="toc-level-2"><a href="#priority-2-capability">Priority 2 — تکمیل Capability</a></li><li class="toc-level-2"><a href="#evidence-status">Evidence لازم برای ارتقای Status</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="12-remediation-and-verification-plan">12 — Remediation and Verification Plan</h1>
+<br>
+<h2 id="priority-0-false-authority">Priority 0 — جلوگیری از False Authority <a href="#priority-0-false-authority" class="heading-anchor">#</a></h2>
+<br>
+<li>PO یا declaration application status نباید legal customs release نامیده شود.</li>
+<li>tenant/company/user از request به‌عنوان authority پذیرفته نشود.</li>
+<li>Shipping، Warehouse، Inventory و Partner SQL کاملاً tenant-scoped شوند.</li>
+<li>مالکیت Packing List، Warehouse Receipt، Shipment و Customs canonical شود.</li>
+<li>tenant assignment اشتباه Shipment Item اصلاح و داده موجود migrate شود.</li>
+<br>
+<h2 id="priority-1-truth-preservation-execution-safety">Priority 1 — Truth Preservation و Execution Safety <a href="#priority-1-truth-preservation-execution-safety" class="heading-anchor">#</a></h2>
+<br>
+<li>document version/signature immutable اضافه شود.</li>
+<li>outbox/inbox برای Trade Documents، Customs، Shipping، Warehouse و Inventory ایجاد شود.</li>
+<li>JSON history با append-only journal جایگزین شود.</li>
+<li>idempotency قبل از stock mutation بررسی شود.</li>
+<li>state transition guard و optimistic version predicate اضافه شود.</li>
+<li>external outcome دارای source reference، observed time، received time و correction باشد.</li>
+<br>
+<h2 id="priority-2-capability">Priority 2 — تکمیل Capability <a href="#priority-2-capability" class="heading-anchor">#</a></h2>
+<br>
+<li>Trade Quality Aggregate ساخته شود.</li>
+<li>Commercial Invoice create و PL-to-CI reconciliation پیاده‌سازی شود.</li>
+<li>customs document و authority-response ingestion ساخته شود.</li>
+<li>CustodyRelationship با attestations پیاده شود.</li>
+<li>Warehouse Receipt با typed contract به Inventory متصل شود.</li>
+<li>quarantine و channel eligibility قبل از availability اعمال شود.</li>
+<br>
+<h2 id="evidence-status">Evidence لازم برای ارتقای Status <a href="#evidence-status" class="heading-anchor">#</a></h2>
+<br>
+<li>migration روی empty و upgrade database؛</li>
+<li>tenant-isolation tests؛</li>
+<li>concurrent posting/reservation tests؛</li>
+<li>duplicate/replay tests؛</li>
+<li>outbox failure/recovery؛</li>
+<li>customs/provider signature verification؛</li>
+<li>cross-document reconciliation؛</li>
+<li>Portal E2E بدون mock fallback؛</li>
+<li>audit reconstruction و backup/restore.</li>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

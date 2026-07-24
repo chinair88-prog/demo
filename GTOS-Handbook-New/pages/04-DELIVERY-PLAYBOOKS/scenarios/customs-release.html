@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scenario — Customs Declaration and Release · GTOS Handbook</title>
+<meta name="description" content="Scenario — Customs Declaration and Release Context An importer, broker, carrier, customs authority, and terminal coordinate declaration and release. Authority T">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/scenarios/index.html">Scenarios</a> <span class="sep">›</span> <span>Scenario — Customs Declaration and Release</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Scenario — Customs Declaration and Release</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#context">Context</a></li><li class="toc-level-2"><a href="#authority">Authority</a></li><li class="toc-level-2"><a href="#flow">Flow</a></li><li class="toc-level-2"><a href="#late-information">Late Information</a></li><li class="toc-level-2"><a href="#security">Security</a></li><li class="toc-level-2"><a href="#operational-requirement">Operational Requirement</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="scenario-customs-declaration-and-release">Scenario — Customs Declaration and Release</h1>
+<br>
+<h2 id="context">Context <a href="#context" class="heading-anchor">#</a></h2>
+<br>
+<p>An importer, broker, carrier, customs authority, and terminal coordinate declaration and release.</p>
+<br>
+<h2 id="authority">Authority <a href="#authority" class="heading-anchor">#</a></h2>
+<br>
+<p>The importer owns commercial and product information within its scope. The broker acts through a mandate. Customs owns legal acceptance, inspection, and release determinations. The terminal owns physical gate and cargo movement observations.</p>
+<br>
+<h2 id="flow">Flow <a href="#flow" class="heading-anchor">#</a></h2>
+<br>
+<p>A broker submits a declaration Command under a valid Relationship and delegation. Customs records <code>DeclarationSubmitted</code>, evaluates policy and evidence, and may produce <code>InspectionOrdered</code> or <code>GoodsReleased</code>. The carrier's operational view consumes the customs Event but remains a perspective.</p>
+<br>
+<h2 id="late-information">Late Information <a href="#late-information" class="heading-anchor">#</a></h2>
+<br>
+<p>A corrected classification arrives after release. GTOS preserves the original declaration, knowledge available to customs, policy version, and release Decision. The correction triggers impact analysis for duty, license, risk, and audit. It does not rewrite the original decision into a fictional present-day evaluation.</p>
+<br>
+<h2 id="security">Security <a href="#security" class="heading-anchor">#</a></h2>
+<br>
+<p>Authorization considers importer-broker relationship, jurisdiction, commodity scope, mandate validity, and purpose. Possession of a declaration identifier does not grant access.</p>
+<br>
+<h2 id="operational-requirement">Operational Requirement <a href="#operational-requirement" class="heading-anchor">#</a></h2>
+<br>
+<p>If messaging is unavailable, customs authority may still make a decision through its own system. Later ingestion records observation and recording time, preserving that reality preceded GTOS representation.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

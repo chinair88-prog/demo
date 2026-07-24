@@ -1,0 +1,17 @@
+
+digraph G {
+  graph [rankdir=TB, bgcolor="transparent", pad=0.2];
+  node [shape=box, style="rounded,filled", fillcolor="#f7fbf8", color="#2b6f4e", fontname="DejaVu Sans", fontsize=9];
+  edge [color="#4c7863", arrowsize=0.65];
+  Internet -> EdgeGateway [label="WAF, rate limit, auth"];
+  EdgeGateway -> PortalBFF [label="trusted identity context"];
+  EdgeGateway -> ServiceMesh [label="service identity"];
+  PortalBFF -> DomainServices;
+  ServiceMesh -> DomainServices;
+  DomainServices -> OwnedDatabases;
+  DomainServices -> EventPlatform;
+  DomainServices -> Secrets [label="workload identity"];
+  AITools -> DomainServices [label="typed authorized tools"];
+  ExternalProviders -> IntegrationAdapters [label="signed callbacks"];
+  IntegrationAdapters -> DomainServices;
+}

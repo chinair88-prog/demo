@@ -1,0 +1,29 @@
+digraph G {
+rankdir=LR;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.34", ranksep="0.60", splines="spline"];
+node [fontname="Arial", fontsize=10, shape=rect, color="#4B5D8A", penwidth=1.45, style="rounded,filled", fillcolor="#F5F6FC", fontcolor="#253150", margin="0.15,0.09"];
+edge [color="#6677A5", penwidth=1.35, arrowsize=0.72];
+"ALLOCATED" [label="ALLOCATED"];
+"CANCELLED" [label="CANCELLED"];
+"DELIVERED" [label="DELIVERED"];
+"DELIVERY_FAILED" [label="DELIVERY FAILED"];
+"DISPATCHED" [label="DISPATCHED"];
+"OUT_FOR_DELIVERY" [label="OUT FOR DELIVERY"];
+"PACKING" [label="PACKING"];
+"PARTIALLY_FULFILLED" [label="PARTIALLY FULFILLED"];
+"PENDING_ALLOCATION" [label="PENDING ALLOCATION"];
+"PICKING" [label="PICKING"];
+"READY_TO_DISPATCH" [label="READY TO DISPATCH"];
+"__start_0" [shape=circle, width=0.14, fixedsize=true, label="", fillcolor="#30476F", color="#30476F", style=filled];
+"__start_0" -> "PENDING_ALLOCATION";
+"PENDING_ALLOCATION" -> "ALLOCATED";
+"ALLOCATED" -> "PICKING";
+"PICKING" -> "PACKING";
+"PACKING" -> "READY_TO_DISPATCH";
+"READY_TO_DISPATCH" -> "DISPATCHED";
+"DISPATCHED" -> "OUT_FOR_DELIVERY";
+"OUT_FOR_DELIVERY" -> "DELIVERY_FAILED";
+"DELIVERY_FAILED" -> "DELIVERED";
+"DELIVERED" -> "PARTIALLY_FULFILLED";
+"PARTIALLY_FULFILLED" -> "CANCELLED";
+}

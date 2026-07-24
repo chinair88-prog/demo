@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="provider-service برای Partner logistics و Booking؛ 2. shipping-service برای shipping.trade shipments و API حمل B2B. مرزهای Booking، Shipment، Carrier Observation، Handover و Custody هنوز canonical نشده‌اند. Migration partner.bookings اطلاعات carrier، mode، vessel/flight، containe…">
+<meta name="color-scheme" content="light dark">
+<title>05 — Transport Booking, Handover, Shipment, and Tracking · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/05-TRANSPORT-BOOKING-HANDOVER-SHIPMENT-AND-TRACKING.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 08 Repository Evidence Wave 02</span><span class="sep">/</span><span>05 — Transport Booking, Handover, Shipment, and Tracking</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>366 words</span></div>
+        <h1>05 — Transport Booking, Handover, Shipment, and Tracking</h1>
+        <p class="lede">provider-service برای Partner logistics و Booking؛ 2. shipping-service برای shipping.trade shipments و API حمل B2B. مرزهای Booking، Shipment، Carrier Observation، Handover و Custody هنوز canonical نشده‌اند. Migration partner.bookings اطلاعات carrier، mode، vessel/flight، containe…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="contextهای-اجرایی">Contextهای اجرایی<a aria-label="Link to section" class="heading-anchor" href="#contextهای-اجرایی">#</a></h2>
+<p>دو Context اصلی وجود دارد:</p>
+<ol>
+<li><code>provider-service</code> برای Partner logistics و Booking؛</li>
+<li><code>shipping-service</code> برای <code>shipping.trade_shipments</code> و API حمل B2B.</li>
+</ol>
+<p>مرزهای Booking، Shipment، Carrier Observation، Handover و Custody هنوز canonical نشده‌اند.</p>
+<h2 id="booking">Booking<a aria-label="Link to section" class="heading-anchor" href="#booking">#</a></h2>
+<p>Migration <code>partner.bookings</code> اطلاعات carrier، mode، vessel/flight، container، ports، dates، transit estimate، agent، confirmation، status، Partner و metadata را ذخیره می‌کند.</p>
+<p>Export Handover Portal از API واقعی <code>/api/v1/logistics/bookings</code> استفاده می‌کند و این stateها را نمایش می‌دهد:</p>
+<ul>
+<li><code>REQUESTED</code></li>
+<li><code>CONFIRMED</code></li>
+<li><code>LOADED</code></li>
+<li><code>HANDED_OVER</code></li>
+<li><code>CANCELLED</code></li>
+</ul>
+<p>Portal همچنین pickup address، loading time، contact، seal number و referenceهای Packing List و Commercial Invoice را می‌گیرد.</p>
+<p>این journey اجرایی مفید است، اما <code>HANDED_OVER</code> به‌تنهایی Custody Transfer معتبر نیست.</p>
+<h2 id="trade-shipment">Trade Shipment<a aria-label="Link to section" class="heading-anchor" href="#trade-shipment">#</a></h2>
+<p><code>TradeShipmentEntity</code> شامل این داده‌هاست:</p>
+<ul>
+<li>Purchase Order و Trade Order reference؛</li>
+<li>carrier و tracking number؛</li>
+<li>transport mode و booking reference؛</li>
+<li>master/house bill؛</li>
+<li>container count و forwarder؛</li>
+<li>origin/destination؛</li>
+<li>status، ETA و actual delivery؛</li>
+<li>weight، volume و package count؛</li>
+<li>metadata و tenant.</li>
+</ul>
+<p>Service رفتار create، list/filter، get، update، tracking append، stats و Kafka send را دارد. Controller نیز <code>/api/shipping/trade/shipments</code> را ارائه می‌دهد.</p>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h2 id="یافته-های-بحرانی-کد">یافته‌های بحرانی کد<a aria-label="Link to section" class="heading-anchor" href="#یافته-های-بحرانی-کد">#</a></h2>
+<ul>
+<li>هنگام ساخت Shipment Item، <code>tenantId</code> برابر Shipment UUID قرار داده می‌شود، نه tenant واقعی.</li>
+<li>list/get/update/track در Service بررسی‌شده tenant-scoped نیستند.</li>
+<li>items با <code>findAll()</code> گرفته و in-memory فیلتر می‌شوند.</li>
+<li>status string بدون transition guard است.</li>
+<li>tracking history در metadata JSON mutable ذخیره می‌شود.</li>
+<li>متد publish پارامتر <code>eventType</code> می‌گیرد، اما آن را داخل payload قرار نمی‌دهد.</li>
+<li>خطای Kafka catch و log می‌شود و DB transaction می‌تواند بدون Event موفق بماند.</li>
+<li>outbox تراکنشی پیدا نشد.</li>
+<li>delayed count برابر صفر hard-code شده است.</li>
+<li>observationهای carrier فاقد source event ID، observed/received time، confidence و correction lineage هستند.</li>
+</ul>
+<h2 id="custody">Custody<a aria-label="Link to section" class="heading-anchor" href="#custody">#</a></h2>
+<p>وضعیت <code>HANDED_OVER</code> در Booking و Portal دیده می‌شود، اما Aggregate مستقل Custody پیدا نشد.</p>
+<p>Custody معتبر باید شامل این موارد باشد:</p>
+<ul>
+<li>Cargo/Package Set مشخص؛</li>
+<li>handing party و mandate؛</li>
+<li>receiving party و mandate؛</li>
+<li>time و location؛</li>
+<li>seal، package count و weight observation؛</li>
+<li>attestation دو طرف یا exception؛</li>
+<li>refusal/discrepancy؛</li>
+<li>correction؛</li>
+<li>onward transfer یا custody termination.</li>
+</ul>
+<p>نتیجه: Booking و Shipment <code>IMPLEMENTED_WITH_GAP</code>؛ Custody <code>REFERENCE_ARCHITECTURE</code>.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#contextهای-اجرایی">Contextهای اجرایی</a><a class="toc-level-2" href="#booking">Booking</a><a class="toc-level-2" href="#trade-shipment">Trade Shipment</a><a class="toc-level-2" href="#یافته-های-بحرانی-کد">یافته‌های بحرانی کد</a><a class="toc-level-2" href="#custody">Custody</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="04-IMPORT-CUSTOMS-DUTIES-AND-RELEASE.html"><span>Previous</span><strong>04 — Import Customs, Duties, and Release</strong></a>
+        <a class="next" href="06-WAREHOUSE-RECEIVING-AND-RECEIPT.html"><span>Next</span><strong>06 — Warehouse Receiving and Receipt</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

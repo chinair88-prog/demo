@@ -1,0 +1,45 @@
+---
+title: "AI Release Engineering Guide"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="AI Release Engineering Guide"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "AI Release Engineering Guide" }
+  ]}
+>
+
+<br />
+<h2 id="release-unit">Release Unit</h2>
+<br />
+<p>An AI release includes model, route, prompt or task definition, retrieval configuration, tool registry, policy, structured output schema, evaluation set, thresholds, observability, and rollback controls. Changing any component can change behavior.</p>
+<br />
+<h2 id="pre-release-evaluation">Pre-Release Evaluation</h2>
+<br />
+<p>Evaluate task quality, factuality, evidence faithfulness, calibration, uncertainty, prohibited behavior, bias, security, latency, cost, and tool safety. High-impact use cases include representative edge cases, contradictory evidence, missing evidence, policy changes, and adversarial inputs.</p>
+<br />
+<h2 id="staged-deployment">Staged Deployment</h2>
+<br />
+<p>Use offline evaluation, shadow operation, limited internal users, low-impact traffic, controlled participant cohorts, and progressive automation. Compare recommendations or decisions against an approved baseline. Do not expose execution tools before recommendation and policy behavior are stable.</p>
+<br />
+<h2 id="runtime-controls">Runtime Controls</h2>
+<br />
+<p>The runtime validates structured output, enforces policy outside the model, limits tools and egress, applies budgets, records evidence and tool calls, and supports human escalation. A kill switch can disable model routes, tools, Mandates, or decision classes.</p>
+<br />
+<h2 id="monitoring">Monitoring</h2>
+<br />
+<p>Track success, evidence support, hallucination, unsafe requests, tool denial, escalation, decision reversal, downstream outcome, latency, and cost. Drift includes data, policy, prompt, tool, and user behavior—not only model statistics.</p>
+<br />
+<h2 id="rollback">Rollback</h2>
+<br />
+<p>Rollback returns to an approved release configuration. It does not rewrite decisions or outcomes already produced. A harmful decision may require appeal, correction, notification, or remediation.</p>
+<br />
+<h2 id="approval">Approval</h2>
+<br />
+<p>AI owner, domain authority, security, data, operations, and architecture approve according to impact. The Decision Record identifies evidence and conditions for continued operation.</p>
+<br />
+</ContentPage>

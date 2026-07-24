@@ -1,0 +1,49 @@
+---
+title: "End-to-End Observability Standard"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="End-to-End Observability Standard"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "End-to-End Observability Standard" }
+  ]}
+>
+
+<br />
+<h2 id="four-views">Four Views</h2>
+<br />
+<p>GTOS observability includes technical health, business flow, decision quality, and evidence integrity.</p>
+<br />
+<h2 id="technical-health">Technical Health</h2>
+<br />
+<p>Metrics cover latency, errors, saturation, dependency behavior, queue age, storage, and deployment.</p>
+<br />
+<h2 id="business-flow">Business Flow</h2>
+<br />
+<p>Metrics cover value-stream cycle time, state age, exception rate, blocked reason, missing evidence, command rejection, Event freshness, and completion outcome.</p>
+<br />
+<h2 id="decision-quality">Decision Quality</h2>
+<br />
+<p>Metrics cover recommendation acceptance, reversal, appeal, calibration, outcome quality, policy denial, human escalation, and automation suspension.</p>
+<br />
+<h2 id="evidence-integrity">Evidence Integrity</h2>
+<br />
+<p>Metrics cover missing provenance, stale source, failed signature, lineage gap, correction backlog, and reconstruction success.</p>
+<br />
+<h2 id="correlation">Correlation</h2>
+<br />
+<p>Correlation links related work but does not merge identities or authority. Trace context SHALL be sanitized at trust boundaries.</p>
+<br />
+<h2 id="alerting">Alerting</h2>
+<br />
+<p>Alerts map to an owned response and user or business impact. High-cardinality business identifiers are controlled to avoid leakage and cost.</p>
+<br />
+<h2 id="retention">Retention</h2>
+<br />
+<p>Telemetry retention follows operational, security, privacy, and legal requirements. Audit evidence may require stronger integrity than ordinary logs.</p>
+<br />
+</ContentPage>

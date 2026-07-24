@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="دو Settlement Service اجرایی وجود دارد: Marketplace Settlement: - cycles؛ - transactions؛ - commission/discount aggregation؛ - reconciliation؛ - dashboard؛ - scheduler. 2. Payment Settlement: - batch کردن Payment Captureهای CAPTURED ؛ - gross/fee/net calculation؛ - اتصال captureه…">
+<meta name="color-scheme" content="light dark">
+<title>07 — Settlement, Reconciliation, and Payout · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/07-SETTLEMENT-RECONCILIATION-AND-PAYOUT.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 09 Repository Evidence Wave 03</span><span class="sep">/</span><span>07 — Settlement, Reconciliation, and Payout</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>262 words</span></div>
+        <h1>07 — Settlement, Reconciliation, and Payout</h1>
+        <p class="lede">دو Settlement Service اجرایی وجود دارد: Marketplace Settlement: - cycles؛ - transactions؛ - commission/discount aggregation؛ - reconciliation؛ - dashboard؛ - scheduler. 2. Payment Settlement: - batch کردن Payment Captureهای CAPTURED ؛ - gross/fee/net calculation؛ - اتصال captureه…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="competing-settlement-owners">Competing settlement owners<a aria-label="Link to section" class="heading-anchor" href="#competing-settlement-owners">#</a></h2>
+<p>دو Settlement Service اجرایی وجود دارد:</p>
+<ol>
+<li>Marketplace Settlement:
+<ul>
+<li>cycles؛</li>
+<li>transactions؛</li>
+<li>commission/discount aggregation؛</li>
+<li>reconciliation؛</li>
+<li>dashboard؛</li>
+<li>scheduler.</li>
+</ul>
+</li>
+<li>Payment Settlement:
+<ul>
+<li>batch کردن Payment Captureهای <code>CAPTURED</code>؛</li>
+<li>gross/fee/net calculation؛</li>
+<li>اتصال captureها به batch.</li>
+</ul>
+</li>
+</ol>
+<p>وضعیت ownership:</p>
+<p><code>CONFLICT_REQUIRES_CANONICALIZATION</code></p>
+<h2 id="marketplace-settlement">Marketplace Settlement<a aria-label="Link to section" class="heading-anchor" href="#marketplace-settlement">#</a></h2>
+<p>نقاط مثبت:</p>
+<ul>
+<li>state transition map؛</li>
+<li>cycle calculation؛</li>
+<li>audit و metrics؛</li>
+<li>reconciliation records؛</li>
+<li>auto-generation با overlap check؛</li>
+<li>tenant-aware list endpoints.</li>
+</ul>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h3 id="material-gaps">Material gaps<a aria-label="Link to section" class="heading-anchor" href="#material-gaps">#</a></h3>
+<ul>
+<li>tenant/company از request وارد create می‌شوند.</li>
+<li>get/update/calculate cycle by ID tenant guard آشکار ندارد.</li>
+<li>addTransaction بررسی نمی‌کند request tenant/company با cycle یکسان باشد.</li>
+<li>transaction reference authenticity و idempotency دیده نشد.</li>
+<li>Dashboard <code>totalCycles</code> را با global <code>cycleRepository.count()</code> می‌سازد و می‌تواند cross-tenant count leak کند.</li>
+<li>dashboard monetary summaries صفر hard-code شده‌اند.</li>
+<li>status <code>SETTLED</code> فقط state update است؛ bank/payout provider execution پیدا نشد.</li>
+<li>reconciliation actualAmount و resolvedBy از request پذیرفته می‌شوند.</li>
+<li>LLM settlement disabled است.</li>
+<li>multi-currency aggregation normalization دیده نشد.</li>
+</ul>
+<h2 id="payment-settlement">Payment Settlement<a aria-label="Link to section" class="heading-anchor" href="#payment-settlement">#</a></h2>
+<p>Payment service captureهای تسویه‌نشده را globally جمع می‌کند، fee rate را اعمال و Settlement Batch می‌سازد.</p>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h3 id="material-gaps-2">Material gaps<a aria-label="Link to section" class="heading-anchor" href="#material-gaps-2">#</a></h3>
+<ul>
+<li>list و run settlement tenant/company scope ندارند.</li>
+<li>capture grouping بر اساس seller، tenant، currency یا payout destination نیست.</li>
+<li>تمام CAPTURED records در یک batch جمع می‌شوند.</li>
+<li>payout execution، provider transfer، retry، reconciliation و failure recovery دیده نشد.</li>
+<li>overlap با Marketplace Settlement روشن نشده است.</li>
+</ul>
+<h2 id="canonical-boundary">Canonical boundary<a aria-label="Link to section" class="heading-anchor" href="#canonical-boundary">#</a></h2>
+<p>Payment باید money movement و provider facts را مالک باشد. Marketplace باید seller ledger، commission، entitlement و reconciliation را مالک باشد. Settlement approval نباید خودبه‌خود به معنی payout success باشد.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#competing-settlement-owners">Competing settlement owners</a><a class="toc-level-2" href="#marketplace-settlement">Marketplace Settlement</a><a class="toc-level-3" href="#material-gaps">Material gaps</a><a class="toc-level-2" href="#payment-settlement">Payment Settlement</a><a class="toc-level-3" href="#material-gaps-2">Material gaps</a><a class="toc-level-2" href="#canonical-boundary">Canonical boundary</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="06-RETURNS-INSPECTION-DISPUTES-AND-REFUND.html"><span>Previous</span><strong>06 — Returns, Inspection, Disputes, and Refund</strong></a>
+        <a class="next" href="08-ESG-SUSTAINABILITY-GOALS-AND-ASSURANCE.html"><span>Next</span><strong>08 — ESG, Sustainability Goals, and Assurance</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

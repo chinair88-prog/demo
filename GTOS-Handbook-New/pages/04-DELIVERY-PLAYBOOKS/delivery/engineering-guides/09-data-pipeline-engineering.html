@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data Pipeline Engineering Guide · GTOS Handbook</title>
+<meta name="description" content="Data Pipeline Engineering Guide Source Classification Every source is classified as authoritative, observational, derived, reference, or external unverified. Th">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Data Pipeline Engineering Guide</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Data Pipeline Engineering Guide</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#source-classification">Source Classification</a></li><li class="toc-level-2"><a href="#ingestion">Ingestion</a></li><li class="toc-level-2"><a href="#transformation">Transformation</a></li><li class="toc-level-2"><a href="#quality">Quality</a></li><li class="toc-level-2"><a href="#publication">Publication</a></li><li class="toc-level-2"><a href="#replay-and-backfill">Replay and Backfill</a></li><li class="toc-level-2"><a href="#operations">Operations</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="data-pipeline-engineering-guide">Data Pipeline Engineering Guide</h1>
+<br>
+<h2 id="source-classification">Source Classification <a href="#source-classification" class="heading-anchor">#</a></h2>
+<br>
+<p>Every source is classified as authoritative, observational, derived, reference, or external unverified. The pipeline preserves source identity, contract version, extraction time, event or observation time, and transformation lineage.</p>
+<br>
+<h2 id="ingestion">Ingestion <a href="#ingestion" class="heading-anchor">#</a></h2>
+<br>
+<p>Ingestion validates schema, integrity, authority, subject identity, classification, and temporal fields. Invalid records are quarantined with reason and ownership. The system does not silently coerce identifiers, currencies, units, or unknown enum values.</p>
+<br>
+<h2 id="transformation">Transformation <a href="#transformation" class="heading-anchor">#</a></h2>
+<br>
+<p>Transformations are deterministic where practical, versioned, tested, and traceable. Normalization preserves original representation. Joins declare temporal semantics and identity rules. AI extraction or classification creates derived claims with confidence and source span.</p>
+<br>
+<h2 id="quality">Quality <a href="#quality" class="heading-anchor">#</a></h2>
+<br>
+<p>Quality checks cover completeness, validity, uniqueness, consistency, timeliness, authority, and lineage. Thresholds are tied to use; a dataset suitable for trend analysis may be unsafe for a legal decision.</p>
+<br>
+<h2 id="publication">Publication <a href="#publication" class="heading-anchor">#</a></h2>
+<br>
+<p>A data product publishes grain, owner, schema, metric definitions, quality SLOs, access policy, retention, residency, and consumer support. Projections clearly disclose freshness and correction behavior.</p>
+<br>
+<h2 id="replay-and-backfill">Replay and Backfill <a href="#replay-and-backfill" class="heading-anchor">#</a></h2>
+<br>
+<p>Backfill is governed because current transformation logic may reinterpret historical data. The pipeline records code and rule versions and separates historically reproduced results from newly derived perspectives.</p>
+<br>
+<h2 id="operations">Operations <a href="#operations" class="heading-anchor">#</a></h2>
+<br>
+<p>Operators monitor lag, quarantine, schema change, quality drift, lineage failure, correction propagation, cost, and consumer impact. Recovery verifies completeness and avoids duplicate downstream effects.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A temperature-controlled pharmaceutical shipment moves from manufacturer to airport, airline, destination terminal, customs, and hospital distributor. Product stability, custody, temperature, documentation, release, and insurance are governed by different authorities. The Product…">
+<meta name="color-scheme" content="light dark">
+<title>Scenario — Pharmaceutical Cold Chain · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/scenarios/pharmaceutical-cold-chain.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Scenarios</span><span class="sep">/</span><span>Scenario — Pharmaceutical Cold Chain</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>230 words</span></div>
+        <h1>Scenario — Pharmaceutical Cold Chain</h1>
+        <p class="lede">A temperature-controlled pharmaceutical shipment moves from manufacturer to airport, airline, destination terminal, customs, and hospital distributor. Product stability, custody, temperature, documentation, release, and insurance are governed by different authorities. The Product…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="context">Context<a aria-label="Link to section" class="heading-anchor" href="#context">#</a></h2>
+<p>A temperature-controlled pharmaceutical shipment moves from manufacturer to airport, airline, destination terminal, customs, and hospital distributor. Product stability, custody, temperature, documentation, release, and insurance are governed by different authorities.</p>
+<h2 id="flow">Flow<a aria-label="Link to section" class="heading-anchor" href="#flow">#</a></h2>
+<p>The Product Domain owns the regulated product identity and storage specification. The Agreement Domain owns service obligations. The Shipment Domain owns cargo grouping and custody milestones. Sensors publish Observations. The platform records occurrence, observation, and recording time separately.</p>
+<p>At 14:02 the refrigeration unit fails. A sensor observes the condition at 14:05. Connectivity transmits it at 14:09. Risk produces a recommendation at 14:10. An authorized logistics Decision at 14:12 directs transfer to qualified cold storage. Intent is issued to the terminal operator, which executes and records the Outcome.</p>
+<h2 id="architectural-analysis">Architectural Analysis<a aria-label="Link to section" class="heading-anchor" href="#architectural-analysis">#</a></h2>
+<p>The sensor Observation is not automatically authoritative product damage. Product stability may require duration, temperature curve, and qualified assessment. The AI recommendation is not the Decision. The Decision Record includes the knowledge cutoff and evidence. Insurance and compliance consume the preserved chain.</p>
+<h2 id="failure-handling">Failure Handling<a aria-label="Link to section" class="heading-anchor" href="#failure-handling">#</a></h2>
+<p>If the sensor is later found miscalibrated, the original Observation remains. A correction and calibration evidence are added. Decisions are reviewed using what was knowable at the time. Remediation may be unnecessary, but the earlier emergency transfer remains a real Outcome.</p>
+<h2 id="canon-coverage">Canon Coverage<a aria-label="Link to section" class="heading-anchor" href="#canon-coverage">#</a></h2>
+<p>This scenario exercises all eleven Canons, particularly time, knowledge, decision, intent, and historical correction.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#context">Context</a><a class="toc-level-2" href="#flow">Flow</a><a class="toc-level-2" href="#architectural-analysis">Architectural Analysis</a><a class="toc-level-2" href="#failure-handling">Failure Handling</a><a class="toc-level-2" href="#canon-coverage">Canon Coverage</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="multi-party-shipment.html"><span>Previous</span><strong>Scenario — Multi-Party Shipment Consolidation</strong></a>
+        <a class="next" href="sanctions-screening.html"><span>Next</span><strong>Scenario — Sanctions and Restricted-Party Screening</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

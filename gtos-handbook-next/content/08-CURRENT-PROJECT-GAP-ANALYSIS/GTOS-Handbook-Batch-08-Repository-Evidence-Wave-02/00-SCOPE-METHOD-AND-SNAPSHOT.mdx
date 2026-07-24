@@ -1,0 +1,42 @@
+---
+title: "00 — Scope, Method, and Repository Snapshot"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="00 — Scope, Method, and Repository Snapshot"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "00 — Scope, Method, and Repository Snapshot" }
+  ]}
+>
+
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Field","sortable":true},{"key":"col1","label":"Value","sortable":true}]} data={[{"col0":"Repository","col1":"<code class=\"code-inline\">chinair88-prog/allinb2c</code>"},{"col0":"Evidence snapshot","col1":"<code class=\"code-inline\">14cc83805e7386c3d5cdec6ad191b1078fd502ff</code>"},{"col0":"Handbook branch","col1":"<code class=\"code-inline\">gtos/handbook-repository-grounded-expansion-v2</code>"},{"col0":"Wave","col1":"Repository Evidence Wave 02"},{"col0":"Scope","col1":"Quality؛ documents؛ customs؛ transport؛ warehouse؛ inventory"},{"col0":"Evidence standard","col1":"ادعای محدود و پشتیبانی‌شده با فایل اجرایی بررسی‌شده"}]} />
+<br />
+<h2 id="-">روش بررسی</h2>
+<br />
+<p>ابتدا جست‌وجوی کد انجام شد و سپس فایل‌های منتخب Java، TypeScript و SQL مستقیماً خوانده شدند. وجود نام فایل یا route به‌تنهایی Implementation محسوب نشد.</p>
+<br />
+<p>در تمام فصل‌ها این تمایزها حفظ شده‌اند:</p>
+<br />
+<p>1. frontend presentation در برابر backend execution؛</p>
+<p>2. software quality در برابر trade-goods quality؛</p>
+<p>3. platform status در برابر external legal authority؛</p>
+<p>4. وجود جدول در برابر lifecycle کامل؛</p>
+<p>5. ذخیره idempotency key در برابر جلوگیری واقعی از duplicate؛</p>
+<p>6. وجود tenant field در برابر tenant enforcement قابل اعتماد؛</p>
+<p>7. status string در برابر state machine کنترل‌شده؛</p>
+<p>8. فراخوانی Event publisher در برابر delivery تضمین‌شده و outbox.</p>
+<br />
+<h2 id="">محدودیت‌ها</h2>
+<br />
+<p>- Deployment این snapshot اثبات نشده است.</p>
+<p>- وجود فایل Test به‌معنی اجرای موفق Test یا CI نیست.</p>
+<p>- migrationها از روی source بررسی شده‌اند، نه اجرای مستقل.</p>
+<p>- outcomeهای customs، carrier، inspector و warehouse فقط با authority evidence می‌توانند authoritative شوند.</p>
+<p>- بخشی از controllerها direct JDBC دارند و هماهنگی runtime datasource با migration نیازمند integration test است.</p>
+<br />
+</ContentPage>

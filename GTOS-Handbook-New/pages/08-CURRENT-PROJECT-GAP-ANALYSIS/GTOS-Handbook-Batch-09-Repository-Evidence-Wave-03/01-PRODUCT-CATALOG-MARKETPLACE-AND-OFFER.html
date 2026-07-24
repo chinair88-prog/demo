@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>01 — Product Catalog, Marketplace Catalog, and Offer · GTOS Handbook</title>
+<meta name="description" content="01 — Product Catalog, Marketplace Catalog, and Offer Three overlapping product representations سه representation اجرایی وجود دارد: 1. catalog.products در produc">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/index.html">GTOS Handbook Batch 09 Repository Evidence Wave 03</a> <span class="sep">›</span> <span>01 — Product Catalog, Marketplace Catalog, and Offer</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>01 — Product Catalog, Marketplace Catalog, and Offer</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#three-overlapping-product-representations">Three overlapping product representations</a></li><li class="toc-level-2"><a href="#product-catalog-service">Product Catalog Service</a></li><li class="toc-level-2"><a href="#critical-catalog-findings">Critical catalog findings</a></li><li class="toc-level-2"><a href="#marketplace-product-catalog">Marketplace Product Catalog</a></li><li class="toc-level-2"><a href="#missing-offer-aggregate">Missing Offer aggregate</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="01-product-catalog-marketplace-catalog-and-offer">01 — Product Catalog, Marketplace Catalog, and Offer</h1>
+<br>
+<h2 id="three-overlapping-product-representations">Three overlapping product representations <a href="#three-overlapping-product-representations" class="heading-anchor">#</a></h2>
+<br>
+<p>سه representation اجرایی وجود دارد:</p>
+<br>
+<li><code>catalog.products</code> در <code>product-catalog-service</code> با <code>ProductEntity</code>.</li>
+<li>یک read mapping دیگر روی همان جدول در <code>marketplace-service</code> با <code>CatalogProductEntity</code>.</li>
+<li><code>marketplace.product_catalog_entries</code> با tenant/company، unit price، MOQ، lead time و verification fields.</li>
+<br>
+<p>این وضعیت برای Product Master و Marketplace Offer برابر است با:</p>
+<br>
+<p><code>CONFLICT_REQUIRES_CANONICALIZATION</code></p>
+<br>
+<h2 id="product-catalog-service">Product Catalog Service <a href="#product-catalog-service" class="heading-anchor">#</a></h2>
+<br>
+<p><code>ProductController</code> و <code>ProductService</code> رفتارهای زیر را ارائه می‌کنند:</p>
+<br>
+<li>list/search/filter؛</li>
+<li>get by ID و slug؛</li>
+<li>create/update/archive؛</li>
+<li>update status؛</li>
+<li>resell from purchase؛</li>
+<li>similar products؛</li>
+<li>tiered pricing.</li>
+<br>
+<p><code>ProductEntity</code> شامل multilingual names، SKU، category، supplier، brand، origin، HS code، status، visibility، base/compare/cost price، dimensions، MOQ، tax، approval fields و source tracking است.</p>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="critical-catalog-findings">Critical catalog findings <a href="#critical-catalog-findings" class="heading-anchor">#</a></h2>
+<br>
+<li><code>ProductEntity</code> tenant/company field ندارد.</li>
+<li><code>@Version</code> روی Product دیده نشد.</li>
+<li>Controller authorization annotation اجرایی دیده نشد و actor fallback برابر <code>anonymous</code> است.</li>
+<li><code>updateProduct</code> می‌تواند status را مستقیم از request تنظیم کند و dedicated status workflow را دور بزند.</li>
+<li><code>updateProductStatus</code> transition matrix یا role guard آشکار ندارد.</li>
+<li><code>resellFromPurchase</code> ownership منبع، Inventory possession، Quality eligibility یا legal resale eligibility را verify نمی‌کند.</li>
+<li>Product خود base/cost/compare price نگه می‌دارد، درحالی‌که Pricing و Marketplace نیز pricing دارند.</li>
+<li>Product tier prices hard-coded هستند و Price Version مستقل نیستند.</li>
+<br>
+<h2 id="marketplace-product-catalog">Marketplace Product Catalog <a href="#marketplace-product-catalog" class="heading-anchor">#</a></h2>
+<br>
+<p><code>marketplace.product_catalog_entries</code> tenant/company-aware است و API CRUD، overview و category listing دارد. بااین‌حال:</p>
+<br>
+<li>create tenant/company را از request می‌پذیرد؛</li>
+<li>get/update/delete by ID tenant predicate آشکار ندارند؛</li>
+<li><code>isVerified</code> و <code>isFeatured</code> از request قابل تنظیم‌اند؛</li>
+<li>hard delete وجود دارد؛</li>
+<li><code>unitPrice</code> داخل Catalog Entry ذخیره می‌شود.</li>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="missing-offer-aggregate">Missing Offer aggregate <a href="#missing-offer-aggregate" class="heading-anchor">#</a></h2>
+<br>
+<p>یک Marketplace Offer canonical که Seller، Product Version، Price Version، Inventory Eligibility، Channel، Region، Terms، Availability Window و Publication Decision را immutable snapshot کند، در شواهد بررسی‌شده پیدا نشد.</p>
+<br>
+<p>Target boundary:</p>
+<br>
+<pre><code class="language-text">
+ProductMaster
+
+→ ProductVersion
+
+→ SellerAssortmentEligibility
+
+→ PriceVersion
+
+→ MarketplaceOffer
+
+→ OfferPublicationDecision
+
+→ CheckoutOfferSnapshot
+
+</code></pre>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

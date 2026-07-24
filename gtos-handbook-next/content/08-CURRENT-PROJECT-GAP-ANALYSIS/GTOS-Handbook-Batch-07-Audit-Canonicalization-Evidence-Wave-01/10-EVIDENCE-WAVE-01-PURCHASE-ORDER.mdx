@@ -1,0 +1,62 @@
+---
+title: "Repository Evidence Wave 01 - Purchase Order"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="Repository Evidence Wave 01 - Purchase Order"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "Repository Evidence Wave 01 - Purchase Order" }
+  ]}
+>
+
+<br />
+<h2 id="evidence-baseline">Evidence baseline</h2>
+<br />
+<p>Two independent implementations were inspected.</p>
+<br />
+<p>Procurement:</p>
+<br />
+<p>- <code class="code-inline">backend/domain/commerce/procurement-service/.../PurchaseOrderEntity.java</code></p>
+<p>- <code class="code-inline">backend/domain/commerce/procurement-service/.../PurchaseOrderService.java</code></p>
+<p>- <code class="code-inline">backend/domain/commerce/procurement-service/.../PurchaseOrderController.java</code></p>
+<br />
+<p>Tajerestan:</p>
+<br />
+<p>- <code class="code-inline">backend/domain/commerce/tajerestan-services/.../PurchaseOrderEntity.java</code></p>
+<p>- <code class="code-inline">backend/domain/commerce/tajerestan-services/.../PurchaseOrderService.java</code></p>
+<br />
+<h2 id="procurement-implementation">Procurement implementation</h2>
+<br />
+<p>The Procurement Entity maps to <code class="code-inline">procurement.purchase_orders</code> and records tenant, company, PO number, supplier, RFQ, status, order and delivery dates, currency, financial totals, notes, creator, approver, and timestamps.</p>
+<br />
+<p>The service implements list by tenant/company, get, create, full update, delete, and item CRUD. The controller exposes these operations under <code class="code-inline">/api/procurement/purchase-orders</code>.</p>
+<br />
+<h2 id="tajerestan-implementation">Tajerestan implementation</h2>
+<br />
+<p>The Tajerestan Entity maps to an unqualified <code class="code-inline">purchase_orders</code> table. It includes RFQ and quotation references, buyer and supplier identities/names, Incoterm, shipping, tax and totals, balance due, payment terms, tracking, carrier, planned/actual dates, approval, cancellation, completion, customs fields, documents, tenant, and line items.</p>
+<br />
+<p>The service implements creation and financial calculation, list/search, update, approve, receive goods, statistics, and Events <code class="code-inline">trade.po.created</code>, <code class="code-inline">.updated</code>, <code class="code-inline">.approved</code>, and <code class="code-inline">.goods-received</code>.</p>
+<br />
+<h2 id="critical-ownership-conflict">Critical ownership conflict</h2>
+<br />
+<p>The repository contains at least two materially different Purchase Order aggregates with different packages, schemas, identity types, fields, APIs, lifecycle scope, and responsibilities. Neither can be silently declared the canonical PO without an ownership decision.</p>
+<br />
+<h2 id="verified-gaps">Verified gaps</h2>
+<br />
+<p>- Procurement get-by-ID is not tenant-scoped in the inspected service.</p>
+<p>- Procurement accepts tenant/company from request data and its controller exposes tenant as query input; trusted-context enforcement was not found in the inspected files.</p>
+<p>- Procurement full update can replace status and commercial values without state guards or immutable versions.</p>
+<p>- Procurement delete physically removes items and the PO, conflicting with historical-integrity requirements.</p>
+<p>- Tajerestan update and approve methods use direct string state mutation without visible transition guards.</p>
+<p>- Tajerestan <code class="code-inline">receiveGoods</code> mixes warehouse receiving and PO state.</p>
+<p>- Supplier acknowledgement is not represented as a distinct aggregate or Decision in inspected files.</p>
+<br />
+<h2 id="status-decision">Status decision</h2>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Capability","sortable":true},{"key":"col1","label":"Status","sortable":true}]} data={[{"col0":"Procurement PO CRUD and item operations","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"Tajerestan PO creation, approval, receipt and Events","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"canonical PO ownership","col1":"<code class=\"code-inline\">CONFLICT_REQUIRES_CANONICALIZATION</code>"},{"col0":"tenant isolation","col1":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code> / <code class=\"code-inline\">REQUIRES_REPOSITORY_REVIEW</code>"},{"col0":"immutable PO versions and governed amendments","col1":"<code class=\"code-inline\">PLANNED_NOT_IMPLEMENTED</code> in inspected code"},{"col0":"supplier acknowledgement","col1":"<code class=\"code-inline\">REQUIRES_REPOSITORY_REVIEW</code>"},{"col0":"historical integrity","col1":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code> because destructive delete exists"}]} />
+<br />
+</ContentPage>

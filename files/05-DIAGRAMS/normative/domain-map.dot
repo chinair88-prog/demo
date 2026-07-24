@@ -1,0 +1,18 @@
+
+digraph G {
+  graph [rankdir=LR, bgcolor="transparent", pad=0.2, nodesep=0.25, ranksep=0.5];
+  node [shape=box, style="rounded,filled", fillcolor="#f3f7fb", color="#315d88", fontname="DejaVu Sans", fontsize=9];
+  edge [color="#6c8093", arrowsize=0.6];
+  Identity -> Customer -> Cart -> Checkout -> Order -> Fulfilment -> Delivery -> Returns;
+  Product -> Offer -> Checkout;
+  Pricing -> Offer;
+  Inventory -> Checkout;
+  Order -> Payment -> Settlement;
+  Order -> Inventory -> Warehouse -> Shipping -> Delivery;
+  Procurement -> Quotation -> Contract -> PI -> PO -> Manufacturing -> Quality -> Documents -> ExportCustoms -> Shipping;
+  Shipping -> ImportCustoms -> Warehouse;
+  AI [fillcolor="#eee8ff", color="#6650a4"];
+  Platform [fillcolor="#e5f4ec", color="#287552"];
+  AI -> Checkout [style=dashed]; AI -> Manufacturing [style=dashed]; AI -> Shipping [style=dashed]; AI -> Returns [style=dashed];
+  Platform -> Identity [style=dashed]; Platform -> Payment [style=dashed]; Platform -> Shipping [style=dashed];
+}

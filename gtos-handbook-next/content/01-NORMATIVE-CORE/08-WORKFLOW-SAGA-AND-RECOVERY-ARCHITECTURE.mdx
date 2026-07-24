@@ -1,0 +1,46 @@
+---
+title: "Workflow, Saga, and Recovery Architecture"
+section: "Normative Core"
+---
+
+<ContentPage
+  title="Workflow, Saga, and Recovery Architecture"
+  section="Normative Core"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Normative Core", href: "/content" },
+    { label: "Workflow, Saga, and Recovery Architecture" }
+  ]}
+>
+
+<br />
+<h2 id="workflow-responsibilities">Workflow responsibilities</h2>
+<br />
+<p>A workflow coordinates time, dependencies, approvals, external calls, retries, and compensation. It does not own the business facts produced by Domain services.</p>
+<br />
+<h2 id="required-workflow-state">Required workflow state</h2>
+<br />
+<p>- process ID and business correlation;</p>
+<p>- participating subjects and exact versions;</p>
+<p>- current step and deadlines;</p>
+<p>- submitted Commands and idempotency keys;</p>
+<p>- observed Events and external responses;</p>
+<p>- approvals and authority;</p>
+<p>- retry budget and next action;</p>
+<p>- compensation status;</p>
+<p>- operator interventions;</p>
+<p>- final outcome and audit.</p>
+<br />
+<h2 id="outcome-unknown">Outcome Unknown</h2>
+<br />
+<p>When a call times out after possible external execution, the workflow records Outcome Unknown. It queries the provider, waits for a verified callback, or opens reconciliation. It does not retry a financial, customs, custody, or irreversible physical action blindly.</p>
+<br />
+<h2 id="compensation">Compensation</h2>
+<br />
+<p>Compensation creates a new authorized Intent: release reservation, cancel booking, reverse ledger entry, issue correction, or request refund. It never deletes the original completed fact.</p>
+<br />
+<h2 id="operational-requirements">Operational requirements</h2>
+<br />
+<p>Workflows must survive process restart, deployment, broker outage, duplicate Event, late Event, timer loss, and manual intervention. Stalled and orphaned instances are observable and recoverable.</p>
+<br />
+</ContentPage>

@@ -1,0 +1,44 @@
+---
+title: "Relationship-Aware Access Pattern"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Relationship-Aware Access Pattern"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Relationship-Aware Access Pattern" }
+  ]}
+>
+
+<br />
+<h2 id="problem">Problem</h2>
+<br />
+<p>Role-based access alone cannot express trade relationships such as broker mandate, carrier custody, buyer-supplier contract, insurer coverage, customs jurisdiction, or temporary investigation assignment.</p>
+<br />
+<h2 id="policy-context">Policy Context</h2>
+<br />
+<p>Authorization evaluates:</p>
+<br />
+<p>- authenticated identity;</p>
+<p>- requested action;</p>
+<p>- resource and classification;</p>
+<p>- active Relationship and role;</p>
+<p>- delegation or mandate;</p>
+<p>- jurisdiction;</p>
+<p>- business purpose;</p>
+<p>- case or workflow context;</p>
+<p>- time;</p>
+<p>- risk and evidence requirements.</p>
+<br />
+<h2 id="example">Example</h2>
+<br />
+<p>A customs broker may submit a declaration for an importer only while a valid mandate exists for the applicable jurisdiction and commodity scope. Access to unrelated importer records is not implied.</p>
+<br />
+<h2 id="controls">Controls</h2>
+<br />
+<p>Relationship validity SHALL be checked at decision time. Revocation SHALL propagate promptly. Cached authorization SHALL not outlive delegation. Policy results SHALL record version and material inputs. Emergency access requires heightened logging, expiry, and review.</p>
+<br />
+</ContentPage>

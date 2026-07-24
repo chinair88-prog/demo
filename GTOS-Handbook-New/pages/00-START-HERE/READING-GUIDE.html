@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reading Guide · GTOS Handbook</title>
+<meta name="description" content="Reading Guide Executive and product leaders Read the System Blueprint, Target Operating Model, Domain Map, Lifecycle, AI Governance, Security, Roadmap, and Comp">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/00-START-HERE/index.html">START HERE</a> <span class="sep">›</span> <span>Reading Guide</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Start Here</span>
+        </div>
+        <h1>Reading Guide</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#executive-and-product-leaders">Executive and product leaders</a></li><li class="toc-level-2"><a href="#architects">Architects</a></li><li class="toc-level-2"><a href="#backend-engineers">Backend engineers</a></li><li class="toc-level-2"><a href="#frontend-engineers">Frontend engineers</a></li><li class="toc-level-2"><a href="#data-and-ai-engineers">Data and AI engineers</a></li><li class="toc-level-2"><a href="#sre-and-security-engineers">SRE and security engineers</a></li><li class="toc-level-2"><a href="#how-to-implement-a-feature">How to implement a feature</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="reading-guide">Reading Guide</h1>
+<br>
+<h2 id="executive-and-product-leaders">Executive and product leaders <a href="#executive-and-product-leaders" class="heading-anchor">#</a></h2>
+<br>
+<p>Read the System Blueprint, Target Operating Model, Domain Map, Lifecycle, AI Governance, Security, Roadmap, and Completion Definition.</p>
+<br>
+<h2 id="architects">Architects <a href="#architects" class="heading-anchor">#</a></h2>
+<br>
+<p>Read the Canon, Constitution, Normative Core, Domain Architecture volumes, Data and Contract volumes, Platform, Infrastructure, Security, Migration, and Conformance volumes.</p>
+<br>
+<h2 id="backend-engineers">Backend engineers <a href="#backend-engineers" class="heading-anchor">#</a></h2>
+<br>
+<p>Start with Service Architecture, Data Architecture, API and Event Architecture, Workflow and Saga Architecture, Engineering Standards, Testing, and the relevant Domain packs.</p>
+<br>
+<h2 id="frontend-engineers">Frontend engineers <a href="#frontend-engineers" class="heading-anchor">#</a></h2>
+<br>
+<p>Read Portal and Experience Architecture, Identity and Authorization, API Contracts, Event/Reactivity patterns, Accessibility, localization, observability, and the relevant Domain journeys.</p>
+<br>
+<h2 id="data-and-ai-engineers">Data and AI engineers <a href="#data-and-ai-engineers" class="heading-anchor">#</a></h2>
+<br>
+<p>Read the Reference Theory, Data and Database Reference, AI Operating System, AI Security, Evaluation, lineage, evidence, uncertainty, and model/tool governance.</p>
+<br>
+<h2 id="sre-and-security-engineers">SRE and security engineers <a href="#sre-and-security-engineers" class="heading-anchor">#</a></h2>
+<br>
+<p>Read Platform, Infrastructure, Security, Operations, SRE, Testing, Disaster Recovery, Incident Management, and Production Readiness.</p>
+<br>
+<h2 id="how-to-implement-a-feature">How to implement a feature <a href="#how-to-implement-a-feature" class="heading-anchor">#</a></h2>
+<br>
+<p>For every feature, traverse this chain:</p>
+<br>
+<pre><code class="language-text">
+Business capability
+
+-> Domain owner
+
+-> Aggregate and invariant
+
+-> Decision and authority
+
+-> Command and workflow
+
+-> API and Event contract
+
+-> Database ownership
+
+-> Portal journey
+
+-> Security and privacy controls
+
+-> SLO and runbook
+
+-> Tests and release evidence
+
+</code></pre>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

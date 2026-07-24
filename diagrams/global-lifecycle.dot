@@ -1,0 +1,7 @@
+digraph G {
+rankdir=LR; graph [bgcolor="transparent", pad="0.4", splines="ortho", nodesep="0.35", ranksep="0.55"];
+node [fontname="Arial", fontsize=9.5, shape=rect, style="rounded,filled", fillcolor="#F5FAFB", color="#2D7180", penwidth=1.35, margin="0.12,0.08"];
+edge [color="#688790", arrowsize=0.62];
+Need [label="Demand & Requirement"]; Source [label="Sourcing & RFQ"]; Quote [label="Quotation & Negotiation"]; PO [label="Purchase Order"]; Production [label="Manufacturing"]; Quality [label="Quality Release"]; Docs [label="Packing & Commercial Docs"]; Export [label="Export Customs"]; Transport [label="International Transport"]; Import [label="Import Customs"]; Receive [label="Warehouse Receiving"]; Inventory [label="Inventory Eligibility"]; Offer [label="Marketplace Offer"]; Checkout [label="Checkout & Order"]; Fulfil [label="Fulfilment"]; Deliver [label="Delivery"]; After [label="Returns & Settlement"];
+Need -> Source -> Quote -> PO -> Production -> Quality -> Docs -> Export -> Transport -> Import -> Receive -> Inventory -> Offer -> Checkout -> Fulfil -> Deliver -> After;
+}

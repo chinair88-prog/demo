@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTOS Completion Definition · GTOS Handbook</title>
+<meta name="description" content="GTOS Completion Definition A GTOS capability is complete only when every required question below has an evidencebacked answer. Business and ownership What busin">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/00-START-HERE/index.html">START HERE</a> <span class="sep">›</span> <span>GTOS Completion Definition</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Start Here</span>
+        </div>
+        <h1>GTOS Completion Definition</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#business-and-ownership">Business and ownership</a></li><li class="toc-level-2"><a href="#domain-model">Domain model</a></li><li class="toc-level-2"><a href="#contracts-and-data">Contracts and data</a></li><li class="toc-level-2"><a href="#experience-and-automation">Experience and automation</a></li><li class="toc-level-2"><a href="#quality-and-operations">Quality and operations</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="gtos-completion-definition">GTOS Completion Definition</h1>
+<br>
+<p>A GTOS capability is complete only when every required question below has an evidence-backed answer.</p>
+<br>
+<h2 id="business-and-ownership">Business and ownership <a href="#business-and-ownership" class="heading-anchor">#</a></h2>
+<br>
+<li>What business outcome does the capability produce?</li>
+<li>Which bounded context owns each proposition?</li>
+<li>Which external authority owns legal, financial, quality, carrier, or regulatory outcomes?</li>
+<li>Who may decide, approve, execute, correct, revoke, and appeal?</li>
+<br>
+<h2 id="domain-model">Domain model <a href="#domain-model" class="heading-anchor">#</a></h2>
+<br>
+<li>What are the canonical subjects and stable identities?</li>
+<li>What are the aggregates, entities, value objects, relationships, and invariants?</li>
+<li>What state machines exist and what guards every transition?</li>
+<li>What history, correction, supersession, contradiction, and dispute semantics apply?</li>
+<br>
+<h2 id="contracts-and-data">Contracts and data <a href="#contracts-and-data" class="heading-anchor">#</a></h2>
+<br>
+<li>What Commands, Events, queries, APIs, webhooks, files, and tools exist?</li>
+<li>Which service owns each database, schema, table, index, and migration?</li>
+<li>How are idempotency, concurrency, ordering, replay, reconciliation, and versioning handled?</li>
+<li>How are lineage, classification, retention, residency, and deletion handled?</li>
+<br>
+<h2 id="experience-and-automation">Experience and automation <a href="#experience-and-automation" class="heading-anchor">#</a></h2>
+<br>
+<li>Which personas and Portals participate?</li>
+<li>How are partial, stale, denied, failed, disputed, and outcome-unknown states displayed?</li>
+<li>What AI tasks are allowed, what autonomy level applies, and what human approval is required?</li>
+<li>What evidence and explanation accompany automated recommendations and actions?</li>
+<br>
+<h2 id="quality-and-operations">Quality and operations <a href="#quality-and-operations" class="heading-anchor">#</a></h2>
+<br>
+<li>What security and privacy controls are enforced?</li>
+<li>What SLOs, dashboards, alerts, runbooks, capacity limits, and recovery objectives exist?</li>
+<li>What unit, property, integration, contract, security, performance, chaos, migration, E2E, and DR tests prove the behavior?</li>
+<li>What release evidence demonstrates deployability and operability?</li>
+<br>
+<p>A module name, route, table, mock screen, plan, or generated document is never sufficient evidence by itself.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

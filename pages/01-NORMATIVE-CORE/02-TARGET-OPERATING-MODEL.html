@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="GTOS should be operated through durable product and platform teams aligned to bounded contexts, not temporary component projects. Identity and Organization; - Customer and CRM; - Product, Catalog, Marketplace, Pricing, and Promotions; - Procurement, Quotation, Contract, PI, and P…">
+<meta name="color-scheme" content="light dark">
+<title>Target Operating Model · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/search-index.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/01-NORMATIVE-CORE/02-TARGET-OPERATING-MODEL.html" data-root="../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../index.html"><img src="../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../pdf-library.html">PDFs</a>
+    <a href="../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../index.html">Home</a><span class="sep">/</span><span>Normative Core</span><span class="sep">/</span><span>Target Operating Model</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Normative Core</span><span>206 words</span></div>
+        <h1>Target Operating Model</h1>
+        <p class="lede">GTOS should be operated through durable product and platform teams aligned to bounded contexts, not temporary component projects. Identity and Organization; - Customer and CRM; - Product, Catalog, Marketplace, Pricing, and Promotions; - Procurement, Quotation, Contract, PI, and P…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="product-organization">Product organization<a aria-label="Link to section" class="heading-anchor" href="#product-organization">#</a></h2>
+<p>GTOS should be operated through durable product and platform teams aligned to bounded contexts, not temporary component projects.</p>
+<h3 id="business-product-groups">Business product groups<a aria-label="Link to section" class="heading-anchor" href="#business-product-groups">#</a></h3>
+<ul>
+<li>Identity and Organization;</li>
+<li>Customer and CRM;</li>
+<li>Product, Catalog, Marketplace, Pricing, and Promotions;</li>
+<li>Procurement, Quotation, Contract, PI, and Purchase Order;</li>
+<li>Payment, Wallet, Billing, Finance Control, and Settlement;</li>
+<li>Manufacturing and Quality;</li>
+<li>Shipping, Customs, Provider, and Regulatory;</li>
+<li>Warehouse, Inventory, Fulfilment, Delivery, and Returns;</li>
+<li>Engagement and Communications.</li>
+</ul>
+<h3 id="platform-groups">Platform groups<a aria-label="Link to section" class="heading-anchor" href="#platform-groups">#</a></h3>
+<ul>
+<li>Developer Platform and API Gateway;</li>
+<li>Data Platform;</li>
+<li>Event and Workflow Platform;</li>
+<li>Identity and Security Platform;</li>
+<li>AI Platform and Model Governance;</li>
+<li>Observability and Reliability Platform;</li>
+<li>Cloud and Infrastructure Platform.</li>
+</ul>
+<h2 id="decision-rights">Decision rights<a aria-label="Link to section" class="heading-anchor" href="#decision-rights">#</a></h2>
+<ul>
+<li>Domain teams own business semantics and invariants.</li>
+<li>Platform teams own reusable technical capabilities and paved roads.</li>
+<li>Security and privacy authorities define mandatory controls and exceptions.</li>
+<li>Architecture governance resolves ownership and compatibility disputes.</li>
+<li>SRE defines production readiness and reliability policy.</li>
+<li>AI Governance approves autonomy, tools, evaluation, and kill-switch policy.</li>
+</ul>
+<h2 id="delivery-model">Delivery model<a aria-label="Link to section" class="heading-anchor" href="#delivery-model">#</a></h2>
+<p>Work is delivered as vertical slices that include Domain behavior, persistence, contract, Portal journey, security, observability, tests, migration, runbook, and release evidence.</p>
+<h2 id="governance-cadence">Governance cadence<a aria-label="Link to section" class="heading-anchor" href="#governance-cadence">#</a></h2>
+<ul>
+<li>weekly Domain design review;</li>
+<li>biweekly contract and integration review;</li>
+<li>monthly architecture and security council;</li>
+<li>quarterly resilience, disaster recovery, and AI governance review;</li>
+<li>release-specific production readiness review;</li>
+<li>annual Canon and Constitution review.</li>
+</ul>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#product-organization">Product organization</a><a class="toc-level-3" href="#business-product-groups">Business product groups</a><a class="toc-level-3" href="#platform-groups">Platform groups</a><a class="toc-level-2" href="#decision-rights">Decision rights</a><a class="toc-level-2" href="#delivery-model">Delivery model</a><a class="toc-level-2" href="#governance-cadence">Governance cadence</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="01-ARCHITECTURAL-PRINCIPLES.html"><span>Previous</span><strong>Architectural Principles</strong></a>
+        <a class="next" href="03-DOMAIN-MAP-AND-OWNERSHIP.html"><span>Next</span><strong>Domain Map and Ownership</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

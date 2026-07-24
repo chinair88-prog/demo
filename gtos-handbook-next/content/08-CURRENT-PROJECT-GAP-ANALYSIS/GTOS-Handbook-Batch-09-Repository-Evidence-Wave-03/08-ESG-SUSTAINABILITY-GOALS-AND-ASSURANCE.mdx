@@ -1,0 +1,54 @@
+---
+title: "08 — ESG, Sustainability Goals, and Assurance"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="08 — ESG, Sustainability Goals, and Assurance"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "08 — ESG, Sustainability Goals, and Assurance" }
+  ]}
+>
+
+<br />
+<h2 id="implemented-goal-management">Implemented goal management</h2>
+<br />
+<p>Compliance Service برای Sustainability Goal این رفتارها را دارد:</p>
+<br />
+<p>- create/update؛</p>
+<p>- activate؛</p>
+<p>- update progress؛</p>
+<p>- archive/delete؛</p>
+<p>- get/list/filter by tenant/status/type؛</p>
+<p>- Kafka send برای goal events.</p>
+<br />
+<p>Goal شامل baseline، target، year، scope، reduction type، framework، SBTi flag، plan، milestones، owner، budget و progress است.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_GAP</code>.</p>
+<br />
+<h2 id="critical-esg-findings">Critical ESG findings</h2>
+<br />
+<p>- Controller authorization و trusted tenant context آشکار ندارد.</p>
+<p>- tenantId از request/path گرفته می‌شود.</p>
+<p>- get/update/activate/delete by ID tenant-scoped نیستند.</p>
+<p>- <code class="code-inline">getAllGoals()</code> global است.</p>
+<p>- currentValue از request parameter مستقیم پذیرفته می‌شود؛ Measurement Source، methodology، evidence و assurance وجود ندارد.</p>
+<p>- progress formula target semantics را مخلوط می‌کند: درصد کاهش محاسبه‌شده با <code class="code-inline">targetValue</code> مقایسه می‌شود، درحالی‌که targetValue ممکن است absolute target باشد.</p>
+<p>- statusهای ON_TRACK/BEHIND_SCHEDULE فقط با threshold ثابت 75 تعیین می‌شوند و timeline نسبت به targetYear لحاظ نمی‌شود.</p>
+<p>- <code class="code-inline">isScienceBased</code> و SBTi fields self-asserted هستند.</p>
+<p>- Event payload فقط string نوع و ID است؛ failure catch/log می‌شود و outbox ندارد.</p>
+<p>- hard delete برای ESG goal وجود دارد.</p>
+<p>- یک SustainabilityGoal Entity دیگر در <code class="code-inline">specialized/carbon-tracking-service</code> وجود دارد؛ ownership conflict باید حل شود.</p>
+<br />
+<h2 id="assurance-boundary">Assurance boundary</h2>
+<br />
+<p>یک Goal record به‌تنهایی ESG disclosure، verified carbon footprint یا SBTi validation نیست.</p>
+<br />
+<p>مدل هدف:</p>
+<br />
+<CodeBlock code={"MeasurementSource\n→ ActivityData\n→ EmissionFactorVersion\n→ CalculationMethodVersion\n→ SustainabilityMetricObservation\n→ AssuranceEvidence\n→ GoalProgressAssessment\n→ DisclosureVersion"} language="text" />
+<br />
+</ContentPage>

@@ -1,0 +1,19 @@
+---
+title: "Implementation and Evidence Status Vocabulary"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="Implementation and Evidence Status Vocabulary"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "Implementation and Evidence Status Vocabulary" }
+  ]}
+>
+
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Status","sortable":true},{"key":"col1","label":"Meaning","sortable":true}]} data={[{"col0":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>","col1":"Executable code or migration supports the narrow claim"},{"col0":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>","col1":"Executable behavior exists with material gaps"},{"col0":"<code class=\"code-inline\">IMPLEMENTED_WITH_CRITICAL_GAPS</code>","col1":"Executable behavior exists but security or truth-integrity defects block safe use"},{"col0":"<code class=\"code-inline\">PARTIAL_IMPLEMENTATION</code>","col1":"Only a subset of the capability is executable"},{"col0":"<code class=\"code-inline\">DEPRECATED_IMPLEMENTATION</code>","col1":"Executable but explicitly deprecated or pending removal"},{"col0":"<code class=\"code-inline\">LOCAL_EVENT_ONLY</code>","col1":"In-process event exists without durable broker/outbox evidence"},{"col0":"<code class=\"code-inline\">SIMULATED_REFERENCE_IMPLEMENTATION</code>","col1":"Static, in-memory, or rule simulation; not a production external integration"},{"col0":"<code class=\"code-inline\">PLANNED_NOT_IMPLEMENTED</code>","col1":"Intent/comments/contracts exist without executable end-to-end behavior"},{"col0":"<code class=\"code-inline\">CONFLICT_REQUIRES_CANONICALIZATION</code>","col1":"Competing owners or Systems of Record exist"},{"col0":"<code class=\"code-inline\">REQUIRES_REPOSITORY_REVIEW</code>","col1":"Evidence remains insufficient"},{"col0":"<code class=\"code-inline\">TEST_FILE_DISCOVERED</code>","col1":"Test source exists; execution result is unverified"}]} />
+<br />
+</ContentPage>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Architecture Documentation Standard · GTOS Handbook</title>
+<meta name="description" content="Architecture Documentation Standard Purpose GTOS documentation is part of the control system. It communicates meaning, supports delivery, enables audit, and pre">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Architecture Documentation Standard</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Architecture Documentation Standard</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#purpose">Purpose</a></li><li class="toc-level-2"><a href="#required-metadata">Required Metadata</a></li><li class="toc-level-2"><a href="#writing-rules">Writing Rules</a></li><li class="toc-level-2"><a href="#diagram-rules">Diagram Rules</a></li><li class="toc-level-2"><a href="#currency">Currency</a></li><li class="toc-level-2"><a href="#decision-records">Decision Records</a></li><li class="toc-level-2"><a href="#operational-documentation">Operational Documentation</a></li><li class="toc-level-2"><a href="#accessibility">Accessibility</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="architecture-documentation-standard">Architecture Documentation Standard</h1>
+<br>
+<h2 id="purpose">Purpose <a href="#purpose" class="heading-anchor">#</a></h2>
+<br>
+<p>GTOS documentation is part of the control system. It communicates meaning, supports delivery, enables audit, and preserves decisions. Documents that cannot be maintained or verified create false confidence.</p>
+<br>
+<h2 id="required-metadata">Required Metadata <a href="#required-metadata" class="heading-anchor">#</a></h2>
+<br>
+<p>Normative documents declare title, purpose, owner, status, version, scope, dependencies, review date, and approval authority. Generated pages inherit repository version and source path. Machine-readable registries are used when structured ownership or traceability is required.</p>
+<br>
+<h2 id="writing-rules">Writing Rules <a href="#writing-rules" class="heading-anchor">#</a></h2>
+<br>
+<p>Use business terms from the glossary. Define new terms before use. Use SHALL only for objective conformance. Separate facts, assumptions, decisions, recommendations, examples, and open questions. Prefer tables for comparisons and matrices, diagrams for structure and flow, and scenarios for behavior.</p>
+<br>
+<h2 id="diagram-rules">Diagram Rules <a href="#diagram-rules" class="heading-anchor">#</a></h2>
+<br>
+<p>Every diagram has purpose, scope, legend where needed, and owned source. Logical diagrams SHALL not imply physical deployment accidentally. Arrows state meaning: data, Command, Event, authority, or dependency. Colors are not the sole carrier of information.</p>
+<br>
+<h2 id="currency">Currency <a href="#currency" class="heading-anchor">#</a></h2>
+<br>
+<p>Documentation changes with the implementation when meaning or operation changes. Broken links, obsolete owners, unsupported versions, and unresolved placeholders fail release validation. Generated site files are not edited directly.</p>
+<br>
+<h2 id="decision-records">Decision Records <a href="#decision-records" class="heading-anchor">#</a></h2>
+<br>
+<p>Consequential decisions use ADRs with context, options, decision, consequences, Canon traceability, and review trigger. Chat transcripts and presentation slides MAY support context but are not substitutes for the approved record.</p>
+<br>
+<h2 id="operational-documentation">Operational Documentation <a href="#operational-documentation" class="heading-anchor">#</a></h2>
+<br>
+<p>Runbooks contain triggers, authority, prerequisites, steps, evidence, rollback, escalation, and completion. During incidents, operators must be able to navigate from alert to runbook, dependency, owner, dashboard, and recent changes.</p>
+<br>
+<h2 id="accessibility">Accessibility <a href="#accessibility" class="heading-anchor">#</a></h2>
+<br>
+<p>Tables have clear headers, diagrams include text alternatives, language is direct, pages print cleanly, and UI supports keyboard navigation and responsive layouts.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

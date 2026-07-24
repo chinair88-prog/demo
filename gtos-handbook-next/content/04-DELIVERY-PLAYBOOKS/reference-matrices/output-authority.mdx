@@ -1,0 +1,19 @@
+---
+title: "Output and Authority Matrix"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Output and Authority Matrix"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Output and Authority Matrix" }
+  ]}
+>
+
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Output Type","sortable":true},{"key":"col1","label":"Describes","sortable":true},{"key":"col2","label":"Binding?","sortable":true},{"key":"col3","label":"Minimum Metadata","sortable":true}]} data={[{"col0":"Retrieval","col1":"existing source content","col2":"no","col3":"source, version, access context"},{"col0":"Extraction","col1":"structured interpretation","col2":"no","col3":"source span, method, confidence"},{"col0":"Inference","col1":"derived claim","col2":"no","col3":"premises, method, uncertainty"},{"col0":"Prediction","col1":"possible future","col2":"no","col3":"horizon, model, calibration"},{"col0":"Recommendation","col1":"proposed choice","col2":"no","col3":"evidence, alternatives, confidence"},{"col0":"Decision","col1":"governed commitment","col2":"yes within scope","col3":"authority, evidence, policy, time"},{"col0":"Intent","col1":"desired authorized effect","col2":"authorizes execution","col3":"objective, initiator, constraints"},{"col0":"Execution Request","col1":"technical request under Intent","col2":"may cause effect","col3":"Intent, idempotency, target"},{"col0":"Outcome","col1":"observed result","col2":"factual claim","col3":"source, time, evidence"}]} />
+<br />
+</ContentPage>

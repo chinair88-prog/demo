@@ -1,0 +1,34 @@
+---
+title: "Batch 09 Release Report"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="Batch 09 Release Report"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "Batch 09 Release Report" }
+  ]}
+>
+
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Field","sortable":true},{"key":"col1","label":"Value","sortable":true}]} data={[{"col0":"Release","col1":"Repository Evidence Wave 03"},{"col0":"Repository snapshot","col1":"<code class=\"code-inline\">14cc83805e7386c3d5cdec6ad191b1078fd502ff</code>"},{"col0":"GitHub branch","col1":"<code class=\"code-inline\">gtos/handbook-repository-grounded-expansion-v2</code>"},{"col0":"Scope","col1":"Catalog through AI Evaluation"},{"col0":"Maturity","col1":"Review artifact, not production certification"}]} />
+<br />
+<h2 id="principal-conclusions">Principal conclusions</h2>
+<br />
+<p>- Product/Catalog and Pricing have multiple competing authorities.</p>
+<p>- Cart and Checkout trust Client-supplied identity and price.</p>
+<p>- Customer Order has a tenant leak in list and unscoped bulk workflows.</p>
+<p>- Cross-service Order Saga is not implemented.</p>
+<p>- Pick/Pack is executable but not connected to Inventory consumption.</p>
+<p>- Last-Mile is a static in-memory optimizer and POD is absent.</p>
+<p>- Returns creates useful records but auto-approves, invents actor IDs, and does not execute restock/refund.</p>
+<p>- Marketplace and Payment both implement Settlement with unclear ownership.</p>
+<p>- ESG Goal tracking is self-reported and duplicated across services.</p>
+<p>- AI Evaluation is executable but run ownership, reviewer identity, score bounds and reproducibility are incomplete.</p>
+<br />
+<p>No area in this Wave is certified end-to-end complete.</p>
+<br />
+</ContentPage>

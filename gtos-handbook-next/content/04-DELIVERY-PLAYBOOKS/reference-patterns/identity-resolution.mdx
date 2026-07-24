@@ -1,0 +1,44 @@
+---
+title: "Identity Resolution Pattern"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Identity Resolution Pattern"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Identity Resolution Pattern" }
+  ]}
+>
+
+<br />
+<h2 id="problem">Problem</h2>
+<br />
+<p>Global trade participants are represented through legal names, registration numbers, tax identifiers, customs identifiers, partner codes, account numbers, facility identifiers, and credentials. These identifiers may be incomplete, duplicated, expired, reassigned, or valid only within a jurisdiction or relationship.</p>
+<br />
+<h2 id="pattern">Pattern</h2>
+<br />
+<p>GTOS separates the Entity from every Identifier. Each Identifier records issuer, namespace, jurisdiction, validity, verification status, evidence, and confidence. Identity resolution proposes candidate matches; an authorized identity decision establishes merge, link, split, or rejection.</p>
+<br />
+<h2 id="required-flow">Required Flow</h2>
+<br />
+<p>1. Receive an Observation containing one or more identifiers.</p>
+<p>2. Normalize without discarding the original representation.</p>
+<p>3. Retrieve candidate Entities.</p>
+<p>4. Evaluate deterministic and probabilistic evidence.</p>
+<p>5. Produce a Recommendation with confidence and explanation.</p>
+<p>6. Make an authorized identity Decision when consequences are material.</p>
+<p>7. Preserve the original Observation, Decision, and resulting Relationship.</p>
+<p>8. Propagate correction through governed events.</p>
+<br />
+<h2 id="failure-controls">Failure Controls</h2>
+<br />
+<p>A high similarity score SHALL NOT automatically merge legal parties when sanctions, payments, title, or regulatory rights may be affected. Merge operations SHALL be reversible through preserved history. Consumers SHALL distinguish canonical Entity identity from partner-specific identifiers.</p>
+<br />
+<h2 id="canon-traceability">Canon Traceability</h2>
+<br />
+<p>CANON-001, CANON-002, CANON-003, CANON-008, CANON-009, and CANON-010.</p>
+<br />
+</ContentPage>

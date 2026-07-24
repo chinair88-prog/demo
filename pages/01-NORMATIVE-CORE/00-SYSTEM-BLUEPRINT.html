@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="GTOS is a global trade operating system that coordinates commercial intent, organizations, suppliers, products, procurement, contracts, trade documents, payments, production, quality, customs, transport, warehouses, inventory, marketplaces, customer orders, delivery, returns, set…">
+<meta name="color-scheme" content="light dark">
+<title>GTOS System Blueprint · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/search-index.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/01-NORMATIVE-CORE/00-SYSTEM-BLUEPRINT.html" data-root="../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../index.html"><img src="../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../pdf-library.html">PDFs</a>
+    <a href="../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../index.html">Home</a><span class="sep">/</span><span>Normative Core</span><span class="sep">/</span><span>GTOS System Blueprint</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Normative Core</span><span>325 words</span></div>
+        <h1>GTOS System Blueprint</h1>
+        <p class="lede">GTOS is a global trade operating system that coordinates commercial intent, organizations, suppliers, products, procurement, contracts, trade documents, payments, production, quality, customs, transport, warehouses, inventory, marketplaces, customer orders, delivery, returns, set…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="mission">Mission<a aria-label="Link to section" class="heading-anchor" href="#mission">#</a></h2>
+<p>GTOS is a global trade operating system that coordinates commercial intent, organizations, suppliers, products, procurement, contracts, trade documents, payments, production, quality, customs, transport, warehouses, inventory, marketplaces, customer orders, delivery, returns, settlement, reporting, ESG, and AI-assisted operations.</p>
+<p>GTOS shall not be designed as a collection of screens around a shared database. It shall be designed as a network of accountable bounded contexts that exchange typed contracts and preserve independent truth ownership.</p>
+<h2 id="architectural-shape">Architectural shape<a aria-label="Link to section" class="heading-anchor" href="#architectural-shape">#</a></h2>
+<p>GTOS uses five interacting planes:</p>
+<ol>
+<li><strong>Business Domain Plane</strong> - canonical aggregates, Decisions, obligations, Commands, Events, and history.</li>
+<li><strong>Experience Plane</strong> - customer, partner, provider, operator, warehouse, admin, developer, and AI-control Portals.</li>
+<li><strong>Integration Plane</strong> - APIs, Event Bus, workflow engine, provider adapters, webhooks, files, EDI, and MCP tools.</li>
+<li><strong>Intelligence Plane</strong> - context assembly, retrieval, planning, recommendations, tool execution, evaluation, and governed autonomy.</li>
+<li><strong>Platform Plane</strong> - identity, policy, secrets, observability, deployment, data infrastructure, reliability, and developer platform.</li>
+</ol>
+<h2 id="foundational-truth-model">Foundational truth model<a aria-label="Link to section" class="heading-anchor" href="#foundational-truth-model">#</a></h2>
+<p>GTOS shall preserve the following distinctions:</p>
+<div class="code-block"><div class="code-toolbar"><span>text</span><button class="copy-code" type="button">Copy</button></div><div class="highlight"><pre><span></span>Entity != Observation != Claim != Evidence
+Prediction != Recommendation != Decision
+Decision != Intent != Command != Execution != Outcome
+Custody != Ownership
+Application status != external legal authority
+Document != truth
+Projection != source of record
+</pre></div>
+</div><p>Every material fact must identify its owner, subject, source, time, effective interval, confidence or qualification, policy context, authority, and correction lineage.</p>
+<h2 id="system-boundaries">System boundaries<a aria-label="Link to section" class="heading-anchor" href="#system-boundaries">#</a></h2>
+<p>GTOS coordinates external systems but does not own their authority. Banks own provider payment outcomes. Customs authorities own legal release. Carriers own qualified carrier observations. Laboratories and inspectors own their signed observations. The platform records, verifies, relates, and derives perspectives from those outcomes.</p>
+<h2 id="reference-deployment">Reference deployment<a aria-label="Link to section" class="heading-anchor" href="#reference-deployment">#</a></h2>
+<ul>
+<li>multi-region capable;</li>
+<li>tenant- and jurisdiction-aware;</li>
+<li>database-per-service or strongly isolated schema ownership;</li>
+<li>asynchronous integration through durable Events;</li>
+<li>durable workflow for long-running trade processes;</li>
+<li>zero-trust service identity;</li>
+<li>typed AI tools rather than direct model access to databases;</li>
+<li>immutable audit for binding Decisions and privileged execution;</li>
+<li>observable and recoverable partial failure.</li>
+</ul>
+<h2 id="non-negotiable-qualities">Non-negotiable qualities<a aria-label="Link to section" class="heading-anchor" href="#non-negotiable-qualities">#</a></h2>
+<ul>
+<li>historical integrity;</li>
+<li>explicit authority;</li>
+<li>deterministic identifiers;</li>
+<li>idempotent execution;</li>
+<li>secure tenant isolation;</li>
+<li>correction without erasure;</li>
+<li>explainable automation;</li>
+<li>contract compatibility;</li>
+<li>operational recovery;</li>
+<li>evidence-backed conformance.</li>
+</ul>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#mission">Mission</a><a class="toc-level-2" href="#architectural-shape">Architectural shape</a><a class="toc-level-2" href="#foundational-truth-model">Foundational truth model</a><a class="toc-level-2" href="#system-boundaries">System boundaries</a><a class="toc-level-2" href="#reference-deployment">Reference deployment</a><a class="toc-level-2" href="#non-negotiable-qualities">Non-negotiable qualities</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="../00-START-HERE/VERSION.html"><span>Previous</span><strong>Version</strong></a>
+        <a class="next" href="01-ARCHITECTURAL-PRINCIPLES.html"><span>Next</span><strong>Architectural Principles</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="backend/domain/commerce/manufacturing-service/src/main/java/com/allinb2c/commerce/manufacturing/model/entity/ProductionOrderEntity.java - backend/domain/commerce/manufacturing-service/src/main/java/com/allinb2c/commerce/manufacturing/service/ProductionOrderService.java - backend/…">
+<meta name="color-scheme" content="light dark">
+<title>Repository Evidence Wave 01 - Manufacturing · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-07-Audit-Canonicalization-Evidence-Wave-01/11-EVIDENCE-WAVE-01-MANUFACTURING.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 07 Audit Canonicalization Evidence Wave 01</span><span class="sep">/</span><span>Repository Evidence Wave 01 - Manufacturing</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>302 words</span></div>
+        <h1>Repository Evidence Wave 01 - Manufacturing</h1>
+        <p class="lede">backend/domain/commerce/manufacturing-service/src/main/java/com/allinb2c/commerce/manufacturing/model/entity/ProductionOrderEntity.java - backend/domain/commerce/manufacturing-service/src/main/java/com/allinb2c/commerce/manufacturing/service/ProductionOrderService.java - backend/…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="evidence-baseline">Evidence baseline<a aria-label="Link to section" class="heading-anchor" href="#evidence-baseline">#</a></h2>
+<p>Inspected files:</p>
+<ul>
+<li><code>backend/domain/commerce/manufacturing-service/src/main/java/com/allinb2c/commerce/manufacturing/model/entity/ProductionOrderEntity.java</code></li>
+<li><code>backend/domain/commerce/manufacturing-service/src/main/java/com/allinb2c/commerce/manufacturing/service/ProductionOrderService.java</code></li>
+<li><code>backend/domain/commerce/manufacturing-service/src/main/java/com/allinb2c/commerce/manufacturing/controller/ProductionOrderController.java</code></li>
+</ul>
+<p>Search also found a second <code>ProductionOrderEntity</code> in <code>warehouse-service</code>, requiring ownership review.</p>
+<h2 id="verified-implementation">Verified implementation<a aria-label="Link to section" class="heading-anchor" href="#verified-implementation">#</a></h2>
+<p>The manufacturing Entity maps to <code>manufacturing.tb_production_order</code>. It records production-order number, purchase order, supplier, product, quantity, unit, planned and actual dates, status, priority, notes, company, and timestamps.</p>
+<p>The service implements:</p>
+<ul>
+<li>production-order list/get/create/update/delete;</li>
+<li>production materials with required, purchased, and received quantities;</li>
+<li>production progress with stage, percentage, completed and defective quantity, images, videos, reporter, and time;</li>
+<li>production schedules with line, date, shift, planned output, actual output, and status.</li>
+</ul>
+<p>The controller exposes production-order, material, progress, and schedule routes under <code>/api/manufacturing/production-orders</code>.</p>
+<h2 id="verified-gaps">Verified gaps<a aria-label="Link to section" class="heading-anchor" href="#verified-gaps">#</a></h2>
+<ul>
+<li>No tenant field exists on the inspected production-order Entity; company ID is supplied in requests.</li>
+<li>Controller and service methods shown do not establish authorization or company-scope validation.</li>
+<li>Full update permits arbitrary status and field replacement without transition guards.</li>
+<li>Delete removes materials, progress, schedules, and the order, conflicting with history-preservation principles.</li>
+<li>No optimistic lock/version field was found.</li>
+<li>No Events or transactional outbox were found in the inspected service.</li>
+<li>Capacity commitment, factory qualification, BOM/routing, work orders, lot genealogy, quality hold points, and immutable baseline/rebaseline are not modeled in the inspected files.</li>
+<li>A second Production Order implementation under Warehouse indicates an ownership conflict.</li>
+</ul>
+<h2 id="status-decision">Status decision<a aria-label="Link to section" class="heading-anchor" href="#status-decision">#</a></h2>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Capability</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>production-order persistence and CRUD</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>material, progress and schedule records</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>Portal/API route surface</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>tenant and authority enforcement</td>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+<tr>
+<td>history preservation and lifecycle guards</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>manufacturing Events/outbox</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code> in inspected service</td>
+</tr>
+<tr>
+<td>capacity and immutable production planning</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td>canonical Production Order ownership</td>
+<td><code>CONFLICT_REQUIRES_CANONICALIZATION</code></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#evidence-baseline">Evidence baseline</a><a class="toc-level-2" href="#verified-implementation">Verified implementation</a><a class="toc-level-2" href="#verified-gaps">Verified gaps</a><a class="toc-level-2" href="#status-decision">Status decision</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="10-EVIDENCE-WAVE-01-PURCHASE-ORDER.html"><span>Previous</span><strong>Repository Evidence Wave 01 - Purchase Order</strong></a>
+        <a class="next" href="12-WAVE-01-TRACEABILITY-MATRIX.html"><span>Next</span><strong>Evidence Wave 01 Traceability Matrix</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

@@ -1,0 +1,41 @@
+---
+title: "Claim and Evidence Audit"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="Claim and Evidence Audit"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "Claim and Evidence Audit" }
+  ]}
+>
+
+<br />
+<h2 id="concrete-evidence-found-in-the-generated-chapter-corpus">Concrete evidence found in the generated chapter corpus</h2>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Evidence kind","sortable":true},{"key":"col1","label":"Count","sortable":true}]} data={[{"col0":"concrete <code class=\"code-inline\">backend/</code> paths","col1":"1"},{"col0":"concrete frontend paths","col1":"0"},{"col0":"Java implementation filenames","col1":"0"},{"col0":"migration SQL filenames","col1":"0"},{"col0":"commit SHAs","col1":"0"},{"col0":"source line citations","col1":"0"},{"col0":"concrete service ports","col1":"0"}]} />
+<br />
+<p>The thousands of API-route matches are generated reference surfaces repeated across chapters, not inspected repository routes.</p>
+<br />
+<h2 id="critical-distinction">Critical distinction</h2>
+<br />
+<CodeBlock code={"Reference API proposed by the Handbook\n    != route found in source\n    != behavior verified by test\n    != behavior observed at runtime"} language="text" />
+<br />
+<h2 id="required-upgrade-evidence">Required upgrade evidence</h2>
+<br />
+<p>A chapter may be upgraded from <code class="code-inline">TEMPLATE_DERIVED_REFERENCE_SKELETON</code> only after it identifies, at minimum:</p>
+<br />
+<p>- exact repository paths and verified commit;</p>
+<p>- entities, aggregates, state fields, and lifecycle methods;</p>
+<p>- controllers, route methods, request/response types, and authorization;</p>
+<p>- migrations, table names, keys, indexes, and ownership;</p>
+<p>- Events, outbox, consumers, replay, and workflow links;</p>
+<p>- Portal routes and client contracts;</p>
+<p>- tests proving positive, negative, concurrency, tenant, security, and recovery behavior;</p>
+<p>- deployment and operational evidence where relevant;</p>
+<p>- specific gaps and contradictions.</p>
+<br />
+</ContentPage>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>11 — Implementation Status Matrix · GTOS Handbook</title>
+<meta name="description" content="11 — Implementation Status Matrix Area Narrow verified capability Classification Product Catalog Service CRUD/status/resell/similar IMPLEMENTEDWITHGAP Marketpla">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/index.html">GTOS Handbook Batch 09 Repository Evidence Wave 03</a> <span class="sep">›</span> <span>11 — Implementation Status Matrix</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>11 — Implementation Status Matrix</h1>
+      </header>
+      
+      <div class="prose">
+        <h1 id="11-implementation-status-matrix">11 — Implementation Status Matrix</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Area</th>
+<th class="table-sort">Narrow verified capability</th>
+<th class="table-sort">Classification</th>
+</tr></thead><tbody>
+<tr>
+<td>Product Catalog Service</td>
+<td>CRUD/status/resell/similar</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Marketplace Product Catalog</td>
+<td>tenant-aware table and CRUD</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Canonical Marketplace Offer</td>
+<td>Not found as independent aggregate</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>Target Pricing</td>
+<td>Policy CRUD and lookup</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Smart Pricing</td>
+<td>Rules, landed cost, market snapshots, calculation</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Price Version / Checkout Quote</td>
+<td>No immutable accepted version</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>Cart</td>
+<td>CRUD, merge, coupon attachment</td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td>Checkout</td>
+<td>Cart-to-order and validation</td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td>Checkout AI</td>
+<td>Hard-coded local rules</td>
+<td><code>SIMULATED_REFERENCE_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td>Customer Order</td>
+<td>Entity, workflow, history, optimistic lock</td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td>Order Saga</td>
+<td>Comments only for cross-service steps</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>Allocation</td>
+<td>Inventory reservation exists, order orchestration absent</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td>Legacy Fulfilment Sales Order</td>
+<td>Deprecated CRUD/status</td>
+<td><code>DEPRECATED_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td>Pick/Pack</td>
+<td>Waves/tasks/confirm/pack/verify</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Last-Mile Optimizer</td>
+<td>Static in-memory rates and profiles</td>
+<td><code>SIMULATED_REFERENCE_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td>Proof of Delivery</td>
+<td>Not found</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>Returns/RMA</td>
+<td>Return, receipt, inspection, disposition</td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td>Disputes</td>
+<td>Evidence, rebuttal, decision, appeal</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Marketplace Settlement</td>
+<td>Cycles, transactions, calculation, reconciliation</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Payment Settlement</td>
+<td>Capture batching</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Payout Execution</td>
+<td>Not verified</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>ESG Goals</td>
+<td>CRUD, progress, events</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Verified ESG Metrics</td>
+<td>Not found</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>AI Evaluation</td>
+<td>Feedback, stats, recommendations</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+</tbody></table></div>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

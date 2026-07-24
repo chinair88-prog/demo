@@ -1,0 +1,31 @@
+digraph G {
+rankdir=LR;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.34", ranksep="0.60", splines="spline"];
+node [fontname="Arial", fontsize=10, shape=rect, color="#4B5D8A", penwidth=1.45, style="rounded,filled", fillcolor="#F5F6FC", fontcolor="#253150", margin="0.15,0.09"];
+edge [color="#6677A5", penwidth=1.35, arrowsize=0.72];
+"APPROVAL_PENDING" [label="APPROVAL PENDING"];
+"APPROVED" [label="APPROVED"];
+"AUTHORIZED" [label="AUTHORIZED"];
+"CANCELLED" [label="CANCELLED"];
+"CAPTURED" [label="CAPTURED"];
+"EXECUTION_PENDING" [label="EXECUTION PENDING"];
+"FAILED" [label="FAILED"];
+"OUTCOME_UNKNOWN" [label="OUTCOME UNKNOWN"];
+"RECONCILIATION_REQUIRED" [label="RECONCILIATION REQUIRED"];
+"REJECTED" [label="REJECTED"];
+"REQUESTED" [label="REQUESTED"];
+"RISK_ASSESSMENT" [label="RISK ASSESSMENT"];
+"__start_0" [shape=circle, width=0.14, fixedsize=true, label="", fillcolor="#30476F", color="#30476F", style=filled];
+"__start_0" -> "REQUESTED";
+"REQUESTED" -> "RISK_ASSESSMENT";
+"RISK_ASSESSMENT" -> "APPROVAL_PENDING";
+"APPROVAL_PENDING" -> "APPROVED";
+"APPROVED" -> "REJECTED";
+"REJECTED" -> "EXECUTION_PENDING";
+"EXECUTION_PENDING" -> "OUTCOME_UNKNOWN";
+"OUTCOME_UNKNOWN" -> "AUTHORIZED";
+"AUTHORIZED" -> "CAPTURED";
+"CAPTURED" -> "FAILED";
+"FAILED" -> "CANCELLED";
+"CANCELLED" -> "RECONCILIATION_REQUIRED";
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<style>.b{fill:#11182b;stroke:#6f91d8;stroke-width:2}.t{fill:#e9eef8;font:18px sans-serif}.s{fill:#aebbd0;font:14px sans-serif}.l{stroke:#81a8ff;stroke-width:2;marker-end:url(#a)}</style>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#81a8ff"/></marker></defs>
+<rect width="1200" height="720" fill="#0b1020"/>
+<g>
+<rect class="b" x="500" y="30" width="200" height="60" rx="10"/><text class="t" x="560" y="67">Reality</text>
+<rect class="b" x="90" y="150" width="170" height="60" rx="10"/><text class="t" x="140" y="187">Entity</text>
+<rect class="b" x="310" y="150" width="170" height="60" rx="10"/><text class="t" x="355" y="187">Time</text>
+<rect class="b" x="530" y="150" width="170" height="60" rx="10"/><text class="t" x="575" y="187">State</text>
+<rect class="b" x="750" y="150" width="170" height="60" rx="10"/><text class="t" x="775" y="187">Observation</text>
+<rect class="b" x="90" y="280" width="170" height="60" rx="10"/><text class="t" x="130" y="317">Identity</text>
+<rect class="b" x="310" y="280" width="170" height="60" rx="10"/><text class="t" x="330" y="317">Relationship</text>
+<rect class="b" x="530" y="280" width="170" height="60" rx="10"/><text class="t" x="575" y="317">Event</text>
+<rect class="b" x="750" y="280" width="170" height="60" rx="10"/><text class="t" x="790" y="317">Knowledge</text>
+<rect class="b" x="750" y="410" width="170" height="60" rx="10"/><text class="t" x="790" y="447">Decision</text>
+<rect class="b" x="750" y="540" width="170" height="60" rx="10"/><text class="t" x="805" y="577">Intent</text>
+<rect class="b" x="970" y="540" width="170" height="60" rx="10"/><text class="t" x="1000" y="577">Execution</text>
+<rect class="b" x="530" y="410" width="170" height="60" rx="10"/><text class="t" x="570" y="447">History</text>
+<line class="l" x1="600" y1="90" x2="175" y2="150"/><line class="l" x1="600" y1="90" x2="395" y2="150"/><line class="l" x1="600" y1="90" x2="615" y2="150"/><line class="l" x1="650" y1="90" x2="835" y2="150"/>
+<line class="l" x1="175" y1="210" x2="175" y2="280"/><line class="l" x1="230" y1="210" x2="395" y2="280"/><line class="l" x1="615" y1="210" x2="615" y2="280"/><line class="l" x1="835" y1="210" x2="835" y2="280"/>
+<line class="l" x1="835" y1="340" x2="835" y2="410"/><line class="l" x1="835" y1="470" x2="835" y2="540"/><line class="l" x1="920" y1="570" x2="970" y2="570"/>
+<line class="l" x1="615" y1="340" x2="615" y2="410"/>
+</g></svg>

@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "zip": "/mnt/data/GTOS-Enterprise-Engineering-Handbook-Final-Edition-1.0.zip",
+  "zip_sha256": "b2e5a7f3b336b43f209f8bb5db32495948dde13d084704c1507235b24941897a",
+  "zip_bytes": 20413143,
+  "zip_members": 932,
+  "zip_crc_error": null,
+  "markdown_files": 856,
+  "markdown_words": 1322840,
+  "detailed_volumes": 19,
+  "domain_packs": 37,
+  "pdf_books": 23,
+  "pdf_pages": 4825,
+  "manifest_entries": 925,
+  "empty_markdown": 0
+}

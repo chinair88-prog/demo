@@ -1,0 +1,27 @@
+digraph G {
+rankdir=LR;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.34", ranksep="0.60", splines="spline"];
+node [fontname="Arial", fontsize=10, shape=rect, color="#4B5D8A", penwidth=1.45, style="rounded,filled", fillcolor="#F5F6FC", fontcolor="#253150", margin="0.15,0.09"];
+edge [color="#6677A5", penwidth=1.35, arrowsize=0.72];
+"ARRIVED" [label="ARRIVED"];
+"CLOSED" [label="CLOSED"];
+"CORRECTED" [label="CORRECTED"];
+"DISCREPANCY" [label="DISCREPANCY"];
+"FAILED" [label="FAILED"];
+"HANDED_OVER" [label="HANDED OVER"];
+"IDENTITY_CHECK" [label="IDENTITY CHECK"];
+"LOADING" [label="LOADING"];
+"REFUSED" [label="REFUSED"];
+"SCHEDULED" [label="SCHEDULED"];
+"__start_0" [shape=circle, width=0.14, fixedsize=true, label="", fillcolor="#30476F", color="#30476F", style=filled];
+"__start_0" -> "SCHEDULED";
+"SCHEDULED" -> "ARRIVED";
+"ARRIVED" -> "IDENTITY_CHECK";
+"IDENTITY_CHECK" -> "LOADING";
+"LOADING" -> "DISCREPANCY";
+"DISCREPANCY" -> "HANDED_OVER";
+"HANDED_OVER" -> "REFUSED";
+"REFUSED" -> "FAILED";
+"FAILED" -> "CORRECTED";
+"CORRECTED" -> "CLOSED";
+}

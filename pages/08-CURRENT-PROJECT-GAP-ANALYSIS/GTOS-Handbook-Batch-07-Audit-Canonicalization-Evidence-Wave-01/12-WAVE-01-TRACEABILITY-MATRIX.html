@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="migrations and indexes for all four areas; - security configuration and method/route authorization; - tests, tenant isolation, concurrency, and negative transitions; - Portal pages and client contracts; - EventPublisher implementation, topics, outbox, consumers, replay, and DLQ;…">
+<meta name="color-scheme" content="light dark">
+<title>Evidence Wave 01 Traceability Matrix · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-07-Audit-Canonicalization-Evidence-Wave-01/12-WAVE-01-TRACEABILITY-MATRIX.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 07 Audit Canonicalization Evidence Wave 01</span><span class="sep">/</span><span>Evidence Wave 01 Traceability Matrix</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>147 words</span></div>
+        <h1>Evidence Wave 01 Traceability Matrix</h1>
+        <p class="lede">migrations and indexes for all four areas; - security configuration and method/route authorization; - tests, tenant isolation, concurrency, and negative transitions; - Portal pages and client contracts; - EventPublisher implementation, topics, outbox, consumers, replay, and DLQ;…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Area</th>
+<th>Entity/Table</th>
+<th>Service</th>
+<th>Controller/API</th>
+<th>Events</th>
+<th>Principal status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proforma Invoice</td>
+<td><code>tb_proforma_invoice</code>, items, schedules</td>
+<td><code>ProformaInvoiceService</code></td>
+<td><code>/api/v1/trade/proforma-invoices</code></td>
+<td>created/sent/accepted/converted</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Payment</td>
+<td><code>payment_service_intents</code> and related payment tables</td>
+<td><code>PaymentIntentService</code> / application service</td>
+<td><code>/api/payments</code></td>
+<td>requires additional Event inspection</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Purchase Order - Procurement</td>
+<td><code>procurement.purchase_orders</code> and items</td>
+<td>Procurement <code>PurchaseOrderService</code></td>
+<td><code>/api/procurement/purchase-orders</code></td>
+<td>none found in inspected service</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Purchase Order - Tajerestan</td>
+<td><code>purchase_orders</code> and line items</td>
+<td>Tajerestan <code>PurchaseOrderService</code></td>
+<td>Tajerestan API requires separate route profile</td>
+<td>trade PO Events</td>
+<td><code>CONFLICT_REQUIRES_CANONICALIZATION</code></td>
+</tr>
+<tr>
+<td>Manufacturing</td>
+<td><code>manufacturing.tb_production_order</code>, materials, progress, schedules</td>
+<td><code>ProductionOrderService</code></td>
+<td><code>/api/manufacturing/production-orders</code></td>
+<td>none found in inspected service</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="next-evidence-targets">Next evidence targets<a aria-label="Link to section" class="heading-anchor" href="#next-evidence-targets">#</a></h2>
+<ul>
+<li>migrations and indexes for all four areas;</li>
+<li>security configuration and method/route authorization;</li>
+<li>tests, tenant isolation, concurrency, and negative transitions;</li>
+<li>Portal pages and client contracts;</li>
+<li>EventPublisher implementation, topics, outbox, consumers, replay, and DLQ;</li>
+<li>provider/webhook verification and reconciliation;</li>
+<li>canonical ownership ADRs for PO and Production Order.</li>
+</ul>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#next-evidence-targets">Next evidence targets</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="11-EVIDENCE-WAVE-01-MANUFACTURING.html"><span>Previous</span><strong>Repository Evidence Wave 01 - Manufacturing</strong></a>
+        <a class="next" href="13-NEXT-WAVE-PLAN.html"><span>Next</span><strong>Next Repository Evidence Wave</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="| Area | Narrow verified behavior | Classification | Main blocker |
+|---|---|---|---|
+| Trade Quality Inspection | Mock inspection UI only | REFERENCEARCHITECTURE | Aggregate/API/Evidence missing |
+| Software Quality Gates | Metrics, gates, reports | VERIFIEDIMPLEMENTED | Differe…">
+<meta name="color-scheme" content="light dark">
+<title>09 — Implementation Status Matrix · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/09-IMPLEMENTATION-STATUS-MATRIX.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 08 Repository Evidence Wave 02</span><span class="sep">/</span><span>09 — Implementation Status Matrix</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>172 words</span></div>
+        <h1>09 — Implementation Status Matrix</h1>
+        <p class="lede">| Area | Narrow verified behavior | Classification | Main blocker |
+|---|---|---|---|
+| Trade Quality Inspection | Mock inspection UI only | REFERENCEARCHITECTURE | Aggregate/API/Evidence missing |
+| Software Quality Gates | Metrics, gates, reports | VERIFIEDIMPLEMENTED | Differe…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Area</th>
+<th>Narrow verified behavior</th>
+<th>Classification</th>
+<th>Main blocker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trade Quality Inspection</td>
+<td>Mock inspection UI only</td>
+<td><code>REFERENCE_ARCHITECTURE</code></td>
+<td>Aggregate/API/Evidence missing</td>
+</tr>
+<tr>
+<td>Software Quality Gates</td>
+<td>Metrics, gates, reports</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+<td>Different Domain</td>
+</tr>
+<tr>
+<td>Inventory QC Hold</td>
+<td>Hold and disposition</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+<td>Inspection Decision absent</td>
+</tr>
+<tr>
+<td>Tajerestan Packing List</td>
+<td>Entity, create/get/list/Event</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>identity, weights, versioning</td>
+</tr>
+<tr>
+<td>Partner Packing List</td>
+<td>list/get/patch/audit</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>create unavailable, duplicate owner</td>
+</tr>
+<tr>
+<td>Commercial Invoice</td>
+<td>table/list/get/patch</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+<td>create/generate/issue missing</td>
+</tr>
+<tr>
+<td>Export Declaration</td>
+<td>table/create/list/update/submit</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>authority evidence/doc operations</td>
+</tr>
+<tr>
+<td>PO Customs</td>
+<td>mutable PO status and Event</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>not legal release</td>
+</tr>
+<tr>
+<td>Import Declaration</td>
+<td>full operational lifecycle</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>manual authority/state/migration gaps</td>
+</tr>
+<tr>
+<td>Booking</td>
+<td>table and real Portal/API</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>custody boundary</td>
+</tr>
+<tr>
+<td>Trade Shipment</td>
+<td>entity/API/tracking/Kafka</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>tenant and Event reliability</td>
+</tr>
+<tr>
+<td>Custody Transfer</td>
+<td>HANDED_OVER status only</td>
+<td><code>CLIENT_CONTRACT_PRESENT</code></td>
+<td>no bilateral evidence</td>
+</tr>
+<tr>
+<td>Warehouse ASN/Dock</td>
+<td>create/status/schedule/check-in</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>scoping, receipt evidence, Event</td>
+</tr>
+<tr>
+<td>Provider WMS</td>
+<td>tables and references</td>
+<td><code>VERIFIED_IMPLEMENTED</code> schema</td>
+<td>competing owner/runtime verification</td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td>balance/posting/QC/reservation</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>auth, idempotency, invariants</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+        
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="08-CROSS-DOMAIN-CONTRADICTIONS.html"><span>Previous</span><strong>08 — Cross-Domain Contradictions and Canonicalization Register</strong></a>
+        <a class="next" href="10-WAVE-02-ISSUE-REGISTER.html"><span>Next</span><strong>10 — Wave 02 Issue Register</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

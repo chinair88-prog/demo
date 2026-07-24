@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Business Case and Value Model · GTOS Handbook</title>
+<meta name="description" content="Business Case and Value Model Cost Baseline A GTOS business case SHOULD quantify current costs across reconciliation, data correction, document handling, except">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/02-FOUNDATIONS/index.html">FOUNDATIONS</a> <span class="sep">›</span> <a href="../../../pages/02-FOUNDATIONS/05-EXECUTIVE-REFERENCE/index.html">EXECUTIVE REFERENCE</a> <span class="sep">›</span> <span>Business Case and Value Model</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Foundations</span>
+        </div>
+        <h1>Business Case and Value Model</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#cost-baseline">Cost Baseline</a></li><li class="toc-level-2"><a href="#value-levers">Value Levers</a></li><li class="toc-level-2"><a href="#measurement-rules">Measurement Rules</a></li><li class="toc-level-2"><a href="#portfolio-economics">Portfolio Economics</a></li><li class="toc-level-2"><a href="#value-protection">Value Protection</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="business-case-and-value-model">Business Case and Value Model</h1>
+<br>
+<h2 id="cost-baseline">Cost Baseline <a href="#cost-baseline" class="heading-anchor">#</a></h2>
+<br>
+<p>A GTOS business case SHOULD quantify current costs across reconciliation, data correction, document handling, exception management, compliance delay, integration maintenance, duplicated master data, failed automation, fraud exposure, and service disruption. The baseline must use business outcomes rather than only engineering effort.</p>
+<br>
+<h2 id="value-levers">Value Levers <a href="#value-levers" class="heading-anchor">#</a></h2>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Value Lever</th>
+<th class="table-sort">Mechanism</th>
+<th class="table-sort">Typical Evidence</th>
+</tr></thead><tbody>
+<tr>
+<td>Reduced reconciliation</td>
+<td>proposition-level ownership and lineage</td>
+<td>fewer manual comparisons and disputes</td>
+</tr>
+<tr>
+<td>Faster cycle time</td>
+<td>event-driven coordination and decision automation</td>
+<td>lower order-to-delivery or clearance time</td>
+</tr>
+<tr>
+<td>Lower exception cost</td>
+<td>structured cases, evidence requests, and AI assistance</td>
+<td>lower mean time to resolution</td>
+</tr>
+<tr>
+<td>Safer automation</td>
+<td>authority, policy, and Intent controls</td>
+<td>fewer unauthorized or duplicated effects</td>
+</tr>
+<tr>
+<td>Faster partner onboarding</td>
+<td>reusable contracts and identity patterns</td>
+<td>reduced integration lead time</td>
+</tr>
+<tr>
+<td>Stronger compliance</td>
+<td>temporal reconstruction and decision records</td>
+<td>faster audit response and fewer control failures</td>
+</tr>
+<tr>
+<td>Improved resilience</td>
+<td>replay, reconciliation, and recovery design</td>
+<td>lower business impact during incidents</td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="measurement-rules">Measurement Rules <a href="#measurement-rules" class="heading-anchor">#</a></h2>
+<br>
+<p>Benefits SHALL be measured against a dated baseline and attributable scope. Avoid claiming value from automation when the measured improvement results from policy simplification, staffing change, or reduced demand. Leading indicators include contract reuse, evidence completeness, decision latency, and exception age. Lagging indicators include working-capital impact, penalties, service reliability, and dispute cost.</p>
+<br>
+<h2 id="portfolio-economics">Portfolio Economics <a href="#portfolio-economics" class="heading-anchor">#</a></h2>
+<br>
+<p>GTOS produces value through reusable foundations. Early domain products may carry a disproportionate share of identity, event, evidence, security, and platform investment. Portfolio funding SHOULD therefore distinguish foundational capabilities from domain-specific delivery.</p>
+<br>
+<h2 id="value-protection">Value Protection <a href="#value-protection" class="heading-anchor">#</a></h2>
+<br>
+<p>A local project SHALL NOT bypass shared semantics merely to improve its schedule. Such shortcuts create future reconciliation and migration cost. Architecture debt is recorded with expected economic impact, owner, expiry, and remediation.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

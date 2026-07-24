@@ -1,0 +1,45 @@
+---
+title: "Data Pipeline Engineering Guide"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Data Pipeline Engineering Guide"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Data Pipeline Engineering Guide" }
+  ]}
+>
+
+<br />
+<h2 id="source-classification">Source Classification</h2>
+<br />
+<p>Every source is classified as authoritative, observational, derived, reference, or external unverified. The pipeline preserves source identity, contract version, extraction time, event or observation time, and transformation lineage.</p>
+<br />
+<h2 id="ingestion">Ingestion</h2>
+<br />
+<p>Ingestion validates schema, integrity, authority, subject identity, classification, and temporal fields. Invalid records are quarantined with reason and ownership. The system does not silently coerce identifiers, currencies, units, or unknown enum values.</p>
+<br />
+<h2 id="transformation">Transformation</h2>
+<br />
+<p>Transformations are deterministic where practical, versioned, tested, and traceable. Normalization preserves original representation. Joins declare temporal semantics and identity rules. AI extraction or classification creates derived claims with confidence and source span.</p>
+<br />
+<h2 id="quality">Quality</h2>
+<br />
+<p>Quality checks cover completeness, validity, uniqueness, consistency, timeliness, authority, and lineage. Thresholds are tied to use; a dataset suitable for trend analysis may be unsafe for a legal decision.</p>
+<br />
+<h2 id="publication">Publication</h2>
+<br />
+<p>A data product publishes grain, owner, schema, metric definitions, quality SLOs, access policy, retention, residency, and consumer support. Projections clearly disclose freshness and correction behavior.</p>
+<br />
+<h2 id="replay-and-backfill">Replay and Backfill</h2>
+<br />
+<p>Backfill is governed because current transformation logic may reinterpret historical data. The pipeline records code and rule versions and separates historically reproduced results from newly derived perspectives.</p>
+<br />
+<h2 id="operations">Operations</h2>
+<br />
+<p>Operators monitor lag, quarantine, schema change, quality drift, lineage failure, correction propagation, cost, and consumer impact. Recovery verifies completeness and avoids duplicate downstream effects.</p>
+<br />
+</ContentPage>

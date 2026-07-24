@@ -1,0 +1,29 @@
+digraph G {
+rankdir=LR;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.34", ranksep="0.60", splines="spline"];
+node [fontname="Arial", fontsize=10, shape=rect, color="#4B5D8A", penwidth=1.45, style="rounded,filled", fillcolor="#F5F6FC", fontcolor="#253150", margin="0.15,0.09"];
+edge [color="#6677A5", penwidth=1.35, arrowsize=0.72];
+"ACCEPTED_FOR_PROCESSING" [label="ACCEPTED FOR PROCESSING"];
+"AMENDMENT_REQUIRED" [label="AMENDMENT REQUIRED"];
+"CANCELLED" [label="CANCELLED"];
+"HOLD" [label="HOLD"];
+"INSPECTION" [label="INSPECTION"];
+"PREPARATION" [label="PREPARATION"];
+"READY_TO_SUBMIT" [label="READY TO SUBMIT"];
+"REJECTED" [label="REJECTED"];
+"RELEASED" [label="RELEASED"];
+"SUBMITTED" [label="SUBMITTED"];
+"VALIDATION_PENDING" [label="VALIDATION PENDING"];
+"__start_0" [shape=circle, width=0.14, fixedsize=true, label="", fillcolor="#30476F", color="#30476F", style=filled];
+"__start_0" -> "PREPARATION";
+"PREPARATION" -> "VALIDATION_PENDING";
+"VALIDATION_PENDING" -> "READY_TO_SUBMIT";
+"READY_TO_SUBMIT" -> "SUBMITTED";
+"SUBMITTED" -> "ACCEPTED_FOR_PROCESSING";
+"ACCEPTED_FOR_PROCESSING" -> "HOLD";
+"HOLD" -> "INSPECTION";
+"INSPECTION" -> "AMENDMENT_REQUIRED";
+"AMENDMENT_REQUIRED" -> "RELEASED";
+"RELEASED" -> "REJECTED";
+"REJECTED" -> "CANCELLED";
+}

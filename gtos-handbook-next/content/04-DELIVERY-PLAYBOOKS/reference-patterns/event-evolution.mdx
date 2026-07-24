@@ -1,0 +1,42 @@
+---
+title: "Event Evolution Pattern"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Event Evolution Pattern"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Event Evolution Pattern" }
+  ]}
+>
+
+<br />
+<h2 id="objective">Objective</h2>
+<br />
+<p>Event schemas must evolve without changing the meaning of facts already published.</p>
+<br />
+<h2 id="compatibility">Compatibility</h2>
+<br />
+<p>Additive optional fields are generally compatible. Renaming, changing units, changing identifier scope, altering temporal meaning, or changing authority semantics are breaking even when JSON remains parseable.</p>
+<br />
+<h2 id="rules">Rules</h2>
+<br />
+<p>- Event identity and historical payload remain immutable.</p>
+<p>- Producers publish a schema version.</p>
+<p>- Consumers declare supported versions.</p>
+<p>- Transformations preserve original event reference.</p>
+<p>- A corrected business fact is a new Event, not a rewritten old Event.</p>
+<p>- Deprecated versions have owners, consumers, sunset dates, and replay plans.</p>
+<br />
+<h2 id="semantic-review">Semantic Review</h2>
+<br />
+<p>Reviewers SHALL ask whether a consumer built under the old meaning would reach a different business conclusion. If yes, the change is semantically breaking.</p>
+<br />
+<h2 id="replay">Replay</h2>
+<br />
+<p>Before replaying historical Events into new consumers, teams SHALL evaluate whether new code interprets old facts using historically appropriate semantics. Reprocessing with present-day rules may produce a new derived perspective but SHALL not masquerade as the original historical result.</p>
+<br />
+</ContentPage>

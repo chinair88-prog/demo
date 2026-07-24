@@ -1,0 +1,70 @@
+---
+title: "GTOS System Blueprint"
+section: "Normative Core"
+---
+
+<ContentPage
+  title="GTOS System Blueprint"
+  section="Normative Core"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Normative Core", href: "/content" },
+    { label: "GTOS System Blueprint" }
+  ]}
+>
+
+<br />
+<h2 id="mission">Mission</h2>
+<br />
+<p>GTOS is a global trade operating system that coordinates commercial intent, organizations, suppliers, products, procurement, contracts, trade documents, payments, production, quality, customs, transport, warehouses, inventory, marketplaces, customer orders, delivery, returns, settlement, reporting, ESG, and AI-assisted operations.</p>
+<br />
+<p>GTOS shall not be designed as a collection of screens around a shared database. It shall be designed as a network of accountable bounded contexts that exchange typed contracts and preserve independent truth ownership.</p>
+<br />
+<h2 id="architectural-shape">Architectural shape</h2>
+<br />
+<p>GTOS uses five interacting planes:</p>
+<br />
+<p>1. <strong>Business Domain Plane</strong> - canonical aggregates, Decisions, obligations, Commands, Events, and history.</p>
+<p>2. <strong>Experience Plane</strong> - customer, partner, provider, operator, warehouse, admin, developer, and AI-control Portals.</p>
+<p>3. <strong>Integration Plane</strong> - APIs, Event Bus, workflow engine, provider adapters, webhooks, files, EDI, and MCP tools.</p>
+<p>4. <strong>Intelligence Plane</strong> - context assembly, retrieval, planning, recommendations, tool execution, evaluation, and governed autonomy.</p>
+<p>5. <strong>Platform Plane</strong> - identity, policy, secrets, observability, deployment, data infrastructure, reliability, and developer platform.</p>
+<br />
+<h2 id="foundational-truth-model">Foundational truth model</h2>
+<br />
+<p>GTOS shall preserve the following distinctions:</p>
+<br />
+<CodeBlock code={"Entity != Observation != Claim != Evidence\nPrediction != Recommendation != Decision\nDecision != Intent != Command != Execution != Outcome\nCustody != Ownership\nApplication status != external legal authority\nDocument != truth\nProjection != source of record"} language="text" />
+<br />
+<p>Every material fact must identify its owner, subject, source, time, effective interval, confidence or qualification, policy context, authority, and correction lineage.</p>
+<br />
+<h2 id="system-boundaries">System boundaries</h2>
+<br />
+<p>GTOS coordinates external systems but does not own their authority. Banks own provider payment outcomes. Customs authorities own legal release. Carriers own qualified carrier observations. Laboratories and inspectors own their signed observations. The platform records, verifies, relates, and derives perspectives from those outcomes.</p>
+<br />
+<h2 id="reference-deployment">Reference deployment</h2>
+<br />
+<p>- multi-region capable;</p>
+<p>- tenant- and jurisdiction-aware;</p>
+<p>- database-per-service or strongly isolated schema ownership;</p>
+<p>- asynchronous integration through durable Events;</p>
+<p>- durable workflow for long-running trade processes;</p>
+<p>- zero-trust service identity;</p>
+<p>- typed AI tools rather than direct model access to databases;</p>
+<p>- immutable audit for binding Decisions and privileged execution;</p>
+<p>- observable and recoverable partial failure.</p>
+<br />
+<h2 id="non-negotiable-qualities">Non-negotiable qualities</h2>
+<br />
+<p>- historical integrity;</p>
+<p>- explicit authority;</p>
+<p>- deterministic identifiers;</p>
+<p>- idempotent execution;</p>
+<p>- secure tenant isolation;</p>
+<p>- correction without erasure;</p>
+<p>- explainable automation;</p>
+<p>- contract compatibility;</p>
+<p>- operational recovery;</p>
+<p>- evidence-backed conformance.</p>
+<br />
+</ContentPage>

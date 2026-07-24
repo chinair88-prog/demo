@@ -1,0 +1,63 @@
+---
+title: "02 — Pricing, Price Version, and Commercial Snapshot"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="02 — Pricing, Price Version, and Commercial Snapshot"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "02 — Pricing, Price Version, and Commercial Snapshot" }
+  ]}
+>
+
+<br />
+<h2 id="implemented-pricing-capabilities">Implemented pricing capabilities</h2>
+<br />
+<p>دو implementation اصلی وجود دارد:</p>
+<br />
+<h3 id="pricing-service-target-price">Pricing Service Target Price</h3>
+<br />
+<p><code class="code-inline">TargetPriceController</code> و <code class="code-inline">TargetPriceService</code>:</p>
+<br />
+<p>- create/update/delete policy؛</p>
+<p>- list by tenant/product؛</p>
+<p>- lookup active target price.</p>
+<br />
+<h3 id="marketplace-smart-pricing">Marketplace Smart Pricing</h3>
+<br />
+<p><code class="code-inline">SmartPricingService</code> و <code class="code-inline">SmartPricingController</code>:</p>
+<br />
+<p>- Price Rule CRUD؛</p>
+<p>- Landed Cost CRUD؛</p>
+<p>- Market Price Snapshot؛</p>
+<p>- competitor averages؛</p>
+<p>- price calculation؛</p>
+<p>- pricing overview.</p>
+<br />
+<p>Strategies شامل Cost Plus، Market Based، Dynamic، Penetration، Skimming، Volume Tiered، Promotional و Bundle هستند.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_GAP</code>.</p>
+<br />
+<h2 id="critical-pricing-findings">Critical pricing findings</h2>
+<br />
+<p>- tenant/company در Target Price و Smart Pricing از request/query گرفته می‌شوند.</p>
+<p>- get/update/delete rule by ID tenant-scoped نیستند.</p>
+<p>- Target Price status string آزاد است.</p>
+<p>- Catalog Product و Marketplace Catalog Entry نیز قیمت مستقل ذخیره می‌کنند.</p>
+<p>- Category و Warehouse rule matching در engine عملاً <code class="code-inline">true</code> و با comment <code class="code-inline">simplified</code> اجرا می‌شود؛ در نتیجه rule می‌تواند خارج از scope اعمال شود.</p>
+<p>- Volume tiers hard-coded هستند.</p>
+<p>- manual discount/surcharge از request پذیرفته می‌شود.</p>
+<p>- response currency در محاسبه Smart Pricing به USD hard-code شده است.</p>
+<p>- competitor source authenticity، timestamp policy و observation confidence محدود است.</p>
+<p>- Price Version، approval، publication، effective interval، supersession و accepted checkout quote مستقل پیدا نشد.</p>
+<br />
+<h2 id="canonical-pricing-model">Canonical pricing model</h2>
+<br />
+<CodeBlock code={"CostObservation\n+ LandedCostVersion\n+ MarketPriceObservation\n+ PricingRuleVersion\n→ PriceCalculation\n→ PriceApprovalDecision\n→ PriceVersion\n→ OfferPrice\n→ CheckoutPriceSnapshot"} language="text" />
+<br />
+<p>Cart و Order باید Price Snapshot را با rule/version/effective time ذخیره کنند، نه اینکه <code class="code-inline">unitPrice</code> Client را حقیقت تلقی کنند.</p>
+<br />
+</ContentPage>

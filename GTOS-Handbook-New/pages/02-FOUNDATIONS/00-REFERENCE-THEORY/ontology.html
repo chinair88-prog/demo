@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ontology of Trade · GTOS Handbook</title>
+<meta name="description" content="Ontology of Trade Purpose Ontology defines the kinds of things GTOS can assert exist and the conditions under which those assertions remain coherent. Entity An ">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/02-FOUNDATIONS/index.html">FOUNDATIONS</a> <span class="sep">›</span> <a href="../../../pages/02-FOUNDATIONS/00-REFERENCE-THEORY/index.html">REFERENCE THEORY</a> <span class="sep">›</span> <span>Ontology of Trade</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Foundations</span>
+        </div>
+        <h1>Ontology of Trade</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#purpose">Purpose</a></li><li class="toc-level-2"><a href="#entity">Entity</a></li><li class="toc-level-2"><a href="#identity">Identity</a></li><li class="toc-level-2"><a href="#time">Time</a></li><li class="toc-level-2"><a href="#state">State</a></li><li class="toc-level-2"><a href="#relationship">Relationship</a></li><li class="toc-level-2"><a href="#event">Event</a></li><li class="toc-level-2"><a href="#history">History</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="ontology-of-trade">Ontology of Trade</h1>
+<br>
+<h2 id="purpose">Purpose <a href="#purpose" class="heading-anchor">#</a></h2>
+<br>
+<p>Ontology defines the kinds of things GTOS can assert exist and the conditions under which those assertions remain coherent.</p>
+<br>
+<h2 id="entity">Entity <a href="#entity" class="heading-anchor">#</a></h2>
+<br>
+<p>An Entity is anything that must remain distinguishable for business purposes. Parties, products, facilities, shipments, documents, accounts, contracts, licenses, containers, vehicles, and regulatory classifications may be Entities.</p>
+<br>
+<p>Entity is not synonymous with database row. A row is a representation. Identity continuity may survive merges, migrations, renaming, or system replacement.</p>
+<br>
+<h2 id="identity">Identity <a href="#identity" class="heading-anchor">#</a></h2>
+<br>
+<p>Identity provides continuity through change. GTOS distinguishes:</p>
+<br>
+<li>intrinsic identity, where a thing is considered the same thing;</li>
+<li>assigned identifiers, such as registration numbers;</li>
+<li>contextual identifiers, such as partner-specific codes;</li>
+<li>credentials, which demonstrate control but do not define existence.</li>
+<br>
+<h2 id="time">Time <a href="#time" class="heading-anchor">#</a></h2>
+<br>
+<p>GTOS uses multiple temporal dimensions:</p>
+<br>
+<li>occurrence time;</li>
+<li>effective or validity time;</li>
+<li>observation time;</li>
+<li>recording time;</li>
+<li>processing time;</li>
+<li>correction time.</li>
+<br>
+<h2 id="state">State <a href="#state" class="heading-anchor">#</a></h2>
+<br>
+<p>State is a scoped set of propositions about a subject. State may be recorded, derived, projected, or disputed. The state owner and derivation method SHALL be known.</p>
+<br>
+<h2 id="relationship">Relationship <a href="#relationship" class="heading-anchor">#</a></h2>
+<br>
+<p>A Relationship is an independent business fact among identified participants. Contracts, qualifications, mandates, delegations, ownership, custody, and service agreements are not mere foreign keys.</p>
+<br>
+<h2 id="event">Event <a href="#event" class="heading-anchor">#</a></h2>
+<br>
+<p>An Event is an immutable assertion that something occurred. Events describe transitions or significant facts; they do not command future work.</p>
+<br>
+<h2 id="history">History <a href="#history" class="heading-anchor">#</a></h2>
+<br>
+<p>History is the preserved sequence through which past state and past knowledge can be reconstructed.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

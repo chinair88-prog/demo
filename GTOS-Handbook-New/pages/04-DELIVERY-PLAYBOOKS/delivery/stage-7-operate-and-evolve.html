@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 7 — Operate and Evolve · GTOS Handbook</title>
+<meta name="description" content="Stage 7 — Operate and Evolve Objective Operate against SLOs, measure outcomes, manage incidents, review exceptions, retire old semantics, and expand the portfol">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <span>Stage 7 — Operate and Evolve</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Stage 7 — Operate and Evolve</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#objective">Objective</a></li><li class="toc-level-2"><a href="#entry-conditions">Entry Conditions</a></li><li class="toc-level-2"><a href="#required-work">Required Work</a></li><li class="toc-level-2"><a href="#mandatory-artifacts">Mandatory Artifacts</a></li><li class="toc-level-2"><a href="#review-table">Review Table</a></li><li class="toc-level-2"><a href="#stop-conditions">Stop Conditions</a></li><li class="toc-level-2"><a href="#exit-criteria">Exit Criteria</a></li><li class="toc-level-2"><a href="#accountable-roles">Accountable Roles</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="stage-7-operate-and-evolve">Stage 7 — Operate and Evolve</h1>
+<br>
+<h2 id="objective">Objective <a href="#objective" class="heading-anchor">#</a></h2>
+<br>
+<p>Operate against SLOs, measure outcomes, manage incidents, review exceptions, retire old semantics, and expand the portfolio.</p>
+<br>
+<h2 id="entry-conditions">Entry Conditions <a href="#entry-conditions" class="heading-anchor">#</a></h2>
+<br>
+<p>The preceding stage has approved evidence, open risks are visible, accountable roles are assigned, and the scope is versioned. Urgent delivery MAY begin earlier only through an explicit exception with compensating controls.</p>
+<br>
+<h2 id="required-work">Required Work <a href="#required-work" class="heading-anchor">#</a></h2>
+<br>
+<li>Confirm business outcome and affected value streams.</li>
+<li>Identify Canon and constitutional dependencies.</li>
+<li>Resolve truth ownership, identity, time, state, authority, and evidence questions.</li>
+<li>Produce the stage artifacts and validate them with downstream teams.</li>
+<li>Record consequential decisions and rejected alternatives.</li>
+<li>Evaluate security, privacy, AI, resilience, migration, and operations implications.</li>
+<li>Demonstrate the completion criteria through evidence.</li>
+<br>
+<h2 id="mandatory-artifacts">Mandatory Artifacts <a href="#mandatory-artifacts" class="heading-anchor">#</a></h2>
+<br>
+<li>SLO reports</li>
+<li>decision and AI outcome reviews</li>
+<li>incident learning</li>
+<li>deprecation progress</li>
+<li>benefit realization</li>
+<br>
+<br>
+<h2 id="review-table">Review Table <a href="#review-table" class="heading-anchor">#</a></h2>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Review Area</th>
+<th class="table-sort">Question</th>
+<th class="table-sort">Evidence</th>
+</tr></thead><tbody>
+<tr>
+<td>Business</td>
+<td>Is the intended outcome measurable?</td>
+<td>metric definition and baseline</td>
+</tr>
+<tr>
+<td>Semantics</td>
+<td>Are concepts and ownership unambiguous?</td>
+<td>glossary, registry, domain model</td>
+</tr>
+<tr>
+<td>Authority</td>
+<td>Who may assert, decide, delegate, and execute?</td>
+<td>authority and policy model</td>
+</tr>
+<tr>
+<td>Time and History</td>
+<td>Can historical truth and knowledge be reconstructed?</td>
+<td>temporal model and tests</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>Are contracts versioned and semantically safe?</td>
+<td>API, Event, and data contracts</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Are identity, purpose, jurisdiction, and threats controlled?</td>
+<td>threat model and policies</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>Can the capability be observed, recovered, and reconciled?</td>
+<td>SLOs, runbooks, recovery test</td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="stop-conditions">Stop Conditions <a href="#stop-conditions" class="heading-anchor">#</a></h2>
+<br>
+<li><strong>STOP:</strong> Old and new truth owners coexist indefinitely.</li>
+<li><strong>STOP:</strong> Repeated exceptions are normalized.</li>
+<li><strong>STOP:</strong> Benefits are not measured.</li>
+<br>
+<br>
+<h2 id="exit-criteria">Exit Criteria <a href="#exit-criteria" class="heading-anchor">#</a></h2>
+<br>
+<li>all mandatory artifacts are approved or have explicit exceptions;</li>
+<li>high-impact risks have owners and controls;</li>
+<li>traceability to Canon is recorded;</li>
+<li>delivery teams understand the next-stage obligations;</li>
+<li>no critical semantic, authority, security, or recovery uncertainty remains hidden.</li>
+<br>
+<h2 id="accountable-roles">Accountable Roles <a href="#accountable-roles" class="heading-anchor">#</a></h2>
+<br>
+<p>The stage owner coordinates completion. Domain owners approve meaning and truth. Security, data, AI, and operations approve their control areas. The Architecture Council resolves cross-domain conflicts.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

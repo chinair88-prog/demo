@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="This chapter defines how GTOS shall record consent, purpose, legal basis, preference, withdrawal, access, correction, deletion limits, and portability . The specification separates reality, observations, knowledge, Decisions, Intent, execution, and outcomes. A component name, dat…">
+<meta name="color-scheme" content="light dark">
+<title>Consent, Purpose, Privacy, and Data Subject Rights · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/03-DETAILED-VOLUMES/volume-05-identity-tenant-organization/16-CONSENT-PURPOSE-PRIVACY-AND-DATA-SUBJECT-RIGHTS.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Detailed Volumes</span><span class="sep">/</span><span>Volume 05 Identity Tenant Organization</span><span class="sep">/</span><span>Consent, Purpose, Privacy, and Data Subject Rights</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Detailed Volumes</span><span>1,983 words</span></div>
+        <h1>Consent, Purpose, Privacy, and Data Subject Rights</h1>
+        <p class="lede">This chapter defines how GTOS shall record consent, purpose, legal basis, preference, withdrawal, access, correction, deletion limits, and portability . The specification separates reality, observations, knowledge, Decisions, Intent, execution, and outcomes. A component name, dat…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Metadata</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Volume</td>
+<td><code>5</code></td>
+</tr>
+<tr>
+<td>Chapter ID</td>
+<td><code>V05-16</code></td>
+</tr>
+<tr>
+<td>Subject</td>
+<td><code>ConsentPrivacy</code></td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Generated First-Draft Architecture Skeleton - Domain-Specific Expansion Required</td>
+</tr>
+<tr>
+<td>Content maturity</td>
+<td><code>TEMPLATE_DERIVED_REFERENCE_SKELETON</code> unless repository citations prove otherwise</td>
+</tr>
+<tr>
+<td>Default implementation classification</td>
+<td><code>REFERENCE_ARCHITECTURE</code> / <code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+<tr>
+<td>Accountable owner</td>
+<td>Privacy Council</td>
+</tr>
+<tr>
+<td>Evidence rule</td>
+<td>No implementation claim without inspected executable evidence</td>
+</tr>
+<tr>
+<td>Repository</td>
+<td><code>chinair88-prog/allinb2c</code></td>
+</tr>
+</tbody>
+</table></div>
+<hr/>
+<h2 id="1-executive-orientation">1. Executive Orientation<a aria-label="Link to section" class="heading-anchor" href="#1-executive-orientation">#</a></h2>
+<p>This chapter defines how GTOS shall <strong>record consent, purpose, legal basis, preference, withdrawal, access, correction, deletion limits, and portability</strong>.</p>
+<p>The specification separates reality, observations, knowledge, Decisions, Intent, execution, and outcomes. A component name, database row, UI label, AI answer, or workflow state does not acquire authority merely because it is visible or technically convenient.</p>
+<div class="code-block"><div class="code-toolbar"><span>text</span><button class="copy-code" type="button">Copy</button></div><div class="highlight"><pre><span></span>Reality or external outcome
+    ≠ Observation
+    ≠ Claim
+    ≠ derived Perspective
+    ≠ Prediction
+    ≠ Recommendation
+    ≠ authorized Decision
+    ≠ execution Intent
+</pre></div>
+</div><h3 id="1-1-accountable-ownership">1.1 Accountable ownership<a aria-label="Link to section" class="heading-anchor" href="#1-1-accountable-ownership">#</a></h3>
+<p>The accountable owner is <strong>Privacy Council</strong>. Supporting applications, shared infrastructure, integration adapters, analytics, and AI coordinate or present the capability but shall not silently own its authoritative propositions.</p>
+<h3 id="1-2-scope">1.2 Scope<a aria-label="Link to section" class="heading-anchor" href="#1-2-scope">#</a></h3>
+<ul>
+<li>create and identify the subject</li>
+<li>validate evidence and policy</li>
+<li>make authorized Decisions</li>
+<li>execute typed Commands</li>
+<li>publish completed-fact Events</li>
+<li>query current and historical perspectives</li>
+<li>correct and reconcile outcomes</li>
+</ul>
+<h3 id="1-3-non-goals">1.3 Non-goals<a aria-label="Link to section" class="heading-anchor" href="#1-3-non-goals">#</a></h3>
+<ul>
+<li>treating a registered Gradle module, catalog record, README, frontend route, migration plan, or generated report as proof of end-to-end implementation;</li>
+<li>direct cross-Domain database writes;</li>
+<li>generic <code>status</code> values that combine lifecycle, approval, provider, document, payment, dispute, and correction state;</li>
+<li>silent replacement of history;</li>
+<li>AI-created authority or fabricated external outcomes.</li>
+</ul>
+<hr/>
+<h2 id="2-ubiquitous-language-and-subject-model">2. Ubiquitous Language and Subject Model<a aria-label="Link to section" class="heading-anchor" href="#2-ubiquitous-language-and-subject-model">#</a></h2>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Subject</th>
+<th>Required interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ConsentPrivacy</code></td>
+<td>Independent identified subject, governed subordinate entity, or qualified perspective; ownership must be explicit</td>
+</tr>
+<tr>
+<td><code>ConsentPrivacyVersion</code></td>
+<td>Independent identified subject, governed subordinate entity, or qualified perspective; ownership must be explicit</td>
+</tr>
+<tr>
+<td><code>ConsentPrivacyDecision</code></td>
+<td>Independent identified subject, governed subordinate entity, or qualified perspective; ownership must be explicit</td>
+</tr>
+<tr>
+<td><code>ConsentPrivacyEvidenceSet</code></td>
+<td>Independent identified subject, governed subordinate entity, or qualified perspective; ownership must be explicit</td>
+</tr>
+<tr>
+<td><code>ConsentPrivacyException</code></td>
+<td>Independent identified subject, governed subordinate entity, or qualified perspective; ownership must be explicit</td>
+</tr>
+</tbody>
+</table></div>
+<p>Reference aggregate:</p>
+<div class="code-block"><div class="code-toolbar"><span>text</span><button class="copy-code" type="button">Copy</button></div><div class="highlight"><pre><span></span>ConsentPrivacy {
+  subjectId
+  tenantId
+  organizationContext
+  sourceIdentityRefs[]
+  sourceVersionRefs[]
+  lifecycleState
+  relationshipRefs[]
+  decisionRefs[]
+  intentRefs[]
+  evidenceSetRef
+  knowledgeCutoff
+  policyRefs[]
+  authorityRef
+  jurisdictionRefs[]
+  createdAt
+  effectiveAt
+  updatedAt
+  version
+  correctionOf?
+  correlationId
+}
+</pre></div>
+</div><h3 id="2-1-core-invariants">2.1 Core invariants<a aria-label="Link to section" class="heading-anchor" href="#2-1-core-invariants">#</a></h3>
+<ul>
+<li>Stable identity precedes relationship, state, and cross-system correlation.</li>
+<li>Effective time and recorded time remain distinct where business truth changes over time.</li>
+<li>Recommendation, Decision, Intent, execution, and outcome are separate concepts.</li>
+<li>No Portal, report, search index, cache, workflow, or AI Agent becomes a shadow owner of Domain truth.</li>
+<li>Binding submitted, approved, issued, accepted, or signed versions are immutable.</li>
+<li>Corrections append governed facts and preserve the original record.</li>
+<li>External authority and provider outcomes retain their source and qualification.</li>
+<li>Tenant and represented-principal context come from trusted authentication and mandate evaluation.</li>
+<li>Retried writes are idempotent and concurrency guarded.</li>
+<li>Outcome Unknown is explicit and reconciled before risky duplicate execution.</li>
+</ul>
+<h3 id="2-2-required-standards">2.2 Required standards<a aria-label="Link to section" class="heading-anchor" href="#2-2-required-standards">#</a></h3>
+<ul>
+<li>stable identifiers</li>
+<li>typed contracts</li>
+<li>immutable binding versions</li>
+<li>transactional outbox</li>
+<li>idempotent Commands</li>
+<li>explicit Outcome Unknown</li>
+<li>correction lineage</li>
+<li>machine-verifiable conformance</li>
+</ul>
+<hr/>
+<h2 id="3-actors-roles-and-authority">3. Actors, Roles, and Authority<a aria-label="Link to section" class="heading-anchor" href="#3-actors-roles-and-authority">#</a></h2>
+<p>A conformant design distinguishes:</p>
+<ul>
+<li>the natural person acting;</li>
+<li>the service or AI identity invoking a Tool;</li>
+<li>the organization or principal represented;</li>
+<li>the role or relationship granting context;</li>
+<li>the mandate or delegation granting action authority;</li>
+<li>the Policy and jurisdiction limiting the action;</li>
+<li>the reviewer or approver responsible for a binding Decision.</li>
+</ul>
+<p>Authority is evaluated at action time. Authentication alone does not grant business authority. Cached permissions and browser-supplied tenant headers are insufficient for high-impact actions.</p>
+<hr/>
+<h2 id="4-lifecycle-and-state-model">4. Lifecycle and State Model<a aria-label="Link to section" class="heading-anchor" href="#4-lifecycle-and-state-model">#</a></h2>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>State</th>
+<th>Semantics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PROPOSED</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+<tr>
+<td><code>VALIDATION_PENDING</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+<tr>
+<td><code>APPROVAL_PENDING</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+<tr>
+<td><code>ACTIVE</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+<tr>
+<td><code>SUSPENDED</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+<tr>
+<td><code>CORRECTION_PENDING</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+<tr>
+<td><code>RETIRED</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="diagram-card" data-diagram="8696dd0768fde255"><div class="diagram-toolbar"><span>Architecture diagram</span><button aria-label="Expand diagram" class="diagram-expand" type="button">Expand</button></div><img alt="Architecture workflow diagram" loading="lazy" src="../../../diagrams/8696dd0768fde255.svg"/><details><summary>Diagram source</summary><pre><code>stateDiagram-v2
+    [*] --&gt; PROPOSED
+    PROPOSED --&gt; VALIDATION_PENDING
+    VALIDATION_PENDING --&gt; APPROVAL_PENDING
+    APPROVAL_PENDING --&gt; ACTIVE
+    ACTIVE --&gt; SUSPENDED
+    SUSPENDED --&gt; CORRECTION_PENDING
+    CORRECTION_PENDING --&gt; RETIRED</code></pre></details></figure><p>The diagram is a primary reading path. Real implementations may add parallel review, amendment, appeal, timeout, suspension, partial completion, reconciliation, correction, and terminal failure without collapsing their meaning.</p>
+<h3 id="4-1-transition-rules">4.1 Transition rules<a aria-label="Link to section" class="heading-anchor" href="#4-1-transition-rules">#</a></h3>
+<ul>
+<li>transition through a typed, authorized Command;</li>
+<li>require exact expected version where concurrent change matters;</li>
+<li>record actor, represented principal, mandate, Policy, reason, and Evidence;</li>
+<li>use an idempotency key for retried writes;</li>
+<li>publish a completed-fact Event after durable state change;</li>
+<li>expose Outcome Unknown for unresolved external completion;</li>
+<li>preserve original and corrected states in historical reconstruction.</li>
+</ul>
+<hr/>
+<h2 id="5-decision-evidence-and-knowledge-cutoff">5. Decision, Evidence, and Knowledge Cutoff<a aria-label="Link to section" class="heading-anchor" href="#5-decision-evidence-and-knowledge-cutoff">#</a></h2>
+<p>Reference Decision:</p>
+<div class="code-block"><div class="code-toolbar"><span>text</span><button class="copy-code" type="button">Copy</button></div><div class="highlight"><pre><span></span>Decision {
+  decisionId
+  decisionType
+  subjectRef
+  sourceVersionRefs[]
+  knowledgeCutoff
+  evidenceSetRef
+  policyVersionRefs[]
+  recommendationRefs[]
+  principalId
+  representedOrganizationId
+  mandateRef
+  rationale
+  outcome
+  decidedAt
+  effectiveAt
+  correctionOf?
+}
+</pre></div>
+</div><p>Evidence records identify issuer or observer, subject, version, observed time, received time, effective interval, integrity, confidence, qualification, contradiction, correction, retention, residency, and access class. A recommendation may assist the Decision but cannot promote itself to the Decision.</p>
+<hr/>
+<h2 id="6-commands-events-queries-and-contracts">6. Commands, Events, Queries, and Contracts<a aria-label="Link to section" class="heading-anchor" href="#6-commands-events-queries-and-contracts">#</a></h2>
+<p>Reference Commands:</p>
+<ul>
+<li><code>CreateConsentPrivacy</code></li>
+<li><code>ValidateConsentPrivacy</code></li>
+<li><code>ApproveConsentPrivacy</code></li>
+<li><code>ActivateConsentPrivacy</code></li>
+<li><code>SuspendConsentPrivacy</code></li>
+<li><code>CorrectConsentPrivacy</code></li>
+<li><code>RetireConsentPrivacy</code></li>
+</ul>
+<p>Reference Events:</p>
+<ul>
+<li><code>ConsentPrivacyCreated</code></li>
+<li><code>ConsentPrivacyValidated</code></li>
+<li><code>ConsentPrivacyApproved</code></li>
+<li><code>ConsentPrivacyActivated</code></li>
+<li><code>ConsentPrivacySuspended</code></li>
+<li><code>ConsentPrivacyCorrected</code></li>
+<li><code>ConsentPrivacyRetired</code></li>
+</ul>
+<p>Reference queries:</p>
+<ul>
+<li><code>GetConsentPrivacy</code></li>
+<li><code>ListConsentPrivacyRecords</code></li>
+<li><code>GetConsentPrivacyTimeline</code></li>
+<li><code>GetConsentPrivacyEvidence</code></li>
+<li><code>GetConsentPrivacyDecisionPackage</code></li>
+<li><code>GetConsentPrivacyExceptions</code></li>
+<li><code>GetConsentPrivacyAuditTrail</code></li>
+</ul>
+<p>Reference API surface:</p>
+<div class="code-block"><div class="code-toolbar"><span>text</span><button class="copy-code" type="button">Copy</button></div><div class="highlight"><pre><span></span>POST /api/v1/consentprivacy/commands
+GET  /api/v1/consentprivacy/{id}
+GET  /api/v1/consentprivacy/{id}/timeline
+GET  /api/v1/consentprivacy/{id}/evidence
+GET  /api/v1/consentprivacy/{id}/decisions
+POST /api/v1/consentprivacy/{id}/exceptions
+POST /api/v1/consentprivacy/{id}/corrections
+</pre></div>
+</div><p>These endpoints are reference contracts, not claims that exact routes exist.</p>
+<hr/>
+<h2 id="7-workflow-failure-and-compensation">7. Workflow, Failure, and Compensation<a aria-label="Link to section" class="heading-anchor" href="#7-workflow-failure-and-compensation">#</a></h2>
+<figure class="diagram-card" data-diagram="eba6ecf488a87c42"><div class="diagram-toolbar"><span>Architecture diagram</span><button aria-label="Expand diagram" class="diagram-expand" type="button">Expand</button></div><img alt="Architecture workflow diagram" loading="lazy" src="../../../diagrams/eba6ecf488a87c42.svg"/><details><summary>Diagram source</summary><pre><code>flowchart TD
+    A[Validate identity version and authority] --&gt; B[Collect required evidence]
+    B --&gt; C{Policy and evidence gates pass?}
+    C -- No --&gt; D[Open exception or request correction]
+    D --&gt; B
+    C -- Yes --&gt; E[Record Decision or execution Intent]
+    E --&gt; F[Execute Domain command or external request]
+    F --&gt; G{Outcome known?}
+    G -- Success --&gt; H[Record fact and publish Event]
+    G -- Failure --&gt; I[Record failure and compensation options]
+    G -- Unknown --&gt; J[Enter Outcome Unknown]
+    J --&gt; K[Query source or wait for verified callback]
+    K --&gt; G
+    H --&gt; L[Update projections and downstream workflow]</code></pre></details></figure><p>Representative failure modes:</p>
+<ul>
+<li>stale or wrong source version</li>
+<li>duplicate submission or replay</li>
+<li>external timeout after possible success</li>
+<li>contradictory source observations</li>
+<li>lost Event after committed state</li>
+<li>approval or mandate revoked during execution</li>
+<li>downstream action before a mandatory gate</li>
+<li>partial completion across multiple subjects</li>
+<li>evidence later retracted or corrected</li>
+<li>tenant, facility, channel or jurisdiction mismatch</li>
+</ul>
+<p>Recovery shall query the authoritative source before duplicate execution, preserve partial success, use compensating Intent rather than destructive rewrite, publish corrections, quarantine high-impact ambiguity, and record affected downstream subjects.</p>
+<hr/>
+<h2 id="8-data-and-persistence-architecture">8. Data and Persistence Architecture<a aria-label="Link to section" class="heading-anchor" href="#8-data-and-persistence-architecture">#</a></h2>
+<p>Reference table families:</p>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Table family</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>consentprivacy_aggregate</code></td>
+<td>authoritative subject</td>
+</tr>
+<tr>
+<td><code>consentprivacy_version</code></td>
+<td>immutable submitted, approved, issued, or signed versions</td>
+</tr>
+<tr>
+<td><code>consentprivacy_relationship</code></td>
+<td>governed relationships</td>
+</tr>
+<tr>
+<td><code>consentprivacy_decision</code></td>
+<td>binding Decisions and rationale</td>
+</tr>
+<tr>
+<td><code>consentprivacy_evidence_link</code></td>
+<td>provenance and evidence relationships</td>
+</tr>
+<tr>
+<td><code>consentprivacy_event_outbox</code></td>
+<td>transactional Event publication</td>
+</tr>
+<tr>
+<td><code>consentprivacy_idempotency</code></td>
+<td>duplicate-write protection</td>
+</tr>
+<tr>
+<td><code>consentprivacy_exception</code></td>
+<td>exception, claim, dispute, or hold</td>
+</tr>
+<tr>
+<td><code>consentprivacy_correction</code></td>
+<td>correction and supersession lineage</td>
+</tr>
+<tr>
+<td><code>consentprivacy_audit</code></td>
+<td>privileged action evidence</td>
+</tr>
+</tbody>
+</table></div>
+<p>The owning service controls schema and migration. Cross-Domain references use stable identifiers or contracts. Analytics, reports, caches, search, and vector indexes remain projections. Backup, restore, retention, legal hold, privacy, residency, and decommissioning requirements are explicit.</p>
+<hr/>
+<h2 id="9-portal-and-experience-requirements">9. Portal and Experience Requirements<a aria-label="Link to section" class="heading-anchor" href="#9-portal-and-experience-requirements">#</a></h2>
+<ul>
+<li>Primary participant Portal: initiate, review exact versions, supply evidence, and respond to required actions.</li>
+<li>Operator Portal: inspect exceptions, correlation, source responses, retries, compensation, and downstream impact.</li>
+<li>Executive or oversight view: consume governed metrics without becoming a source of Domain truth.</li>
+</ul>
+<p>Every Portal displays exact version, owner, state, freshness, required action, and uncertainty. It supports loading, empty, partial, stale, denied, error, timeout, and Outcome Unknown states; accessibility; locale, currency, unit, date, and RTL/LTR correctness; evidence audit; safe retry; and correction history.</p>
+<hr/>
+<h2 id="10-ai-participation-and-tool-governance">10. AI Participation and Tool Governance<a aria-label="Link to section" class="heading-anchor" href="#10-ai-participation-and-tool-governance">#</a></h2>
+<p>Permitted AI tasks:</p>
+<ul>
+<li>extract and classify evidence</li>
+<li>detect anomalies and missing fields</li>
+<li>summarize timelines and contradictions</li>
+<li>recommend next actions with sources and uncertainty</li>
+</ul>
+<p>AI shall not own Domain records, grant itself authority, suppress contradictions, silently edit approved versions, fabricate external outcomes, or execute high-impact actions outside typed Tools, policy, approval, idempotency, sandbox, and outcome observation.</p>
+<p>Every Agent Run records source context, prompt/model/tool versions, structured output, confidence and limitations, Policy result, approval, Tool calls, provider responses, final outcome, and recovery actions.</p>
+<hr/>
+<h2 id="11-security-privacy-and-trust-boundaries">11. Security, Privacy, and Trust Boundaries<a aria-label="Link to section" class="heading-anchor" href="#11-security-privacy-and-trust-boundaries">#</a></h2>
+<ul>
+<li>cryptographic authentication and secure credential lifecycle</li>
+<li>tenant and represented-principal isolation</li>
+<li>revocation, audit and point-in-time authorization reconstruction</li>
+<li>confused-deputy, impersonation and replay prevention</li>
+</ul>
+<p>Additional controls include secret isolation, callback signature verification, audit of privileged action, emergency-access review, sensitive-data minimization, purpose limitation, and threat models for impersonation, tampering, replay, confused deputy, fraud, prompt injection, and exfiltration.</p>
+<hr/>
+<h2 id="12-reliability-slos-and-operations">12. Reliability, SLOs, and Operations<a aria-label="Link to section" class="heading-anchor" href="#12-reliability-slos-and-operations">#</a></h2>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>SLI</th>
+<th>Reference objective</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>authoritative read availability</td>
+<td>99.9% monthly unless a stricter tier applies</td>
+</tr>
+<tr>
+<td>acknowledged Command durability</td>
+<td>no acknowledged write may be silently lost</td>
+</tr>
+<tr>
+<td>Event publication</td>
+<td>99.9% within five minutes after committed fact</td>
+</tr>
+<tr>
+<td>duplicate prevention</td>
+<td>100% for same tenant, Command class, and idempotency key</td>
+</tr>
+<tr>
+<td>binding Decision audit completeness</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>stale-state detection</td>
+<td>bounded by business deadline</td>
+</tr>
+</tbody>
+</table></div>
+<p>Dashboards and runbooks cover backlog, error budget, dependency failure, retry budget, DLQ, workflow stall, provider outage, reconciliation, capacity, backup/restore, release/rollback, incident command, and post-incident correction.</p>
+<hr/>
+<h2 id="13-testing-and-continuous-conformance">13. Testing and Continuous Conformance<a aria-label="Link to section" class="heading-anchor" href="#13-testing-and-continuous-conformance">#</a></h2>
+<ul>
+<li>aggregate invariant and transition tests</li>
+<li>authorization, delegation, separation-of-duties and tenant-isolation tests</li>
+<li>idempotency and optimistic-concurrency tests</li>
+<li>database migration, key, constraint and rollback tests</li>
+<li>contract, outbox/inbox, duplicate, replay and DLQ tests</li>
+<li>workflow restart, timeout and compensation tests</li>
+<li>Portal E2E tests for success, partial, stale, denied, error and Outcome Unknown states</li>
+<li>accessibility, locale, currency, unit and RTL/LTR tests</li>
+<li>security adversarial, fraud and data-exfiltration tests</li>
+<li>AI evaluation, prompt-injection, policy-bypass and unauthorized-tool tests</li>
+<li>historical reconstruction, correction and audit-completeness tests</li>
+<li>performance, capacity, recovery and operational exercise tests</li>
+</ul>
+<p>Release evidence links each invariant and control to the test, environment, input data, result, owner, and artifact proving it. Generated test counts never replace semantic coverage.</p>
+<hr/>
+<h2 id="14-repository-review-boundary">14. Repository Review Boundary<a aria-label="Link to section" class="heading-anchor" href="#14-repository-review-boundary">#</a></h2>
+<ul>
+<li>This chapter is a repository-review specification. Exact executable implementation has not been inspected for every target behavior.</li>
+<li>Registered modules, catalog entries, README claims, frontend contracts, or plans are not proof of complete implementation.</li>
+</ul>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Area</th>
+<th>Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target aggregate, API, tables, state and workflow in this chapter</td>
+<td><code>REFERENCE_ARCHITECTURE</code></td>
+</tr>
+<tr>
+<td>registered module or catalog claim</td>
+<td><code>DOCUMENTATION_ONLY_CLAIM</code> until source inspection</td>
+</tr>
+<tr>
+<td>uninspected integration</td>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+<tr>
+<td>behavior proven in another repository-grounded chapter</td>
+<td>retain that chapter's evidence and classification</td>
+</tr>
+<tr>
+<td>contradictory ownership or path claims</td>
+<td><code>CONFLICT_REQUIRES_CANONICALIZATION</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>No statement upgrades implementation status merely because a file, directory, module name, frontend contract, database entry, plan, or report exists.</p>
+<hr/>
+<h2 id="15-worked-conformance-scenario">15. Worked Conformance Scenario<a aria-label="Link to section" class="heading-anchor" href="#15-worked-conformance-scenario">#</a></h2>
+<p>An authorized principal initiates a Command against an exact subject version. The service validates identity, tenant, mandate, Policy, Evidence, and idempotency. It records the state transition and outbox entry atomically. If an external dependency participates, timeout produces Outcome Unknown; reconciliation queries the source or waits for a verified callback instead of repeating the action blindly.</p>
+<p>Portals show source, freshness, version, required action, and uncertainty. AI may extract, compare, summarize, detect anomalies, and recommend through typed Tools, but cannot own the subject or fabricate success. Later correction appends new facts, identifies affected projections and workflows, and preserves the historical Decision context.</p>
+<hr/>
+<h2 id="16-conformance-checklist">16. Conformance Checklist<a aria-label="Link to section" class="heading-anchor" href="#16-conformance-checklist">#</a></h2>
+<ul>
+<li>[ ] stable identity and proposition ownership are explicit;</li>
+<li>[ ] authority and mandate are evaluated at action time;</li>
+<li>[ ] state, Recommendation, Decision, Intent, execution, and outcome remain distinct;</li>
+<li>[ ] Commands are typed, authorized, idempotent, and version guarded;</li>
+<li>[ ] Events describe completed facts;</li>
+<li>[ ] Evidence includes provenance, time, integrity, qualification, and correction;</li>
+<li>[ ] external outcomes retain their authority source;</li>
+<li>[ ] Portals show freshness and uncertainty;</li>
+<li>[ ] AI is bounded by typed Tools, Policy, approval, and outcome observation;</li>
+<li>[ ] security, tenant, facility, channel, and jurisdiction boundaries are enforced;</li>
+<li>[ ] Outcome Unknown and reconciliation exist where needed;</li>
+<li>[ ] corrections preserve history;</li>
+<li>[ ] tests prove invariants and recovery;</li>
+<li>[ ] implementation status is not upgraded without executable evidence.</li>
+</ul>
+<hr/>
+<h2 id="17-status-vocabulary">17. Status Vocabulary<a aria-label="Link to section" class="heading-anchor" href="#17-status-vocabulary">#</a></h2>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+<td>Executable source and relevant behavior were inspected.</td>
+</tr>
+<tr>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>Executable behavior exists with a material governance or completeness gap.</td>
+</tr>
+<tr>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+<td>Only part of the target capability is evidenced.</td>
+</tr>
+<tr>
+<td><code>REFERENCE_ARCHITECTURE</code></td>
+<td>Normative target behavior; no claim that it exists today.</td>
+</tr>
+<tr>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+<td>Explicitly planned but not evidenced as executable.</td>
+</tr>
+<tr>
+<td><code>DOCUMENTATION_ONLY_CLAIM</code></td>
+<td>Documentation or client contract claims behavior without verified backend evidence.</td>
+</tr>
+<tr>
+<td><code>CONFLICT_REQUIRES_CANONICALIZATION</code></td>
+<td>Sources disagree and no final owner has been established.</td>
+</tr>
+<tr>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+<td>Necessary executable evidence has not yet been inspected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#1-executive-orientation">1. Executive Orientation</a><a class="toc-level-3" href="#1-1-accountable-ownership">1.1 Accountable ownership</a><a class="toc-level-3" href="#1-2-scope">1.2 Scope</a><a class="toc-level-3" href="#1-3-non-goals">1.3 Non-goals</a><a class="toc-level-2" href="#2-ubiquitous-language-and-subject-model">2. Ubiquitous Language and Subject Model</a><a class="toc-level-3" href="#2-1-core-invariants">2.1 Core invariants</a><a class="toc-level-3" href="#2-2-required-standards">2.2 Required standards</a><a class="toc-level-2" href="#3-actors-roles-and-authority">3. Actors, Roles, and Authority</a><a class="toc-level-2" href="#4-lifecycle-and-state-model">4. Lifecycle and State Model</a><a class="toc-level-3" href="#4-1-transition-rules">4.1 Transition rules</a><a class="toc-level-2" href="#5-decision-evidence-and-knowledge-cutoff">5. Decision, Evidence, and Knowledge Cutoff</a><a class="toc-level-2" href="#6-commands-events-queries-and-contracts">6. Commands, Events, Queries, and Contracts</a><a class="toc-level-2" href="#7-workflow-failure-and-compensation">7. Workflow, Failure, and Compensation</a><a class="toc-level-2" href="#8-data-and-persistence-architecture">8. Data and Persistence Architecture</a><a class="toc-level-2" href="#9-portal-and-experience-requirements">9. Portal and Experience Requirements</a><a class="toc-level-2" href="#10-ai-participation-and-tool-governance">10. AI Participation and Tool Governance</a><a class="toc-level-2" href="#11-security-privacy-and-trust-boundaries">11. Security, Privacy, and Trust Boundaries</a><a class="toc-level-2" href="#12-reliability-slos-and-operations">12. Reliability, SLOs, and Operations</a><a class="toc-level-2" href="#13-testing-and-continuous-conformance">13. Testing and Continuous Conformance</a><a class="toc-level-2" href="#14-repository-review-boundary">14. Repository Review Boundary</a><a class="toc-level-2" href="#15-worked-conformance-scenario">15. Worked Conformance Scenario</a><a class="toc-level-2" href="#16-conformance-checklist">16. Conformance Checklist</a><a class="toc-level-2" href="#17-status-vocabulary">17. Status Vocabulary</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="15-IDENTITY-PROOFING-KYB-KYC-AND-QUALIFICATION.html"><span>Previous</span><strong>Identity Proofing, KYB, KYC, and Qualification</strong></a>
+        <a class="next" href="17-CROSS-TENANT-ISOLATION-AND-CONFUSED-DEPUTY-PREVENTION.html"><span>Next</span><strong>Cross-Tenant Isolation and Confused-Deputy Prevention</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The author distributes a concise context, proposed decision, diagrams, scenarios, Canon dependencies, alternatives, risks, contracts, and open questions. Reviewers receive enough time to inspect the material. A meeting is not used to reveal an unread design for the first time. Be…">
+<meta name="color-scheme" content="light dark">
+<title>Architecture Design Review Facilitation · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../../site.webmanifest">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/search-index.js"></script>
+<script defer src="../../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/14-design-review-facilitation.html" data-root="../../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../../index.html"><img src="../../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <a href="../../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Delivery</span><span class="sep">/</span><span>Engineering Guides</span><span class="sep">/</span><span>Architecture Design Review Facilitation</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>290 words</span></div>
+        <h1>Architecture Design Review Facilitation</h1>
+        <p class="lede">The author distributes a concise context, proposed decision, diagrams, scenarios, Canon dependencies, alternatives, risks, contracts, and open questions. Reviewers receive enough time to inspect the material. A meeting is not used to reveal an unread design for the first time. Be…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="before-the-review">Before the Review<a aria-label="Link to section" class="heading-anchor" href="#before-the-review">#</a></h2>
+<p>The author distributes a concise context, proposed decision, diagrams, scenarios, Canon dependencies, alternatives, risks, contracts, and open questions. Reviewers receive enough time to inspect the material. A meeting is not used to reveal an unread design for the first time.</p>
+<h2 id="review-sequence">Review Sequence<a aria-label="Link to section" class="heading-anchor" href="#review-sequence">#</a></h2>
+<p>Begin with business reality and intended outcome. Confirm the truth owner and authority boundary. Walk through identities, Relationships, time, state, Commands, Events, Decisions, Intent, and corrections. Then review data, AI, security, platform, infrastructure, and operations.</p>
+<p>Use concrete scenarios rather than debating abstract preferences. Include a normal case, an invalid transition, late evidence, contradictory evidence, retry after response loss, partner outage, security abuse, and disaster recovery.</p>
+<h2 id="decision-matrix">Decision Matrix<a aria-label="Link to section" class="heading-anchor" href="#decision-matrix">#</a></h2>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Questions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Correctness</td>
+<td>Does the design preserve the GTOS concepts and invariants?</td>
+</tr>
+<tr>
+<td>Authority</td>
+<td>Are assertions, Decisions, delegation, and execution legitimate?</td>
+</tr>
+<tr>
+<td>Compatibility</td>
+<td>Can existing consumers and historical data retain meaning?</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Are trust boundaries, purpose, jurisdiction, and abuse controlled?</td>
+</tr>
+<tr>
+<td>Operability</td>
+<td>Can teams observe, support, recover, and reconcile?</td>
+</tr>
+<tr>
+<td>Evolution</td>
+<td>Can the design change without semantic fragmentation?</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Is complexity proportional to business impact?</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="review-outcomes">Review Outcomes<a aria-label="Link to section" class="heading-anchor" href="#review-outcomes">#</a></h2>
+<p>Outcomes are approved, approved with conditions, revise and return, or rejected. Conditions have owners and due dates. Dissent and rejected alternatives are preserved. Approval applies to a version and scope, not to all future implementation changes.</p>
+<h2 id="healthy-review-behavior">Healthy Review Behavior<a aria-label="Link to section" class="heading-anchor" href="#healthy-review-behavior">#</a></h2>
+<p>Reviewers challenge the design, not the person. Seniority does not replace evidence. Novelty is neither a virtue nor a defect. A simpler design wins only when it preserves required semantics and controls. A sophisticated design is rejected when operational ownership is not credible.</p>
+<h2 id="after-the-review">After the Review<a aria-label="Link to section" class="heading-anchor" href="#after-the-review">#</a></h2>
+<p>Update the ADR, architecture models, risks, contracts, and backlog. Verify that conditions enter delivery planning. Significant deviations return to review rather than appearing only in code.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#before-the-review">Before the Review</a><a class="toc-level-2" href="#review-sequence">Review Sequence</a><a class="toc-level-2" href="#decision-matrix">Decision Matrix</a><a class="toc-level-2" href="#review-outcomes">Review Outcomes</a><a class="toc-level-2" href="#healthy-review-behavior">Healthy Review Behavior</a><a class="toc-level-2" href="#after-the-review">After the Review</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="13-domain-onboarding-roadmap.html"><span>Previous</span><strong>Ninety-Day Domain Onboarding Roadmap</strong></a>
+        <a class="next" href="15-command-handler-reference.html"><span>Next</span><strong>Command Handler Reference Flow</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

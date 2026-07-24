@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The consumer receives an Event envelope and records transport receipt time. Receipt is not acceptance. The consumer verifies source identity, integrity, schema support, subject, classification, and authorization to process the Event. Event identity is checked against the consumer…">
+<meta name="color-scheme" content="light dark">
+<title>Event Consumer Reference Flow · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../../site.webmanifest">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/search-index.js"></script>
+<script defer src="../../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/16-event-consumer-reference.html" data-root="../../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../../index.html"><img src="../../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <a href="../../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Delivery</span><span class="sep">/</span><span>Engineering Guides</span><span class="sep">/</span><span>Event Consumer Reference Flow</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>282 words</span></div>
+        <h1>Event Consumer Reference Flow</h1>
+        <p class="lede">The consumer receives an Event envelope and records transport receipt time. Receipt is not acceptance. The consumer verifies source identity, integrity, schema support, subject, classification, and authorization to process the Event. Event identity is checked against the consumer…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="receipt">Receipt<a aria-label="Link to section" class="heading-anchor" href="#receipt">#</a></h2>
+<p>The consumer receives an Event envelope and records transport receipt time. Receipt is not acceptance. The consumer verifies source identity, integrity, schema support, subject, classification, and authorization to process the Event.</p>
+<h2 id="deduplication">Deduplication<a aria-label="Link to section" class="heading-anchor" href="#deduplication">#</a></h2>
+<p>Event identity is checked against the consumer's processed-event record or idempotent business operation. A duplicate may update transport metrics but SHALL not repeat business effects.</p>
+<h2 id="interpretation">Interpretation<a aria-label="Link to section" class="heading-anchor" href="#interpretation">#</a></h2>
+<p>The consumer applies semantics for the declared Event version. Occurrence time and recording time remain distinct. Ordering assumptions are limited to the producer's documented scope. An Event arriving late may still change a projection or trigger an impact assessment.</p>
+<h2 id="processing-types">Processing Types<a aria-label="Link to section" class="heading-anchor" href="#processing-types">#</a></h2>
+<p>Projection consumers update a derived view. Workflow consumers advance coordination state. Domain consumers may issue a new Command under their own authority and policy; they do not directly mutate the producer's truth. Notification consumers communicate under replay controls. Analytical consumers preserve lineage.</p>
+<h2 id="failure">Failure<a aria-label="Link to section" class="heading-anchor" href="#failure">#</a></h2>
+<p>Transient infrastructure failure triggers bounded retry with backoff. Invalid schema, unsupported semantic version, prohibited data, or invariant contradiction enters quarantine or a case with owner and reason. Infinite retry without visibility is prohibited.</p>
+<h2 id="replay">Replay<a aria-label="Link to section" class="heading-anchor" href="#replay">#</a></h2>
+<p>Replay is explicitly authorized. Consumers know whether they are rebuilding state, re-evaluating current policy, or reproducing historical behavior. Irreversible notifications and payments are disabled unless replay Intent specifically permits them.</p>
+<h2 id="correction">Correction<a aria-label="Link to section" class="heading-anchor" href="#correction">#</a></h2>
+<p>A correction Event references the original. The consumer identifies affected projections, Decisions, documents, or executions. Some results are recomputed; others remain historically valid and create remediation. The correction is never treated as proof that the original Event did not exist.</p>
+<h2 id="operational-signals">Operational Signals<a aria-label="Link to section" class="heading-anchor" href="#operational-signals">#</a></h2>
+<p>Monitor lag by occurrence and receipt, processing success, quarantine, duplicates, unsupported versions, replay position, correction backlog, and business outcome. Queue depth alone is not enough.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#receipt">Receipt</a><a class="toc-level-2" href="#deduplication">Deduplication</a><a class="toc-level-2" href="#interpretation">Interpretation</a><a class="toc-level-2" href="#processing-types">Processing Types</a><a class="toc-level-2" href="#failure">Failure</a><a class="toc-level-2" href="#replay">Replay</a><a class="toc-level-2" href="#correction">Correction</a><a class="toc-level-2" href="#operational-signals">Operational Signals</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="15-command-handler-reference.html"><span>Previous</span><strong>Command Handler Reference Flow</strong></a>
+        <a class="next" href="17-recovery-exercise.html"><span>Next</span><strong>Business Recovery Exercise</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

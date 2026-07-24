@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Critical Findings and Issue Register · GTOS Handbook</title>
+<meta name="description" content="Critical Findings and Issue Register ID Severity Finding Required action AUD001 Critical Batches 0206 were labelled Draft Complete despite being templatederived">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-07-Audit-Canonicalization-Evidence-Wave-01/index.html">GTOS Handbook Batch 07 Audit Canonicalization Evidence Wave 01</a> <span class="sep">›</span> <span>Critical Findings and Issue Register</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>Critical Findings and Issue Register</h1>
+      </header>
+      
+      <div class="prose">
+        <h1 id="critical-findings-and-issue-register">Critical Findings and Issue Register</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">ID</th>
+<th class="table-sort">Severity</th>
+<th class="table-sort">Finding</th>
+<th class="table-sort">Required action</th>
+</tr></thead><tbody>
+<tr>
+<td>AUD-001</td>
+<td>Critical</td>
+<td>Batches 02-06 were labelled <code>Draft Complete</code> despite being template-derived</td>
+<td>use Audited-v2 packages and expand subject-specific content</td>
+</tr>
+<tr>
+<td>AUD-002</td>
+<td>Critical</td>
+<td>repository evidence in generated corpus is near zero</td>
+<td>perform code-by-code evidence enrichment</td>
+</tr>
+<tr>
+<td>AUD-003</td>
+<td>Critical</td>
+<td>word and file counts were used in ways that could imply completion</td>
+<td>use semantic completion gates instead</td>
+</tr>
+<tr>
+<td>AUD-004</td>
+<td>High</td>
+<td>original Master is nested packaging, not merged source</td>
+<td>publish an expanded canonical source tree later</td>
+</tr>
+<tr>
+<td>AUD-005</td>
+<td>High</td>
+<td>XLSX zero-addition classification is unreliable</td>
+<td>rebuild catalogue from direct file reads</td>
+</tr>
+<tr>
+<td>AUD-006</td>
+<td>High</td>
+<td>canonical lifecycle and publication numbering differ</td>
+<td>retain explicit mapping and stable IDs</td>
+</tr>
+<tr>
+<td>AUD-007</td>
+<td>High</td>
+<td>generic reference APIs and tables are repeated as if chapter-specific</td>
+<td>replace with verified or clearly target-specific contracts</td>
+</tr>
+<tr>
+<td>AUD-008</td>
+<td>High</td>
+<td>major Domain ownership conflicts remain</td>
+<td>create canonicalization ADRs and ownership matrices</td>
+</tr>
+<tr>
+<td>AUD-009</td>
+<td>Medium</td>
+<td>prior compact edition is only 42,939 Markdown words across 258 files</td>
+<td>retain as legacy reference, not final edition</td>
+</tr>
+<tr>
+<td>AUD-010</td>
+<td>Medium</td>
+<td>no current PDF exists for the expanded corpus</td>
+<td>defer PDF until content review and deduplication</td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="gate">Gate <a href="#gate" class="heading-anchor">#</a></h2>
+<br>
+<p>No new mass template generation is permitted until the current subject family is enriched with concrete repository evidence and reviewed for ownership, duplication, and correctness.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

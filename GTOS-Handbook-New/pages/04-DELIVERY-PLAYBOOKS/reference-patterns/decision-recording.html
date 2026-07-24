@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Decision Recording Pattern · GTOS Handbook</title>
+<meta name="description" content="Decision Recording Pattern Purpose A Decision Record enables explanation, appeal, audit, learning, and outcome monitoring. Minimum Record decision identity and ">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/reference-patterns/index.html">Reference Patterns</a> <span class="sep">›</span> <span>Decision Recording Pattern</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Decision Recording Pattern</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#purpose">Purpose</a></li><li class="toc-level-2"><a href="#minimum-record">Minimum Record</a></li><li class="toc-level-2"><a href="#ai-assisted-decision">AI-Assisted Decision</a></li><li class="toc-level-2"><a href="#outcome-learning">Outcome Learning</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="decision-recording-pattern">Decision Recording Pattern</h1>
+<br>
+<h2 id="purpose">Purpose <a href="#purpose" class="heading-anchor">#</a></h2>
+<br>
+<p>A Decision Record enables explanation, appeal, audit, learning, and outcome monitoring.</p>
+<br>
+<h2 id="minimum-record">Minimum Record <a href="#minimum-record" class="heading-anchor">#</a></h2>
+<br>
+<li>decision identity and type;</li>
+<li>subject;</li>
+<li>authority identity and basis;</li>
+<li>decision time and knowledge cutoff;</li>
+<li>evidence references;</li>
+<li>policy and rule versions;</li>
+<li>recommendations considered;</li>
+<li>alternatives;</li>
+<li>uncertainty;</li>
+<li>decision outcome;</li>
+<li>explanation;</li>
+<li>approval or escalation;</li>
+<li>expected effect;</li>
+<li>later outcome references;</li>
+<li>correction or appeal status.</li>
+<br>
+<h2 id="ai-assisted-decision">AI-Assisted Decision <a href="#ai-assisted-decision" class="heading-anchor">#</a></h2>
+<br>
+<p>Where AI contributes, the record additionally captures model route, model version, prompt or task version, retrieval set, tool results, calibration context, and safety checks. Private model reasoning is not required. Reproducible evidence and structured rationale are required.</p>
+<br>
+<h2 id="outcome-learning">Outcome Learning <a href="#outcome-learning" class="heading-anchor">#</a></h2>
+<br>
+<p>Decision quality SHALL be evaluated against later outcomes without rewriting what was knowable at the time. A wrong prediction, a poor decision, and an unsuccessful execution are distinct failure classes and demand different remediation.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+---
+title: "06 — Warehouse Receiving and Receipt"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="06 — Warehouse Receiving and Receipt"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "06 — Warehouse Receiving and Receipt" }
+  ]}
+>
+
+<br />
+<h2 id="warehouse-service">Warehouse Service</h2>
+<br />
+<p><code class="code-inline">AsnEntity</code> این اطلاعات را ذخیره می‌کند:</p>
+<br />
+<p>- ASN number و reference؛</p>
+<p>- Purchase Order، warehouse، tenant و supplier؛</p>
+<p>- carrier و tracking؛</p>
+<p>- pallet count، line count و expected quantity؛</p>
+<p>- estimated/actual arrival؛</p>
+<p>- dock appointment؛</p>
+<p>- line items در JSON؛</p>
+<p>- status و timestamps.</p>
+<br />
+<p><code class="code-inline">AsnService</code> رفتارهای زیر را دارد:</p>
+<br />
+<p>- create ASN؛</p>
+<p>- update status؛</p>
+<p>- link به Dock Appointment؛</p>
+<p>- get/list/pending؛</p>
+<p>- conflict detection برای dock؛</p>
+<p>- create/check-in/complete/cancel appointment؛</p>
+<p>- receiving summary.</p>
+<br />
+<p><code class="code-inline">AsnController</code> مسیرهای <code class="code-inline">/api/v1/warehouse/receiving</code> را ارائه می‌دهد.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_GAP</code>.</p>
+<br />
+<h2 id="provider-wms">Provider WMS</h2>
+<br />
+<p>Migration V16 در Provider schema نیز این‌ها را ایجاد می‌کند:</p>
+<br />
+<p>- <code class="code-inline">wms_inbound_orders</code></p>
+<p>- <code class="code-inline">wms_inbound_items</code></p>
+<p>- <code class="code-inline">warehouse_receipts</code></p>
+<br />
+<p>این مدل با Warehouse Service هم‌پوشانی دارد و وضعیت آن <code class="code-inline">CONFLICT_REQUIRES_CANONICALIZATION</code> است.</p>
+<br />
+<h2 id="gap-">Gapهای قطعی</h2>
+<br />
+<p>- ASN status مستقیماً از string درخواست پذیرفته می‌شود.</p>
+<p>- get/update/link بر اساس ID، tenant scope آشکار ندارند.</p>
+<p>- optimistic lock روی ASN یا Dock Appointment دیده نشد.</p>
+<p>- Event/outbox برای اتصال Receiving به Inventory پیدا نشد.</p>
+<p>- line items در TEXT/JSON ذخیره می‌شوند.</p>
+<p>- summary تعداد کل dock door را همیشه ۱۰ فرض می‌کند.</p>
+<p>- receipt line scan، package identity، damage evidence، quarantine، discrepancy و signed proof در Service بررسی‌شده وجود ندارند.</p>
+<p>- Provider warehouse receipt می‌تواند به System of Record دوم تبدیل شود.</p>
+<p>- Delivery/POD و Warehouse Receipt از هم به‌وضوح تفکیک نشده‌اند.</p>
+<br />
+<h2 id="-canonical">مرز canonical</h2>
+<br />
+<p>Warehouse باید Physical Receiving Execution و Receipt Observation را مالک باشد. Inventory باید Stock Position را مالک بماند. Provider tableها باید integration projection باشند، مگر اینکه تصمیم معماری خلاف آن را رسماً ثبت کند.</p>
+<br />
+<p>جریان هدف:</p>
+<br />
+<CodeBlock code={"ASN + Dock Appointment\n→ Arrival Observation\n→ Package/Line Receiving\n→ Damage/Discrepancy/Quarantine\n→ Authorized Warehouse Receipt\n→ Inventory Posting Command\n→ Stock Position and Ledger"} language="text" />
+<br />
+</ContentPage>

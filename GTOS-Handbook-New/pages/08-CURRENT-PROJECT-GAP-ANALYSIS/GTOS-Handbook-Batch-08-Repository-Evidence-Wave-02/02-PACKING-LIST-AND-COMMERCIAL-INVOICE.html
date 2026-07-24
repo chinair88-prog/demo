@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>02 — Packing List and Commercial Invoice · GTOS Handbook</title>
+<meta name="description" content="02 — Packing List and Commercial Invoice نتیجه Ownership دو مدل Packing List وجود دارد: Tajerestan با JPA و جدول tbpackinglist؛ Provider/Partner با direct JDBC ">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/index.html">GTOS Handbook Batch 08 Repository Evidence Wave 02</a> <span class="sep">›</span> <span>02 — Packing List and Commercial Invoice</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>02 — Packing List and Commercial Invoice</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#-ownership">نتیجه Ownership</a></li><li class="toc-level-2"><a href="#tajerestan-packing-list">Tajerestan Packing List</a></li><li class="toc-level-3"><a href="#gap-">Gapهای قطعی</a></li><li class="toc-level-2"><a href="#partner-packing-list">Partner Packing List</a></li><li class="toc-level-2"><a href="#commercial-invoice">Commercial Invoice</a></li><li class="toc-level-2"><a href="#canonicalization-">Canonicalization موردنیاز</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="02-packing-list-and-commercial-invoice">02 — Packing List and Commercial Invoice</h1>
+<br>
+<h2 id="-ownership">نتیجه Ownership <a href="#-ownership" class="heading-anchor">#</a></h2>
+<br>
+<p>دو مدل Packing List وجود دارد:</p>
+<br>
+<li>Tajerestan با JPA و جدول <code>tb_packing_list</code>؛</li>
+<li>Provider/Partner با direct JDBC و جدول <code>partner.packing_lists</code>.</li>
+<br>
+<p>Commercial Invoice نیز در <code>partner.commercial_invoices</code> نگهداری می‌شود.</p>
+<br>
+<p>تا زمان تعیین System of Record، وضعیت Packing List برابر <code>CONFLICT_REQUIRES_CANONICALIZATION</code> است.</p>
+<br>
+<h2 id="tajerestan-packing-list">Tajerestan Packing List <a href="#tajerestan-packing-list" class="heading-anchor">#</a></h2>
+<br>
+<p>Entity واقعی شامل این فیلدهاست:</p>
+<br>
+<li>شماره PL؛</li>
+<li>PI و Purchase Order reference؛</li>
+<li>supplier؛</li>
+<li>box count؛</li>
+<li>net/gross weight و volume؛</li>
+<li>packing method و marks؛</li>
+<li>status و company؛</li>
+<li>child boxes.</li>
+<br>
+<p>Service واقعی:</p>
+<br>
+<li>شماره <code>PL-...</code> تولید می‌کند؛</li>
+<li>package count، gross weight و volume را جمع می‌کند؛</li>
+<li>boxها را ذخیره می‌کند؛</li>
+<li>get و list دارد؛</li>
+<li>Event با نام <code>trade.packing-list.created</code> منتشر می‌کند.</li>
+<br>
+<h3 id="gap-">Gapهای قطعی <a href="#gap-" class="heading-anchor">#</a></h3>
+<br>
+<li><code>DEFAULT_COMPANY_ID</code> هم برای supplier و هم company استفاده می‌شود.</li>
+<li><code>totalNetWeight</code> صفر می‌ماند.</li>
+<li><code>netWeightKg</code> هر box صفر ثبت می‌شود.</li>
+<li>immutable issued version، signature و supersession دیده نشد.</li>
+<li>status transition guard و optimistic locking دیده نشد.</li>
+<li>outbox تراکنشی اثبات نشد.</li>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="partner-packing-list">Partner Packing List <a href="#partner-packing-list" class="heading-anchor">#</a></h2>
+<br>
+<p>Partner Logistics Controller:</p>
+<br>
+<li>list و get از <code>partner.packing_lists</code>؛</li>
+<li>PATCH محدودشده به Partner احراز‌شده؛</li>
+<li>audit log برای update؛</li>
+<li>merge metadata.</li>
+<br>
+<p>اما POST create با 503 و پیام <code>notAvailable</code> پاسخ می‌دهد. مدل update نیز طیف بزرگی از فیلدها را مستقیم تغییر می‌دهد و version immutable ندارد.</p>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Operation</th>
+<th class="table-sort">Status</th>
+</tr></thead><tbody>
+<tr>
+<td>List/Get</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>Partner-scoped Patch/Audit</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Create</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="commercial-invoice">Commercial Invoice <a href="#commercial-invoice" class="heading-anchor">#</a></h2>
+<br>
+<p>Migration واقعی این اطلاعات را ذخیره می‌کند:</p>
+<br>
+<li>unique invoice number؛</li>
+<li>Packing List، Shipment، Quotation و Order references؛</li>
+<li>Partner و Customer؛</li>
+<li>invoice date، currency، amount؛</li>
+<li>Incoterm و payment terms؛</li>
+<li>ports، origin و destination؛</li>
+<li>HS code و declared value؛</li>
+<li>status، issuer، lineItems و metadata.</li>
+<br>
+<p>Controller list، get و Partner-scoped patch را اجرا می‌کند. بااین‌حال:</p>
+<br>
+<li>create با 503 پاسخ می‌دهد؛</li>
+<li>generate-from-packing-list با 503 پاسخ می‌دهد؛</li>
+<li>issue/sign/version/supersede workflow وجود ندارد.</li>
+<br>
+<h2 id="canonicalization-">Canonicalization موردنیاز <a href="#canonicalization-" class="heading-anchor">#</a></h2>
+<br>
+<li>یک Packing List System of Record انتخاب شود.</li>
+<li>Document identity، version، issuance، signature، supersession و cancellation تعریف شوند.</li>
+<li>JSON line items و relational boxes reconciliation شوند.</li>
+<li>quantities/weights با Production، Quality Release، PO و Shipment تطبیق داده شوند.</li>
+<li>HS-code suggestion از legal classification جدا باشد.</li>
+<li>discrepancy/correction به‌صورت Aggregate ثبت شود، نه mutable patch.</li>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

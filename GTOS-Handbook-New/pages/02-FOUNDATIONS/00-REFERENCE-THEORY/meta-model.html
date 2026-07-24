@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTOS Meta-Model · GTOS Handbook</title>
+<meta name="description" content="GTOS MetaModel Dependency Chain History preserves Events, Observations, Decisions, Intent, Execution, Outcomes, and Corrections. Authority constrains assertions">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/02-FOUNDATIONS/index.html">FOUNDATIONS</a> <span class="sep">›</span> <a href="../../../pages/02-FOUNDATIONS/00-REFERENCE-THEORY/index.html">REFERENCE THEORY</a> <span class="sep">›</span> <span>GTOS Meta-Model</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Foundations</span>
+        </div>
+        <h1>GTOS Meta-Model</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#dependency-chain">Dependency Chain</a></li><li class="toc-level-2"><a href="#meta-model-invariants">Meta-Model Invariants</a></li><li class="toc-level-2"><a href="#canon-admission-test">Canon Admission Test</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="gtos-meta-model">GTOS Meta-Model</h1>
+<br>
+<h2 id="dependency-chain">Dependency Chain <a href="#dependency-chain" class="heading-anchor">#</a></h2>
+<br>
+<pre><code class="language-text">
+Reality
+
+ ├─ contains → Entities
+
+ │   ├─ persist through → Identity
+
+ │   ├─ exist within → Time
+
+ │   ├─ exhibit → State
+
+ │   └─ participate in → Relationships
+
+ ├─ changes through → Events
+
+ └─ is perceived through → Observations
+
+      └─ support → Knowledge
+
+           └─ supports → Decisions
+
+                └─ authorizes → Intent
+
+                     └─ initiates → Execution
+
+                          └─ produces → Outcomes
+
+</code></pre>
+<br>
+<p>History preserves Events, Observations, Decisions, Intent, Execution, Outcomes, and Corrections.</p>
+<br>
+<p>Authority constrains assertions, decisions, delegation, and execution.</p>
+<br>
+<p>Policy evaluates knowledge and context to produce permissions, obligations, or prohibitions.</p>
+<br>
+<h2 id="meta-model-invariants">Meta-Model Invariants <a href="#meta-model-invariants" class="heading-anchor">#</a></h2>
+<br>
+<li>No Relationship exists without independently identifiable participants.</li>
+<li>No Event is meaningful without a subject, occurrence time, and transition semantics.</li>
+<li>No historical Decision may be evaluated using information unavailable at decision time.</li>
+<li>No Execution may claim legitimate business purpose without traceable Intent.</li>
+<li>No derived view becomes authoritative merely through replication.</li>
+<li>No correction erases the existence of the assertion being corrected.</li>
+<li>No AI capability possesses authority unless authority has been explicitly delegated.</li>
+<br>
+<h2 id="canon-admission-test">Canon Admission Test <a href="#canon-admission-test" class="heading-anchor">#</a></h2>
+<br>
+<p>A candidate Canon is admissible only when it passes:</p>
+<br>
+<li><strong>Independence:</strong> the concept is not reducible to another Canon.</li>
+<li><strong>Necessity:</strong> removing it creates incoherence or makes a required GTOS property impossible.</li>
+<li><strong>Derivation:</strong> lower-level standards can be logically derived from it.</li>
+<li><strong>Placement:</strong> it has a unique location in the Meta-Model.</li>
+<li><strong>Testability:</strong> architectural consequences can be inspected.</li>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

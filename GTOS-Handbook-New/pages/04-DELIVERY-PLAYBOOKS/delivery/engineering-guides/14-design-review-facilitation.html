@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Architecture Design Review Facilitation · GTOS Handbook</title>
+<meta name="description" content="Architecture Design Review Facilitation Before the Review The author distributes a concise context, proposed decision, diagrams, scenarios, Canon dependencies, ">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Architecture Design Review Facilitation</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Architecture Design Review Facilitation</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#before-the-review">Before the Review</a></li><li class="toc-level-2"><a href="#review-sequence">Review Sequence</a></li><li class="toc-level-2"><a href="#decision-matrix">Decision Matrix</a></li><li class="toc-level-2"><a href="#review-outcomes">Review Outcomes</a></li><li class="toc-level-2"><a href="#healthy-review-behavior">Healthy Review Behavior</a></li><li class="toc-level-2"><a href="#after-the-review">After the Review</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="architecture-design-review-facilitation">Architecture Design Review Facilitation</h1>
+<br>
+<h2 id="before-the-review">Before the Review <a href="#before-the-review" class="heading-anchor">#</a></h2>
+<br>
+<p>The author distributes a concise context, proposed decision, diagrams, scenarios, Canon dependencies, alternatives, risks, contracts, and open questions. Reviewers receive enough time to inspect the material. A meeting is not used to reveal an unread design for the first time.</p>
+<br>
+<h2 id="review-sequence">Review Sequence <a href="#review-sequence" class="heading-anchor">#</a></h2>
+<br>
+<p>Begin with business reality and intended outcome. Confirm the truth owner and authority boundary. Walk through identities, Relationships, time, state, Commands, Events, Decisions, Intent, and corrections. Then review data, AI, security, platform, infrastructure, and operations.</p>
+<br>
+<p>Use concrete scenarios rather than debating abstract preferences. Include a normal case, an invalid transition, late evidence, contradictory evidence, retry after response loss, partner outage, security abuse, and disaster recovery.</p>
+<br>
+<h2 id="decision-matrix">Decision Matrix <a href="#decision-matrix" class="heading-anchor">#</a></h2>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Dimension</th>
+<th class="table-sort">Questions</th>
+</tr></thead><tbody>
+<tr>
+<td>Correctness</td>
+<td>Does the design preserve the GTOS concepts and invariants?</td>
+</tr>
+<tr>
+<td>Authority</td>
+<td>Are assertions, Decisions, delegation, and execution legitimate?</td>
+</tr>
+<tr>
+<td>Compatibility</td>
+<td>Can existing consumers and historical data retain meaning?</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Are trust boundaries, purpose, jurisdiction, and abuse controlled?</td>
+</tr>
+<tr>
+<td>Operability</td>
+<td>Can teams observe, support, recover, and reconcile?</td>
+</tr>
+<tr>
+<td>Evolution</td>
+<td>Can the design change without semantic fragmentation?</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Is complexity proportional to business impact?</td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="review-outcomes">Review Outcomes <a href="#review-outcomes" class="heading-anchor">#</a></h2>
+<br>
+<p>Outcomes are approved, approved with conditions, revise and return, or rejected. Conditions have owners and due dates. Dissent and rejected alternatives are preserved. Approval applies to a version and scope, not to all future implementation changes.</p>
+<br>
+<h2 id="healthy-review-behavior">Healthy Review Behavior <a href="#healthy-review-behavior" class="heading-anchor">#</a></h2>
+<br>
+<p>Reviewers challenge the design, not the person. Seniority does not replace evidence. Novelty is neither a virtue nor a defect. A simpler design wins only when it preserves required semantics and controls. A sophisticated design is rejected when operational ownership is not credible.</p>
+<br>
+<h2 id="after-the-review">After the Review <a href="#after-the-review" class="heading-anchor">#</a></h2>
+<br>
+<p>Update the ADR, architecture models, risks, contracts, and backlog. Verify that conditions enter delivery planning. Significant deviations return to review rather than appearing only in code.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence Wave 01 Traceability Matrix · GTOS Handbook</title>
+<meta name="description" content="Evidence Wave 01 Traceability Matrix Area Entity/Table Service Controller/API Events Principal status Proforma Invoice tbproformainvoice, items, schedules Profo">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-07-Audit-Canonicalization-Evidence-Wave-01/index.html">GTOS Handbook Batch 07 Audit Canonicalization Evidence Wave 01</a> <span class="sep">›</span> <span>Evidence Wave 01 Traceability Matrix</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>Evidence Wave 01 Traceability Matrix</h1>
+      </header>
+      
+      <div class="prose">
+        <h1 id="evidence-wave-01-traceability-matrix">Evidence Wave 01 Traceability Matrix</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Area</th>
+<th class="table-sort">Entity/Table</th>
+<th class="table-sort">Service</th>
+<th class="table-sort">Controller/API</th>
+<th class="table-sort">Events</th>
+<th class="table-sort">Principal status</th>
+</tr></thead><tbody>
+<tr>
+<td>Proforma Invoice</td>
+<td><code>tb_proforma_invoice</code>, items, schedules</td>
+<td><code>ProformaInvoiceService</code></td>
+<td><code>/api/v1/trade/proforma-invoices</code></td>
+<td>created/sent/accepted/converted</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Payment</td>
+<td><code>payment_service_intents</code> and related payment tables</td>
+<td><code>PaymentIntentService</code> / application service</td>
+<td><code>/api/payments</code></td>
+<td>requires additional Event inspection</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Purchase Order - Procurement</td>
+<td><code>procurement.purchase_orders</code> and items</td>
+<td>Procurement <code>PurchaseOrderService</code></td>
+<td><code>/api/procurement/purchase-orders</code></td>
+<td>none found in inspected service</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Purchase Order - Tajerestan</td>
+<td><code>purchase_orders</code> and line items</td>
+<td>Tajerestan <code>PurchaseOrderService</code></td>
+<td>Tajerestan API requires separate route profile</td>
+<td>trade PO Events</td>
+<td><code>CONFLICT_REQUIRES_CANONICALIZATION</code></td>
+</tr>
+<tr>
+<td>Manufacturing</td>
+<td><code>manufacturing.tb_production_order</code>, materials, progress, schedules</td>
+<td><code>ProductionOrderService</code></td>
+<td><code>/api/manufacturing/production-orders</code></td>
+<td>none found in inspected service</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="next-evidence-targets">Next evidence targets <a href="#next-evidence-targets" class="heading-anchor">#</a></h2>
+<br>
+<li>migrations and indexes for all four areas;</li>
+<li>security configuration and method/route authorization;</li>
+<li>tests, tenant isolation, concurrency, and negative transitions;</li>
+<li>Portal pages and client contracts;</li>
+<li>EventPublisher implementation, topics, outbox, consumers, replay, and DLQ;</li>
+<li>provider/webhook verification and reconciliation;</li>
+<li>canonical ownership ADRs for PO and Production Order.</li>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

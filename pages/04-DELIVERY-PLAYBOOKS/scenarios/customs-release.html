@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="An importer, broker, carrier, customs authority, and terminal coordinate declaration and release. The importer owns commercial and product information within its scope. The broker acts through a mandate. Customs owns legal acceptance, inspection, and release determinations. The t…">
+<meta name="color-scheme" content="light dark">
+<title>Scenario — Customs Declaration and Release · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/scenarios/customs-release.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Scenarios</span><span class="sep">/</span><span>Scenario — Customs Declaration and Release</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>187 words</span></div>
+        <h1>Scenario — Customs Declaration and Release</h1>
+        <p class="lede">An importer, broker, carrier, customs authority, and terminal coordinate declaration and release. The importer owns commercial and product information within its scope. The broker acts through a mandate. Customs owns legal acceptance, inspection, and release determinations. The t…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="context">Context<a aria-label="Link to section" class="heading-anchor" href="#context">#</a></h2>
+<p>An importer, broker, carrier, customs authority, and terminal coordinate declaration and release.</p>
+<h2 id="authority">Authority<a aria-label="Link to section" class="heading-anchor" href="#authority">#</a></h2>
+<p>The importer owns commercial and product information within its scope. The broker acts through a mandate. Customs owns legal acceptance, inspection, and release determinations. The terminal owns physical gate and cargo movement observations.</p>
+<h2 id="flow">Flow<a aria-label="Link to section" class="heading-anchor" href="#flow">#</a></h2>
+<p>A broker submits a declaration Command under a valid Relationship and delegation. Customs records <code>DeclarationSubmitted</code>, evaluates policy and evidence, and may produce <code>InspectionOrdered</code> or <code>GoodsReleased</code>. The carrier's operational view consumes the customs Event but remains a perspective.</p>
+<h2 id="late-information">Late Information<a aria-label="Link to section" class="heading-anchor" href="#late-information">#</a></h2>
+<p>A corrected classification arrives after release. GTOS preserves the original declaration, knowledge available to customs, policy version, and release Decision. The correction triggers impact analysis for duty, license, risk, and audit. It does not rewrite the original decision into a fictional present-day evaluation.</p>
+<h2 id="security">Security<a aria-label="Link to section" class="heading-anchor" href="#security">#</a></h2>
+<p>Authorization considers importer-broker relationship, jurisdiction, commodity scope, mandate validity, and purpose. Possession of a declaration identifier does not grant access.</p>
+<h2 id="operational-requirement">Operational Requirement<a aria-label="Link to section" class="heading-anchor" href="#operational-requirement">#</a></h2>
+<p>If messaging is unavailable, customs authority may still make a decision through its own system. Later ingestion records observation and recording time, preserving that reality preceded GTOS representation.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#context">Context</a><a class="toc-level-2" href="#authority">Authority</a><a class="toc-level-2" href="#flow">Flow</a><a class="toc-level-2" href="#late-information">Late Information</a><a class="toc-level-2" href="#security">Security</a><a class="toc-level-2" href="#operational-requirement">Operational Requirement</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="../reference-patterns/temporal-reconstruction.html"><span>Previous</span><strong>Temporal Reconstruction Pattern</strong></a>
+        <a class="next" href="index.html"><span>Next</span><strong>End-to-End Trade Scenarios</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

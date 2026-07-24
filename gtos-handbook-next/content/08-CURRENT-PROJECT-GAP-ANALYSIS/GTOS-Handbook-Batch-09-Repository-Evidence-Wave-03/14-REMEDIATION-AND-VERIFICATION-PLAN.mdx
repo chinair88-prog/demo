@@ -1,0 +1,58 @@
+---
+title: "14 — Remediation and Verification Plan"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="14 — Remediation and Verification Plan"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "14 — Remediation and Verification Plan" }
+  ]}
+>
+
+<br />
+<h2 id="priority-0-security-and-commercial-integrity">Priority 0 — Security and Commercial Integrity</h2>
+<br />
+<p>1. Fix Order <code class="code-inline">list()</code> tenant leak and all bulk operation leaks.</p>
+<p>2. Scope Cart, Marketplace Catalog, Pricing, Fulfilment, Returns, Settlement, ESG and AI Evaluation ID lookups to trusted tenant context.</p>
+<p>3. Stop accepting authoritative price, user, payment and verification state from Client input.</p>
+<p>4. Disable or protect direct <code class="code-inline">confirm-payment</code>, direct product approval and self-verified catalog fields.</p>
+<p>5. Correct Order history from/to status recording.</p>
+<p>6. Replace random actor UUIDs in Returns with authenticated actor identity.</p>
+<p>7. Require POD before Order becomes Delivered.</p>
+<br />
+<h2 id="priority-1-canonical-ownership">Priority 1 — Canonical Ownership</h2>
+<br />
+<p>1. Product Master versus Marketplace Catalog/Offer.</p>
+<p>2. Price authority and immutable Price Version.</p>
+<p>3. Customer Order versus Warehouse Fulfilment Order.</p>
+<p>4. Marketplace settlement ledger versus Payment payout execution.</p>
+<p>5. Compliance ESG versus specialized Carbon service.</p>
+<p>6. Return disposition versus Inventory stock posting.</p>
+<br />
+<h2 id="priority-2-reliable-execution">Priority 2 — Reliable Execution</h2>
+<br />
+<p>1. Transactional outbox/inbox for Order، Pick/Pack، Returns، Settlement و ESG.</p>
+<p>2. Order Saga with inventory reservation, payment authorization, fulfilment creation and compensation.</p>
+<p>3. Idempotent Checkout، Payment confirmation، Return receive/inspect and Settlement transaction ingestion.</p>
+<p>4. Live carrier adapter، quote expiry، booking، tracking webhook and POD.</p>
+<p>5. Immutable evidence journals instead of mutable JSON timelines.</p>
+<p>6. Multi-currency normalization and financial reconciliation.</p>
+<br />
+<h2 id="required-verification">Required verification</h2>
+<br />
+<p>- tenant isolation tests including list/bulk/cache paths؛</p>
+<p>- client price tampering E2E؛</p>
+<p>- duplicate checkout/payment webhook tests؛</p>
+<p>- order saga failure/compensation tests؛</p>
+<p>- concurrent stock allocation and over-pick tests؛</p>
+<p>- return quantity discrepancy and duplicate restock tests؛</p>
+<p>- settlement cross-tenant/currency/provider reconciliation؛</p>
+<p>- ESG methodology/version/assurance tests؛</p>
+<p>- AI evaluation run ownership, score range and duplicate-review tests؛</p>
+<p>- CI logs and migration upgrade evidence.</p>
+<br />
+</ContentPage>

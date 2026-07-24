@@ -1,0 +1,20 @@
+
+digraph G {
+  graph [rankdir=LR, bgcolor="transparent", pad=0.2];
+  node [shape=box, style="rounded,filled", fillcolor="#f5f8fb", color="#2c5275", fontname="DejaVu Sans", fontsize=9];
+  edge [color="#4f6b83", arrowsize=0.7];
+  Portal -> API [label="authenticated Command"];
+  API -> Domain [label="authorize + validate"];
+  Domain -> Database [label="state"];
+  Domain -> Outbox [label="completed fact"];
+  Outbox -> Broker [label="publish"];
+  Broker -> Inbox [label="at-least-once"];
+  Inbox -> Consumer [label="deduplicate"];
+  Consumer -> Workflow [label="advance"];
+  Workflow -> API [label="next Command"];
+  External -> Adapter [label="callback/observation"];
+  Adapter -> Inbox;
+  Reconcile [fillcolor="#fff0e5", color="#9a5521"];
+  Workflow -> Reconcile [label="outcome unknown"];
+  Reconcile -> External [label="query"];
+}

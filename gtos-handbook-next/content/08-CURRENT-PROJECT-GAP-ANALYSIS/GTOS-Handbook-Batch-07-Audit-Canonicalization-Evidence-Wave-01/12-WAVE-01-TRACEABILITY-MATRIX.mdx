@@ -1,0 +1,29 @@
+---
+title: "Evidence Wave 01 Traceability Matrix"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="Evidence Wave 01 Traceability Matrix"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "Evidence Wave 01 Traceability Matrix" }
+  ]}
+>
+
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Area","sortable":true},{"key":"col1","label":"Entity/Table","sortable":true},{"key":"col2","label":"Service","sortable":true},{"key":"col3","label":"Controller/API","sortable":true},{"key":"col4","label":"Events","sortable":true},{"key":"col5","label":"Principal status","sortable":true}]} data={[{"col0":"Proforma Invoice","col1":"<code class=\"code-inline\">tb_proforma_invoice</code>, items, schedules","col2":"<code class=\"code-inline\">ProformaInvoiceService</code>","col3":"<code class=\"code-inline\">/api/v1/trade/proforma-invoices</code>","col4":"created/sent/accepted/converted","col5":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Payment","col1":"<code class=\"code-inline\">payment_service_intents</code> and related payment tables","col2":"<code class=\"code-inline\">PaymentIntentService</code> / application service","col3":"<code class=\"code-inline\">/api/payments</code>","col4":"requires additional Event inspection","col5":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Purchase Order - Procurement","col1":"<code class=\"code-inline\">procurement.purchase_orders</code> and items","col2":"Procurement <code class=\"code-inline\">PurchaseOrderService</code>","col3":"<code class=\"code-inline\">/api/procurement/purchase-orders</code>","col4":"none found in inspected service","col5":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Purchase Order - Tajerestan","col1":"<code class=\"code-inline\">purchase_orders</code> and line items","col2":"Tajerestan <code class=\"code-inline\">PurchaseOrderService</code>","col3":"Tajerestan API requires separate route profile","col4":"trade PO Events","col5":"<code class=\"code-inline\">CONFLICT_REQUIRES_CANONICALIZATION</code>"},{"col0":"Manufacturing","col1":"<code class=\"code-inline\">manufacturing.tb_production_order</code>, materials, progress, schedules","col2":"<code class=\"code-inline\">ProductionOrderService</code>","col3":"<code class=\"code-inline\">/api/manufacturing/production-orders</code>","col4":"none found in inspected service","col5":"<code class=\"code-inline\">PARTIAL_IMPLEMENTATION</code>"}]} />
+<br />
+<h2 id="next-evidence-targets">Next evidence targets</h2>
+<br />
+<p>- migrations and indexes for all four areas;</p>
+<p>- security configuration and method/route authorization;</p>
+<p>- tests, tenant isolation, concurrency, and negative transitions;</p>
+<p>- Portal pages and client contracts;</p>
+<p>- EventPublisher implementation, topics, outbox, consumers, replay, and DLQ;</p>
+<p>- provider/webhook verification and reconciliation;</p>
+<p>- canonical ownership ADRs for PO and Production Order.</p>
+<br />
+</ContentPage>

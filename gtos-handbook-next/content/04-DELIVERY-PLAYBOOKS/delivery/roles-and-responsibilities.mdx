@@ -1,0 +1,23 @@
+---
+title: "Delivery Roles and Responsibilities"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Delivery Roles and Responsibilities"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Delivery Roles and Responsibilities" }
+  ]}
+>
+
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Role","sortable":true},{"key":"col1","label":"Primary Accountability","sortable":true},{"key":"col2","label":"SHALL Approve","sortable":true}]} data={[{"col0":"Executive Sponsor","col1":"transformation outcome, funding, organizational authority","col2":"mandate, scope, major risk"},{"col0":"Architecture Council","col1":"Canon, Constitution, cross-domain coherence","col2":"normative changes and major exceptions"},{"col0":"Chief Architect","col1":"end-to-end reference architecture","col2":"architecture baseline and release conformance"},{"col0":"Domain Owner","col1":"authoritative propositions and business outcomes","col2":"domain charter, invariants, decisions"},{"col0":"Product Manager","col1":"value, roadmap, adoption, service outcomes","col2":"product scope and measurable acceptance"},{"col0":"Domain Architect","col1":"domain model, contracts, integration","col2":"aggregates, Commands, Events, policies"},{"col0":"Data Owner/Steward","col1":"data meaning, quality, retention, access","col2":"data contract and quality rules"},{"col0":"AI Owner","col1":"AI purpose, evaluation, outcome, and safety","col2":"mandate, evaluation, deployment"},{"col0":"Security Architect","col1":"threat, identity, policy, privacy, incident controls","col2":"security design and residual risk"},{"col0":"Platform Owner","col1":"shared capability service quality","col2":"platform contracts and SLOs"},{"col0":"Engineering Lead","col1":"implementation quality and delivery evidence","col2":"technical design, tests, release artifact"},{"col0":"SRE/Operations Owner","col1":"reliability, support, recovery, incident readiness","col2":"SLO, runbook, recovery evidence"},{"col0":"Partner Integration Lead","col1":"external participant readiness","col2":"certification and cutover"}]} />
+<br />
+<h2 id="accountability-rule">Accountability Rule</h2>
+<br />
+<p>Approval is not attendance. An approver confirms that the artifact is correct within their authority and that unresolved risks are explicit. One person MAY hold multiple roles in a small implementation, but conflicting duties and high-impact approvals SHOULD remain independently reviewed.</p>
+<br />
+</ContentPage>

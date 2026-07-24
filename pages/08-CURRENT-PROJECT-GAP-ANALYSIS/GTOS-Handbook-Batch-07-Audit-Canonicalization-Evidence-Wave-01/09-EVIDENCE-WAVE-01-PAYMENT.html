@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/entity/PaymentIntentEntity.java - backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/service/PaymentIntentService.java - backend/domain/commerce/payment-service/sr…">
+<meta name="color-scheme" content="light dark">
+<title>Repository Evidence Wave 01 - Payment · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-07-Audit-Canonicalization-Evidence-Wave-01/09-EVIDENCE-WAVE-01-PAYMENT.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 07 Audit Canonicalization Evidence Wave 01</span><span class="sep">/</span><span>Repository Evidence Wave 01 - Payment</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>322 words</span></div>
+        <h1>Repository Evidence Wave 01 - Payment</h1>
+        <p class="lede">backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/entity/PaymentIntentEntity.java - backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/service/PaymentIntentService.java - backend/domain/commerce/payment-service/sr…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="evidence-baseline">Evidence baseline<a aria-label="Link to section" class="heading-anchor" href="#evidence-baseline">#</a></h2>
+<p>Inspected files:</p>
+<ul>
+<li><code>backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/entity/PaymentIntentEntity.java</code></li>
+<li><code>backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/service/PaymentIntentService.java</code></li>
+<li><code>backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/api/PaymentController.java</code></li>
+</ul>
+<h2 id="verified-implementation">Verified implementation<a aria-label="Link to section" class="heading-anchor" href="#verified-implementation">#</a></h2>
+<p><code>PaymentIntentEntity</code> maps to <code>payment_service_intents</code> and defines indexes for order, status, provider, customer, creation, expiry, and tenant. It records amount, currency, capture mode, status, provider, provider reference, customer, description, expiry, errors, metadata, a unique idempotency key, and a JPA optimistic-lock version.</p>
+<p>Lifecycle methods support captured, partially captured, cancelled, expired, and failed states. Captured intents cannot be cancelled.</p>
+<p><code>PaymentIntentService</code> implements creation, idempotency lookup, tenant-aware queries, pagination, provider/customer/status filters, and cancellation. The service obtains tenant context from a gateway-injected header and uses unscoped behavior when the context is absent for internal flows.</p>
+<p><code>PaymentController</code> exposes payment intents, capture, refund, settlement, payout, webhook, dispute, summary, and provider information under <code>/api/payments</code>.</p>
+<h2 id="verified-gaps-and-risks">Verified gaps and risks<a aria-label="Link to section" class="heading-anchor" href="#verified-gaps-and-risks">#</a></h2>
+<ul>
+<li>Legacy/internal unscoped access is deliberately preserved and requires strong trusted-caller controls.</li>
+<li>Tenant context depends on a gateway-injected header; direct-service access must be prevented or independently authenticated.</li>
+<li>Idempotency lookup is by idempotency key without an inspected tenant predicate; a global unique key may cause cross-tenant behavior unless keys are globally namespaced and responses are protected.</li>
+<li>The inspected payment-intent status model starts at <code>REQUIRES_CAPTURE</code>; separate authorization, risk approval, and Outcome Unknown states are not part of this Entity.</li>
+<li>No formal PI risk-approval Decision aggregate was established in the inspected files.</li>
+<li>Webhook signature verification and provider-outcome reconciliation require inspection of additional classes.</li>
+</ul>
+<h2 id="status-decision">Status decision<a aria-label="Link to section" class="heading-anchor" href="#status-decision">#</a></h2>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Capability</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>payment-intent entity, indexes, expiry and lifecycle methods</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>idempotency key and optimistic locking</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>tenant-aware intent reads</td>
+<td><code>VERIFIED_IMPLEMENTED</code> with legacy unscoped path</td>
+</tr>
+<tr>
+<td>intent/capture/refund/settlement/payout/webhook API surface</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>trusted gateway and direct-access enforcement</td>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+<tr>
+<td>PI payment-risk approval workflow</td>
+<td><code>PARTIAL_IMPLEMENTATION</code> / separate capability not verified</td>
+</tr>
+<tr>
+<td>provider signature and Outcome Unknown reconciliation</td>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#evidence-baseline">Evidence baseline</a><a class="toc-level-2" href="#verified-implementation">Verified implementation</a><a class="toc-level-2" href="#verified-gaps-and-risks">Verified gaps and risks</a><a class="toc-level-2" href="#status-decision">Status decision</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="08-EVIDENCE-WAVE-01-PROFORMA-INVOICE.html"><span>Previous</span><strong>Repository Evidence Wave 01 - Proforma Invoice</strong></a>
+        <a class="next" href="10-EVIDENCE-WAVE-01-PURCHASE-ORDER.html"><span>Next</span><strong>Repository Evidence Wave 01 - Purchase Order</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

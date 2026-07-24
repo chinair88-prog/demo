@@ -1,0 +1,51 @@
+---
+title: "AI Agent Blueprint"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="AI Agent Blueprint"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "AI Agent Blueprint" }
+  ]}
+>
+
+<br />
+<h2 id="identity-and-mandate">Identity and Mandate</h2>
+<br />
+<p>Every production Agent SHALL have a stable workload identity and an explicit Mandate. The Mandate defines purpose, allowed data classes, tools, decision classes, financial or operational limits, jurisdictions, validity, and escalation.</p>
+<br />
+<h2 id="runtime-structure">Runtime Structure</h2>
+<br />
+<p>The runtime includes context assembly, policy enforcement, model routing, planning, tool execution, structured output validation, telemetry, and evidence recording.</p>
+<br />
+<p>The model does not directly own credentials. Tool gateways enforce authorization outside the model and receive the Agent identity, Mandate, user identity where applicable, purpose, and requested action.</p>
+<br />
+<h2 id="planning">Planning</h2>
+<br />
+<p>Plans are proposals. Before any side effect, each planned step is evaluated against policy, authority, evidence, and reversibility. Plans MAY be revised when evidence changes. Hidden or unrecorded execution paths are prohibited.</p>
+<br />
+<h2 id="context">Context</h2>
+<br />
+<p>Context SHALL distinguish system policy, developer instructions, user requests, trusted evidence, untrusted retrieved content, tool outputs, and prior Agent memory. Untrusted content cannot override higher-authority instructions.</p>
+<br />
+<h2 id="structured-outputs">Structured Outputs</h2>
+<br />
+<p>High-impact outputs SHALL conform to schemas. A recommendation includes evidence, confidence, alternatives, assumptions, and escalation. A Decision requires authority. An execution request includes Intent reference and idempotency.</p>
+<br />
+<h2 id="failure-behavior">Failure Behavior</h2>
+<br />
+<p>When evidence is insufficient, the Agent asks for evidence, escalates, or declines. It SHALL NOT fabricate identifiers, documents, approvals, or tool results. Partial tool failure remains visible.</p>
+<br />
+<h2 id="monitoring">Monitoring</h2>
+<br />
+<p>Metrics include task success, evidence faithfulness, tool denial, unsafe action attempts, hallucination rate, escalation rate, cost, latency, outcome quality, and drift.</p>
+<br />
+<h2 id="kill-and-containment">Kill and Containment</h2>
+<br />
+<p>Operators can disable a model route, tool, Mandate, decision class, tenant, or Agent population. Containment preserves evidence for incident analysis.</p>
+<br />
+</ContentPage>

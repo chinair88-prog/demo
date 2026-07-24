@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADR-0004 — Separate Ontology and Epistemology · GTOS Handbook</title>
+<meta name="description" content="ADR0004 — Separate Ontology and Epistemology Status Accepted Context GTOS requires durable semantics and auditable architecture decisions across independently e">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/adr/index.html">Adr</a> <span class="sep">›</span> <span>ADR-0004 — Separate Ontology and Epistemology</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>ADR-0004 — Separate Ontology and Epistemology</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#status">Status</a></li><li class="toc-level-2"><a href="#context">Context</a></li><li class="toc-level-2"><a href="#decision">Decision</a></li><li class="toc-level-2"><a href="#consequences">Consequences</a></li><li class="toc-level-2"><a href="#canon-traceability">Canon Traceability</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="adr-0004-separate-ontology-and-epistemology">ADR-0004 — Separate Ontology and Epistemology</h1>
+<br>
+<h2 id="status">Status <a href="#status" class="heading-anchor">#</a></h2>
+<br>
+<p>Accepted</p>
+<br>
+<h2 id="context">Context <a href="#context" class="heading-anchor">#</a></h2>
+<br>
+<p>GTOS requires durable semantics and auditable architecture decisions across independently evolving technologies and organizations.</p>
+<br>
+<h2 id="decision">Decision <a href="#decision" class="heading-anchor">#</a></h2>
+<br>
+<p>Reality and knowledge about reality are distinct architectural planes.</p>
+<br>
+<h2 id="consequences">Consequences <a href="#consequences" class="heading-anchor">#</a></h2>
+<br>
+<li>The decision becomes reviewable and testable.</li>
+<li>Implementations must preserve the declared semantic boundary.</li>
+<li>Exceptions require scope, owner, expiry, and review.</li>
+<li>Future replacement technology may vary while the architectural obligation remains.</li>
+<br>
+<h2 id="canon-traceability">Canon Traceability <a href="#canon-traceability" class="heading-anchor">#</a></h2>
+<br>
+<p>CANON-001, CANON-002, and additional Canons applicable to the decision.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

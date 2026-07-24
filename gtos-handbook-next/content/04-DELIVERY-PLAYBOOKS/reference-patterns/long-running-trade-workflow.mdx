@@ -1,0 +1,44 @@
+---
+title: "Long-Running Trade Workflow Pattern"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Long-Running Trade Workflow Pattern"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Long-Running Trade Workflow Pattern" }
+  ]}
+>
+
+<br />
+<h2 id="context">Context</h2>
+<br />
+<p>International trade workflows may span weeks, involve many organizations, depend on documents and decisions, and encounter partial failure. A single distributed transaction is neither available nor desirable.</p>
+<br />
+<h2 id="pattern">Pattern</h2>
+<br />
+<p>A workflow coordinates Intent, Commands, Events, timers, evidence requests, human tasks, and compensation. Domains remain authoritative for their facts. The workflow owns coordination state only.</p>
+<br />
+<h2 id="example-sequence">Example Sequence</h2>
+<br />
+<p>1. An accepted Order creates Intent to fulfil.</p>
+<p>2. Shipment planning requests transport booking.</p>
+<p>3. The Transport Domain records booking outcome.</p>
+<p>4. Documentation requests missing certificates.</p>
+<p>5. Compliance evaluates evidence and may request inspection.</p>
+<p>6. Finance confirms payment conditions.</p>
+<p>7. Release Decision authorizes delivery execution.</p>
+<p>8. Outcome Events close obligations.</p>
+<br />
+<h2 id="rules">Rules</h2>
+<br />
+<p>Every step SHALL be idempotent. Timers SHALL identify business meaning, not only technical delay. Compensation SHALL be modeled as new authorized action, not deletion of history. Human intervention SHALL be first-class. Workflow retry SHALL NOT assume the prior Command failed merely because a response was lost.</p>
+<br />
+<h2 id="observability">Observability</h2>
+<br />
+<p>Operators need workflow age, blocked reason, missing evidence, current authority dependency, retry state, and expected next outcome. Technical traces alone are insufficient.</p>
+<br />
+</ContentPage>

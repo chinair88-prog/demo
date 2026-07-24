@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>End-to-End Global Trade Lifecycle · GTOS Handbook</title>
+<meta name="description" content="EndtoEnd Global Trade Lifecycle The canonical lifecycle contains 27 stages: 1. Organization identity and onboarding. 2. Demand and requirement definition. 3. Re">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/01-NORMATIVE-CORE/index.html">NORMATIVE CORE</a> <span class="sep">›</span> <span>End-to-End Global Trade Lifecycle</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Normative Core</span>
+        </div>
+        <h1>End-to-End Global Trade Lifecycle</h1>
+      </header>
+      
+      <div class="prose">
+        <h1 id="end-to-end-global-trade-lifecycle">End-to-End Global Trade Lifecycle</h1>
+<br>
+<p>The canonical lifecycle contains 27 stages:</p>
+<br>
+<li>Organization identity and onboarding.</li>
+<li>Demand and requirement definition.</li>
+<li>Request for quotation.</li>
+<li>Supplier discovery and qualification.</li>
+<li>Quotation invitation and submission.</li>
+<li>Comparison and normalization.</li>
+<li>Negotiation and supplier selection.</li>
+<li>Contract and accepted terms.</li>
+<li>Proforma Invoice.</li>
+<li>Payment and risk approval.</li>
+<li>Purchase Order and acknowledgement.</li>
+<li>Production planning and capacity commitment.</li>
+<li>Production execution and milestones.</li>
+<li>Quality inspection, nonconformance, and release.</li>
+<li>Packing List and Commercial Invoice.</li>
+<li>Export customs and legal release.</li>
+<li>Transport planning and booking.</li>
+<li>Pickup, custody, and handover.</li>
+<li>International transport and tracking.</li>
+<li>Import customs, duties, and legal release.</li>
+<li>Delivery and warehouse receiving.</li>
+<li>Inventory synchronization and availability.</li>
+<li>Product publication and marketplace eligibility.</li>
+<li>Checkout and customer order.</li>
+<li>Allocation, fulfilment, and last-mile delivery.</li>
+<li>Returns, claims, refunds, and disputes.</li>
+<li>Settlement, reporting, ESG, and learning.</li>
+<br>
+<h2 id="stage-contract">Stage contract <a href="#stage-contract" class="heading-anchor">#</a></h2>
+<br>
+<p>Every stage must specify:</p>
+<br>
+<li>owner and external authority;</li>
+<li>entry and exit criteria;</li>
+<li>canonical subjects and versions;</li>
+<li>state machines and invariants;</li>
+<li>Decisions, Commands, Events, and queries;</li>
+<li>evidence and documents;</li>
+<li>workflow, deadlines, retries, and compensation;</li>
+<li>APIs, database ownership, and Portal journeys;</li>
+<li>AI participation and autonomy;</li>
+<li>security, privacy, SLOs, tests, and recovery;</li>
+<li>correction and dispute behavior.</li>
+<br>
+<h2 id="lifecycle-orchestration">Lifecycle orchestration <a href="#lifecycle-orchestration" class="heading-anchor">#</a></h2>
+<br>
+<p>The lifecycle is not a single central transaction. Durable workflows coordinate independently owned aggregates. State is advanced only by verified facts. If an external outcome is unknown, the process enters an explicit reconciliation state rather than assuming success or repeating the action blindly.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

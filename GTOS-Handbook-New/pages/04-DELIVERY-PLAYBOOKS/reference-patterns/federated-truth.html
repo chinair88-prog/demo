@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Federated Truth Pattern · GTOS Handbook</title>
+<meta name="description" content="Federated Truth Pattern Context No single organization owns all truth in global trade. Customs owns legal determinations; carriers own operational movement fact">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/reference-patterns/index.html">Reference Patterns</a> <span class="sep">›</span> <span>Federated Truth Pattern</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Federated Truth Pattern</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#context">Context</a></li><li class="toc-level-2"><a href="#pattern">Pattern</a></li><li class="toc-level-2"><a href="#conflict">Conflict</a></li><li class="toc-level-2"><a href="#projection">Projection</a></li><li class="toc-level-2"><a href="#benefits">Benefits</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="federated-truth-pattern">Federated Truth Pattern</h1>
+<br>
+<h2 id="context">Context <a href="#context" class="heading-anchor">#</a></h2>
+<br>
+<p>No single organization owns all truth in global trade. Customs owns legal determinations; carriers own operational movement facts; banks own settlement facts; traders own commercial intent and obligations within agreement scope.</p>
+<br>
+<h2 id="pattern">Pattern <a href="#pattern" class="heading-anchor">#</a></h2>
+<br>
+<p>GTOS establishes proposition-level authority. Each proposition declares owner, scope, jurisdiction, effective time, evidence, and contract. Consumers combine propositions into perspectives while retaining origin and authority.</p>
+<br>
+<h2 id="conflict">Conflict <a href="#conflict" class="heading-anchor">#</a></h2>
+<br>
+<p>When authorities disagree, GTOS preserves both claims and identifies the legal or contractual mechanism for resolution. The platform SHALL NOT choose a winner based solely on message arrival time, system priority, or database location.</p>
+<br>
+<h2 id="projection">Projection <a href="#projection" class="heading-anchor">#</a></h2>
+<br>
+<p>A control-tower view may combine shipment position, customs status, payment condition, and predicted delay. The view is operationally valuable but remains a perspective. It does not become the owner of underlying facts.</p>
+<br>
+<h2 id="benefits">Benefits <a href="#benefits" class="heading-anchor">#</a></h2>
+<br>
+<p>Federation reduces reconciliation ambiguity, supports participant autonomy, and permits technology diversity without semantic anarchy.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

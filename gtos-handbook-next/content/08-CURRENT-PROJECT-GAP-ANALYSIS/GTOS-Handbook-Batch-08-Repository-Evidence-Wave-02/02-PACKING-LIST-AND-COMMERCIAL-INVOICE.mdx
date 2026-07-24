@@ -1,0 +1,101 @@
+---
+title: "02 — Packing List and Commercial Invoice"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="02 — Packing List and Commercial Invoice"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "02 — Packing List and Commercial Invoice" }
+  ]}
+>
+
+<br />
+<h2 id="-ownership">نتیجه Ownership</h2>
+<br />
+<p>دو مدل Packing List وجود دارد:</p>
+<br />
+<p>- Tajerestan با JPA و جدول <code class="code-inline">tb_packing_list</code>؛</p>
+<p>- Provider/Partner با direct JDBC و جدول <code class="code-inline">partner.packing_lists</code>.</p>
+<br />
+<p>Commercial Invoice نیز در <code class="code-inline">partner.commercial_invoices</code> نگهداری می‌شود.</p>
+<br />
+<p>تا زمان تعیین System of Record، وضعیت Packing List برابر <code class="code-inline">CONFLICT_REQUIRES_CANONICALIZATION</code> است.</p>
+<br />
+<h2 id="tajerestan-packing-list">Tajerestan Packing List</h2>
+<br />
+<p>Entity واقعی شامل این فیلدهاست:</p>
+<br />
+<p>- شماره PL؛</p>
+<p>- PI و Purchase Order reference؛</p>
+<p>- supplier؛</p>
+<p>- box count؛</p>
+<p>- net/gross weight و volume؛</p>
+<p>- packing method و marks؛</p>
+<p>- status و company؛</p>
+<p>- child boxes.</p>
+<br />
+<p>Service واقعی:</p>
+<br />
+<p>- شماره <code class="code-inline">PL-...</code> تولید می‌کند؛</p>
+<p>- package count، gross weight و volume را جمع می‌کند؛</p>
+<p>- boxها را ذخیره می‌کند؛</p>
+<p>- get و list دارد؛</p>
+<p>- Event با نام <code class="code-inline">trade.packing-list.created</code> منتشر می‌کند.</p>
+<br />
+<h3 id="gap-">Gapهای قطعی</h3>
+<br />
+<p>- <code class="code-inline">DEFAULT_COMPANY_ID</code> هم برای supplier و هم company استفاده می‌شود.</p>
+<p>- <code class="code-inline">totalNetWeight</code> صفر می‌ماند.</p>
+<p>- <code class="code-inline">netWeightKg</code> هر box صفر ثبت می‌شود.</p>
+<p>- immutable issued version، signature و supersession دیده نشد.</p>
+<p>- status transition guard و optimistic locking دیده نشد.</p>
+<p>- outbox تراکنشی اثبات نشد.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_GAP</code>.</p>
+<br />
+<h2 id="partner-packing-list">Partner Packing List</h2>
+<br />
+<p>Partner Logistics Controller:</p>
+<br />
+<p>- list و get از <code class="code-inline">partner.packing_lists</code>؛</p>
+<p>- PATCH محدودشده به Partner احراز‌شده؛</p>
+<p>- audit log برای update؛</p>
+<p>- merge metadata.</p>
+<br />
+<p>اما POST create با 503 و پیام <code class="code-inline">notAvailable</code> پاسخ می‌دهد. مدل update نیز طیف بزرگی از فیلدها را مستقیم تغییر می‌دهد و version immutable ندارد.</p>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Operation","sortable":true},{"key":"col1","label":"Status","sortable":true}]} data={[{"col0":"List/Get","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"Partner-scoped Patch/Audit","col1":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Create","col1":"<code class=\"code-inline\">PLANNED_NOT_IMPLEMENTED</code>"}]} />
+<br />
+<h2 id="commercial-invoice">Commercial Invoice</h2>
+<br />
+<p>Migration واقعی این اطلاعات را ذخیره می‌کند:</p>
+<br />
+<p>- unique invoice number؛</p>
+<p>- Packing List، Shipment، Quotation و Order references؛</p>
+<p>- Partner و Customer؛</p>
+<p>- invoice date، currency، amount؛</p>
+<p>- Incoterm و payment terms؛</p>
+<p>- ports، origin و destination؛</p>
+<p>- HS code و declared value؛</p>
+<p>- status، issuer، lineItems و metadata.</p>
+<br />
+<p>Controller list، get و Partner-scoped patch را اجرا می‌کند. بااین‌حال:</p>
+<br />
+<p>- create با 503 پاسخ می‌دهد؛</p>
+<p>- generate-from-packing-list با 503 پاسخ می‌دهد؛</p>
+<p>- issue/sign/version/supersede workflow وجود ندارد.</p>
+<br />
+<h2 id="canonicalization-">Canonicalization موردنیاز</h2>
+<br />
+<p>1. یک Packing List System of Record انتخاب شود.</p>
+<p>2. Document identity، version، issuance، signature، supersession و cancellation تعریف شوند.</p>
+<p>3. JSON line items و relational boxes reconciliation شوند.</p>
+<p>4. quantities/weights با Production، Quality Release، PO و Shipment تطبیق داده شوند.</p>
+<p>5. HS-code suggestion از legal classification جدا باشد.</p>
+<p>6. discrepancy/correction به‌صورت Aggregate ثبت شود، نه mutable patch.</p>
+<br />
+</ContentPage>

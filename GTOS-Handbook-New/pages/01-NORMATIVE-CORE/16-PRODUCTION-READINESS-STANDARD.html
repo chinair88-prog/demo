@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Production Readiness Standard · GTOS Handbook</title>
+<meta name="description" content="Production Readiness Standard A capability may enter production only when: ownership and oncall are assigned; threat model and privacy review are complete; auth">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/01-NORMATIVE-CORE/index.html">NORMATIVE CORE</a> <span class="sep">›</span> <span>Production Readiness Standard</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Normative Core</span>
+        </div>
+        <h1>Production Readiness Standard</h1>
+      </header>
+      
+      <div class="prose">
+        <h1 id="production-readiness-standard">Production Readiness Standard</h1>
+<br>
+<p>A capability may enter production only when:</p>
+<br>
+<li>ownership and on-call are assigned;</li>
+<li>threat model and privacy review are complete;</li>
+<li>authentication, authorization, tenant isolation, rate limiting, and audit are tested;</li>
+<li>migrations are upgrade-tested and rollback/backout is defined;</li>
+<li>idempotency and concurrency behavior are proven;</li>
+<li>Events and workflows survive duplicate, loss, delay, restart, and replay;</li>
+<li>dependencies have timeouts, circuit breakers, and fallback/reconciliation;</li>
+<li>SLOs, dashboards, alerts, runbooks, and capacity exist;</li>
+<li>backup and restore have been exercised;</li>
+<li>performance and failure tests meet thresholds;</li>
+<li>Portal E2E and accessibility pass;</li>
+<li>AI evaluations and kill switches pass where AI is used;</li>
+<li>release, rollback, and communication plans are approved;</li>
+<li>known risks and exceptions are recorded with expiry.</li>
+<br>
+<p>Production readiness is a joint Decision by the Domain owner, platform owner, security, SRE, and relevant business authority.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

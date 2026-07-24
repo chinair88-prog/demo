@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Typed Tool Executor · GTOS Handbook</title>
+<meta name="description" content="Typed Tool Executor Metadata Value Volume 9 Chapter ID V0910 Subject TypedToolExecutor Status Generated FirstDraft Architecture Skeleton DomainSpecific Expansio">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/03-DETAILED-VOLUMES/index.html">DETAILED VOLUMES</a> <span class="sep">›</span> <a href="../../../pages/03-DETAILED-VOLUMES/volume-09-ai-operating-system/index.html">Volume 09 Ai Operating System</a> <span class="sep">›</span> <span>Typed Tool Executor</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Detailed Volumes</span>
+        </div>
+        <h1>Typed Tool Executor</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#1-executive-orientation">1. Executive Orientation</a></li><li class="toc-level-3"><a href="#11-accountable-ownership">1.1 Accountable ownership</a></li><li class="toc-level-3"><a href="#12-scope">1.2 Scope</a></li><li class="toc-level-3"><a href="#13-non-goals">1.3 Non-goals</a></li><li class="toc-level-2"><a href="#2-ubiquitous-language-and-subject-model">2. Ubiquitous Language and Subject Model</a></li><li class="toc-level-3"><a href="#21-core-invariants">2.1 Core invariants</a></li><li class="toc-level-3"><a href="#22-required-standards">2.2 Required standards</a></li><li class="toc-level-2"><a href="#3-actors-roles-and-authority">3. Actors, Roles, and Authority</a></li><li class="toc-level-2"><a href="#4-lifecycle-and-state-model">4. Lifecycle and State Model</a></li><li class="toc-level-3"><a href="#41-transition-rules">4.1 Transition rules</a></li><li class="toc-level-2"><a href="#5-decision-evidence-and-knowledge-cutoff">5. Decision, Evidence, and Knowledge Cutoff</a></li><li class="toc-level-2"><a href="#6-commands-events-queries-and-contracts">6. Commands, Events, Queries, and Contracts</a></li><li class="toc-level-2"><a href="#7-workflow-failure-and-compensation">7. Workflow, Failure, and Compensation</a></li><li class="toc-level-2"><a href="#8-data-and-persistence-architecture">8. Data and Persistence Architecture</a></li><li class="toc-level-2"><a href="#9-portal-and-experience-requirements">9. Portal and Experience Requirements</a></li><li class="toc-level-2"><a href="#10-ai-participation-and-tool-governance">10. AI Participation and Tool Governance</a></li><li class="toc-level-2"><a href="#11-security-privacy-and-trust-boundaries">11. Security, Privacy, and Trust Boundaries</a></li><li class="toc-level-2"><a href="#12-reliability-slos-and-operations">12. Reliability, SLOs, and Operations</a></li><li class="toc-level-2"><a href="#13-testing-and-continuous-conformance">13. Testing and Continuous Conformance</a></li><li class="toc-level-2"><a href="#14-repository-review-boundary">14. Repository Review Boundary</a></li><li class="toc-level-2"><a href="#15-worked-conformance-scenario">15. Worked Conformance Scenario</a></li><li class="toc-level-2"><a href="#16-conformance-checklist">16. Conformance Checklist</a></li><li class="toc-level-2"><a href="#17-status-vocabulary">17. Status Vocabulary</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="typed-tool-executor">Typed Tool Executor</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Metadata</th>
+<th class="table-sort">Value</th>
+</tr></thead><tbody>
+<tr>
+<td>Volume</td>
+<td><code>9</code></td>
+</tr>
+<tr>
+<td>Chapter ID</td>
+<td><code>V09-10</code></td>
+</tr>
+<tr>
+<td>Subject</td>
+<td><code>TypedToolExecutor</code></td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Generated First-Draft Architecture Skeleton - Domain-Specific Expansion Required</td>
+</tr>
+<tr>
+<td>Content maturity</td>
+<td><code>TEMPLATE_DERIVED_REFERENCE_SKELETON</code> unless repository citations prove otherwise</td>
+</tr>
+<tr>
+<td>Default implementation classification</td>
+<td><code>REFERENCE_ARCHITECTURE</code> / <code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+<tr>
+<td>Accountable owner</td>
+<td>AI Architecture Council</td>
+</tr>
+<tr>
+<td>Evidence rule</td>
+<td>No implementation claim without inspected executable evidence</td>
+</tr>
+<tr>
+<td>Repository</td>
+<td><code>chinair88-prog/allinb2c</code></td>
+</tr>
+</tbody></table></div>
+<br>
+<hr>
+<br>
+<h2 id="1-executive-orientation">1. Executive Orientation <a href="#1-executive-orientation" class="heading-anchor">#</a></h2>
+<br>
+<p>This chapter defines how GTOS shall <strong>define the ownership, lifecycle, policy, evidence, Tools, security, evaluation, failure, recovery, and repository verification requirements for Typed Tool Executor</strong>.</p>
+<br>
+<p>The specification separates reality, observations, knowledge, Decisions, Intent, execution, and outcomes. A component name, database row, UI label, AI answer, or workflow state does not acquire authority merely because it is visible or technically convenient.</p>
+<br>
+<pre><code class="language-text">
+Reality or external outcome
+
+    ≠ Observation
+
+    ≠ Claim
+
+    ≠ derived Perspective
+
+    ≠ Prediction
+
+    ≠ Recommendation
+
+    ≠ authorized Decision
+
+    ≠ execution Intent
+
+</code></pre>
+<br>
+<h3 id="11-accountable-ownership">1.1 Accountable ownership <a href="#11-accountable-ownership" class="heading-anchor">#</a></h3>
+<br>
+<p>The accountable owner is <strong>AI Architecture Council</strong>. Supporting applications, shared infrastructure, integration adapters, analytics, and AI coordinate or present the capability but shall not silently own its authoritative propositions.</p>
+<br>
+<h3 id="12-scope">1.2 Scope <a href="#12-scope" class="heading-anchor">#</a></h3>
+<br>
+<li>create and identify the subject</li>
+<li>validate evidence and policy</li>
+<li>make authorized Decisions</li>
+<li>execute typed Commands</li>
+<li>publish completed-fact Events</li>
+<li>query current and historical perspectives</li>
+<li>correct and reconcile outcomes</li>
+<br>
+<h3 id="13-non-goals">1.3 Non-goals <a href="#13-non-goals" class="heading-anchor">#</a></h3>
+<br>
+<li>treating a registered Gradle module, catalog record, README, frontend route, migration plan, or generated report as proof of end-to-end implementation;</li>
+<li>direct cross-Domain database writes;</li>
+<li>generic <code>status</code> values that combine lifecycle, approval, provider, document, payment, dispute, and correction state;</li>
+<li>silent replacement of history;</li>
+<li>AI-created authority or fabricated external outcomes.</li>
+<br>
+<hr>
+<br>
+<h2 id="2-ubiquitous-language-and-subject-model">2. Ubiquitous Language and Subject Model <a href="#2-ubiquitous-language-and-subject-model" class="heading-anchor">#</a></h2>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Subject</th>
+<th class="table-sort">Required interpretation</th>
+</tr></thead><tbody>
+<tr>
+<td><code>TypedToolExecutor</code></td>
+<td>Independent identified subject, governed subordinate entity, or qualified perspective; ownership must be explicit</td>
+</tr>
+<tr>
+<td><code>TypedToolExecutorVersion</code></td>
+<td>Independent identified subject, governed subordinate entity, or qualified perspective; ownership must be explicit</td>
+</tr>
+<tr>
+<td><code>TypedToolExecutorDecision</code></td>
+<td>Independent identified subject, governed subordinate entity, or qualified perspective; ownership must be explicit</td>
+</tr>
+<tr>
+<td><code>TypedToolExecutorEvidenceSet</code></td>
+<td>Independent identified subject, governed subordinate entity, or qualified perspective; ownership must be explicit</td>
+</tr>
+<tr>
+<td><code>TypedToolExecutorException</code></td>
+<td>Independent identified subject, governed subordinate entity, or qualified perspective; ownership must be explicit</td>
+</tr>
+</tbody></table></div>
+<br>
+<p>Reference aggregate:</p>
+<br>
+<pre><code class="language-text">
+TypedToolExecutor {
+
+  subjectId
+
+  tenantId
+
+  organizationContext
+
+  sourceIdentityRefs[]
+
+  sourceVersionRefs[]
+
+  lifecycleState
+
+  relationshipRefs[]
+
+  decisionRefs[]
+
+  intentRefs[]
+
+  evidenceSetRef
+
+  knowledgeCutoff
+
+  policyRefs[]
+
+  authorityRef
+
+  jurisdictionRefs[]
+
+  createdAt
+
+  effectiveAt
+
+  updatedAt
+
+  version
+
+  correctionOf?
+
+  correlationId
+
+}
+
+</code></pre>
+<br>
+<h3 id="21-core-invariants">2.1 Core invariants <a href="#21-core-invariants" class="heading-anchor">#</a></h3>
+<br>
+<li>Stable identity precedes relationship, state, and cross-system correlation.</li>
+<li>Effective time and recorded time remain distinct where business truth changes over time.</li>
+<li>Recommendation, Decision, Intent, execution, and outcome are separate concepts.</li>
+<li>No Portal, report, search index, cache, workflow, or AI Agent becomes a shadow owner of Domain truth.</li>
+<li>Binding submitted, approved, issued, accepted, or signed versions are immutable.</li>
+<li>Corrections append governed facts and preserve the original record.</li>
+<li>External authority and provider outcomes retain their source and qualification.</li>
+<li>Tenant and represented-principal context come from trusted authentication and mandate evaluation.</li>
+<li>Retried writes are idempotent and concurrency guarded.</li>
+<li>Outcome Unknown is explicit and reconciled before risky duplicate execution.</li>
+<br>
+<h3 id="22-required-standards">2.2 Required standards <a href="#22-required-standards" class="heading-anchor">#</a></h3>
+<br>
+<li>stable identifiers</li>
+<li>typed contracts</li>
+<li>immutable binding versions</li>
+<li>transactional outbox</li>
+<li>idempotent Commands</li>
+<li>explicit Outcome Unknown</li>
+<li>correction lineage</li>
+<li>machine-verifiable conformance</li>
+<br>
+<hr>
+<br>
+<h2 id="3-actors-roles-and-authority">3. Actors, Roles, and Authority <a href="#3-actors-roles-and-authority" class="heading-anchor">#</a></h2>
+<br>
+<p>A conformant design distinguishes:</p>
+<br>
+<li>the natural person acting;</li>
+<li>the service or AI identity invoking a Tool;</li>
+<li>the organization or principal represented;</li>
+<li>the role or relationship granting context;</li>
+<li>the mandate or delegation granting action authority;</li>
+<li>the Policy and jurisdiction limiting the action;</li>
+<li>the reviewer or approver responsible for a binding Decision.</li>
+<br>
+<p>Authority is evaluated at action time. Authentication alone does not grant business authority. Cached permissions and browser-supplied tenant headers are insufficient for high-impact actions.</p>
+<br>
+<hr>
+<br>
+<h2 id="4-lifecycle-and-state-model">4. Lifecycle and State Model <a href="#4-lifecycle-and-state-model" class="heading-anchor">#</a></h2>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">State</th>
+<th class="table-sort">Semantics</th>
+</tr></thead><tbody>
+<tr>
+<td><code>PROPOSED</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+<tr>
+<td><code>VALIDATION_PENDING</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+<tr>
+<td><code>APPROVAL_PENDING</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+<tr>
+<td><code>ACTIVE</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+<tr>
+<td><code>SUSPENDED</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+<tr>
+<td><code>CORRECTION_PENDING</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+<tr>
+<td><code>RETIRED</code></td>
+<td>Distinct governed condition with entry, exit, timeout, correction and authority semantics</td>
+</tr>
+</tbody></table></div>
+<br>
+<div class="mermaid-block"><div class="mermaid-toolbar"><span>Mermaid Diagram</span><button class="mermaid-toggle-code">Show Code</button></div><div class="mermaid-content"><pre class="mermaid">
+stateDiagram-v2
+
+    [*] --> PROPOSED
+
+    PROPOSED --> VALIDATION_PENDING
+
+    VALIDATION_PENDING --> APPROVAL_PENDING
+
+    APPROVAL_PENDING --> ACTIVE
+
+    ACTIVE --> SUSPENDED
+
+    SUSPENDED --> CORRECTION_PENDING
+
+    CORRECTION_PENDING --> RETIRED
+
+</pre></div><div class="mermaid-code"><pre><code>
+stateDiagram-v2
+    [*] --&gt; PROPOSED
+    PROPOSED --&gt; VALIDATION_PENDING
+    VALIDATION_PENDING --&gt; APPROVAL_PENDING
+    APPROVAL_PENDING --&gt; ACTIVE
+    ACTIVE --&gt; SUSPENDED
+    SUSPENDED --&gt; CORRECTION_PENDING
+    CORRECTION_PENDING --&gt; RETIRED
+</code></pre></div></div>
+<br>
+<p>The diagram is a primary reading path. Real implementations may add parallel review, amendment, appeal, timeout, suspension, partial completion, reconciliation, correction, and terminal failure without collapsing their meaning.</p>
+<br>
+<h3 id="41-transition-rules">4.1 Transition rules <a href="#41-transition-rules" class="heading-anchor">#</a></h3>
+<br>
+<li>transition through a typed, authorized Command;</li>
+<li>require exact expected version where concurrent change matters;</li>
+<li>record actor, represented principal, mandate, Policy, reason, and Evidence;</li>
+<li>use an idempotency key for retried writes;</li>
+<li>publish a completed-fact Event after durable state change;</li>
+<li>expose Outcome Unknown for unresolved external completion;</li>
+<li>preserve original and corrected states in historical reconstruction.</li>
+<br>
+<hr>
+<br>
+<h2 id="5-decision-evidence-and-knowledge-cutoff">5. Decision, Evidence, and Knowledge Cutoff <a href="#5-decision-evidence-and-knowledge-cutoff" class="heading-anchor">#</a></h2>
+<br>
+<p>Reference Decision:</p>
+<br>
+<pre><code class="language-text">
+Decision {
+
+  decisionId
+
+  decisionType
+
+  subjectRef
+
+  sourceVersionRefs[]
+
+  knowledgeCutoff
+
+  evidenceSetRef
+
+  policyVersionRefs[]
+
+  recommendationRefs[]
+
+  principalId
+
+  representedOrganizationId
+
+  mandateRef
+
+  rationale
+
+  outcome
+
+  decidedAt
+
+  effectiveAt
+
+  correctionOf?
+
+}
+
+</code></pre>
+<br>
+<p>Evidence records identify issuer or observer, subject, version, observed time, received time, effective interval, integrity, confidence, qualification, contradiction, correction, retention, residency, and access class. A recommendation may assist the Decision but cannot promote itself to the Decision.</p>
+<br>
+<hr>
+<br>
+<h2 id="6-commands-events-queries-and-contracts">6. Commands, Events, Queries, and Contracts <a href="#6-commands-events-queries-and-contracts" class="heading-anchor">#</a></h2>
+<br>
+<p>Reference Commands:</p>
+<br>
+<li><code>CreateTypedToolExecutor</code></li>
+<li><code>ValidateTypedToolExecutor</code></li>
+<li><code>ApproveTypedToolExecutor</code></li>
+<li><code>ActivateTypedToolExecutor</code></li>
+<li><code>SuspendTypedToolExecutor</code></li>
+<li><code>CorrectTypedToolExecutor</code></li>
+<li><code>RetireTypedToolExecutor</code></li>
+<br>
+<p>Reference Events:</p>
+<br>
+<li><code>TypedToolExecutorCreated</code></li>
+<li><code>TypedToolExecutorValidated</code></li>
+<li><code>TypedToolExecutorApproved</code></li>
+<li><code>TypedToolExecutorActivated</code></li>
+<li><code>TypedToolExecutorSuspended</code></li>
+<li><code>TypedToolExecutorCorrected</code></li>
+<li><code>TypedToolExecutorRetired</code></li>
+<br>
+<p>Reference queries:</p>
+<br>
+<li><code>GetTypedToolExecutor</code></li>
+<li><code>ListTypedToolExecutorRecords</code></li>
+<li><code>GetTypedToolExecutorTimeline</code></li>
+<li><code>GetTypedToolExecutorEvidence</code></li>
+<li><code>GetTypedToolExecutorDecisionPackage</code></li>
+<li><code>GetTypedToolExecutorExceptions</code></li>
+<li><code>GetTypedToolExecutorAuditTrail</code></li>
+<br>
+<p>Reference API surface:</p>
+<br>
+<pre><code class="language-text">
+POST /api/v1/typedtoolexecutor/commands
+
+GET  /api/v1/typedtoolexecutor/{id}
+
+GET  /api/v1/typedtoolexecutor/{id}/timeline
+
+GET  /api/v1/typedtoolexecutor/{id}/evidence
+
+GET  /api/v1/typedtoolexecutor/{id}/decisions
+
+POST /api/v1/typedtoolexecutor/{id}/exceptions
+
+POST /api/v1/typedtoolexecutor/{id}/corrections
+
+</code></pre>
+<br>
+<p>These endpoints are reference contracts, not claims that exact routes exist.</p>
+<br>
+<hr>
+<br>
+<h2 id="7-workflow-failure-and-compensation">7. Workflow, Failure, and Compensation <a href="#7-workflow-failure-and-compensation" class="heading-anchor">#</a></h2>
+<br>
+<div class="mermaid-block"><div class="mermaid-toolbar"><span>Mermaid Diagram</span><button class="mermaid-toggle-code">Show Code</button></div><div class="mermaid-content"><pre class="mermaid">
+flowchart TD
+
+    A[Validate identity version and authority] --> B[Collect required evidence]
+
+    B --> C{Policy and evidence gates pass?}
+
+    C -- No --> D[Open exception or request correction]
+
+    D --> B
+
+    C -- Yes --> E[Record Decision or execution Intent]
+
+    E --> F[Execute Domain command or external request]
+
+    F --> G{Outcome known?}
+
+    G -- Success --> H[Record fact and publish Event]
+
+    G -- Failure --> I[Record failure and compensation options]
+
+    G -- Unknown --> J[Enter Outcome Unknown]
+
+    J --> K[Query source or wait for verified callback]
+
+    K --> G
+
+    H --> L[Update projections and downstream workflow]
+
+</pre></div><div class="mermaid-code"><pre><code>
+flowchart TD
+    A[Validate identity version and authority] --&gt; B[Collect required evidence]
+    B --&gt; C{Policy and evidence gates pass?}
+    C -- No --&gt; D[Open exception or request correction]
+    D --&gt; B
+    C -- Yes --&gt; E[Record Decision or execution Intent]
+    E --&gt; F[Execute Domain command or external request]
+    F --&gt; G{Outcome known?}
+    G -- Success --&gt; H[Record fact and publish Event]
+    G -- Failure --&gt; I[Record failure and compensation options]
+    G -- Unknown --&gt; J[Enter Outcome Unknown]
+    J --&gt; K[Query source or wait for verified callback]
+    K --&gt; G
+    H --&gt; L[Update projections and downstream workflow]
+</code></pre></div></div>
+<br>
+<p>Representative failure modes:</p>
+<br>
+<li>stale or wrong source version</li>
+<li>duplicate submission or replay</li>
+<li>external timeout after possible success</li>
+<li>contradictory source observations</li>
+<li>lost Event after committed state</li>
+<li>approval or mandate revoked during execution</li>
+<li>downstream action before a mandatory gate</li>
+<li>partial completion across multiple subjects</li>
+<li>evidence later retracted or corrected</li>
+<li>tenant, facility, channel or jurisdiction mismatch</li>
+<br>
+<p>Recovery shall query the authoritative source before duplicate execution, preserve partial success, use compensating Intent rather than destructive rewrite, publish corrections, quarantine high-impact ambiguity, and record affected downstream subjects.</p>
+<br>
+<hr>
+<br>
+<h2 id="8-data-and-persistence-architecture">8. Data and Persistence Architecture <a href="#8-data-and-persistence-architecture" class="heading-anchor">#</a></h2>
+<br>
+<p>Reference table families:</p>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Table family</th>
+<th class="table-sort">Purpose</th>
+</tr></thead><tbody>
+<tr>
+<td><code>typedtoolexecutor_aggregate</code></td>
+<td>authoritative subject</td>
+</tr>
+<tr>
+<td><code>typedtoolexecutor_version</code></td>
+<td>immutable submitted, approved, issued, or signed versions</td>
+</tr>
+<tr>
+<td><code>typedtoolexecutor_relationship</code></td>
+<td>governed relationships</td>
+</tr>
+<tr>
+<td><code>typedtoolexecutor_decision</code></td>
+<td>binding Decisions and rationale</td>
+</tr>
+<tr>
+<td><code>typedtoolexecutor_evidence_link</code></td>
+<td>provenance and evidence relationships</td>
+</tr>
+<tr>
+<td><code>typedtoolexecutor_event_outbox</code></td>
+<td>transactional Event publication</td>
+</tr>
+<tr>
+<td><code>typedtoolexecutor_idempotency</code></td>
+<td>duplicate-write protection</td>
+</tr>
+<tr>
+<td><code>typedtoolexecutor_exception</code></td>
+<td>exception, claim, dispute, or hold</td>
+</tr>
+<tr>
+<td><code>typedtoolexecutor_correction</code></td>
+<td>correction and supersession lineage</td>
+</tr>
+<tr>
+<td><code>typedtoolexecutor_audit</code></td>
+<td>privileged action evidence</td>
+</tr>
+</tbody></table></div>
+<br>
+<p>The owning service controls schema and migration. Cross-Domain references use stable identifiers or contracts. Analytics, reports, caches, search, and vector indexes remain projections. Backup, restore, retention, legal hold, privacy, residency, and decommissioning requirements are explicit.</p>
+<br>
+<hr>
+<br>
+<h2 id="9-portal-and-experience-requirements">9. Portal and Experience Requirements <a href="#9-portal-and-experience-requirements" class="heading-anchor">#</a></h2>
+<br>
+<li>Primary participant Portal: initiate, review exact versions, supply evidence, and respond to required actions.</li>
+<li>Operator Portal: inspect exceptions, correlation, source responses, retries, compensation, and downstream impact.</li>
+<li>Executive or oversight view: consume governed metrics without becoming a source of Domain truth.</li>
+<br>
+<p>Every Portal displays exact version, owner, state, freshness, required action, and uncertainty. It supports loading, empty, partial, stale, denied, error, timeout, and Outcome Unknown states; accessibility; locale, currency, unit, date, and RTL/LTR correctness; evidence audit; safe retry; and correction history.</p>
+<br>
+<hr>
+<br>
+<h2 id="10-ai-participation-and-tool-governance">10. AI Participation and Tool Governance <a href="#10-ai-participation-and-tool-governance" class="heading-anchor">#</a></h2>
+<br>
+<p>Permitted AI tasks:</p>
+<br>
+<li>plan and execute only through typed registered Tools</li>
+<li>retain source context and knowledge cutoff</li>
+<li>expose confidence, limitations and policy result</li>
+<li>observe outcomes and trigger recovery or human handoff</li>
+<br>
+<p>AI shall not own Domain records, grant itself authority, suppress contradictions, silently edit approved versions, fabricate external outcomes, or execute high-impact actions outside typed Tools, policy, approval, idempotency, sandbox, and outcome observation.</p>
+<br>
+<p>Every Agent Run records source context, prompt/model/tool versions, structured output, confidence and limitations, Policy result, approval, Tool calls, provider responses, final outcome, and recovery actions.</p>
+<br>
+<hr>
+<br>
+<h2 id="11-security-privacy-and-trust-boundaries">11. Security, Privacy, and Trust Boundaries <a href="#11-security-privacy-and-trust-boundaries" class="heading-anchor">#</a></h2>
+<br>
+<li>central provider and Tool governance</li>
+<li>prompt injection and data exfiltration defense</li>
+<li>sandbox and egress policy</li>
+<li>budget, approval, kill switch and incident containment</li>
+<br>
+<p>Additional controls include secret isolation, callback signature verification, audit of privileged action, emergency-access review, sensitive-data minimization, purpose limitation, and threat models for impersonation, tampering, replay, confused deputy, fraud, prompt injection, and exfiltration.</p>
+<br>
+<hr>
+<br>
+<h2 id="12-reliability-slos-and-operations">12. Reliability, SLOs, and Operations <a href="#12-reliability-slos-and-operations" class="heading-anchor">#</a></h2>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">SLI</th>
+<th class="table-sort">Reference objective</th>
+</tr></thead><tbody>
+<tr>
+<td>authoritative read availability</td>
+<td>99.9% monthly unless a stricter tier applies</td>
+</tr>
+<tr>
+<td>acknowledged Command durability</td>
+<td>no acknowledged write may be silently lost</td>
+</tr>
+<tr>
+<td>Event publication</td>
+<td>99.9% within five minutes after committed fact</td>
+</tr>
+<tr>
+<td>duplicate prevention</td>
+<td>100% for same tenant, Command class, and idempotency key</td>
+</tr>
+<tr>
+<td>binding Decision audit completeness</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>stale-state detection</td>
+<td>bounded by business deadline</td>
+</tr>
+</tbody></table></div>
+<br>
+<p>Dashboards and runbooks cover backlog, error budget, dependency failure, retry budget, DLQ, workflow stall, provider outage, reconciliation, capacity, backup/restore, release/rollback, incident command, and post-incident correction.</p>
+<br>
+<hr>
+<br>
+<h2 id="13-testing-and-continuous-conformance">13. Testing and Continuous Conformance <a href="#13-testing-and-continuous-conformance" class="heading-anchor">#</a></h2>
+<br>
+<li>aggregate invariant and transition tests</li>
+<li>authorization, delegation, separation-of-duties and tenant-isolation tests</li>
+<li>idempotency and optimistic-concurrency tests</li>
+<li>database migration, key, constraint and rollback tests</li>
+<li>contract, outbox/inbox, duplicate, replay and DLQ tests</li>
+<li>workflow restart, timeout and compensation tests</li>
+<li>Portal E2E tests for success, partial, stale, denied, error and Outcome Unknown states</li>
+<li>accessibility, locale, currency, unit and RTL/LTR tests</li>
+<li>security adversarial, fraud and data-exfiltration tests</li>
+<li>AI evaluation, prompt-injection, policy-bypass and unauthorized-tool tests</li>
+<li>historical reconstruction, correction and audit-completeness tests</li>
+<li>performance, capacity, recovery and operational exercise tests</li>
+<br>
+<p>Release evidence links each invariant and control to the test, environment, input data, result, owner, and artifact proving it. Generated test counts never replace semantic coverage.</p>
+<br>
+<hr>
+<br>
+<h2 id="14-repository-review-boundary">14. Repository Review Boundary <a href="#14-repository-review-boundary" class="heading-anchor">#</a></h2>
+<br>
+<li>This chapter is a repository-review specification. Exact executable implementation has not been inspected for every target behavior.</li>
+<li>Registered modules, catalog entries, README claims, frontend contracts, or plans are not proof of complete implementation.</li>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Area</th>
+<th class="table-sort">Classification</th>
+</tr></thead><tbody>
+<tr>
+<td>target aggregate, API, tables, state and workflow in this chapter</td>
+<td><code>REFERENCE_ARCHITECTURE</code></td>
+</tr>
+<tr>
+<td>registered module or catalog claim</td>
+<td><code>DOCUMENTATION_ONLY_CLAIM</code> until source inspection</td>
+</tr>
+<tr>
+<td>uninspected integration</td>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+<tr>
+<td>behavior proven in another repository-grounded chapter</td>
+<td>retain that chapter's evidence and classification</td>
+</tr>
+<tr>
+<td>contradictory ownership or path claims</td>
+<td><code>CONFLICT_REQUIRES_CANONICALIZATION</code></td>
+</tr>
+</tbody></table></div>
+<br>
+<p>No statement upgrades implementation status merely because a file, directory, module name, frontend contract, database entry, plan, or report exists.</p>
+<br>
+<hr>
+<br>
+<h2 id="15-worked-conformance-scenario">15. Worked Conformance Scenario <a href="#15-worked-conformance-scenario" class="heading-anchor">#</a></h2>
+<br>
+<p>An authorized principal initiates a Command against an exact subject version. The service validates identity, tenant, mandate, Policy, Evidence, and idempotency. It records the state transition and outbox entry atomically. If an external dependency participates, timeout produces Outcome Unknown; reconciliation queries the source or waits for a verified callback instead of repeating the action blindly.</p>
+<br>
+<p>Portals show source, freshness, version, required action, and uncertainty. AI may extract, compare, summarize, detect anomalies, and recommend through typed Tools, but cannot own the subject or fabricate success. Later correction appends new facts, identifies affected projections and workflows, and preserves the historical Decision context.</p>
+<br>
+<hr>
+<br>
+<h2 id="16-conformance-checklist">16. Conformance Checklist <a href="#16-conformance-checklist" class="heading-anchor">#</a></h2>
+<br>
+<li class="checklist-item"><input type="checkbox" disabled> stable identity and proposition ownership are explicit;</li>
+<li class="checklist-item"><input type="checkbox" disabled> authority and mandate are evaluated at action time;</li>
+<li class="checklist-item"><input type="checkbox" disabled> state, Recommendation, Decision, Intent, execution, and outcome remain distinct;</li>
+<li class="checklist-item"><input type="checkbox" disabled> Commands are typed, authorized, idempotent, and version guarded;</li>
+<li class="checklist-item"><input type="checkbox" disabled> Events describe completed facts;</li>
+<li class="checklist-item"><input type="checkbox" disabled> Evidence includes provenance, time, integrity, qualification, and correction;</li>
+<li class="checklist-item"><input type="checkbox" disabled> external outcomes retain their authority source;</li>
+<li class="checklist-item"><input type="checkbox" disabled> Portals show freshness and uncertainty;</li>
+<li class="checklist-item"><input type="checkbox" disabled> AI is bounded by typed Tools, Policy, approval, and outcome observation;</li>
+<li class="checklist-item"><input type="checkbox" disabled> security, tenant, facility, channel, and jurisdiction boundaries are enforced;</li>
+<li class="checklist-item"><input type="checkbox" disabled> Outcome Unknown and reconciliation exist where needed;</li>
+<li class="checklist-item"><input type="checkbox" disabled> corrections preserve history;</li>
+<li class="checklist-item"><input type="checkbox" disabled> tests prove invariants and recovery;</li>
+<li class="checklist-item"><input type="checkbox" disabled> implementation status is not upgraded without executable evidence.</li>
+<br>
+<hr>
+<br>
+<h2 id="17-status-vocabulary">17. Status Vocabulary <a href="#17-status-vocabulary" class="heading-anchor">#</a></h2>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Status</th>
+<th class="table-sort">Meaning</th>
+</tr></thead><tbody>
+<tr>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+<td>Executable source and relevant behavior were inspected.</td>
+</tr>
+<tr>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>Executable behavior exists with a material governance or completeness gap.</td>
+</tr>
+<tr>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+<td>Only part of the target capability is evidenced.</td>
+</tr>
+<tr>
+<td><code>REFERENCE_ARCHITECTURE</code></td>
+<td>Normative target behavior; no claim that it exists today.</td>
+</tr>
+<tr>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+<td>Explicitly planned but not evidenced as executable.</td>
+</tr>
+<tr>
+<td><code>DOCUMENTATION_ONLY_CLAIM</code></td>
+<td>Documentation or client contract claims behavior without verified backend evidence.</td>
+</tr>
+<tr>
+<td><code>CONFLICT_REQUIRES_CANONICALIZATION</code></td>
+<td>Sources disagree and no final owner has been established.</td>
+</tr>
+<tr>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+<td>Necessary executable evidence has not yet been inspected.</td>
+</tr>
+</tbody></table></div>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

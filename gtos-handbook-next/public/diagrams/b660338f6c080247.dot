@@ -1,0 +1,27 @@
+digraph G {
+rankdir=LR;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.34", ranksep="0.60", splines="spline"];
+node [fontname="Arial", fontsize=10, shape=rect, color="#4B5D8A", penwidth=1.45, style="rounded,filled", fillcolor="#F5F6FC", fontcolor="#253150", margin="0.15,0.09"];
+edge [color="#6677A5", penwidth=1.35, arrowsize=0.72];
+"BLOCKED" [label="BLOCKED"];
+"CANCELLED" [label="CANCELLED"];
+"CLOSED" [label="CLOSED"];
+"COMPLETED_PENDING_QC" [label="COMPLETED PENDING QC"];
+"DELAYED" [label="DELAYED"];
+"IN_PROGRESS" [label="IN PROGRESS"];
+"NOT_STARTED" [label="NOT STARTED"];
+"PARTIALLY_COMPLETED" [label="PARTIALLY COMPLETED"];
+"REWORK" [label="REWORK"];
+"STARTED" [label="STARTED"];
+"__start_0" [shape=circle, width=0.14, fixedsize=true, label="", fillcolor="#30476F", color="#30476F", style=filled];
+"__start_0" -> "NOT_STARTED";
+"NOT_STARTED" -> "STARTED";
+"STARTED" -> "IN_PROGRESS";
+"IN_PROGRESS" -> "BLOCKED";
+"BLOCKED" -> "DELAYED";
+"DELAYED" -> "PARTIALLY_COMPLETED";
+"PARTIALLY_COMPLETED" -> "COMPLETED_PENDING_QC";
+"COMPLETED_PENDING_QC" -> "REWORK";
+"REWORK" -> "CANCELLED";
+"CANCELLED" -> "CLOSED";
+}

@@ -1,0 +1,31 @@
+digraph G {
+rankdir=TB;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.45", ranksep="0.62", splines="ortho"];
+node [fontname="Arial", fontsize=11, color="#276A78", penwidth=1.6, style="rounded,filled", fillcolor="#F2FAFB", fontcolor="#153A43", margin="0.16,0.10"];
+edge [fontname="Arial", fontsize=9, color="#5F7F87", fontcolor="#345B64", penwidth=1.4, arrowsize=0.75];
+"A" [label="Validate identity version and authority", shape=rect];
+"B" [label="B", shape=rect];
+"C" [label="C", shape=rect];
+"D" [label="D", shape=rect];
+"E" [label="E", shape=rect];
+"F" [label="F", shape=rect];
+"G" [label="G", shape=rect];
+"H" [label="H", shape=rect];
+"I" [label="Record failure and compensation options", shape=rect];
+"J" [label="J", shape=rect];
+"K" [label="K", shape=rect];
+"L" [label="Update projections and downstream workflow", shape=rect];
+"A" -> "B";
+"B" -> "C";
+"C" -> "D" [label="No"];
+"D" -> "B";
+"C" -> "E" [label="Yes"];
+"E" -> "F";
+"F" -> "G";
+"G" -> "H" [label="Success"];
+"G" -> "I" [label="Failure"];
+"G" -> "J" [label="Unknown"];
+"J" -> "K";
+"K" -> "G";
+"H" -> "L";
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Domain Service Blueprint · GTOS Handbook</title>
+<meta name="description" content="Domain Service Blueprint Purpose A GTOS Domain Service is a deployable capability that protects a coherent set of business invariants and authoritative proposit">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/implementation-blueprints/index.html">Implementation Blueprints</a> <span class="sep">›</span> <span>Domain Service Blueprint</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Domain Service Blueprint</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#purpose">Purpose</a></li><li class="toc-level-2"><a href="#required-components">Required Components</a></li><li class="toc-level-2"><a href="#command-processing">Command Processing</a></li><li class="toc-level-2"><a href="#persistence">Persistence</a></li><li class="toc-level-2"><a href="#query-model">Query Model</a></li><li class="toc-level-2"><a href="#recovery">Recovery</a></li><li class="toc-level-2"><a href="#deployment">Deployment</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="domain-service-blueprint">Domain Service Blueprint</h1>
+<br>
+<h2 id="purpose">Purpose <a href="#purpose" class="heading-anchor">#</a></h2>
+<br>
+<p>A GTOS Domain Service is a deployable capability that protects a coherent set of business invariants and authoritative propositions. It is not defined by technology, team size, or database ownership alone. The service boundary exists because a specific authority is responsible for a specific meaning.</p>
+<br>
+<h2 id="required-components">Required Components <a href="#required-components" class="heading-anchor">#</a></h2>
+<br>
+<p>A conforming Domain Service SHALL include:</p>
+<br>
+<li>a published domain purpose and non-goals;</li>
+<li>authoritative proposition catalogue;</li>
+<li>aggregate and invariant definitions;</li>
+<li>command handlers;</li>
+<li>event publication;</li>
+<li>query projections;</li>
+<li>temporal and correction behavior;</li>
+<li>policy and authorization integration;</li>
+<li>observability;</li>
+<li>migration and recovery procedures;</li>
+<li>Canon traceability.</li>
+<br>
+<h2 id="command-processing">Command Processing <a href="#command-processing" class="heading-anchor">#</a></h2>
+<br>
+<p>The service authenticates the caller, evaluates authority and policy, validates command schema, resolves subject identity, loads the aggregate under the required consistency boundary, checks invariants, records state change, publishes Events, and returns an outcome.</p>
+<br>
+<p>Command acceptance does not imply successful execution. A Command may be rejected because authority is absent, evidence is incomplete, state is incompatible, policy denies the action, or a dependency is unavailable.</p>
+<br>
+<h2 id="persistence">Persistence <a href="#persistence" class="heading-anchor">#</a></h2>
+<br>
+<p>The persistence model may use relational, document, event, graph, or mixed storage. The model SHALL preserve identity, history, temporal meaning, provenance, and correction. Storage selection SHALL not redefine the domain.</p>
+<br>
+<h2 id="query-model">Query Model <a href="#query-model" class="heading-anchor">#</a></h2>
+<br>
+<p>Query projections are perspectives optimized for use cases. They SHALL identify freshness, source, and temporal semantics. A projection failure SHALL not corrupt authoritative state.</p>
+<br>
+<h2 id="recovery">Recovery <a href="#recovery" class="heading-anchor">#</a></h2>
+<br>
+<p>Recovery procedures include restoring persistence, replaying Events, rebuilding projections, validating invariants, reconciling outbox or message state, and confirming downstream consumer position. Recovery evidence SHALL prove business consistency, not merely process uptime.</p>
+<br>
+<h2 id="deployment">Deployment <a href="#deployment" class="heading-anchor">#</a></h2>
+<br>
+<p>A Domain Service MAY be deployed as a modular monolith, microservice, serverless capability, or managed workflow. Deployment topology is subordinate to domain authority and operational requirements.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

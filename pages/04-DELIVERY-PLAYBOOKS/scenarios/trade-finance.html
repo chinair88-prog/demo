@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A buyer, seller, bank, carrier, and insurer coordinate documentary obligations and payment. An invoice is evidence of a claimed obligation, not proof of settlement. A bank recommendation is not payment approval. Payment approval is a Decision. Payment Intent authorizes execution.…">
+<meta name="color-scheme" content="light dark">
+<title>Scenario — Trade Finance and Settlement · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/scenarios/trade-finance.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Scenarios</span><span class="sep">/</span><span>Scenario — Trade Finance and Settlement</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>162 words</span></div>
+        <h1>Scenario — Trade Finance and Settlement</h1>
+        <p class="lede">A buyer, seller, bank, carrier, and insurer coordinate documentary obligations and payment. An invoice is evidence of a claimed obligation, not proof of settlement. A bank recommendation is not payment approval. Payment approval is a Decision. Payment Intent authorizes execution.…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="context">Context<a aria-label="Link to section" class="heading-anchor" href="#context">#</a></h2>
+<p>A buyer, seller, bank, carrier, and insurer coordinate documentary obligations and payment.</p>
+<h2 id="separation-of-concepts">Separation of Concepts<a aria-label="Link to section" class="heading-anchor" href="#separation-of-concepts">#</a></h2>
+<p>An invoice is evidence of a claimed obligation, not proof of settlement. A bank recommendation is not payment approval. Payment approval is a Decision. Payment Intent authorizes execution. Settlement is an Event owned by the settlement authority.</p>
+<h2 id="workflow">Workflow<a aria-label="Link to section" class="heading-anchor" href="#workflow">#</a></h2>
+<p>Agreement terms define required documents and deadlines. Documents are presented with versions and signatures. Validation produces observations and findings. The bank decision uses an Evidence Set and policy. Approved payment produces Intent with amount, currency, beneficiary, limits, and idempotency key. The payment service executes and records settlement or failure.</p>
+<h2 id="duplicate-protection">Duplicate Protection<a aria-label="Link to section" class="heading-anchor" href="#duplicate-protection">#</a></h2>
+<p>A lost response does not imply failed settlement. Retrying with the same idempotency key queries or resumes execution. A second business payment requires new Intent and authority.</p>
+<h2 id="correction">Correction<a aria-label="Link to section" class="heading-anchor" href="#correction">#</a></h2>
+<p>If a document was fraudulent, investigation does not delete settlement history. New evidence may create fraud Decision, recovery Intent, insurance claim, or legal hold.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#context">Context</a><a class="toc-level-2" href="#separation-of-concepts">Separation of Concepts</a><a class="toc-level-2" href="#workflow">Workflow</a><a class="toc-level-2" href="#duplicate-protection">Duplicate Protection</a><a class="toc-level-2" href="#correction">Correction</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="sanctions-screening.html"><span>Previous</span><strong>Scenario — Sanctions and Restricted-Party Screening</strong></a>
+        <a class="next" href="../standards/api-contract-standard.html"><span>Next</span><strong>GTOS API Contract Standard</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

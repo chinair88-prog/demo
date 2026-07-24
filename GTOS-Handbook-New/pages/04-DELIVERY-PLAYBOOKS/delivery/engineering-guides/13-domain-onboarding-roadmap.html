@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ninety-Day Domain Onboarding Roadmap · GTOS Handbook</title>
+<meta name="description" content="NinetyDay Domain Onboarding Roadmap Days 1–15 — Establish Meaning Appoint the Domain Owner, Product Manager, Architect, Data Steward, Engineering Lead, Security">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Ninety-Day Domain Onboarding Roadmap</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Ninety-Day Domain Onboarding Roadmap</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#days-115-establish-meaning">Days 1–15 — Establish Meaning</a></li><li class="toc-level-2"><a href="#days-1630-model-behavior">Days 16–30 — Model Behavior</a></li><li class="toc-level-2"><a href="#days-3150-design-contracts-and-controls">Days 31–50 — Design Contracts and Controls</a></li><li class="toc-level-2"><a href="#days-5175-build-vertical-slices">Days 51–75 — Build Vertical Slices</a></li><li class="toc-level-2"><a href="#days-7690-launch-readiness">Days 76–90 — Launch Readiness</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="ninety-day-domain-onboarding-roadmap">Ninety-Day Domain Onboarding Roadmap</h1>
+<br>
+<h2 id="days-115-establish-meaning">Days 1–15 — Establish Meaning <a href="#days-115-establish-meaning" class="heading-anchor">#</a></h2>
+<br>
+<p>Appoint the Domain Owner, Product Manager, Architect, Data Steward, Engineering Lead, Security partner, and Operations partner. Define purpose, non-goals, critical business outcomes, participating actors, jurisdictions, and current systems. Run the Truth Ownership Workshop and identify the propositions for which the domain will be authoritative.</p>
+<br>
+<p>Build the ubiquitous language from real documents, incidents, exceptions, and decisions. Record ambiguous terms rather than selecting convenient definitions prematurely. Identify stable Entities and identifiers, business Relationships, temporal dimensions, state, and history requirements.</p>
+<br>
+<h2 id="days-1630-model-behavior">Days 16–30 — Model Behavior <a href="#days-1630-model-behavior" class="heading-anchor">#</a></h2>
+<br>
+<p>Create aggregate candidates, invariants, lifecycle diagrams, Commands, Events, Observations, Decisions, policies, and exception cases. Test the model through at least three normal scenarios and five failure scenarios: duplicate, late information, contradiction, correction, and unauthorized action.</p>
+<br>
+<p>Publish a domain charter and preliminary contract catalogue. Identify upstream authorities and downstream consumers. Decide which consistency rules remain inside the aggregate and which cross-domain outcomes require workflow and compensation.</p>
+<br>
+<h2 id="days-3150-design-contracts-and-controls">Days 31–50 — Design Contracts and Controls <a href="#days-3150-design-contracts-and-controls" class="heading-anchor">#</a></h2>
+<br>
+<p>Draft API, Command, Event, and data contracts. Define temporal queries, idempotency, versioning, errors, replay, correction, data quality, retention, classification, residency, and lineage. Create the threat model and authorization model, including partner Relationships and Agent mandates.</p>
+<br>
+<p>Set initial SLOs and operational indicators. Define evidence required for critical Decisions and historical reconstruction. Review the design against all applicable Canons and constitutional articles.</p>
+<br>
+<h2 id="days-5175-build-vertical-slices">Days 51–75 — Build Vertical Slices <a href="#days-5175-build-vertical-slices" class="heading-anchor">#</a></h2>
+<br>
+<p>Implement one or two vertical slices using production engineering standards. Add invariant, contract, policy, security, migration, resilience, and operational tests. Create dashboards and runbooks while building, not after functional completion.</p>
+<br>
+<p>Certify at least one realistic consumer or partner simulator. Demonstrate duplicate handling, dependency failure, correction propagation, and projection rebuild.</p>
+<br>
+<h2 id="days-7690-launch-readiness">Days 76–90 — Launch Readiness <a href="#days-7690-launch-readiness" class="heading-anchor">#</a></h2>
+<br>
+<p>Complete migration and reconciliation, performance tests, security verification, recovery exercise, production readiness, and ownership transfer. Launch through controlled cohorts. Measure business outcomes and exception behavior. Record architecture debt and the next roadmap.</p>
+<br>
+<p>At day ninety the domain need not be feature-complete, but it SHALL have credible authority, contracts, operations, and a repeatable delivery model.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

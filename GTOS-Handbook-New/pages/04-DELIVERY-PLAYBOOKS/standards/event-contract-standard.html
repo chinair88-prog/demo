@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTOS Event Contract Standard · GTOS Handbook</title>
+<meta name="description" content="GTOS Event Contract Standard Business Naming Event names describe completed business facts in past tense. ShipmentReleased is valid; ReleaseShipment is a Comman">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/standards/index.html">Standards</a> <span class="sep">›</span> <span>GTOS Event Contract Standard</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>GTOS Event Contract Standard</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#business-naming">Business Naming</a></li><li class="toc-level-2"><a href="#envelope">Envelope</a></li><li class="toc-level-2"><a href="#immutability">Immutability</a></li><li class="toc-level-2"><a href="#ordering">Ordering</a></li><li class="toc-level-2"><a href="#delivery-and-idempotency">Delivery and Idempotency</a></li><li class="toc-level-2"><a href="#schema-evolution">Schema Evolution</a></li><li class="toc-level-2"><a href="#replay">Replay</a></li><li class="toc-level-2"><a href="#privacy">Privacy</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="gtos-event-contract-standard">GTOS Event Contract Standard</h1>
+<br>
+<h2 id="business-naming">Business Naming <a href="#business-naming" class="heading-anchor">#</a></h2>
+<br>
+<p>Event names describe completed business facts in past tense. <code>ShipmentReleased</code> is valid; <code>ReleaseShipment</code> is a Command. Technical lifecycle Events are allowed but SHALL not masquerade as business facts.</p>
+<br>
+<h2 id="envelope">Envelope <a href="#envelope" class="heading-anchor">#</a></h2>
+<br>
+<p>The Event envelope includes event identity, type, subject identity, source identity and domain, occurrence time, observation time where applicable, recording time, schema version, authority reference where material, correlation, causation, integrity, and payload.</p>
+<br>
+<h2 id="immutability">Immutability <a href="#immutability" class="heading-anchor">#</a></h2>
+<br>
+<p>Published Events are immutable. A correction or retraction is a new Event referencing the prior Event. Infrastructure metadata may be appended without changing business payload meaning.</p>
+<br>
+<h2 id="ordering">Ordering <a href="#ordering" class="heading-anchor">#</a></h2>
+<br>
+<p>Ordering is guaranteed only within an explicitly declared scope such as aggregate identity or partition key. Consumers SHALL not assume global order. Occurrence order, publication order, and receipt order are distinct.</p>
+<br>
+<h2 id="delivery-and-idempotency">Delivery and Idempotency <a href="#delivery-and-idempotency" class="heading-anchor">#</a></h2>
+<br>
+<p>At-least-once delivery is expected. Consumers deduplicate by Event identity and protect business invariants. A duplicate Event SHALL not create duplicate business effect.</p>
+<br>
+<h2 id="schema-evolution">Schema Evolution <a href="#schema-evolution" class="heading-anchor">#</a></h2>
+<br>
+<p>Schemas have semantic owners. Breaking changes use a major version or a new Event type. Translators preserve original identity and provenance. Historical Events remain readable for the required retention period.</p>
+<br>
+<h2 id="replay">Replay <a href="#replay" class="heading-anchor">#</a></h2>
+<br>
+<p>Replay is controlled, observable, and authorized. Consumers distinguish live and replay processing when operational behavior differs. Notifications and irreversible side effects SHALL not be repeated without explicit replay policy.</p>
+<br>
+<h2 id="privacy">Privacy <a href="#privacy" class="heading-anchor">#</a></h2>
+<br>
+<p>Events contain the minimum necessary information. Highly sensitive payloads SHOULD use references with access control rather than broad replication.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

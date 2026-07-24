@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>09 — AI Evaluation and Governed Learning · GTOS Handbook</title>
+<meta name="description" content="09 — AI Evaluation and Governed Learning Implemented evaluation capability AI Orchestrator این رفتارها را دارد: submit human evaluation برای Agent Run؛ recent e">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/index.html">GTOS Handbook Batch 09 Repository Evidence Wave 03</a> <span class="sep">›</span> <span>09 — AI Evaluation and Governed Learning</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>09 — AI Evaluation and Governed Learning</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#implemented-evaluation-capability">Implemented evaluation capability</a></li><li class="toc-level-2"><a href="#positive-evidence">Positive evidence</a></li><li class="toc-level-2"><a href="#critical-evaluation-findings">Critical evaluation findings</a></li><li class="toc-level-2"><a href="#governed-learning-boundary">Governed learning boundary</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="09-ai-evaluation-and-governed-learning">09 — AI Evaluation and Governed Learning</h1>
+<br>
+<h2 id="implemented-evaluation-capability">Implemented evaluation capability <a href="#implemented-evaluation-capability" class="heading-anchor">#</a></h2>
+<br>
+<p>AI Orchestrator این رفتارها را دارد:</p>
+<br>
+<li>submit human evaluation برای Agent Run؛</li>
+<li>recent evaluations by tenant؛</li>
+<li>evaluations by run؛</li>
+<li>use-case stats؛</li>
+<li>autonomy-level recommendation.</li>
+<br>
+<p>Evaluation شامل rating، accuracy، safety، usefulness، comment، corrections و tags است. Rolling averages و recommendation ruleها نیز اجرا می‌شوند.</p>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="positive-evidence">Positive evidence <a href="#positive-evidence" class="heading-anchor">#</a></h2>
+<br>
+<li>rating enum-like validation دارد.</li>
+<li>aggregate stats per tenant/use case ذخیره می‌شود.</li>
+<li>high/low safety and accuracy thresholds recommendation تولید می‌کنند.</li>
+<li>minimum sample sizes برای برخی escalationها در نظر گرفته شده است.</li>
+<br>
+<h2 id="critical-evaluation-findings">Critical evaluation findings <a href="#critical-evaluation-findings" class="heading-anchor">#</a></h2>
+<br>
+<li>evaluatorUserId از request پذیرفته و فقط با prefix <code>human:</code> ذخیره می‌شود.</li>
+<li>Agent Run existence، completion، tenant ownership و use-case match verify نمی‌شود.</li>
+<li><code>GET evaluations/{runId}</code> header tenant را می‌گیرد ولی Service فقط بر اساس runId query می‌کند.</li>
+<li>accuracy/safety/usefulness score range validate نمی‌شود.</li>
+<li>duplicate evaluation یا evaluator conflict policy دیده نشد.</li>
+<li>evaluation independence، reviewer role، blind review و conflict-of-interest وجود ندارد.</li>
+<li>corrections/tags به‌صورت strings/JSON ذخیره می‌شوند.</li>
+<li>recommendation فقط heuristic است و policy change خودکار/approval governance کامل ندارد.</li>
+<li>default current autonomy level برابر 3 است، حتی بدون profile evidence.</li>
+<li>evaluation quality، dataset version، model version، prompt/tool configuration و output artifact به‌طور صریح snapshot نشده‌اند.</li>
+<br>
+<h2 id="governed-learning-boundary">Governed learning boundary <a href="#governed-learning-boundary" class="heading-anchor">#</a></h2>
+<br>
+<p>Evaluation feedback نباید مستقیماً Model یا Autonomy را تغییر دهد. Recommendation باید با evidence window، model/run version، reviewer authority، safety veto، approval و rollback همراه باشد.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Two independent implementations were inspected. backend/domain/commerce/procurement-service/.../PurchaseOrderEntity.java - backend/domain/commerce/procurement-service/.../PurchaseOrderService.java - backend/domain/commerce/procurement-service/.../PurchaseOrderController.java back…">
+<meta name="color-scheme" content="light dark">
+<title>Repository Evidence Wave 01 - Purchase Order · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-07-Audit-Canonicalization-Evidence-Wave-01/10-EVIDENCE-WAVE-01-PURCHASE-ORDER.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 07 Audit Canonicalization Evidence Wave 01</span><span class="sep">/</span><span>Repository Evidence Wave 01 - Purchase Order</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>351 words</span></div>
+        <h1>Repository Evidence Wave 01 - Purchase Order</h1>
+        <p class="lede">Two independent implementations were inspected. backend/domain/commerce/procurement-service/.../PurchaseOrderEntity.java - backend/domain/commerce/procurement-service/.../PurchaseOrderService.java - backend/domain/commerce/procurement-service/.../PurchaseOrderController.java back…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="evidence-baseline">Evidence baseline<a aria-label="Link to section" class="heading-anchor" href="#evidence-baseline">#</a></h2>
+<p>Two independent implementations were inspected.</p>
+<p>Procurement:</p>
+<ul>
+<li><code>backend/domain/commerce/procurement-service/.../PurchaseOrderEntity.java</code></li>
+<li><code>backend/domain/commerce/procurement-service/.../PurchaseOrderService.java</code></li>
+<li><code>backend/domain/commerce/procurement-service/.../PurchaseOrderController.java</code></li>
+</ul>
+<p>Tajerestan:</p>
+<ul>
+<li><code>backend/domain/commerce/tajerestan-services/.../PurchaseOrderEntity.java</code></li>
+<li><code>backend/domain/commerce/tajerestan-services/.../PurchaseOrderService.java</code></li>
+</ul>
+<h2 id="procurement-implementation">Procurement implementation<a aria-label="Link to section" class="heading-anchor" href="#procurement-implementation">#</a></h2>
+<p>The Procurement Entity maps to <code>procurement.purchase_orders</code> and records tenant, company, PO number, supplier, RFQ, status, order and delivery dates, currency, financial totals, notes, creator, approver, and timestamps.</p>
+<p>The service implements list by tenant/company, get, create, full update, delete, and item CRUD. The controller exposes these operations under <code>/api/procurement/purchase-orders</code>.</p>
+<h2 id="tajerestan-implementation">Tajerestan implementation<a aria-label="Link to section" class="heading-anchor" href="#tajerestan-implementation">#</a></h2>
+<p>The Tajerestan Entity maps to an unqualified <code>purchase_orders</code> table. It includes RFQ and quotation references, buyer and supplier identities/names, Incoterm, shipping, tax and totals, balance due, payment terms, tracking, carrier, planned/actual dates, approval, cancellation, completion, customs fields, documents, tenant, and line items.</p>
+<p>The service implements creation and financial calculation, list/search, update, approve, receive goods, statistics, and Events <code>trade.po.created</code>, <code>.updated</code>, <code>.approved</code>, and <code>.goods-received</code>.</p>
+<h2 id="critical-ownership-conflict">Critical ownership conflict<a aria-label="Link to section" class="heading-anchor" href="#critical-ownership-conflict">#</a></h2>
+<p>The repository contains at least two materially different Purchase Order aggregates with different packages, schemas, identity types, fields, APIs, lifecycle scope, and responsibilities. Neither can be silently declared the canonical PO without an ownership decision.</p>
+<h2 id="verified-gaps">Verified gaps<a aria-label="Link to section" class="heading-anchor" href="#verified-gaps">#</a></h2>
+<ul>
+<li>Procurement get-by-ID is not tenant-scoped in the inspected service.</li>
+<li>Procurement accepts tenant/company from request data and its controller exposes tenant as query input; trusted-context enforcement was not found in the inspected files.</li>
+<li>Procurement full update can replace status and commercial values without state guards or immutable versions.</li>
+<li>Procurement delete physically removes items and the PO, conflicting with historical-integrity requirements.</li>
+<li>Tajerestan update and approve methods use direct string state mutation without visible transition guards.</li>
+<li>Tajerestan <code>receiveGoods</code> mixes warehouse receiving and PO state.</li>
+<li>Supplier acknowledgement is not represented as a distinct aggregate or Decision in inspected files.</li>
+</ul>
+<h2 id="status-decision">Status decision<a aria-label="Link to section" class="heading-anchor" href="#status-decision">#</a></h2>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Capability</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Procurement PO CRUD and item operations</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>Tajerestan PO creation, approval, receipt and Events</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>canonical PO ownership</td>
+<td><code>CONFLICT_REQUIRES_CANONICALIZATION</code></td>
+</tr>
+<tr>
+<td>tenant isolation</td>
+<td><code>IMPLEMENTED_WITH_GAP</code> / <code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+<tr>
+<td>immutable PO versions and governed amendments</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code> in inspected code</td>
+</tr>
+<tr>
+<td>supplier acknowledgement</td>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+<tr>
+<td>historical integrity</td>
+<td><code>IMPLEMENTED_WITH_GAP</code> because destructive delete exists</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#evidence-baseline">Evidence baseline</a><a class="toc-level-2" href="#procurement-implementation">Procurement implementation</a><a class="toc-level-2" href="#tajerestan-implementation">Tajerestan implementation</a><a class="toc-level-2" href="#critical-ownership-conflict">Critical ownership conflict</a><a class="toc-level-2" href="#verified-gaps">Verified gaps</a><a class="toc-level-2" href="#status-decision">Status decision</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="09-EVIDENCE-WAVE-01-PAYMENT.html"><span>Previous</span><strong>Repository Evidence Wave 01 - Payment</strong></a>
+        <a class="next" href="11-EVIDENCE-WAVE-01-MANUFACTURING.html"><span>Next</span><strong>Repository Evidence Wave 01 - Manufacturing</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

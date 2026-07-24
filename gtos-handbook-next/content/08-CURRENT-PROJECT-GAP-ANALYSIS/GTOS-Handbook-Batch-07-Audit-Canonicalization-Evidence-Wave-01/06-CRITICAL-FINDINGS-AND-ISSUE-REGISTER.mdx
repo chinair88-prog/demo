@@ -1,0 +1,23 @@
+---
+title: "Critical Findings and Issue Register"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="Critical Findings and Issue Register"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "Critical Findings and Issue Register" }
+  ]}
+>
+
+<br />
+<PremiumTable columns={[{"key":"col0","label":"ID","sortable":true},{"key":"col1","label":"Severity","sortable":true},{"key":"col2","label":"Finding","sortable":true},{"key":"col3","label":"Required action","sortable":true}]} data={[{"col0":"AUD-001","col1":"Critical","col2":"Batches 02-06 were labelled <code class=\"code-inline\">Draft Complete</code> despite being template-derived","col3":"use Audited-v2 packages and expand subject-specific content"},{"col0":"AUD-002","col1":"Critical","col2":"repository evidence in generated corpus is near zero","col3":"perform code-by-code evidence enrichment"},{"col0":"AUD-003","col1":"Critical","col2":"word and file counts were used in ways that could imply completion","col3":"use semantic completion gates instead"},{"col0":"AUD-004","col1":"High","col2":"original Master is nested packaging, not merged source","col3":"publish an expanded canonical source tree later"},{"col0":"AUD-005","col1":"High","col2":"XLSX zero-addition classification is unreliable","col3":"rebuild catalogue from direct file reads"},{"col0":"AUD-006","col1":"High","col2":"canonical lifecycle and publication numbering differ","col3":"retain explicit mapping and stable IDs"},{"col0":"AUD-007","col1":"High","col2":"generic reference APIs and tables are repeated as if chapter-specific","col3":"replace with verified or clearly target-specific contracts"},{"col0":"AUD-008","col1":"High","col2":"major Domain ownership conflicts remain","col3":"create canonicalization ADRs and ownership matrices"},{"col0":"AUD-009","col1":"Medium","col2":"prior compact edition is only 42,939 Markdown words across 258 files","col3":"retain as legacy reference, not final edition"},{"col0":"AUD-010","col1":"Medium","col2":"no current PDF exists for the expanded corpus","col3":"defer PDF until content review and deduplication"}]} />
+<br />
+<h2 id="gate">Gate</h2>
+<br />
+<p>No new mass template generation is permitted until the current subject family is enriched with concrete repository evidence and reviewed for ownership, duplication, and correctness.</p>
+<br />
+</ContentPage>

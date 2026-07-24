@@ -1,0 +1,29 @@
+digraph G {
+rankdir=LR;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.34", ranksep="0.60", splines="spline"];
+node [fontname="Arial", fontsize=10, shape=rect, color="#4B5D8A", penwidth=1.45, style="rounded,filled", fillcolor="#F5F6FC", fontcolor="#253150", margin="0.15,0.09"];
+edge [color="#6677A5", penwidth=1.35, arrowsize=0.72];
+"APPROVAL_PENDING" [label="APPROVAL PENDING"];
+"APPROVED" [label="APPROVED"];
+"BASELINED" [label="BASELINED"];
+"CANCELLED" [label="CANCELLED"];
+"CAPACITY_PENDING" [label="CAPACITY PENDING"];
+"COMPLETED" [label="COMPLETED"];
+"FEASIBILITY_CHECK" [label="FEASIBILITY CHECK"];
+"MATERIAL_CHECK" [label="MATERIAL CHECK"];
+"PROPOSED" [label="PROPOSED"];
+"REBASELINE_PENDING" [label="REBASELINE PENDING"];
+"SUSPENDED" [label="SUSPENDED"];
+"__start_0" [shape=circle, width=0.14, fixedsize=true, label="", fillcolor="#30476F", color="#30476F", style=filled];
+"__start_0" -> "PROPOSED";
+"PROPOSED" -> "FEASIBILITY_CHECK";
+"FEASIBILITY_CHECK" -> "MATERIAL_CHECK";
+"MATERIAL_CHECK" -> "CAPACITY_PENDING";
+"CAPACITY_PENDING" -> "APPROVAL_PENDING";
+"APPROVAL_PENDING" -> "APPROVED";
+"APPROVED" -> "BASELINED";
+"BASELINED" -> "REBASELINE_PENDING";
+"REBASELINE_PENDING" -> "SUSPENDED";
+"SUSPENDED" -> "CANCELLED";
+"CANCELLED" -> "COMPLETED";
+}

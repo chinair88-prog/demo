@@ -1,0 +1,25 @@
+digraph G {
+rankdir=LR;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.34", ranksep="0.60", splines="spline"];
+node [fontname="Arial", fontsize=10, shape=rect, color="#4B5D8A", penwidth=1.45, style="rounded,filled", fillcolor="#F5F6FC", fontcolor="#253150", margin="0.15,0.09"];
+edge [color="#6677A5", penwidth=1.35, arrowsize=0.72];
+"ACCEPTED_FOR_SHIPMENT" [label="ACCEPTED FOR SHIPMENT"];
+"AMENDED" [label="AMENDED"];
+"APPROVAL_PENDING" [label="APPROVAL PENDING"];
+"CANCELLED" [label="CANCELLED"];
+"DRAFT" [label="DRAFT"];
+"ISSUED" [label="ISSUED"];
+"REJECTED" [label="REJECTED"];
+"SUPERSEDED" [label="SUPERSEDED"];
+"VALIDATION_PENDING" [label="VALIDATION PENDING"];
+"__start_0" [shape=circle, width=0.14, fixedsize=true, label="", fillcolor="#30476F", color="#30476F", style=filled];
+"__start_0" -> "DRAFT";
+"DRAFT" -> "VALIDATION_PENDING";
+"VALIDATION_PENDING" -> "APPROVAL_PENDING";
+"APPROVAL_PENDING" -> "ISSUED";
+"ISSUED" -> "AMENDED";
+"AMENDED" -> "ACCEPTED_FOR_SHIPMENT";
+"ACCEPTED_FOR_SHIPMENT" -> "REJECTED";
+"REJECTED" -> "SUPERSEDED";
+"SUPERSEDED" -> "CANCELLED";
+}

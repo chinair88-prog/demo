@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jurisdiction Model · GTOS Handbook</title>
+<meta name="description" content="Jurisdiction Model Dimensions Jurisdiction may derive from party establishment, facility location, goods origin or destination, transport route, data subject lo">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/standards/index.html">Standards</a> <span class="sep">›</span> <span>Jurisdiction Model</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Jurisdiction Model</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#dimensions">Dimensions</a></li><li class="toc-level-2"><a href="#jurisdiction-context">Jurisdiction Context</a></li><li class="toc-level-2"><a href="#policy-application">Policy Application</a></li><li class="toc-level-2"><a href="#change-over-time">Change Over Time</a></li><li class="toc-level-2"><a href="#data-architecture">Data Architecture</a></li><li class="toc-level-2"><a href="#operations">Operations</a></li><li class="toc-level-2"><a href="#ai">AI</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="jurisdiction-model">Jurisdiction Model</h1>
+<br>
+<h2 id="dimensions">Dimensions <a href="#dimensions" class="heading-anchor">#</a></h2>
+<br>
+<p>Jurisdiction may derive from party establishment, facility location, goods origin or destination, transport route, data subject location, regulator authority, contract choice of law, payment system, or data-processing region.</p>
+<br>
+<p>No single country field is sufficient.</p>
+<br>
+<h2 id="jurisdiction-context">Jurisdiction Context <a href="#jurisdiction-context" class="heading-anchor">#</a></h2>
+<br>
+<p>A jurisdiction context records applicable dimensions, evidence, effective time, uncertainty, and decision authority. It may be computed, but the computation remains traceable.</p>
+<br>
+<h2 id="policy-application">Policy Application <a href="#policy-application" class="heading-anchor">#</a></h2>
+<br>
+<p>Policies declare jurisdiction scope and precedence. When multiple regimes apply, GTOS preserves each obligation and identifies conflict-resolution authority.</p>
+<br>
+<h2 id="change-over-time">Change Over Time <a href="#change-over-time" class="heading-anchor">#</a></h2>
+<br>
+<p>Jurisdiction can change during a value stream. A shipment route change, ownership transfer, or new regulatory designation may trigger re-evaluation.</p>
+<br>
+<h2 id="data-architecture">Data Architecture <a href="#data-architecture" class="heading-anchor">#</a></h2>
+<br>
+<p>Data contracts identify residency, transfer, localization, and retention constraints. Derived datasets inherit applicable restrictions unless an approved transformation changes classification.</p>
+<br>
+<h2 id="operations">Operations <a href="#operations" class="heading-anchor">#</a></h2>
+<br>
+<p>Incident response and support access respect jurisdiction. Emergency access does not erase notification, evidence, or review obligations.</p>
+<br>
+<h2 id="ai">AI <a href="#ai" class="heading-anchor">#</a></h2>
+<br>
+<p>Agent mandates and model routing are jurisdiction-aware. An Agent approved for one region SHALL not silently process restricted data in another.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

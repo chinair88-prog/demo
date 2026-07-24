@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>07 — Settlement, Reconciliation, and Payout · GTOS Handbook</title>
+<meta name="description" content="07 — Settlement, Reconciliation, and Payout Competing settlement owners دو Settlement Service اجرایی وجود دارد: 1. Marketplace Settlement: cycles؛ transactions؛">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/index.html">GTOS Handbook Batch 09 Repository Evidence Wave 03</a> <span class="sep">›</span> <span>07 — Settlement, Reconciliation, and Payout</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>07 — Settlement, Reconciliation, and Payout</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#competing-settlement-owners">Competing settlement owners</a></li><li class="toc-level-2"><a href="#marketplace-settlement">Marketplace Settlement</a></li><li class="toc-level-3"><a href="#material-gaps">Material gaps</a></li><li class="toc-level-2"><a href="#payment-settlement">Payment Settlement</a></li><li class="toc-level-3"><a href="#material-gaps">Material gaps</a></li><li class="toc-level-2"><a href="#canonical-boundary">Canonical boundary</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="07-settlement-reconciliation-and-payout">07 — Settlement, Reconciliation, and Payout</h1>
+<br>
+<h2 id="competing-settlement-owners">Competing settlement owners <a href="#competing-settlement-owners" class="heading-anchor">#</a></h2>
+<br>
+<p>دو Settlement Service اجرایی وجود دارد:</p>
+<br>
+<li>Marketplace Settlement:</li>
+<p>   - cycles؛</p>
+<p>   - transactions؛</p>
+<p>   - commission/discount aggregation؛</p>
+<p>   - reconciliation؛</p>
+<p>   - dashboard؛</p>
+<p>   - scheduler.</p>
+<li>Payment Settlement:</li>
+<p>   - batch کردن Payment Captureهای <code>CAPTURED</code>؛</p>
+<p>   - gross/fee/net calculation؛</p>
+<p>   - اتصال captureها به batch.</p>
+<br>
+<p>وضعیت ownership:</p>
+<br>
+<p><code>CONFLICT_REQUIRES_CANONICALIZATION</code></p>
+<br>
+<h2 id="marketplace-settlement">Marketplace Settlement <a href="#marketplace-settlement" class="heading-anchor">#</a></h2>
+<br>
+<p>نقاط مثبت:</p>
+<br>
+<li>state transition map؛</li>
+<li>cycle calculation؛</li>
+<li>audit و metrics؛</li>
+<li>reconciliation records؛</li>
+<li>auto-generation با overlap check؛</li>
+<li>tenant-aware list endpoints.</li>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h3 id="material-gaps">Material gaps <a href="#material-gaps" class="heading-anchor">#</a></h3>
+<br>
+<li>tenant/company از request وارد create می‌شوند.</li>
+<li>get/update/calculate cycle by ID tenant guard آشکار ندارد.</li>
+<li>addTransaction بررسی نمی‌کند request tenant/company با cycle یکسان باشد.</li>
+<li>transaction reference authenticity و idempotency دیده نشد.</li>
+<li>Dashboard <code>totalCycles</code> را با global <code>cycleRepository.count()</code> می‌سازد و می‌تواند cross-tenant count leak کند.</li>
+<li>dashboard monetary summaries صفر hard-code شده‌اند.</li>
+<li>status <code>SETTLED</code> فقط state update است؛ bank/payout provider execution پیدا نشد.</li>
+<li>reconciliation actualAmount و resolvedBy از request پذیرفته می‌شوند.</li>
+<li>LLM settlement disabled است.</li>
+<li>multi-currency aggregation normalization دیده نشد.</li>
+<br>
+<h2 id="payment-settlement">Payment Settlement <a href="#payment-settlement" class="heading-anchor">#</a></h2>
+<br>
+<p>Payment service captureهای تسویه‌نشده را globally جمع می‌کند، fee rate را اعمال و Settlement Batch می‌سازد.</p>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h3 id="material-gaps">Material gaps <a href="#material-gaps" class="heading-anchor">#</a></h3>
+<br>
+<li>list و run settlement tenant/company scope ندارند.</li>
+<li>capture grouping بر اساس seller، tenant، currency یا payout destination نیست.</li>
+<li>تمام CAPTURED records در یک batch جمع می‌شوند.</li>
+<li>payout execution، provider transfer، retry، reconciliation و failure recovery دیده نشد.</li>
+<li>overlap با Marketplace Settlement روشن نشده است.</li>
+<br>
+<h2 id="canonical-boundary">Canonical boundary <a href="#canonical-boundary" class="heading-anchor">#</a></h2>
+<br>
+<p>Payment باید money movement و provider facts را مالک باشد. Marketplace باید seller ledger، commission، entitlement و reconciliation را مالک باشد. Settlement approval نباید خودبه‌خود به معنی payout success باشد.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

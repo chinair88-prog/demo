@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Architecture-Aware Backlog Decomposition · GTOS Handbook</title>
+<meta name="description" content="ArchitectureAware Backlog Decomposition Problem Traditional backlogs split work by screen, API, database, or team. This creates horizontal layers that appear bu">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Architecture-Aware Backlog Decomposition</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Architecture-Aware Backlog Decomposition</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#problem">Problem</a></li><li class="toc-level-2"><a href="#work-item-anatomy">Work Item Anatomy</a></li><li class="toc-level-2"><a href="#decomposition-patterns">Decomposition Patterns</a></li><li class="toc-level-2"><a href="#enablers">Enablers</a></li><li class="toc-level-2"><a href="#anti-patterns">Anti-Patterns</a></li><li class="toc-level-2"><a href="#definition-of-ready">Definition of Ready</a></li><li class="toc-level-2"><a href="#definition-of-done">Definition of Done</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="architecture-aware-backlog-decomposition">Architecture-Aware Backlog Decomposition</h1>
+<br>
+<h2 id="problem">Problem <a href="#problem" class="heading-anchor">#</a></h2>
+<br>
+<p>Traditional backlogs split work by screen, API, database, or team. This creates horizontal layers that appear busy but delay proof of business correctness. GTOS decomposes work around business outcomes and governed changes.</p>
+<br>
+<h2 id="work-item-anatomy">Work Item Anatomy <a href="#work-item-anatomy" class="heading-anchor">#</a></h2>
+<br>
+<p>A well-formed work item identifies subject, desired outcome, truth owner, triggering observation or Intent, state transition, invariant, decision or policy, Command, Event, evidence, consumer, security context, and operational acceptance. Not every item requires all elements, but omitted elements are consciously assessed.</p>
+<br>
+<h2 id="decomposition-patterns">Decomposition Patterns <a href="#decomposition-patterns" class="heading-anchor">#</a></h2>
+<br>
+<p>Use lifecycle slices such as create, validate, approve, execute, correct, and close. Use risk slices such as normal path, insufficient evidence, policy denial, partner delay, correction, and recovery. Use authority slices when human approval, delegated authority, and automated decision have different controls. Use temporal slices when current-state and historical reconstruction require separate projections.</p>
+<br>
+<h2 id="enablers">Enablers <a href="#enablers" class="heading-anchor">#</a></h2>
+<br>
+<p>Foundational enablers include identity resolution, schema registry, policy enforcement, Event transport, evidence store, observability, and deployment automation. Enablers SHALL have explicit consumers and acceptance outcomes; otherwise they become infrastructure programs detached from value.</p>
+<br>
+<h2 id="anti-patterns">Anti-Patterns <a href="#anti-patterns" class="heading-anchor">#</a></h2>
+<br>
+<p>“Create microservice,” “add Kafka,” “build AI agent,” “sync customer data,” and “make dashboard” are not outcome-ready items. They hide semantics and encourage technical completion without operational usefulness.</p>
+<br>
+<h2 id="definition-of-ready">Definition of Ready <a href="#definition-of-ready" class="heading-anchor">#</a></h2>
+<br>
+<p>The team can state what becomes true, who owns that truth, how the change is authorized, which evidence proves completion, how failure is visible, and how rollback or correction behaves. Dependencies have owners and contract expectations.</p>
+<br>
+<h2 id="definition-of-done">Definition of Done <a href="#definition-of-done" class="heading-anchor">#</a></h2>
+<br>
+<p>The implemented change includes tests, contracts, security, telemetry, documentation, migration, runbook, and traceability. Product acceptance confirms the business outcome, not only that the interface responds.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

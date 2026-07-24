@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Every production Agent SHALL have a stable workload identity and an explicit Mandate. The Mandate defines purpose, allowed data classes, tools, decision classes, financial or operational limits, jurisdictions, validity, and escalation. The runtime includes context assembly, polic…">
+<meta name="color-scheme" content="light dark">
+<title>AI Agent Blueprint · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/implementation-blueprints/agent-blueprint.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Implementation Blueprints</span><span class="sep">/</span><span>AI Agent Blueprint</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>249 words</span></div>
+        <h1>AI Agent Blueprint</h1>
+        <p class="lede">Every production Agent SHALL have a stable workload identity and an explicit Mandate. The Mandate defines purpose, allowed data classes, tools, decision classes, financial or operational limits, jurisdictions, validity, and escalation. The runtime includes context assembly, polic…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="identity-and-mandate">Identity and Mandate<a aria-label="Link to section" class="heading-anchor" href="#identity-and-mandate">#</a></h2>
+<p>Every production Agent SHALL have a stable workload identity and an explicit Mandate. The Mandate defines purpose, allowed data classes, tools, decision classes, financial or operational limits, jurisdictions, validity, and escalation.</p>
+<h2 id="runtime-structure">Runtime Structure<a aria-label="Link to section" class="heading-anchor" href="#runtime-structure">#</a></h2>
+<p>The runtime includes context assembly, policy enforcement, model routing, planning, tool execution, structured output validation, telemetry, and evidence recording.</p>
+<p>The model does not directly own credentials. Tool gateways enforce authorization outside the model and receive the Agent identity, Mandate, user identity where applicable, purpose, and requested action.</p>
+<h2 id="planning">Planning<a aria-label="Link to section" class="heading-anchor" href="#planning">#</a></h2>
+<p>Plans are proposals. Before any side effect, each planned step is evaluated against policy, authority, evidence, and reversibility. Plans MAY be revised when evidence changes. Hidden or unrecorded execution paths are prohibited.</p>
+<h2 id="context">Context<a aria-label="Link to section" class="heading-anchor" href="#context">#</a></h2>
+<p>Context SHALL distinguish system policy, developer instructions, user requests, trusted evidence, untrusted retrieved content, tool outputs, and prior Agent memory. Untrusted content cannot override higher-authority instructions.</p>
+<h2 id="structured-outputs">Structured Outputs<a aria-label="Link to section" class="heading-anchor" href="#structured-outputs">#</a></h2>
+<p>High-impact outputs SHALL conform to schemas. A recommendation includes evidence, confidence, alternatives, assumptions, and escalation. A Decision requires authority. An execution request includes Intent reference and idempotency.</p>
+<h2 id="failure-behavior">Failure Behavior<a aria-label="Link to section" class="heading-anchor" href="#failure-behavior">#</a></h2>
+<p>When evidence is insufficient, the Agent asks for evidence, escalates, or declines. It SHALL NOT fabricate identifiers, documents, approvals, or tool results. Partial tool failure remains visible.</p>
+<h2 id="monitoring">Monitoring<a aria-label="Link to section" class="heading-anchor" href="#monitoring">#</a></h2>
+<p>Metrics include task success, evidence faithfulness, tool denial, unsafe action attempts, hallucination rate, escalation rate, cost, latency, outcome quality, and drift.</p>
+<h2 id="kill-and-containment">Kill and Containment<a aria-label="Link to section" class="heading-anchor" href="#kill-and-containment">#</a></h2>
+<p>Operators can disable a model route, tool, Mandate, decision class, tenant, or Agent population. Containment preserves evidence for incident analysis.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#identity-and-mandate">Identity and Mandate</a><a class="toc-level-2" href="#runtime-structure">Runtime Structure</a><a class="toc-level-2" href="#planning">Planning</a><a class="toc-level-2" href="#context">Context</a><a class="toc-level-2" href="#structured-outputs">Structured Outputs</a><a class="toc-level-2" href="#failure-behavior">Failure Behavior</a><a class="toc-level-2" href="#monitoring">Monitoring</a><a class="toc-level-2" href="#kill-and-containment">Kill and Containment</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="../delivery/work-product-catalogue.html"><span>Previous</span><strong>Work Product Catalogue</strong></a>
+        <a class="next" href="domain-service-blueprint.html"><span>Next</span><strong>Domain Service Blueprint</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

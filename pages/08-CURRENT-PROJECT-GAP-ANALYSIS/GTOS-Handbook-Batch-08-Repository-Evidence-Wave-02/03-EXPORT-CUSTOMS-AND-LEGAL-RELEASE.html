@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Migration واقعی partner.export declarations را با این داده‌ها ایجاد می‌کند: declaration number و customs office؛ - shipment، commercial invoice و packing list؛ - Partner و declarant؛ - transport، vessel، voyage و container؛ - ports و destination country؛ - package/weight/value/cu…">
+<meta name="color-scheme" content="light dark">
+<title>03 — Export Customs and Legal Release · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/03-EXPORT-CUSTOMS-AND-LEGAL-RELEASE.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 08 Repository Evidence Wave 02</span><span class="sep">/</span><span>03 — Export Customs and Legal Release</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>274 words</span></div>
+        <h1>03 — Export Customs and Legal Release</h1>
+        <p class="lede">Migration واقعی partner.export declarations را با این داده‌ها ایجاد می‌کند: declaration number و customs office؛ - shipment، commercial invoice و packing list؛ - Partner و declarant؛ - transport، vessel، voyage و container؛ - ports و destination country؛ - package/weight/value/cu…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="provider-implementation">Provider implementation<a aria-label="Link to section" class="heading-anchor" href="#provider-implementation">#</a></h2>
+<p>Migration واقعی <code>partner.export_declarations</code> را با این داده‌ها ایجاد می‌کند:</p>
+<ul>
+<li>declaration number و customs office؛</li>
+<li>shipment، commercial invoice و packing list؛</li>
+<li>Partner و declarant؛</li>
+<li>transport، vessel، voyage و container؛</li>
+<li>ports و destination country؛</li>
+<li>package/weight/value/currency؛</li>
+<li>status، customs response و metadata.</li>
+</ul>
+<p>Partner Logistics Controller رفتارهای list، detail، create، update و submit را دارد و status history و audit ثبت می‌کند.</p>
+<p>ثبت <code>SUBMITTED</code> فقط یک platform fact است: سیستم ثبت کرده کاربر submission action انجام داده است. این وضعیت اثبات نمی‌کند Customs Authority اظهارنامه را پذیرفته یا کالا را release کرده است.</p>
+<p>Customs document add/remove هنوز با 503 پاسخ می‌دهند.</p>
+<h2 id="tajerestan-customs">Tajerestan Customs<a aria-label="Link to section" class="heading-anchor" href="#tajerestan-customs">#</a></h2>
+<p>Tajerestan مسیرهای زیر را دارد:</p>
+<ul>
+<li><code>POST /api/v1/trade/customs/{poId}/clear</code></li>
+<li>get status؛</li>
+<li>list و stats.</li>
+</ul>
+<p>Service مستقیماً فیلدهای customs روی Purchase Order را تغییر می‌دهد و <code>trade.customs.cleared</code> منتشر می‌کند. External customs adapter، signed authority response یا declaration aggregate در فایل‌های بررسی‌شده دیده نشد.</p>
+<p>این رابطه نادرست است:</p>
+<div class="code-block"><div class="code-toolbar"><span>text</span><button class="copy-code" type="button">Copy</button></div><div class="highlight"><pre><span></span>Application user sets PO.customsStatus = CLEARED
+    ≠
+Customs authority issued legal release
+</pre></div>
+</div><p>این بخش برای ثبت internal status، <code>IMPLEMENTED_WITH_GAP</code> است؛ برای legal release، <code>REFERENCE_ARCHITECTURE</code>.</p>
+<h2 id="gapهای-اصلی">Gapهای اصلی<a aria-label="Link to section" class="heading-anchor" href="#gapهای-اصلی">#</a></h2>
+<ul>
+<li>statusها string آزاد هستند.</li>
+<li>Partner ownership در همه SQL statementها یکدست دیده نمی‌شود.</li>
+<li>callback signature، response correlation، Outcome Unknown و revocation وجود ندارد.</li>
+<li>document attachment executable نیست.</li>
+<li>history در JSON mutable ذخیره می‌شود.</li>
+<li>Partner declaration و Tajerestan PO customs دو مدل رقیب‌اند.</li>
+</ul>
+<h2 id="تصمیم-canonical">تصمیم canonical<a aria-label="Link to section" class="heading-anchor" href="#تصمیم-canonical">#</a></h2>
+<p>Export Customs باید این Truthها را جدا کند:</p>
+<ol>
+<li><code>ExportDeclarationPrepared</code></li>
+<li><code>ExportDeclarationSubmitted</code></li>
+<li><code>AuthorityResponseObserved</code></li>
+<li><code>ExportLegalReleaseObserved</code></li>
+<li><code>AuthorityDecisionCorrectedOrRevoked</code></li>
+<li>derived shipment-readiness perspective</li>
+</ol>
+<p>Legal release فقط با authority evidence معتبر است.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#provider-implementation">Provider implementation</a><a class="toc-level-2" href="#tajerestan-customs">Tajerestan Customs</a><a class="toc-level-2" href="#gapهای-اصلی">Gapهای اصلی</a><a class="toc-level-2" href="#تصمیم-canonical">تصمیم canonical</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="02-PACKING-LIST-AND-COMMERCIAL-INVOICE.html"><span>Previous</span><strong>02 — Packing List and Commercial Invoice</strong></a>
+        <a class="next" href="04-IMPORT-CUSTOMS-DUTIES-AND-RELEASE.html"><span>Next</span><strong>04 — Import Customs, Duties, and Release</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

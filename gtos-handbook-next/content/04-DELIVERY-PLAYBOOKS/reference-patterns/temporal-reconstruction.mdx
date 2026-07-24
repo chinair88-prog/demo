@@ -1,0 +1,47 @@
+---
+title: "Temporal Reconstruction Pattern"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Temporal Reconstruction Pattern"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Temporal Reconstruction Pattern" }
+  ]}
+>
+
+<br />
+<h2 id="purpose">Purpose</h2>
+<br />
+<p>Auditors, operators, and AI reviewers frequently need to know not only the current state but what was true, what was recorded, and what was knowable at a previous time.</p>
+<br />
+<h2 id="model">Model</h2>
+<br />
+<p>A governed record may include:</p>
+<br />
+<p>- valid-from and valid-to;</p>
+<p>- observed-at;</p>
+<p>- recorded-at;</p>
+<p>- corrected-at;</p>
+<p>- supersedes reference;</p>
+<p>- source and authority;</p>
+<p>- transaction sequence.</p>
+<br />
+<p>The reconstruction service accepts a subject, business-time boundary, knowledge-time boundary, and perspective. It returns the state derivable from assertions valid under those boundaries.</p>
+<br />
+<h2 id="example">Example</h2>
+<br />
+<p>A customs release was legally effective at 10:00. GTOS received the release at 10:08. A carrier decision made at 10:05 could not legitimately rely on the release even though a present-day query shows the cargo as released at 10:00.</p>
+<br />
+<h2 id="requirements">Requirements</h2>
+<br />
+<p>Reconstruction SHALL use the same rules and schema versions applicable to the historical period or explicitly disclose reinterpretation. Late data and corrections SHALL not be silently back-projected into a decision-time knowledge view. Queries SHALL name their temporal semantics.</p>
+<br />
+<h2 id="operational-use">Operational Use</h2>
+<br />
+<p>Temporal reconstruction supports incident analysis, legal evidence, model evaluation, customer dispute resolution, correction propagation, and recovery reconciliation.</p>
+<br />
+</ContentPage>

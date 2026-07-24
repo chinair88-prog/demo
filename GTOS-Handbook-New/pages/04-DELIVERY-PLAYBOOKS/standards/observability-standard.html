@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>End-to-End Observability Standard · GTOS Handbook</title>
+<meta name="description" content="EndtoEnd Observability Standard Four Views GTOS observability includes technical health, business flow, decision quality, and evidence integrity. Technical Heal">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/standards/index.html">Standards</a> <span class="sep">›</span> <span>End-to-End Observability Standard</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>End-to-End Observability Standard</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#four-views">Four Views</a></li><li class="toc-level-2"><a href="#technical-health">Technical Health</a></li><li class="toc-level-2"><a href="#business-flow">Business Flow</a></li><li class="toc-level-2"><a href="#decision-quality">Decision Quality</a></li><li class="toc-level-2"><a href="#evidence-integrity">Evidence Integrity</a></li><li class="toc-level-2"><a href="#correlation">Correlation</a></li><li class="toc-level-2"><a href="#alerting">Alerting</a></li><li class="toc-level-2"><a href="#retention">Retention</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="end-to-end-observability-standard">End-to-End Observability Standard</h1>
+<br>
+<h2 id="four-views">Four Views <a href="#four-views" class="heading-anchor">#</a></h2>
+<br>
+<p>GTOS observability includes technical health, business flow, decision quality, and evidence integrity.</p>
+<br>
+<h2 id="technical-health">Technical Health <a href="#technical-health" class="heading-anchor">#</a></h2>
+<br>
+<p>Metrics cover latency, errors, saturation, dependency behavior, queue age, storage, and deployment.</p>
+<br>
+<h2 id="business-flow">Business Flow <a href="#business-flow" class="heading-anchor">#</a></h2>
+<br>
+<p>Metrics cover value-stream cycle time, state age, exception rate, blocked reason, missing evidence, command rejection, Event freshness, and completion outcome.</p>
+<br>
+<h2 id="decision-quality">Decision Quality <a href="#decision-quality" class="heading-anchor">#</a></h2>
+<br>
+<p>Metrics cover recommendation acceptance, reversal, appeal, calibration, outcome quality, policy denial, human escalation, and automation suspension.</p>
+<br>
+<h2 id="evidence-integrity">Evidence Integrity <a href="#evidence-integrity" class="heading-anchor">#</a></h2>
+<br>
+<p>Metrics cover missing provenance, stale source, failed signature, lineage gap, correction backlog, and reconstruction success.</p>
+<br>
+<h2 id="correlation">Correlation <a href="#correlation" class="heading-anchor">#</a></h2>
+<br>
+<p>Correlation links related work but does not merge identities or authority. Trace context SHALL be sanitized at trust boundaries.</p>
+<br>
+<h2 id="alerting">Alerting <a href="#alerting" class="heading-anchor">#</a></h2>
+<br>
+<p>Alerts map to an owned response and user or business impact. High-cardinality business identifiers are controlled to avoid leakage and cost.</p>
+<br>
+<h2 id="retention">Retention <a href="#retention" class="heading-anchor">#</a></h2>
+<br>
+<p>Telemetry retention follows operational, security, privacy, and legal requirements. Audit evidence may require stronger integrity than ordinary logs.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CANON-009 — Knowledge Is Not Reality · GTOS Handbook</title>
+<meta name="description" content="CANON009 — Knowledge Is Not Reality Canon Statement Reality exists independently of what any observer knows. GTOS SHALL model Observations, Claims, Knowledge, p">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/02-FOUNDATIONS/index.html">FOUNDATIONS</a> <span class="sep">›</span> <a href="../../../../pages/02-FOUNDATIONS/01-CANON/index.html">CANON</a> <span class="sep">›</span> <a href="../../../../pages/02-FOUNDATIONS/01-CANON/epistemology/index.html">Epistemology</a> <span class="sep">›</span> <span>CANON-009 — Knowledge Is Not Reality</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Foundations</span>
+        </div>
+        <h1>CANON-009 — Knowledge Is Not Reality</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#canon-statement">Canon Statement</a></li><li class="toc-level-2"><a href="#classification">Classification</a></li><li class="toc-level-2"><a href="#normative-statements">Normative Statements</a></li><li class="toc-level-2"><a href="#historical-context">Historical Context</a></li><li class="toc-level-2"><a href="#core-philosophy">Core Philosophy</a></li><li class="toc-level-2"><a href="#formal-definitions">Formal Definitions</a></li><li class="toc-level-3"><a href="#observation">Observation</a></li><li class="toc-level-3"><a href="#claim">Claim</a></li><li class="toc-level-3"><a href="#knowledge-set">Knowledge Set</a></li><li class="toc-level-3"><a href="#confidence">Confidence</a></li><li class="toc-level-2"><a href="#formal-invariants">Formal Invariants</a></li><li class="toc-level-2"><a href="#engineering-interpretation">Engineering Interpretation</a></li><li class="toc-level-2"><a href="#business-interpretation">Business Interpretation</a></li><li class="toc-level-2"><a href="#ai-interpretation">AI Interpretation</a></li><li class="toc-level-2"><a href="#architectural-consequences">Architectural Consequences</a></li><li class="toc-level-2"><a href="#trade-example">Trade Example</a></li><li class="toc-level-2"><a href="#failure-modes-and-risks">Failure Modes and Risks</a></li><li class="toc-level-2"><a href="#design-rules">Design Rules</a></li><li class="toc-level-2"><a href="#anti-patterns">Anti-Patterns</a></li><li class="toc-level-2"><a href="#compliance-requirements">Compliance Requirements</a></li><li class="toc-level-2"><a href="#conformance-tests">Conformance Tests</a></li><li class="toc-level-2"><a href="#traceability">Traceability</a></li><li class="toc-level-2"><a href="#architects-notes">Architect's Notes</a></li><li class="toc-level-3"><a href="#architectural-observation">Architectural Observation</a></li><li class="toc-level-3"><a href="#rejected-alternatives">Rejected Alternatives</a></li><li class="toc-level-3"><a href="#related-canons">Related Canons</a></li><li class="toc-level-2"><a href="#review-checklist">Review Checklist</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="canon-009-knowledge-is-not-reality">CANON-009 — Knowledge Is Not Reality</h1>
+<br>
+<h2 id="canon-statement">Canon Statement <a href="#canon-statement" class="heading-anchor">#</a></h2>
+<br>
+<blockquote><p><strong>Reality exists independently of what any observer knows. GTOS SHALL model Observations, Claims, Knowledge, provenance, and confidence separately from reality.</strong></p></blockquote>
+<br>
+<h2 id="classification">Classification <a href="#classification" class="heading-anchor">#</a></h2>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Property</th>
+<th class="table-sort">Value</th>
+</tr></thead><tbody>
+<tr>
+<td>Canon ID</td>
+<td>CANON-009</td>
+</tr>
+<tr>
+<td>Plane</td>
+<td>Epistemology</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Absolute</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Entire GTOS Ecosystem</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Normative</td>
+</tr>
+<tr>
+<td>Depends On</td>
+<td>CANON-001, CANON-004, CANON-008</td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="normative-statements">Normative Statements <a href="#normative-statements" class="heading-anchor">#</a></h2>
+<br>
+<li>Reality exists independently of what any observer knows. GTOS SHALL model Observations, Claims, Knowledge, provenance, and confidence separately from reality.</li>
+<li>Implementations SHALL preserve the distinctions defined by this Canon across APIs, data, events, AI behavior, security policy, and operations.</li>
+<li>A derived view SHALL NOT claim greater authority than its governed source.</li>
+<li>Conformance evidence SHALL be inspectable and reproducible.</li>
+<br>
+<h2 id="historical-context">Historical Context <a href="#historical-context" class="heading-anchor">#</a></h2>
+<br>
+<p>Platforms treat database contents as complete reality, causing delayed, missing, contradictory, and uncertain information to be mishandled.</p>
+<br>
+<p>The resulting failures are not merely data-quality issues. They create invalid authority, incorrect automation, misleading analytics, and brittle integration. This Canon establishes the conceptual boundary required to prevent those failures.</p>
+<br>
+<h2 id="core-philosophy">Core Philosophy <a href="#core-philosophy" class="heading-anchor">#</a></h2>
+<br>
+<p>Reality exists independently of what any observer knows. GTOS SHALL model Observations, Claims, Knowledge, provenance, and confidence separately from reality.</p>
+<br>
+<p>The Canon is independent of implementation style. A monolith, distributed platform, event-driven system, or agentic architecture may conform, but each must preserve the same semantic distinctions.</p>
+<br>
+<h2 id="formal-definitions">Formal Definitions <a href="#formal-definitions" class="heading-anchor">#</a></h2>
+<br>
+<h3 id="observation">Observation <a href="#observation" class="heading-anchor">#</a></h3>
+<br>
+<p>An observer's assertion about reality.</p>
+<br>
+<h3 id="claim">Claim <a href="#claim" class="heading-anchor">#</a></h3>
+<br>
+<p>A proposition asserted to be true.</p>
+<br>
+<h3 id="knowledge-set">Knowledge Set <a href="#knowledge-set" class="heading-anchor">#</a></h3>
+<br>
+<p>Claims available to an observer or process at a time.</p>
+<br>
+<h3 id="confidence">Confidence <a href="#confidence" class="heading-anchor">#</a></h3>
+<br>
+<p>Qualified support for a Claim, not authority.</p>
+<br>
+<br>
+<h2 id="formal-invariants">Formal Invariants <a href="#formal-invariants" class="heading-anchor">#</a></h2>
+<br>
+<li>The concept defined by this Canon SHALL have explicit ownership and scope.</li>
+<li>Its identity and temporal meaning SHALL remain stable across representation changes.</li>
+<li>Any derived assertion SHALL retain provenance to its inputs.</li>
+<li>Corrections SHALL preserve historical evidence.</li>
+<li>Authority SHALL NOT be inferred from technical possession or processing.</li>
+<br>
+<h2 id="engineering-interpretation">Engineering Interpretation <a href="#engineering-interpretation" class="heading-anchor">#</a></h2>
+<br>
+<p>The Canon affects aggregate design, data contracts, event envelopes, authorization policy, observability, AI prompts and tools, audit records, and migration procedures.</p>
+<br>
+<p>Engineering teams SHALL encode the required distinctions in types and contracts rather than relying only on prose. Invalid states and invalid transitions SHOULD be rejected as early as practical.</p>
+<br>
+<h2 id="business-interpretation">Business Interpretation <a href="#business-interpretation" class="heading-anchor">#</a></h2>
+<br>
+<p>Business language remains authoritative for meaning. Technical teams SHALL demonstrate that domain experts can recognize the represented concept, its owner, its lifecycle, and its exceptions.</p>
+<br>
+<p>A business rule that changes by jurisdiction, agreement, commodity, participant, or time SHALL be modeled as governed policy rather than hidden application logic.</p>
+<br>
+<h2 id="ai-interpretation">AI Interpretation <a href="#ai-interpretation" class="heading-anchor">#</a></h2>
+<br>
+<p>AI systems SHALL classify outputs as retrieval, inference, prediction, recommendation, decision, or execution request. Evidence, confidence, authority, and knowledge-time boundaries SHALL remain explicit.</p>
+<br>
+<p>An AI-generated statement does not become a fact, authoritative truth, or decision merely because it is fluent or highly probable.</p>
+<br>
+<h2 id="architectural-consequences">Architectural Consequences <a href="#architectural-consequences" class="heading-anchor">#</a></h2>
+<br>
+<li>Domain boundaries must reflect authority boundaries.</li>
+<li>APIs and events must preserve semantic types and temporal meaning.</li>
+<li>Data lineage must connect projections to authoritative claims.</li>
+<li>Security must distinguish access, authority, delegation, and purpose.</li>
+<li>Operations must preserve evidence during failure and recovery.</li>
+<li>Architecture reviews must demonstrate Canon traceability.</li>
+<br>
+<h2 id="trade-example">Trade Example <a href="#trade-example" class="heading-anchor">#</a></h2>
+<br>
+<p>A refrigeration failure occurs at 14:02, a sensor observes it at 14:05, GTOS records it at 14:09, and an operator learns of it at 14:10. The failure occurred once; knowledge propagated over time.</p>
+<br>
+<h2 id="failure-modes-and-risks">Failure Modes and Risks <a href="#failure-modes-and-risks" class="heading-anchor">#</a></h2>
+<br>
+<li>Hindsight bias contaminates decision evaluation.</li>
+<li>AI invents certainty.</li>
+<li>Contradictory observations are overwritten.</li>
+<br>
+<h2 id="design-rules">Design Rules <a href="#design-rules" class="heading-anchor">#</a></h2>
+<br>
+<li>Model the business concept before choosing storage or messaging technology.</li>
+<li>Record identity, owner, source, scope, and time.</li>
+<li>Separate authoritative claims from observations and projections.</li>
+<li>Preserve corrections and contradictions.</li>
+<li>Test business invariants at domain boundaries.</li>
+<li>Require explicit authority before decision or execution.</li>
+<li>Make conformance observable.</li>
+<br>
+<h2 id="anti-patterns">Anti-Patterns <a href="#anti-patterns" class="heading-anchor">#</a></h2>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Anti-Pattern</th>
+<th class="table-sort">Why It Fails</th>
+</tr></thead><tbody>
+<tr>
+<td>Database-as-reality</td>
+<td>Confuses persistence with existence</td>
+</tr>
+<tr>
+<td>Status-field compression</td>
+<td>Erases scope, owner, and transition semantics</td>
+</tr>
+<tr>
+<td>Silent overwrite</td>
+<td>Destroys history</td>
+</tr>
+<tr>
+<td>Message-name ambiguity</td>
+<td>Confuses request, event, and outcome</td>
+</tr>
+<tr>
+<td>AI answer as authority</td>
+<td>Collapses knowledge, recommendation, and decision</td>
+</tr>
+<tr>
+<td>Shared table ownership</td>
+<td>Creates competing truth owners</td>
+</tr>
+<tr>
+<td>Implementation-defined policy</td>
+<td>Hides business governance</td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="compliance-requirements">Compliance Requirements <a href="#compliance-requirements" class="heading-anchor">#</a></h2>
+<br>
+<p>A conforming implementation SHALL provide:</p>
+<br>
+<li>a model or contract expressing this Canon;</li>
+<li>accountable ownership;</li>
+<li>temporal and provenance metadata;</li>
+<li>testable invariants;</li>
+<li>audit or lineage evidence;</li>
+<li>documented exceptions;</li>
+<li>traceability to affected services, schemas, policies, and runbooks.</li>
+<br>
+<h2 id="conformance-tests">Conformance Tests <a href="#conformance-tests" class="heading-anchor">#</a></h2>
+<br>
+<li class="checklist-item"><input type="checkbox" disabled> Are occurrence and observation time distinct?</li>
+<li class="checklist-item"><input type="checkbox" disabled> Is provenance recorded?</li>
+<li class="checklist-item"><input type="checkbox" disabled> Can decision-time knowledge be reconstructed?</li>
+<br>
+<h2 id="traceability">Traceability <a href="#traceability" class="heading-anchor">#</a></h2>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Derived Volume</th>
+<th class="table-sort">Primary Derivation</th>
+</tr></thead><tbody>
+<tr>
+<td>Constitution</td>
+<td>Authority, ownership, amendment, and conformance</td>
+</tr>
+<tr>
+<td>Business Architecture</td>
+<td>Capabilities, decision rights, value streams</td>
+</tr>
+<tr>
+<td>Domain Architecture</td>
+<td>Boundaries, aggregates, commands, events, invariants</td>
+</tr>
+<tr>
+<td>AI Architecture</td>
+<td>Evidence, uncertainty, authority, decision discipline</td>
+</tr>
+<tr>
+<td>Data Architecture</td>
+<td>Temporal modeling, lineage, quality, retention</td>
+</tr>
+<tr>
+<td>Security Architecture</td>
+<td>Identity, delegation, authorization, audit</td>
+</tr>
+<tr>
+<td>Engineering</td>
+<td>Contract tests and architecture evidence</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>Reconstruction, recovery, and incident evidence</td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="architects-notes">Architect's Notes <a href="#architects-notes" class="heading-anchor">#</a></h2>
+<br>
+<h3 id="architectural-observation">Architectural Observation <a href="#architectural-observation" class="heading-anchor">#</a></h3>
+<br>
+<p>This Canon is valuable only when it changes design behavior. Repeating the statement without encoding ownership, data semantics, policy, and verification is non-conformance.</p>
+<br>
+<h3 id="rejected-alternatives">Rejected Alternatives <a href="#rejected-alternatives" class="heading-anchor">#</a></h3>
+<br>
+<li>Treating the distinction as documentation-only.</li>
+<li>Allowing every service to redefine the concept.</li>
+<li>Inferring authority from possession of data.</li>
+<li>Removing inconvenient history during correction.</li>
+<li>Deferring semantic validation to analytics.</li>
+<br>
+<h3 id="related-canons">Related Canons <a href="#related-canons" class="heading-anchor">#</a></h3>
+<br>
+<p>Dependencies are listed in Classification. Downstream relationships are published in the Traceability Registry.</p>
+<br>
+<h2 id="review-checklist">Review Checklist <a href="#review-checklist" class="heading-anchor">#</a></h2>
+<br>
+<li class="checklist-item"><input type="checkbox" disabled> Does the Canon remain independent?</li>
+<li class="checklist-item"><input type="checkbox" disabled> Would removing it make GTOS incoherent?</li>
+<li class="checklist-item"><input type="checkbox" disabled> Are definitions non-circular?</li>
+<li class="checklist-item"><input type="checkbox" disabled> Are invariants testable?</li>
+<li class="checklist-item"><input type="checkbox" disabled> Are examples specific to trade?</li>
+<li class="checklist-item"><input type="checkbox" disabled> Are AI and authority consequences explicit?</li>
+<li class="checklist-item"><input type="checkbox" disabled> Is implementation traceability available?</li>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>15 — Repository Evidence Wave 04 Plan · GTOS Handbook</title>
+<meta name="description" content="15 — Repository Evidence Wave 04 Plan Wave 04 باید زیرساخت crosscutting را بررسی کند: 1. Identity، Authentication، Authorization و Tenant Isolation 2. Audit، Ev">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/index.html">GTOS Handbook Batch 09 Repository Evidence Wave 03</a> <span class="sep">›</span> <span>15 — Repository Evidence Wave 04 Plan</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>15 — Repository Evidence Wave 04 Plan</h1>
+      </header>
+      
+      <div class="prose">
+        <h1 id="15-repository-evidence-wave-04-plan">15 — Repository Evidence Wave 04 Plan</h1>
+<br>
+<p>Wave 04 باید زیرساخت cross-cutting را بررسی کند:</p>
+<br>
+<li>Identity، Authentication، Authorization و Tenant Isolation</li>
+<li>Audit، Evidence Integrity و Non-Repudiation</li>
+<li>Event Bus، Outbox/Inbox، Idempotency و Replay</li>
+<li>API Gateway، Rate Limiting و Abuse Protection</li>
+<li>Secrets، Key Management و Encryption</li>
+<li>Observability، SLO، Incident و Disaster Recovery</li>
+<li>Database ownership، migration safety و backup/restore</li>
+<li>Data Privacy، Retention، Consent و Residency</li>
+<li>CI/CD، Supply Chain Security و Deployment Evidence</li>
+<li>Production Readiness and Go-Live Evidence</li>
+<br>
+<p>بدون Wave 04 هیچ Stage تجاری نباید production-certified اعلام شود.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

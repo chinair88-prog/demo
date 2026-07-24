@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Event Consumer Reference Flow · GTOS Handbook</title>
+<meta name="description" content="Event Consumer Reference Flow Receipt The consumer receives an Event envelope and records transport receipt time. Receipt is not acceptance. The consumer verifi">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Event Consumer Reference Flow</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Event Consumer Reference Flow</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#receipt">Receipt</a></li><li class="toc-level-2"><a href="#deduplication">Deduplication</a></li><li class="toc-level-2"><a href="#interpretation">Interpretation</a></li><li class="toc-level-2"><a href="#processing-types">Processing Types</a></li><li class="toc-level-2"><a href="#failure">Failure</a></li><li class="toc-level-2"><a href="#replay">Replay</a></li><li class="toc-level-2"><a href="#correction">Correction</a></li><li class="toc-level-2"><a href="#operational-signals">Operational Signals</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="event-consumer-reference-flow">Event Consumer Reference Flow</h1>
+<br>
+<h2 id="receipt">Receipt <a href="#receipt" class="heading-anchor">#</a></h2>
+<br>
+<p>The consumer receives an Event envelope and records transport receipt time. Receipt is not acceptance. The consumer verifies source identity, integrity, schema support, subject, classification, and authorization to process the Event.</p>
+<br>
+<h2 id="deduplication">Deduplication <a href="#deduplication" class="heading-anchor">#</a></h2>
+<br>
+<p>Event identity is checked against the consumer's processed-event record or idempotent business operation. A duplicate may update transport metrics but SHALL not repeat business effects.</p>
+<br>
+<h2 id="interpretation">Interpretation <a href="#interpretation" class="heading-anchor">#</a></h2>
+<br>
+<p>The consumer applies semantics for the declared Event version. Occurrence time and recording time remain distinct. Ordering assumptions are limited to the producer's documented scope. An Event arriving late may still change a projection or trigger an impact assessment.</p>
+<br>
+<h2 id="processing-types">Processing Types <a href="#processing-types" class="heading-anchor">#</a></h2>
+<br>
+<p>Projection consumers update a derived view. Workflow consumers advance coordination state. Domain consumers may issue a new Command under their own authority and policy; they do not directly mutate the producer's truth. Notification consumers communicate under replay controls. Analytical consumers preserve lineage.</p>
+<br>
+<h2 id="failure">Failure <a href="#failure" class="heading-anchor">#</a></h2>
+<br>
+<p>Transient infrastructure failure triggers bounded retry with backoff. Invalid schema, unsupported semantic version, prohibited data, or invariant contradiction enters quarantine or a case with owner and reason. Infinite retry without visibility is prohibited.</p>
+<br>
+<h2 id="replay">Replay <a href="#replay" class="heading-anchor">#</a></h2>
+<br>
+<p>Replay is explicitly authorized. Consumers know whether they are rebuilding state, re-evaluating current policy, or reproducing historical behavior. Irreversible notifications and payments are disabled unless replay Intent specifically permits them.</p>
+<br>
+<h2 id="correction">Correction <a href="#correction" class="heading-anchor">#</a></h2>
+<br>
+<p>A correction Event references the original. The consumer identifies affected projections, Decisions, documents, or executions. Some results are recomputed; others remain historically valid and create remediation. The correction is never treated as proof that the original Event did not exist.</p>
+<br>
+<h2 id="operational-signals">Operational Signals <a href="#operational-signals" class="heading-anchor">#</a></h2>
+<br>
+<p>Monitor lag by occurrence and receipt, processing success, quarantine, duplicates, unsupported versions, replay position, correction backlog, and business outcome. Queue depth alone is not enough.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

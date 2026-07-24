@@ -1,0 +1,41 @@
+---
+title: "Scenario — Customs Declaration and Release"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Scenario — Customs Declaration and Release"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Scenario — Customs Declaration and Release" }
+  ]}
+>
+
+<br />
+<h2 id="context">Context</h2>
+<br />
+<p>An importer, broker, carrier, customs authority, and terminal coordinate declaration and release.</p>
+<br />
+<h2 id="authority">Authority</h2>
+<br />
+<p>The importer owns commercial and product information within its scope. The broker acts through a mandate. Customs owns legal acceptance, inspection, and release determinations. The terminal owns physical gate and cargo movement observations.</p>
+<br />
+<h2 id="flow">Flow</h2>
+<br />
+<p>A broker submits a declaration Command under a valid Relationship and delegation. Customs records <code class="code-inline">DeclarationSubmitted</code>, evaluates policy and evidence, and may produce <code class="code-inline">InspectionOrdered</code> or <code class="code-inline">GoodsReleased</code>. The carrier's operational view consumes the customs Event but remains a perspective.</p>
+<br />
+<h2 id="late-information">Late Information</h2>
+<br />
+<p>A corrected classification arrives after release. GTOS preserves the original declaration, knowledge available to customs, policy version, and release Decision. The correction triggers impact analysis for duty, license, risk, and audit. It does not rewrite the original decision into a fictional present-day evaluation.</p>
+<br />
+<h2 id="security">Security</h2>
+<br />
+<p>Authorization considers importer-broker relationship, jurisdiction, commodity scope, mandate validity, and purpose. Possession of a declaration identifier does not grant access.</p>
+<br />
+<h2 id="operational-requirement">Operational Requirement</h2>
+<br />
+<p>If messaging is unavailable, customs authority may still make a decision through its own system. Later ingestion records observation and recording time, preserving that reality preceded GTOS representation.</p>
+<br />
+</ContentPage>

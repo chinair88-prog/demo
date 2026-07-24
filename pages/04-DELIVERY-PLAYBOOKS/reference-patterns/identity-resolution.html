@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Global trade participants are represented through legal names, registration numbers, tax identifiers, customs identifiers, partner codes, account numbers, facility identifiers, and credentials. These identifiers may be incomplete, duplicated, expired, reassigned, or valid only wi…">
+<meta name="color-scheme" content="light dark">
+<title>Identity Resolution Pattern · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/reference-patterns/identity-resolution.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Reference Patterns</span><span class="sep">/</span><span>Identity Resolution Pattern</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>186 words</span></div>
+        <h1>Identity Resolution Pattern</h1>
+        <p class="lede">Global trade participants are represented through legal names, registration numbers, tax identifiers, customs identifiers, partner codes, account numbers, facility identifiers, and credentials. These identifiers may be incomplete, duplicated, expired, reassigned, or valid only wi…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="problem">Problem<a aria-label="Link to section" class="heading-anchor" href="#problem">#</a></h2>
+<p>Global trade participants are represented through legal names, registration numbers, tax identifiers, customs identifiers, partner codes, account numbers, facility identifiers, and credentials. These identifiers may be incomplete, duplicated, expired, reassigned, or valid only within a jurisdiction or relationship.</p>
+<h2 id="pattern">Pattern<a aria-label="Link to section" class="heading-anchor" href="#pattern">#</a></h2>
+<p>GTOS separates the Entity from every Identifier. Each Identifier records issuer, namespace, jurisdiction, validity, verification status, evidence, and confidence. Identity resolution proposes candidate matches; an authorized identity decision establishes merge, link, split, or rejection.</p>
+<h2 id="required-flow">Required Flow<a aria-label="Link to section" class="heading-anchor" href="#required-flow">#</a></h2>
+<ol>
+<li>Receive an Observation containing one or more identifiers.</li>
+<li>Normalize without discarding the original representation.</li>
+<li>Retrieve candidate Entities.</li>
+<li>Evaluate deterministic and probabilistic evidence.</li>
+<li>Produce a Recommendation with confidence and explanation.</li>
+<li>Make an authorized identity Decision when consequences are material.</li>
+<li>Preserve the original Observation, Decision, and resulting Relationship.</li>
+<li>Propagate correction through governed events.</li>
+</ol>
+<h2 id="failure-controls">Failure Controls<a aria-label="Link to section" class="heading-anchor" href="#failure-controls">#</a></h2>
+<p>A high similarity score SHALL NOT automatically merge legal parties when sanctions, payments, title, or regulatory rights may be affected. Merge operations SHALL be reversible through preserved history. Consumers SHALL distinguish canonical Entity identity from partner-specific identifiers.</p>
+<h2 id="canon-traceability">Canon Traceability<a aria-label="Link to section" class="heading-anchor" href="#canon-traceability">#</a></h2>
+<p>CANON-001, CANON-002, CANON-003, CANON-008, CANON-009, and CANON-010.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#problem">Problem</a><a class="toc-level-2" href="#pattern">Pattern</a><a class="toc-level-2" href="#required-flow">Required Flow</a><a class="toc-level-2" href="#failure-controls">Failure Controls</a><a class="toc-level-2" href="#canon-traceability">Canon Traceability</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="federated-truth.html"><span>Previous</span><strong>Federated Truth Pattern</strong></a>
+        <a class="next" href="index.html"><span>Next</span><strong>GTOS Reference Patterns</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

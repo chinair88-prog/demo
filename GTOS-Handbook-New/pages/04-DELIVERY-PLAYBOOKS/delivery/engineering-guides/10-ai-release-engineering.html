@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Release Engineering Guide · GTOS Handbook</title>
+<meta name="description" content="AI Release Engineering Guide Release Unit An AI release includes model, route, prompt or task definition, retrieval configuration, tool registry, policy, struct">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>AI Release Engineering Guide</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>AI Release Engineering Guide</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#release-unit">Release Unit</a></li><li class="toc-level-2"><a href="#pre-release-evaluation">Pre-Release Evaluation</a></li><li class="toc-level-2"><a href="#staged-deployment">Staged Deployment</a></li><li class="toc-level-2"><a href="#runtime-controls">Runtime Controls</a></li><li class="toc-level-2"><a href="#monitoring">Monitoring</a></li><li class="toc-level-2"><a href="#rollback">Rollback</a></li><li class="toc-level-2"><a href="#approval">Approval</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="ai-release-engineering-guide">AI Release Engineering Guide</h1>
+<br>
+<h2 id="release-unit">Release Unit <a href="#release-unit" class="heading-anchor">#</a></h2>
+<br>
+<p>An AI release includes model, route, prompt or task definition, retrieval configuration, tool registry, policy, structured output schema, evaluation set, thresholds, observability, and rollback controls. Changing any component can change behavior.</p>
+<br>
+<h2 id="pre-release-evaluation">Pre-Release Evaluation <a href="#pre-release-evaluation" class="heading-anchor">#</a></h2>
+<br>
+<p>Evaluate task quality, factuality, evidence faithfulness, calibration, uncertainty, prohibited behavior, bias, security, latency, cost, and tool safety. High-impact use cases include representative edge cases, contradictory evidence, missing evidence, policy changes, and adversarial inputs.</p>
+<br>
+<h2 id="staged-deployment">Staged Deployment <a href="#staged-deployment" class="heading-anchor">#</a></h2>
+<br>
+<p>Use offline evaluation, shadow operation, limited internal users, low-impact traffic, controlled participant cohorts, and progressive automation. Compare recommendations or decisions against an approved baseline. Do not expose execution tools before recommendation and policy behavior are stable.</p>
+<br>
+<h2 id="runtime-controls">Runtime Controls <a href="#runtime-controls" class="heading-anchor">#</a></h2>
+<br>
+<p>The runtime validates structured output, enforces policy outside the model, limits tools and egress, applies budgets, records evidence and tool calls, and supports human escalation. A kill switch can disable model routes, tools, Mandates, or decision classes.</p>
+<br>
+<h2 id="monitoring">Monitoring <a href="#monitoring" class="heading-anchor">#</a></h2>
+<br>
+<p>Track success, evidence support, hallucination, unsafe requests, tool denial, escalation, decision reversal, downstream outcome, latency, and cost. Drift includes data, policy, prompt, tool, and user behavior—not only model statistics.</p>
+<br>
+<h2 id="rollback">Rollback <a href="#rollback" class="heading-anchor">#</a></h2>
+<br>
+<p>Rollback returns to an approved release configuration. It does not rewrite decisions or outcomes already produced. A harmful decision may require appeal, correction, notification, or remediation.</p>
+<br>
+<h2 id="approval">Approval <a href="#approval" class="heading-anchor">#</a></h2>
+<br>
+<p>AI owner, domain authority, security, data, operations, and architecture approve according to impact. The Decision Record identifies evidence and conditions for continued operation.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

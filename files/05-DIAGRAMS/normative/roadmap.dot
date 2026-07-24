@@ -1,0 +1,14 @@
+
+digraph G {
+  graph [rankdir=LR, bgcolor="transparent", pad=0.2];
+  node [shape=box, style="rounded,filled", fillcolor="#eef4fb", color="#315d88", fontname="DejaVu Sans", fontsize=9];
+  edge [color="#55728b", arrowsize=0.7];
+  P0 [label="Phase 0\nGovernance and Foundations"];
+  P1 [label="Phase 1\nPlatform Paved Roads"];
+  P2 [label="Phase 2\nCore Commerce"];
+  P3 [label="Phase 3\nTrade and Supply Chain"];
+  P4 [label="Phase 4\nAfter-sales, Finance, ESG"];
+  P5 [label="Phase 5\nAI-native Operations"];
+  P6 [label="Phase 6\nGlobal Scale and Certification"];
+  P0 -> P1 -> P2 -> P3 -> P4 -> P5 -> P6;
+}

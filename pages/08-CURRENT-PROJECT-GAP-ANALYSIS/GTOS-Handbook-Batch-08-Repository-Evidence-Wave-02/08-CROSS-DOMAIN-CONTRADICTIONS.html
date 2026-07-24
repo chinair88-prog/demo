@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="| ID | Conflict | Required canonical decision |
+|---|---|---|
+| C-201 | Quality به software gates، mock inspection و stock QC اشاره می‌کند | Trade Quality Domain مستقل ایجاد شود |
+| C-202 | Packing List در Tajerestan و Partner وجود دارد | یک System of Record و migration direction…">
+<meta name="color-scheme" content="light dark">
+<title>08 — Cross-Domain Contradictions and Canonicalization Register · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/08-CROSS-DOMAIN-CONTRADICTIONS.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 08 Repository Evidence Wave 02</span><span class="sep">/</span><span>08 — Cross-Domain Contradictions and Canonicalization Register</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>210 words</span></div>
+        <h1>08 — Cross-Domain Contradictions and Canonicalization Register</h1>
+        <p class="lede">| ID | Conflict | Required canonical decision |
+|---|---|---|
+| C-201 | Quality به software gates، mock inspection و stock QC اشاره می‌کند | Trade Quality Domain مستقل ایجاد شود |
+| C-202 | Packing List در Tajerestan و Partner وجود دارد | یک System of Record و migration direction…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Conflict</th>
+<th>Required canonical decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-201</td>
+<td>Quality به software gates، mock inspection و stock QC اشاره می‌کند</td>
+<td>Trade Quality Domain مستقل ایجاد شود</td>
+</tr>
+<tr>
+<td>C-202</td>
+<td>Packing List در Tajerestan و Partner وجود دارد</td>
+<td>یک System of Record و migration direction تعیین شود</td>
+</tr>
+<tr>
+<td>C-203</td>
+<td>Commercial Invoice table/read/update دارد، ولی create/generate ندارد</td>
+<td>Document lifecycle کامل شود</td>
+</tr>
+<tr>
+<td>C-204</td>
+<td>Customs با تغییر PO یا declaration action می‌تواند Cleared شود</td>
+<td>legal release فقط authority observation باشد</td>
+</tr>
+<tr>
+<td>C-205</td>
+<td>Import Controller مستقیماً Shipment table را تغییر می‌دهد</td>
+<td>Event/contract یا ownership مشترک رسمی تعریف شود</td>
+</tr>
+<tr>
+<td>C-206</td>
+<td>Booking و Trade Shipment بدون boundary واضح جدا شده‌اند</td>
+<td>Booking، Shipment، Leg و Observation ownership تعیین شود</td>
+</tr>
+<tr>
+<td>C-207</td>
+<td><code>HANDED_OVER</code> به‌جای Custody evidence استفاده می‌شود</td>
+<td>CustodyRelationship مستقل ایجاد شود</td>
+</tr>
+<tr>
+<td>C-208</td>
+<td>Receiving هم در Warehouse Service و هم Provider WMS وجود دارد</td>
+<td>Warehouse owner و Provider projection مشخص شود</td>
+</tr>
+<tr>
+<td>C-209</td>
+<td>Inventory Receipt بلافاصله Available می‌شود</td>
+<td>quarantine/quality/channel policy اعمال شود</td>
+</tr>
+<tr>
+<td>C-210</td>
+<td>tenant field وجود دارد ولی APIها گاهی request parameter یا unscoped lookup دارند</td>
+<td>trusted identity context و isolation test</td>
+</tr>
+<tr>
+<td>C-211</td>
+<td>Eventها بدون outbox فرستاده و خطا swallow می‌شود</td>
+<td>outbox/inbox استاندارد شود</td>
+</tr>
+<tr>
+<td>C-212</td>
+<td>status history در metadata JSON mutable است</td>
+<td>append-only transition journal ایجاد شود</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+        
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="07-INVENTORY-SYNCHRONIZATION-RESERVATION-AND-QC.html"><span>Previous</span><strong>07 — Inventory Synchronization, Reservation, and QC Disposition</strong></a>
+        <a class="next" href="09-IMPLEMENTATION-STATUS-MATRIX.html"><span>Next</span><strong>09 — Implementation Status Matrix</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

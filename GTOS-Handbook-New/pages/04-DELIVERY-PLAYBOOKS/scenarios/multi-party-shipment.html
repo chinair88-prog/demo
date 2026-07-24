@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scenario — Multi-Party Shipment Consolidation · GTOS Handbook</title>
+<meta name="description" content="Scenario — MultiParty Shipment Consolidation Context Multiple orders from different sellers are consolidated into cargo units, transported across legs, deconsol">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/scenarios/index.html">Scenarios</a> <span class="sep">›</span> <span>Scenario — Multi-Party Shipment Consolidation</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Scenario — Multi-Party Shipment Consolidation</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#context">Context</a></li><li class="toc-level-2"><a href="#modeling">Modeling</a></li><li class="toc-level-2"><a href="#events">Events</a></li><li class="toc-level-2"><a href="#state">State</a></li><li class="toc-level-2"><a href="#recovery">Recovery</a></li><li class="toc-level-2"><a href="#analytics">Analytics</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="scenario-multi-party-shipment-consolidation">Scenario — Multi-Party Shipment Consolidation</h1>
+<br>
+<h2 id="context">Context <a href="#context" class="heading-anchor">#</a></h2>
+<br>
+<p>Multiple orders from different sellers are consolidated into cargo units, transported across legs, deconsolidated, and delivered to multiple buyers.</p>
+<br>
+<h2 id="modeling">Modeling <a href="#modeling" class="heading-anchor">#</a></h2>
+<br>
+<p>Orders, shipments, consignments, cargo units, transport legs, and custody Relationships retain independent identity. A container is not the shipment, and a shipment is not the transport service.</p>
+<br>
+<h2 id="events">Events <a href="#events" class="heading-anchor">#</a></h2>
+<br>
+<p><code>CargoUnitPacked</code>, <code>ShipmentConsolidated</code>, <code>CustodyTransferred</code>, <code>TransportDeparted</code>, <code>TransportArrived</code>, and <code>ShipmentDelivered</code> describe distinct facts. Schedule updates are not actual movement events.</p>
+<br>
+<h2 id="state">State <a href="#state" class="heading-anchor">#</a></h2>
+<br>
+<p>A consolidated shipment may contain one held consignment and several releasable consignments. State is scoped; one universal status would either block too much or release too much.</p>
+<br>
+<h2 id="recovery">Recovery <a href="#recovery" class="heading-anchor">#</a></h2>
+<br>
+<p>If a message is duplicated, domain invariants and event identity prevent duplicate custody transfer. If events arrive out of order, occurrence time and sequence scope permit reconstruction while preserving receipt order.</p>
+<br>
+<h2 id="analytics">Analytics <a href="#analytics" class="heading-anchor">#</a></h2>
+<br>
+<p>A control tower projects end-to-end progress but does not own order, customs, payment, or physical movement truth.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

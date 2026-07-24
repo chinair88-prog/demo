@@ -1,0 +1,91 @@
+---
+title: "07 — Inventory Synchronization, Reservation, and QC Disposition"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="07 — Inventory Synchronization, Reservation, and QC Disposition"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "07 — Inventory Synchronization, Reservation, and QC Disposition" }
+  ]}
+>
+
+<br />
+<h2 id="stock-model">Stock Model</h2>
+<br />
+<p><code class="code-inline">StockBalanceEntity</code> یک composite identity دارد:</p>
+<br />
+<p>- tenant</p>
+<p>- company</p>
+<p>- warehouse</p>
+<p>- SKU</p>
+<p>- bin</p>
+<p>- batch</p>
+<br />
+<p>مقادیر زیر جدا نگهداری می‌شوند:</p>
+<br />
+<p>- on hand</p>
+<p>- available</p>
+<p>- reserved</p>
+<p>- damaged</p>
+<p>- QC hold</p>
+<p>- blocked</p>
+<p>- in transit</p>
+<br />
+<p>وجود <code class="code-inline">@Version</code> optimistic locking را در سطح Entity فراهم می‌کند.</p>
+<br />
+<h2 id="inventory-posting">Inventory Posting</h2>
+<br />
+<p><code class="code-inline">InventoryPostingService</code> رفتارهای transactional زیر را دارد:</p>
+<br />
+<p>- Receipt؛</p>
+<p>- Transfer؛</p>
+<p>- Adjustment؛</p>
+<p>- انتقال Available به QC Hold؛</p>
+<p>- QC PASS به Available؛</p>
+<p>- QC FAIL به Damaged یا Blocked؛</p>
+<p>- ثبت Stock Ledger.</p>
+<br />
+<h2 id="reservation">Reservation</h2>
+<br />
+<p><code class="code-inline">ReservationService</code>:</p>
+<br />
+<p>- quantity مثبت را validate می‌کند؛</p>
+<p>- balanceهای tenant/company/warehouse/SKU را می‌خواند؛</p>
+<p>- اولین balance دارای available کافی را انتخاب می‌کند؛</p>
+<p>- Available را کم و Reserved را زیاد می‌کند؛</p>
+<p>- Reservation با state <code class="code-inline">ACTIVE</code> می‌سازد؛</p>
+<p>- در Release مقدار آزادشدنی را به Available برمی‌گرداند.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_GAP</code>.</p>
+<br />
+<h2 id="-">نقاط قوت</h2>
+<br />
+<p>- stock states صریح و تفکیک‌شده؛</p>
+<p>- tenant/company در composite key؛</p>
+<p>- optimistic locking؛</p>
+<p>- ledger دارای source و idempotency field؛</p>
+<p>- insufficient-stock check برای reservation و QC hold؛</p>
+<p>- Reservation Entity مستقل.</p>
+<br />
+<h2 id="gap-">Gapهای بحرانی</h2>
+<br />
+<p>1. Controller، tenant، company و user را از query parameter می‌گیرد؛ این اطلاعات authority قابل اعتماد نیستند.</p>
+<p>2. <code class="code-inline">GET /stock/ledger</code> در Controller بررسی‌شده بدون tenant filter است.</p>
+<p>3. Posting APIهای عمومی در همان Controller دیده نشدند و caller/orchestration هنوز verify نشده است.</p>
+<p>4. idempotency key در ledger ذخیره می‌شود، اما قبل از balance mutation duplicate lookup انجام نمی‌شود.</p>
+<p>5. Transfer و Adjustment می‌توانند quantity منفی بسازند.</p>
+<p>6. Reservation اولین balance مناسب را بدون policy مشخص انتخاب می‌کند.</p>
+<p>7. retry strategy برای optimistic-lock conflict پیدا نشد.</p>
+<p>8. Receipt، good quantity را فوراً Available می‌کند و quarantine/quality gate اجباری ندارد.</p>
+<p>9. Event/outbox برای Inventory facts پیدا نشد.</p>
+<p>10. Provider WMS و Warehouse Receiving با Inventory ownership مرز روشن ندارند.</p>
+<br />
+<h2 id="-">اصلاح لازم</h2>
+<br />
+<p>Warehouse Receipt باید ورودی governed برای Inventory باشد. Availability باید با Policyهایی مانند Quality، Quarantine، Lot، Expiry، Compliance و Channel Eligibility محاسبه شود؛ نه صرفاً با receipt فیزیکی.</p>
+<br />
+</ContentPage>

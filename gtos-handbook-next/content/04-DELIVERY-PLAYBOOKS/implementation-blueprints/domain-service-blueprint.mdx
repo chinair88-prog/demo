@@ -1,0 +1,59 @@
+---
+title: "Domain Service Blueprint"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Domain Service Blueprint"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Domain Service Blueprint" }
+  ]}
+>
+
+<br />
+<h2 id="purpose">Purpose</h2>
+<br />
+<p>A GTOS Domain Service is a deployable capability that protects a coherent set of business invariants and authoritative propositions. It is not defined by technology, team size, or database ownership alone. The service boundary exists because a specific authority is responsible for a specific meaning.</p>
+<br />
+<h2 id="required-components">Required Components</h2>
+<br />
+<p>A conforming Domain Service SHALL include:</p>
+<br />
+<p>- a published domain purpose and non-goals;</p>
+<p>- authoritative proposition catalogue;</p>
+<p>- aggregate and invariant definitions;</p>
+<p>- command handlers;</p>
+<p>- event publication;</p>
+<p>- query projections;</p>
+<p>- temporal and correction behavior;</p>
+<p>- policy and authorization integration;</p>
+<p>- observability;</p>
+<p>- migration and recovery procedures;</p>
+<p>- Canon traceability.</p>
+<br />
+<h2 id="command-processing">Command Processing</h2>
+<br />
+<p>The service authenticates the caller, evaluates authority and policy, validates command schema, resolves subject identity, loads the aggregate under the required consistency boundary, checks invariants, records state change, publishes Events, and returns an outcome.</p>
+<br />
+<p>Command acceptance does not imply successful execution. A Command may be rejected because authority is absent, evidence is incomplete, state is incompatible, policy denies the action, or a dependency is unavailable.</p>
+<br />
+<h2 id="persistence">Persistence</h2>
+<br />
+<p>The persistence model may use relational, document, event, graph, or mixed storage. The model SHALL preserve identity, history, temporal meaning, provenance, and correction. Storage selection SHALL not redefine the domain.</p>
+<br />
+<h2 id="query-model">Query Model</h2>
+<br />
+<p>Query projections are perspectives optimized for use cases. They SHALL identify freshness, source, and temporal semantics. A projection failure SHALL not corrupt authoritative state.</p>
+<br />
+<h2 id="recovery">Recovery</h2>
+<br />
+<p>Recovery procedures include restoring persistence, replaying Events, rebuilding projections, validating invariants, reconciling outbox or message state, and confirming downstream consumer position. Recovery evidence SHALL prove business consistency, not merely process uptime.</p>
+<br />
+<h2 id="deployment">Deployment</h2>
+<br />
+<p>A Domain Service MAY be deployed as a modular monolith, microservice, serverless capability, or managed workflow. Deployment topology is subordinate to domain authority and operational requirements.</p>
+<br />
+</ContentPage>

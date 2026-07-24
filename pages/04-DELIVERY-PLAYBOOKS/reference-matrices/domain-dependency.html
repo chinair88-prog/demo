@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="| Domain | Depends On | Publishes To | Critical Coupling Rule |
+|---|---|---|---|
+| Party | external identity authorities | all domains | consumers reference Party identity; they do not edit it |
+| Product | classification authorities | Order, Shipment, Compliance | product versi…">
+<meta name="color-scheme" content="light dark">
+<title>Domain Dependency Matrix · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/reference-matrices/domain-dependency.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Reference Matrices</span><span class="sep">/</span><span>Domain Dependency Matrix</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>143 words</span></div>
+        <h1>Domain Dependency Matrix</h1>
+        <p class="lede">| Domain | Depends On | Publishes To | Critical Coupling Rule |
+|---|---|---|---|
+| Party | external identity authorities | all domains | consumers reference Party identity; they do not edit it |
+| Product | classification authorities | Order, Shipment, Compliance | product versi…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Domain</th>
+<th>Depends On</th>
+<th>Publishes To</th>
+<th>Critical Coupling Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Party</td>
+<td>external identity authorities</td>
+<td>all domains</td>
+<td>consumers reference Party identity; they do not edit it</td>
+</tr>
+<tr>
+<td>Product</td>
+<td>classification authorities</td>
+<td>Order, Shipment, Compliance</td>
+<td>product version and jurisdiction are explicit</td>
+</tr>
+<tr>
+<td>Agreement</td>
+<td>Party, Product</td>
+<td>Order, Finance, Insurance</td>
+<td>obligations preserve effective time</td>
+</tr>
+<tr>
+<td>Order</td>
+<td>Party, Product, Agreement</td>
+<td>Shipment, Finance</td>
+<td>allocation does not redefine product or agreement</td>
+</tr>
+<tr>
+<td>Shipment</td>
+<td>Order, Party, Product</td>
+<td>Transport, Compliance, Risk</td>
+<td>custody and cargo identity remain distinct</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>Party, Shipment</td>
+<td>Shipment, Risk</td>
+<td>schedule and actual movement are separate</td>
+</tr>
+<tr>
+<td>Document</td>
+<td>all relevant domains</td>
+<td>Compliance, Finance, Evidence</td>
+<td>versions and signatures are immutable</td>
+</tr>
+<tr>
+<td>Compliance</td>
+<td>Party, Product, Shipment, Document</td>
+<td>Case, Shipment, Risk</td>
+<td>legal decisions remain authority-owned</td>
+</tr>
+<tr>
+<td>Finance</td>
+<td>Agreement, Order, Document</td>
+<td>Risk, Evidence</td>
+<td>approval, execution, settlement are distinct</td>
+</tr>
+<tr>
+<td>Decision</td>
+<td>Evidence, Policy, Authority</td>
+<td>all domains</td>
+<td>Decision does not directly own domain state</td>
+</tr>
+<tr>
+<td>Evidence</td>
+<td>all domains</td>
+<td>Decision, Audit</td>
+<td>derived artifacts retain source lineage</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+        
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="concept-to-artifact.html"><span>Previous</span><strong>Concept-to-Artifact Matrix</strong></a>
+        <a class="next" href="index.html"><span>Next</span><strong>Reference Matrices</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

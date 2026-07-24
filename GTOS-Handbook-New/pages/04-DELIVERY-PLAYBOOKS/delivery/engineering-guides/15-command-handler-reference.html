@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Command Handler Reference Flow · GTOS Handbook</title>
+<meta name="description" content="Command Handler Reference Flow Input A Command arrives with command identity, type, subject, initiator, authority or Intent reference, requested time, idempoten">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Command Handler Reference Flow</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Command Handler Reference Flow</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#input">Input</a></li><li class="toc-level-2"><a href="#processing-steps">Processing Steps</a></li><li class="toc-level-2"><a href="#result-types">Result Types</a></li><li class="toc-level-2"><a href="#concurrency">Concurrency</a></li><li class="toc-level-2"><a href="#failure-after-commit">Failure After Commit</a></li><li class="toc-level-2"><a href="#audit-and-observability">Audit and Observability</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="command-handler-reference-flow">Command Handler Reference Flow</h1>
+<br>
+<h2 id="input">Input <a href="#input" class="heading-anchor">#</a></h2>
+<br>
+<p>A Command arrives with command identity, type, subject, initiator, authority or Intent reference, requested time, idempotency key, expected version where used, schema version, and payload.</p>
+<br>
+<h2 id="processing-steps">Processing Steps <a href="#processing-steps" class="heading-anchor">#</a></h2>
+<br>
+<li>Authenticate the technical caller and resolve the acting identity.</li>
+<li>Validate schema and supported version.</li>
+<li>Retrieve or validate the authority, delegation, mandate, and purpose.</li>
+<li>Check the idempotency store. If the logical Command completed earlier, return the recorded outcome rather than execute again.</li>
+<li>Resolve the subject identity and load authoritative state under the aggregate consistency boundary.</li>
+<li>Evaluate policy and required evidence.</li>
+<li>Validate state transition and invariants.</li>
+<li>Apply domain behavior and produce new state plus one or more Events.</li>
+<li>Persist state and outgoing Events atomically through an outbox, event store, or equivalent guarantee.</li>
+<li>Record the outcome, decision or policy references, correlation, and telemetry.</li>
+<br>
+<h2 id="result-types">Result Types <a href="#result-types" class="heading-anchor">#</a></h2>
+<br>
+<p>The handler returns accepted and completed, accepted for asynchronous processing, rejected by validation, denied by policy, conflict with current state, insufficient evidence, duplicate with prior outcome, or temporarily unavailable. A generic failure response hides business meaning and complicates safe retry.</p>
+<br>
+<h2 id="concurrency">Concurrency <a href="#concurrency" class="heading-anchor">#</a></h2>
+<br>
+<p>Optimistic concurrency is appropriate when conflicts are expected to be rare and domain rules can reject stale commands. Pessimistic coordination MAY be required for high-contention financial or inventory invariants. Distributed locks SHALL not become invisible ownership.</p>
+<br>
+<h2 id="failure-after-commit">Failure After Commit <a href="#failure-after-commit" class="heading-anchor">#</a></h2>
+<br>
+<p>If state commits but the response is lost, a retry with the same idempotency key returns the previous result. If Event publication is delayed, the outbox is retried. The handler SHALL not apply the business transition a second time.</p>
+<br>
+<h2 id="audit-and-observability">Audit and Observability <a href="#audit-and-observability" class="heading-anchor">#</a></h2>
+<br>
+<p>Record Command outcome, policy result, invariant conflict, processing latency, Event publication, and dependency failures. Sensitive payloads are minimized in logs. Operators can locate the full trace through identifiers and evidence references.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

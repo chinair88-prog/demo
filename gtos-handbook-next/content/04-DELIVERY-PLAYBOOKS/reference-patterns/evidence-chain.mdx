@@ -1,0 +1,37 @@
+---
+title: "Evidence Chain Pattern"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Evidence Chain Pattern"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Evidence Chain Pattern" }
+  ]}
+>
+
+<br />
+<h2 id="purpose">Purpose</h2>
+<br />
+<p>Trade decisions often depend on documents, sensor data, attestations, external registries, and human statements. Evidence must remain trustworthy even when copied or transformed.</p>
+<br />
+<h2 id="evidence-record">Evidence Record</h2>
+<br />
+<p>An Evidence Item records source identity, collection method, original location, content hash or integrity proof, time, classification, retention, access policy, transformations, attestations, and related Claims.</p>
+<br />
+<h2 id="transformations">Transformations</h2>
+<br />
+<p>Extraction, translation, OCR, summarization, and AI interpretation create derived evidence artifacts. They SHALL reference the source and declare method and quality. A derived summary SHALL NOT replace the original evidence.</p>
+<br />
+<h2 id="chain-of-custody">Chain of Custody</h2>
+<br />
+<p>Transfers of evidence custody or storage SHALL be recorded where legal or investigative use requires it. Access and alteration attempts are auditable.</p>
+<br />
+<h2 id="decision-use">Decision Use</h2>
+<br />
+<p>Decision Records reference evidence versions actually considered. Later corrected evidence does not silently change the historical Decision Record, although it may trigger appeal or remediation.</p>
+<br />
+</ContentPage>

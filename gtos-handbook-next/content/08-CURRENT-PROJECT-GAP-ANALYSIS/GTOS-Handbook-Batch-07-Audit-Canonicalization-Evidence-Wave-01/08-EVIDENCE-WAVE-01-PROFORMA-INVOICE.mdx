@@ -1,0 +1,65 @@
+---
+title: "Repository Evidence Wave 01 - Proforma Invoice"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="Repository Evidence Wave 01 - Proforma Invoice"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "Repository Evidence Wave 01 - Proforma Invoice" }
+  ]}
+>
+
+<br />
+<h2 id="evidence-baseline">Evidence baseline</h2>
+<br />
+<p>Verified commit: <code class="code-inline">14cc83805e7386c3d5cdec6ad191b1078fd502ff</code>.</p>
+<br />
+<p>Inspected files:</p>
+<br />
+<p>- <code class="code-inline">backend/domain/commerce/tajerestan-services/src/main/java/com/allinb2c/commerce/tajerestan/entity/ProformaInvoiceEntity.java</code></p>
+<p>- <code class="code-inline">backend/domain/commerce/tajerestan-services/src/main/java/com/allinb2c/commerce/tajerestan/service/ProformaInvoiceService.java</code></p>
+<p>- <code class="code-inline">backend/domain/commerce/tajerestan-services/src/main/java/com/allinb2c/commerce/tajerestan/api/ProformaInvoiceController.java</code></p>
+<br />
+<h2 id="verified-implementation">Verified implementation</h2>
+<br />
+<p><code class="code-inline">ProformaInvoiceEntity</code> maps to <code class="code-inline">tb_proforma_invoice</code>. It records PI number, supplier, customer, quotation and purchase-order references, Incoterm, currency, payment terms, prepayment ratio, ports, country, shipping method, estimated ship date, expiry date, total amount, status, notes, company, timestamps, items, and payment schedules.</p>
+<br />
+<p>The documented status vocabulary in source is <code class="code-inline">DRAFT</code>, <code class="code-inline">SENT</code>, <code class="code-inline">ACCEPTED</code>, <code class="code-inline">CONVERTED</code>, and <code class="code-inline">CANCELLED</code>.</p>
+<br />
+<p><code class="code-inline">ProformaInvoiceService</code> implements:</p>
+<br />
+<p>- create PI and line items;</p>
+<p>- get and list;</p>
+<p>- send;</p>
+<p>- accept;</p>
+<p>- convert to a Purchase Order reference;</p>
+<p>- Events <code class="code-inline">trade.proforma-invoice.created</code>, <code class="code-inline">.sent</code>, <code class="code-inline">.accepted</code>, and <code class="code-inline">.converted</code>.</p>
+<br />
+<p><code class="code-inline">ProformaInvoiceController</code> exposes:</p>
+<br />
+<p>- <code class="code-inline">POST /api/v1/trade/proforma-invoices</code>;</p>
+<p>- <code class="code-inline">GET /api/v1/trade/proforma-invoices/{id}</code>;</p>
+<p>- <code class="code-inline">GET /api/v1/trade/proforma-invoices</code>;</p>
+<p>- <code class="code-inline">PUT /api/v1/trade/proforma-invoices/{id}/send</code>;</p>
+<p>- <code class="code-inline">PUT /api/v1/trade/proforma-invoices/{id}/accept</code>;</p>
+<p>- <code class="code-inline">POST /api/v1/trade/proforma-invoices/{id}/convert</code>.</p>
+<br />
+<h2 id="verified-gaps">Verified gaps</h2>
+<br />
+<p>- Service uses a constant <code class="code-inline">DEFAULT_COMPANY_ID</code> and also assigns it as customer ID.</p>
+<p>- <code class="code-inline">supplierId</code> can become null through <code class="code-inline">safeUUID</code>, while the Entity declares it non-null.</p>
+<p>- No immutable PI version entity or optimistic-lock field was found.</p>
+<p>- Send, accept, and convert methods do not enforce explicit source-state guards.</p>
+<p>- The <code class="code-inline">purchaseOrderId</code> parameter accepted by list service is not used in the inspected query selection.</p>
+<p>- PI number generation is time/random based and not a governed numbering policy.</p>
+<p>- The inspected code does not establish approval, signature, beneficiary verification, expiry enforcement, or payment-risk approval.</p>
+<br />
+<h2 id="status-decision">Status decision</h2>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Capability","sortable":true},{"key":"col1","label":"Status","sortable":true}]} data={[{"col0":"PI entity and persistence mapping","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"create/get/list/send/accept/convert endpoints","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"line items and payment-schedule relationships","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"basic trade Events","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"tenant-context enforcement","col1":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"lifecycle guards","col1":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"immutable commercial versioning","col1":"<code class=\"code-inline\">PLANNED_NOT_IMPLEMENTED</code> in inspected source"},{"col0":"formal approval/signature/risk workflow","col1":"<code class=\"code-inline\">REQUIRES_REPOSITORY_REVIEW</code>"}]} />
+<br />
+</ContentPage>

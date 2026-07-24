@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Import Customs یکی از بالغ‌ترین بخش‌های بررسی‌شده در Wave 02 است. Migration V16 این جدول‌ها را ایجاد می‌کند: partner.import declarations - partner.wms inbound orders - partner.wms inbound items - partner.warehouse receipts Controller یک lifecycle Partner-scoped دارد: list و detai…">
+<meta name="color-scheme" content="light dark">
+<title>04 — Import Customs, Duties, and Release · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/04-IMPORT-CUSTOMS-DUTIES-AND-RELEASE.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 08 Repository Evidence Wave 02</span><span class="sep">/</span><span>04 — Import Customs, Duties, and Release</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>263 words</span></div>
+        <h1>04 — Import Customs, Duties, and Release</h1>
+        <p class="lede">Import Customs یکی از بالغ‌ترین بخش‌های بررسی‌شده در Wave 02 است. Migration V16 این جدول‌ها را ایجاد می‌کند: partner.import declarations - partner.wms inbound orders - partner.wms inbound items - partner.warehouse receipts Controller یک lifecycle Partner-scoped دارد: list و detai…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="evidence-maturity">Evidence maturity<a aria-label="Link to section" class="heading-anchor" href="#evidence-maturity">#</a></h2>
+<p>Import Customs یکی از بالغ‌ترین بخش‌های بررسی‌شده در Wave 02 است.</p>
+<p>Migration V16 این جدول‌ها را ایجاد می‌کند:</p>
+<ul>
+<li><code>partner.import_declarations</code></li>
+<li><code>partner.wms_inbound_orders</code></li>
+<li><code>partner.wms_inbound_items</code></li>
+<li><code>partner.warehouse_receipts</code></li>
+</ul>
+<p>Controller یک lifecycle Partner-scoped دارد:</p>
+<ul>
+<li>list و detail؛</li>
+<li>create از Shipment متعلق به Partner؛</li>
+<li>generic update فقط در <code>DRAFT</code> و <code>CUSTOMS_HOLD</code>؛</li>
+<li>submit اختصاصی؛</li>
+<li>mark-duty-paid اختصاصی؛</li>
+<li>mark-cleared اختصاصی؛</li>
+<li>status history و audit؛</li>
+<li>sync وضعیت Shipment به <code>CUSTOMS_CLEARED</code>.</li>
+</ul>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h2 id="کنترل-های-مثبت">کنترل‌های مثبت<a aria-label="Link to section" class="heading-anchor" href="#کنترل-های-مثبت">#</a></h2>
+<ul>
+<li>Partner ID از JWT principal گرفته می‌شود.</li>
+<li>بسیاری از read/writeها با Partner ID محدود می‌شوند.</li>
+<li>create بررسی می‌کند Shipment متعلق به Partner باشد.</li>
+<li>terminal status از generic PATCH ممنوع است.</li>
+<li>submit فقط از <code>DRAFT</code> مجاز است.</li>
+<li>clear به Shipment لینک‌شده نیاز دارد.</li>
+<li>audit snapshot و history ثبت می‌شود.</li>
+</ul>
+<h2 id="gapهای-مهم">Gapهای مهم<a aria-label="Link to section" class="heading-anchor" href="#gapهای-مهم">#</a></h2>
+<ol>
+<li>Migration عمداً <code>partner.import_declarations</code> را DROP و recreate می‌کند؛ این رفتار destructive است.</li>
+<li><code>mark-duty-paid</code> از وضعیت <code>CLEARED</code> نیز مجاز است که lifecycle را غیرمنطقی می‌کند.</li>
+<li>duty/tax صفر یا null فقط warning ایجاد می‌کند و عملیات را block نمی‌کند.</li>
+<li><code>mark-cleared</code> یک application action است و authority response خارجی اثبات نشده.</li>
+<li>Shipment status با direct cross-table mutation تغییر می‌کند.</li>
+<li>JDBC updateها optimistic version predicate ندارند.</li>
+<li>status history در JSON mutable است.</li>
+<li>Provider WMS tables با Warehouse/Inventory ownership هم‌پوشانی دارند.</li>
+</ol>
+<h2 id="مدل-canonical">مدل canonical<a aria-label="Link to section" class="heading-anchor" href="#مدل-canonical">#</a></h2>
+<p>Truthهای زیر باید مستقل باشند:</p>
+<ul>
+<li><code>ImportDeclarationSubmitted</code> — platform fact؛</li>
+<li><code>DutyAssessmentObserved</code> — authority observation؛</li>
+<li><code>DutyPaymentIntent</code> و <code>DutyPaymentOutcome</code> — Finance/Payment؛</li>
+<li><code>ImportReleaseObserved</code> — authority observation؛</li>
+<li><code>ShipmentCustomsPerspectiveChanged</code> — projection.</li>
+</ul>
+<p>هیچ کاربر برنامه نباید بدون authority evidence بتواند legal clearance بسازد.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#evidence-maturity">Evidence maturity</a><a class="toc-level-2" href="#کنترل-های-مثبت">کنترل‌های مثبت</a><a class="toc-level-2" href="#gapهای-مهم">Gapهای مهم</a><a class="toc-level-2" href="#مدل-canonical">مدل canonical</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="03-EXPORT-CUSTOMS-AND-LEGAL-RELEASE.html"><span>Previous</span><strong>03 — Export Customs and Legal Release</strong></a>
+        <a class="next" href="05-TRANSPORT-BOOKING-HANDOVER-SHIPMENT-AND-TRACKING.html"><span>Next</span><strong>05 — Transport Booking, Handover, Shipment, and Tracking</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

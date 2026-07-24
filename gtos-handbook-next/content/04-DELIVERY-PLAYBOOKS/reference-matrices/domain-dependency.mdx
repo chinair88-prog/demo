@@ -1,0 +1,19 @@
+---
+title: "Domain Dependency Matrix"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Domain Dependency Matrix"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Domain Dependency Matrix" }
+  ]}
+>
+
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Domain","sortable":true},{"key":"col1","label":"Depends On","sortable":true},{"key":"col2","label":"Publishes To","sortable":true},{"key":"col3","label":"Critical Coupling Rule","sortable":true}]} data={[{"col0":"Party","col1":"external identity authorities","col2":"all domains","col3":"consumers reference Party identity; they do not edit it"},{"col0":"Product","col1":"classification authorities","col2":"Order, Shipment, Compliance","col3":"product version and jurisdiction are explicit"},{"col0":"Agreement","col1":"Party, Product","col2":"Order, Finance, Insurance","col3":"obligations preserve effective time"},{"col0":"Order","col1":"Party, Product, Agreement","col2":"Shipment, Finance","col3":"allocation does not redefine product or agreement"},{"col0":"Shipment","col1":"Order, Party, Product","col2":"Transport, Compliance, Risk","col3":"custody and cargo identity remain distinct"},{"col0":"Transport","col1":"Party, Shipment","col2":"Shipment, Risk","col3":"schedule and actual movement are separate"},{"col0":"Document","col1":"all relevant domains","col2":"Compliance, Finance, Evidence","col3":"versions and signatures are immutable"},{"col0":"Compliance","col1":"Party, Product, Shipment, Document","col2":"Case, Shipment, Risk","col3":"legal decisions remain authority-owned"},{"col0":"Finance","col1":"Agreement, Order, Document","col2":"Risk, Evidence","col3":"approval, execution, settlement are distinct"},{"col0":"Decision","col1":"Evidence, Policy, Authority","col2":"all domains","col3":"Decision does not directly own domain state"},{"col0":"Evidence","col1":"all domains","col2":"Decision, Audit","col3":"derived artifacts retain source lineage"}]} />
+<br />
+</ContentPage>

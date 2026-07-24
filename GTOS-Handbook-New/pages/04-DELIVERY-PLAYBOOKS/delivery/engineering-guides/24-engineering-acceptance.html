@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Engineering Acceptance and Handover · GTOS Handbook</title>
+<meta name="description" content="Engineering Acceptance and Handover Purpose Engineering acceptance confirms that a GTOS capability is not merely implemented but ready to become an owned, suppo">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Engineering Acceptance and Handover</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Engineering Acceptance and Handover</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#purpose">Purpose</a></li><li class="toc-level-2"><a href="#acceptance-package">Acceptance Package</a></li><li class="toc-level-2"><a href="#knowledge-transfer">Knowledge Transfer</a></li><li class="toc-level-2"><a href="#ownership-transfer">Ownership Transfer</a></li><li class="toc-level-2"><a href="#open-items">Open Items</a></li><li class="toc-level-2"><a href="#acceptance-decision">Acceptance Decision</a></li><li class="toc-level-2"><a href="#post-acceptance-verification">Post-Acceptance Verification</a></li><li class="toc-level-2"><a href="#final-verification-questions">Final Verification Questions</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="engineering-acceptance-and-handover">Engineering Acceptance and Handover</h1>
+<br>
+<h2 id="purpose">Purpose <a href="#purpose" class="heading-anchor">#</a></h2>
+<br>
+<p>Engineering acceptance confirms that a GTOS capability is not merely implemented but ready to become an owned, supportable, auditable part of the operating system. Acceptance transfers responsibility from a temporary delivery arrangement to durable product and operations ownership.</p>
+<br>
+<h2 id="acceptance-package">Acceptance Package <a href="#acceptance-package" class="heading-anchor">#</a></h2>
+<br>
+<p>The package includes approved domain and solution design, Canon traceability, ADRs, contracts, schemas, source repositories, build and deployment definitions, dependency inventory, test evidence, threat model, data classification, migration and reconciliation evidence, dashboards, SLOs, alerts, runbooks, support rota, known risks, architecture debt, partner contacts, and recovery results.</p>
+<br>
+<h2 id="knowledge-transfer">Knowledge Transfer <a href="#knowledge-transfer" class="heading-anchor">#</a></h2>
+<br>
+<p>Handover combines documentation with practical demonstration. Receiving engineers deploy the capability, diagnose a simulated failure, trace a business outcome, execute a runbook, inspect a Decision Record, replay or rebuild a projection safely, and explain correction behavior. Attendance at a presentation does not prove operational competence.</p>
+<br>
+<h2 id="ownership-transfer">Ownership Transfer <a href="#ownership-transfer" class="heading-anchor">#</a></h2>
+<br>
+<p>The Product Owner accepts outcome and roadmap. The Domain Owner accepts authoritative meaning and policy. Engineering accepts code and delivery pipelines. Data accepts contracts, lineage, quality, retention, and access. Security accepts controls and residual risk. Operations accepts SLOs, runbooks, on-call, recovery, and incident escalation.</p>
+<br>
+<h2 id="open-items">Open Items <a href="#open-items" class="heading-anchor">#</a></h2>
+<br>
+<p>Open defects, exceptions, debt, manual controls, temporary credentials, feature flags, migration bridges, and unsupported consumers remain visible with owner, impact, due date, and escalation. Hidden unfinished work invalidates acceptance.</p>
+<br>
+<h2 id="acceptance-decision">Acceptance Decision <a href="#acceptance-decision" class="heading-anchor">#</a></h2>
+<br>
+<p>The acceptance Decision identifies scope, release, environment, evidence, conditions, dissent, and effective date. Conditional acceptance has measurable exit criteria. Critical non-conformance cannot be converted into acceptance merely because a project deadline has arrived.</p>
+<br>
+<h2 id="post-acceptance-verification">Post-Acceptance Verification <a href="#post-acceptance-verification" class="heading-anchor">#</a></h2>
+<br>
+<p>Within the agreed period, the receiving team reviews production outcomes, SLOs, incidents, partner behavior, data reconciliation, AI quality, costs, and benefit measures. Material divergence triggers remediation or a new architecture Decision. Temporary project access and elevated permissions are removed after verified transfer.</p>
+<br>
+<h2 id="final-verification-questions">Final Verification Questions <a href="#final-verification-questions" class="heading-anchor">#</a></h2>
+<br>
+<p>Can the receiving team identify every production owner and escalation path? Can it explain which data is authoritative and which is derived? Can it safely stop automated execution without losing evidence? Can it recover from backup, replay Events, reconcile business state, and prove completion? Can it trace a user-visible outcome to policy, Decision, Intent, Command, Event, deployment, and operational telemetry? Can it identify all temporary controls and their expiry? If any answer is unknown, the handover remains incomplete and the delivery team retains responsibility for closing the gap.</p>
+<br>
+<p>Acceptance evidence SHALL remain accessible, versioned, attributable, and reviewable throughout the operational life of the capability.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

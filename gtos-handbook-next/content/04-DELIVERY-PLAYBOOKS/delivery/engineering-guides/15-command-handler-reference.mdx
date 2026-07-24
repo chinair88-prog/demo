@@ -1,0 +1,50 @@
+---
+title: "Command Handler Reference Flow"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Command Handler Reference Flow"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Command Handler Reference Flow" }
+  ]}
+>
+
+<br />
+<h2 id="input">Input</h2>
+<br />
+<p>A Command arrives with command identity, type, subject, initiator, authority or Intent reference, requested time, idempotency key, expected version where used, schema version, and payload.</p>
+<br />
+<h2 id="processing-steps">Processing Steps</h2>
+<br />
+<p>1. Authenticate the technical caller and resolve the acting identity.</p>
+<p>2. Validate schema and supported version.</p>
+<p>3. Retrieve or validate the authority, delegation, mandate, and purpose.</p>
+<p>4. Check the idempotency store. If the logical Command completed earlier, return the recorded outcome rather than execute again.</p>
+<p>5. Resolve the subject identity and load authoritative state under the aggregate consistency boundary.</p>
+<p>6. Evaluate policy and required evidence.</p>
+<p>7. Validate state transition and invariants.</p>
+<p>8. Apply domain behavior and produce new state plus one or more Events.</p>
+<p>9. Persist state and outgoing Events atomically through an outbox, event store, or equivalent guarantee.</p>
+<p>10. Record the outcome, decision or policy references, correlation, and telemetry.</p>
+<br />
+<h2 id="result-types">Result Types</h2>
+<br />
+<p>The handler returns accepted and completed, accepted for asynchronous processing, rejected by validation, denied by policy, conflict with current state, insufficient evidence, duplicate with prior outcome, or temporarily unavailable. A generic failure response hides business meaning and complicates safe retry.</p>
+<br />
+<h2 id="concurrency">Concurrency</h2>
+<br />
+<p>Optimistic concurrency is appropriate when conflicts are expected to be rare and domain rules can reject stale commands. Pessimistic coordination MAY be required for high-contention financial or inventory invariants. Distributed locks SHALL not become invisible ownership.</p>
+<br />
+<h2 id="failure-after-commit">Failure After Commit</h2>
+<br />
+<p>If state commits but the response is lost, a retry with the same idempotency key returns the previous result. If Event publication is delayed, the outbox is retried. The handler SHALL not apply the business transition a second time.</p>
+<br />
+<h2 id="audit-and-observability">Audit and Observability</h2>
+<br />
+<p>Record Command outcome, policy result, invariant conflict, processing latency, Event publication, and dependency failures. Sensitive payloads are minimized in logs. Operators can locate the full trace through identifiers and evidence references.</p>
+<br />
+</ContentPage>

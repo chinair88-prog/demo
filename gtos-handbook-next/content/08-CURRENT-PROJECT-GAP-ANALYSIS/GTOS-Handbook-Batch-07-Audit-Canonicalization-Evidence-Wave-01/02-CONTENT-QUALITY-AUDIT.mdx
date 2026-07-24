@@ -1,0 +1,47 @@
+---
+title: "Content Quality Audit"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="Content Quality Audit"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "Content Quality Audit" }
+  ]}
+>
+
+<br />
+<h2 id="corpus-wide-result">Corpus-wide result</h2>
+<br />
+<p>The generated Batches 02-06 contain a large amount of repeated architecture-template text.</p>
+<br />
+<p>- Common-line instance ratio across Batches 01-06: <strong>80.2%</strong></p>
+<p>- Batch 01 mean common-line ratio: <strong>22.3%</strong></p>
+<p>- Batch 02 mean common-line ratio: <strong>82.5%</strong></p>
+<p>- Batch 03 mean common-line ratio: <strong>83.0%</strong></p>
+<p>- Batch 04 mean common-line ratio: <strong>81.5%</strong></p>
+<p>- Batch 05 mean common-line ratio: <strong>83.2%</strong></p>
+<p>- Batch 06 mean common-line ratio: <strong>83.1%</strong></p>
+<br />
+<h2 id="interpretation">Interpretation</h2>
+<br />
+<p>Batch 01 contains more stage-specific material, although it still requires source enrichment. Batches 02-06 are primarily architecture skeletons generated from one common chapter pattern. The chapter titles, owners, purposes, and a small number of phrases vary; most lifecycle, API, table, security, SLO, testing, and checklist sections are repeated.</p>
+<br />
+<h2 id="maturity-correction">Maturity correction</h2>
+<br />
+<p>The repeated status <code class="code-inline">Draft Complete for Architecture Review</code> was too strong. It has been replaced in <code class="code-inline">AUDITED-v2</code> packages by:</p>
+<br />
+<p><code class="code-inline">Generated First-Draft Architecture Skeleton - Domain-Specific Expansion Required</code></p>
+<br />
+<p>and:</p>
+<br />
+<p><code class="code-inline">TEMPLATE_DERIVED_REFERENCE_SKELETON</code></p>
+<br />
+<h2 id="quality-decision">Quality decision</h2>
+<br />
+<p>The skeletons may be retained as checklists and target-architecture scaffolding. They must not be counted as completed repository specifications or as evidence that the 5,000-8,000 page objective has been achieved.</p>
+<br />
+</ContentPage>

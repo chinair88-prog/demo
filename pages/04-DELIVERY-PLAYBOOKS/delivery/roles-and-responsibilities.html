@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Approval is not attendance. An approver confirms that the artifact is correct within their authority and that unresolved risks are explicit. One person MAY hold multiple roles in a small implementation, but conflicting duties and high-impact approvals SHOULD remain independently…">
+<meta name="color-scheme" content="light dark">
+<title>Delivery Roles and Responsibilities · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/delivery/roles-and-responsibilities.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Delivery</span><span class="sep">/</span><span>Delivery Roles and Responsibilities</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>197 words</span></div>
+        <h1>Delivery Roles and Responsibilities</h1>
+        <p class="lede">Approval is not attendance. An approver confirms that the artifact is correct within their authority and that unresolved risks are explicit. One person MAY hold multiple roles in a small implementation, but conflicting duties and high-impact approvals SHOULD remain independently…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Role</th>
+<th>Primary Accountability</th>
+<th>SHALL Approve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Executive Sponsor</td>
+<td>transformation outcome, funding, organizational authority</td>
+<td>mandate, scope, major risk</td>
+</tr>
+<tr>
+<td>Architecture Council</td>
+<td>Canon, Constitution, cross-domain coherence</td>
+<td>normative changes and major exceptions</td>
+</tr>
+<tr>
+<td>Chief Architect</td>
+<td>end-to-end reference architecture</td>
+<td>architecture baseline and release conformance</td>
+</tr>
+<tr>
+<td>Domain Owner</td>
+<td>authoritative propositions and business outcomes</td>
+<td>domain charter, invariants, decisions</td>
+</tr>
+<tr>
+<td>Product Manager</td>
+<td>value, roadmap, adoption, service outcomes</td>
+<td>product scope and measurable acceptance</td>
+</tr>
+<tr>
+<td>Domain Architect</td>
+<td>domain model, contracts, integration</td>
+<td>aggregates, Commands, Events, policies</td>
+</tr>
+<tr>
+<td>Data Owner/Steward</td>
+<td>data meaning, quality, retention, access</td>
+<td>data contract and quality rules</td>
+</tr>
+<tr>
+<td>AI Owner</td>
+<td>AI purpose, evaluation, outcome, and safety</td>
+<td>mandate, evaluation, deployment</td>
+</tr>
+<tr>
+<td>Security Architect</td>
+<td>threat, identity, policy, privacy, incident controls</td>
+<td>security design and residual risk</td>
+</tr>
+<tr>
+<td>Platform Owner</td>
+<td>shared capability service quality</td>
+<td>platform contracts and SLOs</td>
+</tr>
+<tr>
+<td>Engineering Lead</td>
+<td>implementation quality and delivery evidence</td>
+<td>technical design, tests, release artifact</td>
+</tr>
+<tr>
+<td>SRE/Operations Owner</td>
+<td>reliability, support, recovery, incident readiness</td>
+<td>SLO, runbook, recovery evidence</td>
+</tr>
+<tr>
+<td>Partner Integration Lead</td>
+<td>external participant readiness</td>
+<td>certification and cutover</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="accountability-rule">Accountability Rule<a aria-label="Link to section" class="heading-anchor" href="#accountability-rule">#</a></h2>
+<p>Approval is not attendance. An approver confirms that the artifact is correct within their authority and that unresolved risks are explicit. One person MAY hold multiple roles in a small implementation, but conflicting duties and high-impact approvals SHOULD remain independently reviewed.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#accountability-rule">Accountability Rule</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="playbooks/truth-ownership-workshop.html"><span>Previous</span><strong>Playbook — Truth Ownership Workshop</strong></a>
+        <a class="next" href="stage-0-mandate-and-scope.html"><span>Next</span><strong>Stage 0 — Mandate and Scope</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

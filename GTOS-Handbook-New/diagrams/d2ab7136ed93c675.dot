@@ -1,0 +1,31 @@
+digraph G {
+rankdir=LR;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.34", ranksep="0.60", splines="spline"];
+node [fontname="Arial", fontsize=10, shape=rect, color="#4B5D8A", penwidth=1.45, style="rounded,filled", fillcolor="#F5F6FC", fontcolor="#253150", margin="0.15,0.09"];
+edge [color="#6677A5", penwidth=1.35, arrowsize=0.72];
+"ARRIVED_AT_PORT" [label="ARRIVED AT PORT"];
+"BOOKED" [label="BOOKED"];
+"CANCELLED" [label="CANCELLED"];
+"CUSTOMS_PENDING" [label="CUSTOMS PENDING"];
+"DELAYED" [label="DELAYED"];
+"DELIVERED_TO_DESTINATION" [label="DELIVERED TO DESTINATION"];
+"DEPARTED" [label="DEPARTED"];
+"EXCEPTION" [label="EXCEPTION"];
+"IN_TRANSIT" [label="IN TRANSIT"];
+"LOST" [label="LOST"];
+"PICKED_UP" [label="PICKED UP"];
+"TRANSSHIPMENT" [label="TRANSSHIPMENT"];
+"__start_0" [shape=circle, width=0.14, fixedsize=true, label="", fillcolor="#30476F", color="#30476F", style=filled];
+"__start_0" -> "BOOKED";
+"BOOKED" -> "PICKED_UP";
+"PICKED_UP" -> "DEPARTED";
+"DEPARTED" -> "IN_TRANSIT";
+"IN_TRANSIT" -> "TRANSSHIPMENT";
+"TRANSSHIPMENT" -> "DELAYED";
+"DELAYED" -> "EXCEPTION";
+"EXCEPTION" -> "ARRIVED_AT_PORT";
+"ARRIVED_AT_PORT" -> "CUSTOMS_PENDING";
+"CUSTOMS_PENDING" -> "DELIVERED_TO_DESTINATION";
+"DELIVERED_TO_DESTINATION" -> "LOST";
+"LOST" -> "CANCELLED";
+}

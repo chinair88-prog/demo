@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTOS API Contract Standard · GTOS Handbook</title>
+<meta name="description" content="GTOS API Contract Standard Resource and Action Semantics APIs SHALL use domain language. A resource endpoint represents a governed concept or perspective. An ac">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/standards/index.html">Standards</a> <span class="sep">›</span> <span>GTOS API Contract Standard</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>GTOS API Contract Standard</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#resource-and-action-semantics">Resource and Action Semantics</a></li><li class="toc-level-2"><a href="#required-metadata">Required Metadata</a></li><li class="toc-level-2"><a href="#error-model">Error Model</a></li><li class="toc-level-2"><a href="#compatibility">Compatibility</a></li><li class="toc-level-2"><a href="#query-semantics">Query Semantics</a></li><li class="toc-level-2"><a href="#idempotency">Idempotency</a></li><li class="toc-level-2"><a href="#security">Security</a></li><li class="toc-level-2"><a href="#observability">Observability</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="gtos-api-contract-standard">GTOS API Contract Standard</h1>
+<br>
+<h2 id="resource-and-action-semantics">Resource and Action Semantics <a href="#resource-and-action-semantics" class="heading-anchor">#</a></h2>
+<br>
+<p>APIs SHALL use domain language. A resource endpoint represents a governed concept or perspective. An action endpoint represents a Command or Decision request. API naming SHALL not imply authority the provider does not own.</p>
+<br>
+<h2 id="required-metadata">Required Metadata <a href="#required-metadata" class="heading-anchor">#</a></h2>
+<br>
+<p>Requests and responses include correlation identity, caller identity through security context, version, content type, and temporal fields where relevant. Commands additionally include idempotency key, authority context, expected subject version, and Intent reference when execution is involved.</p>
+<br>
+<h2 id="error-model">Error Model <a href="#error-model" class="heading-anchor">#</a></h2>
+<br>
+<p>Errors are categorized as authentication failure, authorization denial, invalid evidence, validation failure, invariant conflict, optimistic concurrency conflict, policy requirement, dependency failure, rate limit, or internal fault. Error responses SHALL not expose sensitive implementation details.</p>
+<br>
+<h2 id="compatibility">Compatibility <a href="#compatibility" class="heading-anchor">#</a></h2>
+<br>
+<p>Adding an optional field may be compatible. Changing meaning, units, identifier scope, default policy, time semantics, or authority is breaking. Deprecation identifies consumers and sunset date.</p>
+<br>
+<h2 id="query-semantics">Query Semantics <a href="#query-semantics" class="heading-anchor">#</a></h2>
+<br>
+<p>Queries SHALL declare whether they return authoritative current state, a projection, historical state, decision-time knowledge, or analytical output. Pagination ordering SHALL be stable. Filters SHALL have defined timezone and comparison semantics.</p>
+<br>
+<h2 id="idempotency">Idempotency <a href="#idempotency" class="heading-anchor">#</a></h2>
+<br>
+<p>Commands capable of side effects SHALL support idempotency appropriate to business identity. An idempotency key maps to one logical attempt and outcome. Reuse with materially different input is rejected.</p>
+<br>
+<h2 id="security">Security <a href="#security" class="heading-anchor">#</a></h2>
+<br>
+<p>Object-level and relationship-level authorization is mandatory. Bulk endpoints require scope and volume controls. Sensitive fields are minimized and purpose-controlled.</p>
+<br>
+<h2 id="observability">Observability <a href="#observability" class="heading-anchor">#</a></h2>
+<br>
+<p>Metrics include request outcome, policy denial, invariant conflict, dependency latency, consumer version, and business effect. Logs preserve correlation without leaking secrets or prohibited personal data.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

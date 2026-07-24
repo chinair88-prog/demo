@@ -1,0 +1,29 @@
+---
+title: "Batch 08 Release Report"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="Batch 08 Release Report"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "Batch 08 Release Report" }
+  ]}
+>
+
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Field","sortable":true},{"key":"col1","label":"Value","sortable":true}]} data={[{"col0":"Release","col1":"Repository Evidence Wave 02"},{"col0":"Repository snapshot","col1":"<code class=\"code-inline\">14cc83805e7386c3d5cdec6ad191b1078fd502ff</code>"},{"col0":"Publication maturity","col1":"Code-grounded review artifact"},{"col0":"Final handbook status","col1":"Not complete"}]} />
+<br />
+<h2 id="principal-conclusions">Principal conclusions</h2>
+<br />
+<p>- Trade Quality Inspection در حد mock UI و stock disposition است.</p>
+<p>- دو Packing List implementation رقیب وجود دارد.</p>
+<p>- Commercial Invoice persistence/read/update دارد، ولی create/generate کامل نیست.</p>
+<p>- Export/Import workflow اجرایی دارد، ولی application status معادل legal authority نیست.</p>
+<p>- Shipping اجرا شده اما tenant isolation و Event delivery Gap بحرانی دارد.</p>
+<p>- Warehouse ASN/Dock و Provider WMS هم‌پوشانی دارند.</p>
+<p>- Inventory مدل قوی دارد، اما request-derived identity، idempotency و invariant Gap دارد.</p>
+<br />
+</ContentPage>

@@ -1,0 +1,31 @@
+digraph G {
+rankdir=LR;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.34", ranksep="0.60", splines="spline"];
+node [fontname="Arial", fontsize=10, shape=rect, color="#4B5D8A", penwidth=1.45, style="rounded,filled", fillcolor="#F5F6FC", fontcolor="#253150", margin="0.15,0.09"];
+edge [color="#6677A5", penwidth=1.35, arrowsize=0.72];
+"CLOSED" [label="CLOSED"];
+"CONDITIONALLY_RELEASED" [label="CONDITIONALLY RELEASED"];
+"DECISION_PENDING" [label="DECISION PENDING"];
+"EVIDENCE_PENDING" [label="EVIDENCE PENDING"];
+"HELD" [label="HELD"];
+"IN_PROGRESS" [label="IN PROGRESS"];
+"PLANNED" [label="PLANNED"];
+"READY" [label="READY"];
+"REJECTED" [label="REJECTED"];
+"RELEASED" [label="RELEASED"];
+"REVOKED" [label="REVOKED"];
+"REWORK_REQUIRED" [label="REWORK REQUIRED"];
+"__start_0" [shape=circle, width=0.14, fixedsize=true, label="", fillcolor="#30476F", color="#30476F", style=filled];
+"__start_0" -> "PLANNED";
+"PLANNED" -> "READY";
+"READY" -> "IN_PROGRESS";
+"IN_PROGRESS" -> "EVIDENCE_PENDING";
+"EVIDENCE_PENDING" -> "DECISION_PENDING";
+"DECISION_PENDING" -> "RELEASED";
+"RELEASED" -> "CONDITIONALLY_RELEASED";
+"CONDITIONALLY_RELEASED" -> "HELD";
+"HELD" -> "REWORK_REQUIRED";
+"REWORK_REQUIRED" -> "REJECTED";
+"REJECTED" -> "REVOKED";
+"REVOKED" -> "CLOSED";
+}

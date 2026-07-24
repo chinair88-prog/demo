@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Playbook — SLO and Runbook Design · GTOS Handbook</title>
+<meta name="description" content="Playbook — SLO and Runbook Design Purpose Translate business criticality into measurable reliability and executable operations. When to Use Use this playbook wh">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/playbooks/index.html">Playbooks</a> <span class="sep">›</span> <span>Playbook — SLO and Runbook Design</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Playbook — SLO and Runbook Design</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#purpose">Purpose</a></li><li class="toc-level-2"><a href="#when-to-use">When to Use</a></li><li class="toc-level-2"><a href="#preparation">Preparation</a></li><li class="toc-level-2"><a href="#working-steps">Working Steps</a></li><li class="toc-level-2"><a href="#facilitation-questions">Facilitation Questions</a></li><li class="toc-level-2"><a href="#outputs">Outputs</a></li><li class="toc-level-2"><a href="#quality-controls">Quality Controls</a></li><li class="toc-level-2"><a href="#completion-evidence">Completion Evidence</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="playbook-slo-and-runbook-design">Playbook — SLO and Runbook Design</h1>
+<br>
+<h2 id="purpose">Purpose <a href="#purpose" class="heading-anchor">#</a></h2>
+<br>
+<p>Translate business criticality into measurable reliability and executable operations.</p>
+<br>
+<h2 id="when-to-use">When to Use <a href="#when-to-use" class="heading-anchor">#</a></h2>
+<br>
+<p>Use this playbook when creating or materially changing a GTOS domain, platform capability, integration, data product, AI capability, security control, migration, or operational process. The facilitator SHALL adapt detail to impact without removing foundational questions.</p>
+<br>
+<h2 id="preparation">Preparation <a href="#preparation" class="heading-anchor">#</a></h2>
+<br>
+<p>Identify sponsor, accountable owner, participants, decisions required, source evidence, current constraints, affected jurisdictions, and the deadline. Distribute existing domain models, contracts, incidents, policies, and metrics before the session.</p>
+<br>
+<h2 id="working-steps">Working Steps <a href="#working-steps" class="heading-anchor">#</a></h2>
+<br>
+<li>Identify user journeys.</li>
+<li>Choose service indicators.</li>
+<li>Set objectives and error budgets.</li>
+<li>Define alerts.</li>
+<li>Write runbooks.</li>
+<li>Exercise recovery.</li>
+<br>
+<br>
+<h2 id="facilitation-questions">Facilitation Questions <a href="#facilitation-questions" class="heading-anchor">#</a></h2>
+<br>
+<li>What exists in business reality independently of our software?</li>
+<li>Who owns each proposition and under what authority?</li>
+<li>Which identifiers remain stable through change?</li>
+<li>Which time dimensions matter?</li>
+<li>What state and invariants must be protected?</li>
+<li>Which messages are Commands, Events, Observations, Recommendations, or Decisions?</li>
+<li>What evidence is available and what remains uncertain?</li>
+<li>What Intent authorizes execution?</li>
+<li>How are correction, replay, recovery, and dispute handled?</li>
+<br>
+<h2 id="outputs">Outputs <a href="#outputs" class="heading-anchor">#</a></h2>
+<br>
+<li>SLO catalogue</li>
+<li>dashboard</li>
+<li>alert map</li>
+<li>runbooks</li>
+<li>exercise evidence</li>
+<br>
+<br>
+<h2 id="quality-controls">Quality Controls <a href="#quality-controls" class="heading-anchor">#</a></h2>
+<br>
+<p>Outputs SHALL use GTOS terminology, identify Canon dependencies, distinguish authority from technical ownership, and include unresolved questions. Decisions made during the playbook are captured in ADRs or governed registries.</p>
+<br>
+<h2 id="completion-evidence">Completion Evidence <a href="#completion-evidence" class="heading-anchor">#</a></h2>
+<br>
+<p>The playbook is complete when accountable owners approve the outputs, downstream teams can implement from them, testable acceptance criteria exist, and critical uncertainty is either resolved or formally controlled.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

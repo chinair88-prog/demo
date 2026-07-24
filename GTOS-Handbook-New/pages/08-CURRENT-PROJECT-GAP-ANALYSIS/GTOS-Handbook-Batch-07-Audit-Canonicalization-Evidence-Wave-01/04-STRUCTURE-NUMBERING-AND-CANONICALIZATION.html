@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Structure, Numbering, and Canonicalization Audit · GTOS Handbook</title>
+<meta name="description" content="Structure, Numbering, and Canonicalization Audit Findings 1. The canonical lifecycle contains 27 stages, while the publication contains 28 numbered stage chapte">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-07-Audit-Canonicalization-Evidence-Wave-01/index.html">GTOS Handbook Batch 07 Audit Canonicalization Evidence Wave 01</a> <span class="sep">›</span> <span>Structure, Numbering, and Canonicalization Audit</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>Structure, Numbering, and Canonicalization Audit</h1>
+      </header>
+      
+      <div class="prose">
+        <h1 id="structure-numbering-and-canonicalization-audit">Structure, Numbering, and Canonicalization Audit</h1>
+<br>
+<h2 id="findings">Findings <a href="#findings" class="heading-anchor">#</a></h2>
+<br>
+<li>The canonical lifecycle contains 27 stages, while the publication contains 28 numbered stage chapters because invitation/submission and negotiation/selection were split.</li>
+<li>The publication-to-canonical map created in Batch 01 is necessary and remains valid as a transitional mapping.</li>
+<li>Earlier Reference Theory and Canon directories contain alternate or duplicate filenames that require a canonical index and deprecation redirects.</li>
+<li>Purchase Order, RFQ, Quotation, Production Order, AI/MCP, service catalogues, ports, and database ownership contain repository-level contradictions.</li>
+<li>Volume-level chapter counts are not completion evidence.</li>
+<br>
+<h2 id="decision">Decision <a href="#decision" class="heading-anchor">#</a></h2>
+<br>
+<li>Preserve canonical lifecycle IDs independently from publication chapter numbers.</li>
+<li>Preserve duplicate source artifacts until a canonicalization decision records their disposition.</li>
+<li>Add <code>canonical_owner</code>, <code>implementation_owner</code>, <code>compatibility_owner</code>, and <code>retirement_status</code> to registries.</li>
+<li>Never merge similarly named concepts solely by filename similarity.</li>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

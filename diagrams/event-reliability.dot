@@ -1,0 +1,7 @@
+digraph G {
+rankdir=LR; graph [bgcolor="transparent", pad="0.35", splines="ortho", nodesep="0.42", ranksep="0.6"];
+node [fontname="Arial", fontsize=10.5, shape=rect, style="rounded,filled", fillcolor="#F4F7FC", color="#506A9A", penwidth=1.4];
+edge [color="#6C7FA5", arrowsize=0.68];
+Command -> Aggregate [label="validate + decide"]; Aggregate -> Database [label="state"];
+Aggregate -> Outbox [label="event atomically"]; Outbox -> Relay [label="poll / CDC"]; Relay -> Broker; Broker -> Inbox [label="at-least-once"]; Inbox -> Consumer [label="deduplicate"]; Consumer -> Projection; Consumer -> Compensation [style=dashed, label="failure policy"];
+}

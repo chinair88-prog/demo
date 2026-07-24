@@ -1,0 +1,27 @@
+digraph G {
+rankdir=LR;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.34", ranksep="0.60", splines="spline"];
+node [fontname="Arial", fontsize=10, shape=rect, color="#4B5D8A", penwidth=1.45, style="rounded,filled", fillcolor="#F5F6FC", fontcolor="#253150", margin="0.15,0.09"];
+edge [color="#6677A5", penwidth=1.35, arrowsize=0.72];
+"APPROVED" [label="APPROVED"];
+"CONTENT_PENDING" [label="CONTENT PENDING"];
+"DRAFT" [label="DRAFT"];
+"ELIGIBILITY_PENDING" [label="ELIGIBILITY PENDING"];
+"EXPIRED" [label="EXPIRED"];
+"MODERATION_PENDING" [label="MODERATION PENDING"];
+"PUBLISHED" [label="PUBLISHED"];
+"REJECTED" [label="REJECTED"];
+"SUSPENDED" [label="SUSPENDED"];
+"UNPUBLISHED" [label="UNPUBLISHED"];
+"__start_0" [shape=circle, width=0.14, fixedsize=true, label="", fillcolor="#30476F", color="#30476F", style=filled];
+"__start_0" -> "DRAFT";
+"DRAFT" -> "CONTENT_PENDING";
+"CONTENT_PENDING" -> "ELIGIBILITY_PENDING";
+"ELIGIBILITY_PENDING" -> "MODERATION_PENDING";
+"MODERATION_PENDING" -> "APPROVED";
+"APPROVED" -> "PUBLISHED";
+"PUBLISHED" -> "SUSPENDED";
+"SUSPENDED" -> "UNPUBLISHED";
+"UNPUBLISHED" -> "REJECTED";
+"REJECTED" -> "EXPIRED";
+}

@@ -1,0 +1,45 @@
+---
+title: "Privacy and Purpose Standard"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Privacy and Purpose Standard"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Privacy and Purpose Standard" }
+  ]}
+>
+
+<br />
+<h2 id="purpose-binding">Purpose Binding</h2>
+<br />
+<p>Sensitive data processing SHALL identify a legitimate purpose. Access granted for one purpose does not automatically permit another.</p>
+<br />
+<h2 id="data-minimization">Data Minimization</h2>
+<br />
+<p>Contracts, Events, logs, AI contexts, and analytical products contain only data necessary for the declared purpose. Broad replication is discouraged when a reference or attestation is sufficient.</p>
+<br />
+<h2 id="data-subject-and-organization-rights">Data Subject and Organization Rights</h2>
+<br />
+<p>Where applicable, the architecture supports access, correction, restriction, deletion, and objection while reconciling legal hold, trade evidence, fraud prevention, and contractual obligations.</p>
+<br />
+<h2 id="jurisdiction">Jurisdiction</h2>
+<br />
+<p>Residency and transfer controls apply to primary storage, backups, logs, search indexes, vector stores, model prompts, support tooling, and incident evidence.</p>
+<br />
+<h2 id="ai">AI</h2>
+<br />
+<p>Personal or confidential data SHALL not enter model context unless the model route, processor, region, retention, and purpose are approved. Prompt and response logging follow classification.</p>
+<br />
+<h2 id="deletion">Deletion</h2>
+<br />
+<p>Deletion is a governed workflow. It identifies authoritative sources, derived copies, caches, indexes, exports, model datasets, and legal exceptions. Historical integrity may require redaction, tokenization, restriction, or retained evidence rather than physical erasure.</p>
+<br />
+<h2 id="observability">Observability</h2>
+<br />
+<p>Privacy controls emit evidence of policy decisions, transfer, access, deletion completion, and unresolved exceptions.</p>
+<br />
+</ContentPage>

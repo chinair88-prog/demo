@@ -1,0 +1,45 @@
+---
+title: "Reference Deployment Blueprint"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Reference Deployment Blueprint"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Reference Deployment Blueprint" }
+  ]}
+>
+
+<br />
+<h2 id="logical-zones">Logical Zones</h2>
+<br />
+<p>A reference deployment contains edge access, identity and policy, API and Event ingress, domain runtime, workflow, AI runtime, data services, evidence services, observability, and administrative control planes.</p>
+<br />
+<h2 id="trust-boundaries">Trust Boundaries</h2>
+<br />
+<p>External participants authenticate through federated identity or partner credentials. Workload identity is used internally. AI tools cross a dedicated execution gateway. Administrative access is separated from business access.</p>
+<br />
+<h2 id="data-planes">Data Planes</h2>
+<br />
+<p>Authoritative domain stores remain within domain control. Event transport distributes facts. Search, analytics, and AI indexes are derived perspectives. Evidence storage applies stronger integrity and retention.</p>
+<br />
+<h2 id="regional-design">Regional Design</h2>
+<br />
+<p>Regional cells limit failure and support residency. Global services hold only data appropriate for global scope. Cross-region replication declares consistency, authority, encryption, and recovery.</p>
+<br />
+<h2 id="control-plane">Control Plane</h2>
+<br />
+<p>Configuration, policy, schema, model routing, secrets, and deployment are governed through versioned control planes. Control-plane failure SHALL not produce unauthorized business action.</p>
+<br />
+<h2 id="availability">Availability</h2>
+<br />
+<p>Critical synchronous dependencies are minimized. Workflows tolerate delayed partners. Commands use idempotency. Events support replay. Degraded modes identify which decisions or executions are suspended.</p>
+<br />
+<h2 id="recovery">Recovery</h2>
+<br />
+<p>Recovery order protects identity, policy, authoritative stores, Event transport, workflows, projections, AI services, and external exchange. Reconciliation confirms business completeness.</p>
+<br />
+</ContentPage>

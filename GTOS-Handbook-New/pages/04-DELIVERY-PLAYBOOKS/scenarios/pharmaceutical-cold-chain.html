@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scenario — Pharmaceutical Cold Chain · GTOS Handbook</title>
+<meta name="description" content="Scenario — Pharmaceutical Cold Chain Context A temperaturecontrolled pharmaceutical shipment moves from manufacturer to airport, airline, destination terminal, ">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/scenarios/index.html">Scenarios</a> <span class="sep">›</span> <span>Scenario — Pharmaceutical Cold Chain</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Scenario — Pharmaceutical Cold Chain</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#context">Context</a></li><li class="toc-level-2"><a href="#flow">Flow</a></li><li class="toc-level-2"><a href="#architectural-analysis">Architectural Analysis</a></li><li class="toc-level-2"><a href="#failure-handling">Failure Handling</a></li><li class="toc-level-2"><a href="#canon-coverage">Canon Coverage</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="scenario-pharmaceutical-cold-chain">Scenario — Pharmaceutical Cold Chain</h1>
+<br>
+<h2 id="context">Context <a href="#context" class="heading-anchor">#</a></h2>
+<br>
+<p>A temperature-controlled pharmaceutical shipment moves from manufacturer to airport, airline, destination terminal, customs, and hospital distributor. Product stability, custody, temperature, documentation, release, and insurance are governed by different authorities.</p>
+<br>
+<h2 id="flow">Flow <a href="#flow" class="heading-anchor">#</a></h2>
+<br>
+<p>The Product Domain owns the regulated product identity and storage specification. The Agreement Domain owns service obligations. The Shipment Domain owns cargo grouping and custody milestones. Sensors publish Observations. The platform records occurrence, observation, and recording time separately.</p>
+<br>
+<p>At 14:02 the refrigeration unit fails. A sensor observes the condition at 14:05. Connectivity transmits it at 14:09. Risk produces a recommendation at 14:10. An authorized logistics Decision at 14:12 directs transfer to qualified cold storage. Intent is issued to the terminal operator, which executes and records the Outcome.</p>
+<br>
+<h2 id="architectural-analysis">Architectural Analysis <a href="#architectural-analysis" class="heading-anchor">#</a></h2>
+<br>
+<p>The sensor Observation is not automatically authoritative product damage. Product stability may require duration, temperature curve, and qualified assessment. The AI recommendation is not the Decision. The Decision Record includes the knowledge cutoff and evidence. Insurance and compliance consume the preserved chain.</p>
+<br>
+<h2 id="failure-handling">Failure Handling <a href="#failure-handling" class="heading-anchor">#</a></h2>
+<br>
+<p>If the sensor is later found miscalibrated, the original Observation remains. A correction and calibration evidence are added. Decisions are reviewed using what was knowable at the time. Remediation may be unnecessary, but the earlier emergency transfer remains a real Outcome.</p>
+<br>
+<h2 id="canon-coverage">Canon Coverage <a href="#canon-coverage" class="heading-anchor">#</a></h2>
+<br>
+<p>This scenario exercises all eleven Canons, particularly time, knowledge, decision, intent, and historical correction.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

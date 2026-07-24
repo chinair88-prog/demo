@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>06 — Returns, Inspection, Disputes, and Refund · GTOS Handbook</title>
+<meta name="description" content="06 — Returns, Inspection, Disputes, and Refund Returns implementation ReturnsController و ReturnsService رفتارهای زیر را دارند: create return/RMA؛ create return">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/index.html">GTOS Handbook Batch 09 Repository Evidence Wave 03</a> <span class="sep">›</span> <span>06 — Returns, Inspection, Disputes, and Refund</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>06 — Returns, Inspection, Disputes, and Refund</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#returns-implementation">Returns implementation</a></li><li class="toc-level-2"><a href="#strong-structural-evidence">Strong structural evidence</a></li><li class="toc-level-2"><a href="#critical-returns-findings">Critical returns findings</a></li><li class="toc-level-2"><a href="#canonical-return-flow">Canonical return flow</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="06-returns-inspection-disputes-and-refund">06 — Returns, Inspection, Disputes, and Refund</h1>
+<br>
+<h2 id="returns-implementation">Returns implementation <a href="#returns-implementation" class="heading-anchor">#</a></h2>
+<br>
+<p><code>ReturnsController</code> و <code>ReturnsService</code> رفتارهای زیر را دارند:</p>
+<br>
+<li>create return/RMA؛</li>
+<li>create return lines؛</li>
+<li>receive at warehouse؛</li>
+<li>inspect received items؛</li>
+<li>create return-to-stock decision؛</li>
+<li>dispute claim، evidence، rebuttal، decision و appeal workspace.</li>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_CRITICAL_GAPS</code>.</p>
+<br>
+<h2 id="strong-structural-evidence">Strong structural evidence <a href="#strong-structural-evidence" class="heading-anchor">#</a></h2>
+<br>
+<li>Return، Return Item، Receipt، Inspection و Return-to-Stock Decision entities جدا هستند.</li>
+<li>tenant/company روی Return و Receipt ذخیره می‌شود.</li>
+<li>classification به RESTOCK/HOLD/DAMAGED/SCRAP نگاشت می‌شود.</li>
+<li>dispute workspace evidence/timeline، liability، financial impact و appeal دارد.</li>
+<br>
+<h2 id="critical-returns-findings">Critical returns findings <a href="#critical-returns-findings" class="heading-anchor">#</a></h2>
+<br>
+<li>هر Return در create فوراً <code>authorizationStatus = APPROVED</code> می‌گیرد.</li>
+<li><code>createdBy</code>، <code>receivedBy</code>، <code>inspectedBy</code> و <code>executedBy</code> با UUID تصادفی تولید می‌شوند، نه actor واقعی.</li>
+<li>source order line، customer/supplier و SKU ownership/eligibility verify نمی‌شود.</li>
+<li>receive by returnId و inspect by receiptId tenant/company guard آشکار ندارند.</li>
+<li>receive تمام requested quantity را بدون scan/discrepancy برابر received می‌کند.</li>
+<li>Inspection result/classification از request پذیرفته می‌شود و authority/calibration/evidence ندارد.</li>
+<li>RESTOCK فقط log می‌شود؛ Inventory posting در comment به آینده موکول شده است.</li>
+<li>Refund execution به Payment Domain متصل نیست.</li>
+<li>dispute detail، evidence، rebuttal، decision و appeal در چند مسیر record را by ID بدون tenant predicate می‌خوانند.</li>
+<li>workspace برای Returnها <code>findAll()</code> و in-memory tenant filtering دارد.</li>
+<li>evidence/timeline در JSON mutable ذخیره می‌شود.</li>
+<li>Dispute financial decision به payout/refund execution وصل نیست.</li>
+<br>
+<h2 id="canonical-return-flow">Canonical return flow <a href="#canonical-return-flow" class="heading-anchor">#</a></h2>
+<br>
+<pre><code class="language-text">
+ReturnRequest
+
+→ EligibilityDecision
+
+→ ReturnAuthorization
+
+→ InboundShipment/Receipt
+
+→ Item-Level Inspection Evidence
+
+→ Disposition Decision
+
+→ Inventory Posting or Scrap/Repair
+
+→ Refund/Replacement Intent
+
+→ Payment Outcome
+
+→ Resolution and Appeal
+
+</code></pre>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

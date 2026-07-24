@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Observability Dashboard Design · GTOS Handbook</title>
+<meta name="description" content="Observability Dashboard Design Audience Views Executives need valuestream outcomes, risk, and benefit realization. Product and domain owners need flow, exceptio">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Observability Dashboard Design</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Observability Dashboard Design</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#audience-views">Audience Views</a></li><li class="toc-level-2"><a href="#dashboard-layers">Dashboard Layers</a></li><li class="toc-level-2"><a href="#required-dimensions">Required Dimensions</a></li><li class="toc-level-2"><a href="#causal-navigation">Causal Navigation</a></li><li class="toc-level-2"><a href="#alert-design">Alert Design</a></li><li class="toc-level-2"><a href="#ai-and-decision-monitoring">AI and Decision Monitoring</a></li><li class="toc-level-2"><a href="#review">Review</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="observability-dashboard-design">Observability Dashboard Design</h1>
+<br>
+<h2 id="audience-views">Audience Views <a href="#audience-views" class="heading-anchor">#</a></h2>
+<br>
+<p>Executives need value-stream outcomes, risk, and benefit realization. Product and domain owners need flow, exceptions, decisions, and data quality. Engineers need service and dependency behavior. Security needs identity, policy, access, and threat signals. Operations needs actionable health and runbook context.</p>
+<br>
+<h2 id="dashboard-layers">Dashboard Layers <a href="#dashboard-layers" class="heading-anchor">#</a></h2>
+<br>
+<p>The first layer shows business journey success, volume, latency, blocked work, and SLO status. The second shows domain state, Command rejection, Event freshness, evidence gaps, decision outcomes, and correction backlog. The third shows technical resources, dependencies, releases, queues, and error detail.</p>
+<br>
+<h2 id="required-dimensions">Required Dimensions <a href="#required-dimensions" class="heading-anchor">#</a></h2>
+<br>
+<p>Metrics SHOULD support domain, tenant or participant, jurisdiction, version, environment, partner, value stream, decision type, and severity where classification permits. High-cardinality identifiers are searched through protected logs or traces rather than placed indiscriminately in metric labels.</p>
+<br>
+<h2 id="causal-navigation">Causal Navigation <a href="#causal-navigation" class="heading-anchor">#</a></h2>
+<br>
+<p>A user moves from an outcome metric to affected subjects, correlated workflows, policy evaluations, Events, traces, and deployment changes. Correlation assists investigation but does not prove causality.</p>
+<br>
+<h2 id="alert-design">Alert Design <a href="#alert-design" class="heading-anchor">#</a></h2>
+<br>
+<p>Alerts indicate owned impact: “customs release events are stale for EU imports” is stronger than “consumer lag above threshold.” Every alert has severity, user impact, owner, runbook, suppression rule, and completion signal.</p>
+<br>
+<h2 id="ai-and-decision-monitoring">AI and Decision Monitoring <a href="#ai-and-decision-monitoring" class="heading-anchor">#</a></h2>
+<br>
+<p>Dashboards show model route, evaluation status, evidence faithfulness, escalation, decision reversal, unsafe tool attempts, drift, and containment state. Quality decline can suspend automation before general service failure.</p>
+<br>
+<h2 id="review">Review <a href="#review" class="heading-anchor">#</a></h2>
+<br>
+<p>Dashboards are reviewed in production readiness and after incidents. Unused panels are removed. Missing signals become engineering work with owners and deadlines.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

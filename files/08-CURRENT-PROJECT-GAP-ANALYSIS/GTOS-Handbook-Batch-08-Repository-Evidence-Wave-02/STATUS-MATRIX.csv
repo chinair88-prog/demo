@@ -1,0 +1,13 @@
+area,classification,reason
+Trade Quality Inspection,REFERENCE_ARCHITECTURE,Mock UI; canonical aggregate missing
+Software Quality Gates,VERIFIED_IMPLEMENTED,Different Domain
+Inventory QC Hold,PARTIAL_IMPLEMENTATION,Stock disposition only
+Tajerestan Packing List,IMPLEMENTED_WITH_GAP,"Identity, weight and version gaps"
+Partner Packing List,IMPLEMENTED_WITH_GAP,Create unavailable and competing owner
+Commercial Invoice,PARTIAL_IMPLEMENTATION,Create/generate/version missing
+Export Customs,IMPLEMENTED_WITH_GAP,Authority/document gaps
+Import Customs,IMPLEMENTED_WITH_GAP,Manual authority and migration risks
+Booking,IMPLEMENTED_WITH_GAP,Custody absent
+Trade Shipment,IMPLEMENTED_WITH_GAP,Tenant and Event reliability gaps
+Warehouse ASN/Dock,IMPLEMENTED_WITH_GAP,Scoping and receipt gaps
+Inventory,IMPLEMENTED_WITH_GAP,"Auth, idempotency and invariant gaps"

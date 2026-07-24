@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Every proposition has exactly one authoritative owner at a given level of abstraction. Other services may cache or project it but may not mutate it by shared-table access. Approved, issued, submitted, signed, paid, released, inspected, delivered, and settled facts shall not be re…">
+<meta name="color-scheme" content="light dark">
+<title>Architectural Principles · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/search-index.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/01-NORMATIVE-CORE/01-ARCHITECTURAL-PRINCIPLES.html" data-root="../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../index.html"><img src="../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../pdf-library.html">PDFs</a>
+    <a href="../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../index.html">Home</a><span class="sep">/</span><span>Normative Core</span><span class="sep">/</span><span>Architectural Principles</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Normative Core</span><span>269 words</span></div>
+        <h1>Architectural Principles</h1>
+        <p class="lede">Every proposition has exactly one authoritative owner at a given level of abstraction. Other services may cache or project it but may not mutate it by shared-table access. Approved, issued, submitted, signed, paid, released, inspected, delivered, and settled facts shall not be re…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="1-truth-has-an-owner">1. Truth has an owner<a aria-label="Link to section" class="heading-anchor" href="#1-truth-has-an-owner">#</a></h2>
+<p>Every proposition has exactly one authoritative owner at a given level of abstraction. Other services may cache or project it but may not mutate it by shared-table access.</p>
+<h2 id="2-history-is-append-oriented">2. History is append-oriented<a aria-label="Link to section" class="heading-anchor" href="#2-history-is-append-oriented">#</a></h2>
+<p>Approved, issued, submitted, signed, paid, released, inspected, delivered, and settled facts shall not be rewritten. Corrections and revocations create new facts linked to the originals.</p>
+<h2 id="3-authority-is-evaluated-at-action-time">3. Authority is evaluated at action time<a aria-label="Link to section" class="heading-anchor" href="#3-authority-is-evaluated-at-action-time">#</a></h2>
+<p>Authentication alone is insufficient. Every binding action must evaluate principal, represented organization, role, relationship, delegation, mandate, jurisdiction, purpose, and policy.</p>
+<h2 id="4-distributed-execution-assumes-partial-failure">4. Distributed execution assumes partial failure<a aria-label="Link to section" class="heading-anchor" href="#4-distributed-execution-assumes-partial-failure">#</a></h2>
+<p>Every external or cross-service action must support idempotency, timeouts, retries, duplicate messages, out-of-order delivery, replay, outcome unknown, reconciliation, and compensation.</p>
+<h2 id="5-events-describe-completed-facts">5. Events describe completed facts<a aria-label="Link to section" class="heading-anchor" href="#5-events-describe-completed-facts">#</a></h2>
+<p>Commands use imperative names. Events use past-tense completed-fact names. Plans, requests, and predictions are not Events.</p>
+<h2 id="6-ai-is-governed-software">6. AI is governed software<a aria-label="Link to section" class="heading-anchor" href="#6-ai-is-governed-software">#</a></h2>
+<p>AI may extract, classify, summarize, predict, recommend, plan, or invoke typed tools within policy. It shall not own canonical truth, invent authority, conceal uncertainty, or bypass approval.</p>
+<h2 id="7-security-is-architectural">7. Security is architectural<a aria-label="Link to section" class="heading-anchor" href="#7-security-is-architectural">#</a></h2>
+<p>Tenant isolation, least privilege, data minimization, secret isolation, integrity, audit, and incident containment are designed into every Domain and contract.</p>
+<h2 id="8-operational-ownership-is-part-of-design">8. Operational ownership is part of design<a aria-label="Link to section" class="heading-anchor" href="#8-operational-ownership-is-part-of-design">#</a></h2>
+<p>Every service and workflow has an owner, SLO, dashboard, alert, runbook, capacity plan, dependency map, recovery procedure, and decommissioning plan.</p>
+<h2 id="9-compatibility-is-explicit">9. Compatibility is explicit<a aria-label="Link to section" class="heading-anchor" href="#9-compatibility-is-explicit">#</a></h2>
+<p>APIs, Events, database migrations, files, tools, prompts, and policy versions evolve through documented compatibility rules.</p>
+<h2 id="10-completion-requires-evidence">10. Completion requires evidence<a aria-label="Link to section" class="heading-anchor" href="#10-completion-requires-evidence">#</a></h2>
+<p>A capability is not complete because code compiles. It is complete when invariants, security, interoperability, recovery, performance, and business outcomes are proven by executable evidence.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#1-truth-has-an-owner">1. Truth has an owner</a><a class="toc-level-2" href="#2-history-is-append-oriented">2. History is append-oriented</a><a class="toc-level-2" href="#3-authority-is-evaluated-at-action-time">3. Authority is evaluated at action time</a><a class="toc-level-2" href="#4-distributed-execution-assumes-partial-failure">4. Distributed execution assumes partial failure</a><a class="toc-level-2" href="#5-events-describe-completed-facts">5. Events describe completed facts</a><a class="toc-level-2" href="#6-ai-is-governed-software">6. AI is governed software</a><a class="toc-level-2" href="#7-security-is-architectural">7. Security is architectural</a><a class="toc-level-2" href="#8-operational-ownership-is-part-of-design">8. Operational ownership is part of design</a><a class="toc-level-2" href="#9-compatibility-is-explicit">9. Compatibility is explicit</a><a class="toc-level-2" href="#10-completion-requires-evidence">10. Completion requires evidence</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="00-SYSTEM-BLUEPRINT.html"><span>Previous</span><strong>GTOS System Blueprint</strong></a>
+        <a class="next" href="02-TARGET-OPERATING-MODEL.html"><span>Next</span><strong>Target Operating Model</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

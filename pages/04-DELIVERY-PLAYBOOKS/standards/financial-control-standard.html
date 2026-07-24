@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Creation of an obligation, approval of payment, execution of settlement, and reconciliation SHOULD be separable. Where automation combines steps, independent policy and audit controls are required. Amounts include currency, precision, sign meaning, tax or fee treatment, exchange-…">
+<meta name="color-scheme" content="light dark">
+<title>Financial Control Standard · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/standards/financial-control-standard.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Standards</span><span class="sep">/</span><span>Financial Control Standard</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>168 words</span></div>
+        <h1>Financial Control Standard</h1>
+        <p class="lede">Creation of an obligation, approval of payment, execution of settlement, and reconciliation SHOULD be separable. Where automation combines steps, independent policy and audit controls are required. Amounts include currency, precision, sign meaning, tax or fee treatment, exchange-…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="separation-of-duties">Separation of Duties<a aria-label="Link to section" class="heading-anchor" href="#separation-of-duties">#</a></h2>
+<p>Creation of an obligation, approval of payment, execution of settlement, and reconciliation SHOULD be separable. Where automation combines steps, independent policy and audit controls are required.</p>
+<h2 id="monetary-semantics">Monetary Semantics<a aria-label="Link to section" class="heading-anchor" href="#monetary-semantics">#</a></h2>
+<p>Amounts include currency, precision, sign meaning, tax or fee treatment, exchange-rate source, and effective time. Floating-point representation SHALL not be used for authoritative monetary calculation.</p>
+<h2 id="payment-intent">Payment Intent<a aria-label="Link to section" class="heading-anchor" href="#payment-intent">#</a></h2>
+<p>Payment execution requires Intent containing beneficiary, account or instrument reference, amount, currency, purpose, authority, limits, validity, and idempotency.</p>
+<h2 id="fraud-and-risk">Fraud and Risk<a aria-label="Link to section" class="heading-anchor" href="#fraud-and-risk">#</a></h2>
+<p>Risk signals inform policy and Decisions but do not silently change obligations. High-risk or unusual transactions may require additional evidence or dual approval.</p>
+<h2 id="settlement">Settlement<a aria-label="Link to section" class="heading-anchor" href="#settlement">#</a></h2>
+<p>A provider acceptance is not settlement. Settlement state is owned by the recognized settlement authority. Reconciliation compares authoritative settlement facts to obligations and execution records.</p>
+<h2 id="correction">Correction<a aria-label="Link to section" class="heading-anchor" href="#correction">#</a></h2>
+<p>Financial corrections use adjustment, reversal, refund, chargeback, or compensating entry according to authority and accounting meaning. Historical entries are not simply edited.</p>
+<h2 id="audit">Audit<a aria-label="Link to section" class="heading-anchor" href="#audit">#</a></h2>
+<p>Records preserve decision authority, evidence, approval, execution, provider response, settlement, reconciliation, and exceptions.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#separation-of-duties">Separation of Duties</a><a class="toc-level-2" href="#monetary-semantics">Monetary Semantics</a><a class="toc-level-2" href="#payment-intent">Payment Intent</a><a class="toc-level-2" href="#fraud-and-risk">Fraud and Risk</a><a class="toc-level-2" href="#settlement">Settlement</a><a class="toc-level-2" href="#correction">Correction</a><a class="toc-level-2" href="#audit">Audit</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="event-contract-standard.html"><span>Previous</span><strong>GTOS Event Contract Standard</strong></a>
+        <a class="next" href="index.html"><span>Next</span><strong>Cross-Cutting Standards</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

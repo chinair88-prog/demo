@@ -1,0 +1,50 @@
+---
+title: "Data Architecture"
+section: "Normative Core"
+---
+
+<ContentPage
+  title="Data Architecture"
+  section="Normative Core"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Normative Core", href: "/content" },
+    { label: "Data Architecture" }
+  ]}
+>
+
+<br />
+<h2 id="principles">Principles</h2>
+<br />
+<p>- database ownership follows Domain ownership;</p>
+<p>- identifiers are stable, opaque, and namespace-aware;</p>
+<p>- recorded time and effective time are distinct;</p>
+<p>- binding versions are immutable;</p>
+<p>- corrections append rather than overwrite;</p>
+<p>- lineage is first-class;</p>
+<p>- sensitive data is classified and minimized;</p>
+<p>- analytical and AI stores are projections.</p>
+<br />
+<h2 id="storage-patterns">Storage patterns</h2>
+<br />
+<p>- relational databases for transactional aggregates and constraints;</p>
+<p>- object storage for documents, evidence, large media, and signed artifacts;</p>
+<p>- search indexes for discovery and text retrieval;</p>
+<p>- time-series systems for metrics and telemetry;</p>
+<p>- graph or relationship projections where relationship traversal is central;</p>
+<p>- vector indexes for governed retrieval, never as source of truth;</p>
+<p>- warehouse/lakehouse for analytical and regulatory reporting.</p>
+<br />
+<h2 id="schema-design">Schema design</h2>
+<br />
+<p>Every table has tenant or ownership scope where applicable, primary key, business-key uniqueness, version or concurrency mechanism, timestamps, classification, and retention policy. Monetary values store amount plus currency. Physical measures store value plus unit. External references store issuer and namespace.</p>
+<br />
+<h2 id="migration-standard">Migration standard</h2>
+<br />
+<p>Migrations are forward-only, reviewable, repeatable in CI, compatible with rolling deployment, and tested against empty and realistic upgrade datasets. Destructive changes require export, backfill, validation, cutover, rollback, and retention approval.</p>
+<br />
+<h2 id="recovery">Recovery</h2>
+<br />
+<p>Each datastore defines RPO, RTO, backup schedule, encryption, restore test, regional strategy, corruption detection, and reconciliation process.</p>
+<br />
+</ContentPage>

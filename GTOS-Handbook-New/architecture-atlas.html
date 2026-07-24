@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Architecture Atlas · GTOS Handbook</title>
+<meta name="description" content="Complete visual architecture atlas — system maps, domain diagrams, state machines, workflows, and lifecycle views from the GTOS handbook.">
+<link rel="stylesheet" href="assets/css/site.css">
+<script defer src="assets/js/nav-data.js"></script>
+<script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="index.html"><span class="logo-icon">G</span><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" onclick="openSearch()"><span>Search the handbook…</span><kbd>Ctrl K</kbd></button>
+  <div class="top-actions">
+    <a href="pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()">◐</button>
+  </div>
+</header>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+  <main class="main-content">
+    <article class="page-container wide">
+      <nav class="breadcrumbs"><a href="index.html">Home</a> <span class="sep">›</span> <span>Architecture Atlas</span></nav>
+      <header class="page-header">
+        <span class="status-badge success">Normative Visual Reference</span>
+        <h1>Architecture Atlas</h1>
+        <p class="lede" style="color:var(--text-muted);font-size:1.05rem;max-width:850px">Scalable system, domain, lifecycle, reliability and workflow diagrams extracted from the complete handbook.</p>
+      </header>
+      <div class="atlas-grid">
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Architecture Overview</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/architecture-overview.svg" alt="Architecture Overview" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Normative high-level architecture view — system planes and foundational truth distinctions.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Domain Map</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/domain-map.svg" alt="Domain Map" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Complete domain ownership map across commerce, trade, fulfilment, and supporting domains.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Global Lifecycle</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/global-lifecycle.svg" alt="Global Lifecycle" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>End-to-end global trade lifecycle — 27 canonical stages from onboarding through settlement.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Event Reliability</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/event-reliability.svg" alt="Event Reliability" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Event-driven architecture reliability patterns — idempotency, ordering, and delivery guarantees.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Implementation Roadmap</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/implementation-roadmap.svg" alt="Implementation Roadmap" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Seven-phase implementation roadmap with governed dependency ordering.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>System Blueprint</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/system-blueprint.svg" alt="System Blueprint" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Five architectural planes: Business Domain, Experience, Integration, Intelligence, and Platform.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Security Zones</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/security-zones.svg" alt="Security Zones" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Security zone model with trust boundaries, data classification, and access patterns.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Event & Workflow</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/event-workflow.svg" alt="Event Workflow" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Event-driven workflow orchestration, saga patterns, compensation, and recovery flows.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>AI Control Plane</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/ai-control-plane.svg" alt="AI Control Plane" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>AI-native architecture — RAG, agents, tool governance, evaluation, and supervised autonomy.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Meta-Model</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/meta-model.svg" alt="Meta Model" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>GTOS meta-model: Reality → Entity → State → Event → Knowledge → Decision → Intent → Execution.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Architecture Map</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/architecture-map.svg" alt="Architecture Map" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Complete architecture map showing all system components and their relationships.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Decision Chain</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/decision-chain.svg" alt="Decision Chain" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Decision governance chain — authority, evidence, policy gates, and non-repudiation.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Correction Flow</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/correction-flow.svg" alt="Correction Flow" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Correction and reconciliation flow — detecting, documenting, and resolving contradictions.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Data Lineage</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/data-lineage.svg" alt="Data Lineage" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Data lineage and provenance tracking across domain boundaries and event streams.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Capability Map</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/capability-map.svg" alt="Capability Map" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Business capability map — 11 core capabilities from Party & Identity through Audit & Evidence.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Agent Runtime</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/agent-runtime.svg" alt="Agent Runtime" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>AI agent runtime architecture — context assembly, planning, tool execution, and evaluation loops.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Delivery Stage Gates</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/delivery-stage-gates.svg" alt="Delivery Stage Gates" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Delivery stage gates — conformance gates from design through production deployment.</figcaption>
+        </figure>
+        <figure class="atlas-card diagram-card">
+          <div class="mermaid-toolbar"><strong>Security Trust Model</strong><button class="diagram-expand">Expand</button></div>
+          <img src="diagrams/security-trust-model.svg" alt="Security Trust Model" loading="lazy" onerror="this.closest('figure').style.display='none'">
+          <figcaption>Security trust model — authentication, authorization, tenant isolation, and audit boundaries.</figcaption>
+        </figure>
+      </div>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar"><input type="search" placeholder="Search diagrams…"><button class="search-close" onclick="closeSearch()">×</button></div>
+    <div class="search-meta"></div><div class="search-results"></div>
+  </div>
+</div>
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Architecture Atlas · Visual Reference</span>
+</footer>
+</body>
+</html>

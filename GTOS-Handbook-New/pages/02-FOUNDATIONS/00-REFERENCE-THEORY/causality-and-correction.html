@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Causality, Contradiction, and Correction · GTOS Handbook</title>
+<meta name="description" content="Causality, Contradiction, and Correction Causality GTOS distinguishes temporal sequence from causality. An Event occurring before another Event does not prove c">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/02-FOUNDATIONS/index.html">FOUNDATIONS</a> <span class="sep">›</span> <a href="../../../pages/02-FOUNDATIONS/00-REFERENCE-THEORY/index.html">REFERENCE THEORY</a> <span class="sep">›</span> <span>Causality, Contradiction, and Correction</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Foundations</span>
+        </div>
+        <h1>Causality, Contradiction, and Correction</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#causality">Causality</a></li><li class="toc-level-2"><a href="#correlation-and-causation-identifiers">Correlation and Causation Identifiers</a></li><li class="toc-level-2"><a href="#correction">Correction</a></li><li class="toc-level-2"><a href="#retraction">Retraction</a></li><li class="toc-level-2"><a href="#contradiction-resolution">Contradiction Resolution</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="causality-contradiction-and-correction">Causality, Contradiction, and Correction</h1>
+<br>
+<h2 id="causality">Causality <a href="#causality" class="heading-anchor">#</a></h2>
+<br>
+<p>GTOS distinguishes temporal sequence from causality. An Event occurring before another Event does not prove causation.</p>
+<br>
+<p>Causal claims SHALL identify supporting evidence and assumptions.</p>
+<br>
+<h2 id="correlation-and-causation-identifiers">Correlation and Causation Identifiers <a href="#correlation-and-causation-identifiers" class="heading-anchor">#</a></h2>
+<br>
+<li><code>correlationId</code> groups related work.</li>
+<li><code>causationId</code> identifies the directly initiating fact or request.</li>
+<li>Neither field alone proves legal or scientific causality.</li>
+<br>
+<h2 id="correction">Correction <a href="#correction" class="heading-anchor">#</a></h2>
+<br>
+<p>A correction creates a new governed assertion that qualifies, supersedes, or invalidates a prior assertion. The original assertion remains historically visible.</p>
+<br>
+<h2 id="retraction">Retraction <a href="#retraction" class="heading-anchor">#</a></h2>
+<br>
+<p>Retraction states that an assertion should no longer be relied upon. Retraction does not claim the assertion never existed.</p>
+<br>
+<h2 id="contradiction-resolution">Contradiction Resolution <a href="#contradiction-resolution" class="heading-anchor">#</a></h2>
+<br>
+<p>Resolution SHALL identify:</p>
+<br>
+<li>contradictory claims;</li>
+<li>applicable authority;</li>
+<li>evidence considered;</li>
+<li>decision time;</li>
+<li>resulting authoritative claim;</li>
+<li>effect on downstream decisions;</li>
+<li>whether remediation is required.</li>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

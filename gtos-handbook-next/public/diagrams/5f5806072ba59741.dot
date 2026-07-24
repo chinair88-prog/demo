@@ -1,0 +1,29 @@
+digraph G {
+rankdir=LR;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.34", ranksep="0.60", splines="spline"];
+node [fontname="Arial", fontsize=10, shape=rect, color="#4B5D8A", penwidth=1.45, style="rounded,filled", fillcolor="#F5F6FC", fontcolor="#253150", margin="0.15,0.09"];
+edge [color="#6677A5", penwidth=1.35, arrowsize=0.72];
+"ALLOCATED" [label="ALLOCATED"];
+"AVAILABLE" [label="AVAILABLE"];
+"BLOCKED" [label="BLOCKED"];
+"DAMAGED" [label="DAMAGED"];
+"DEPLETED" [label="DEPLETED"];
+"EXPIRED" [label="EXPIRED"];
+"IN_TRANSIT_INTERNAL" [label="IN TRANSIT INTERNAL"];
+"PENDING_RECEIPT" [label="PENDING RECEIPT"];
+"PICKING" [label="PICKING"];
+"QUARANTINED" [label="QUARANTINED"];
+"RESERVED" [label="RESERVED"];
+"__start_0" [shape=circle, width=0.14, fixedsize=true, label="", fillcolor="#30476F", color="#30476F", style=filled];
+"__start_0" -> "PENDING_RECEIPT";
+"PENDING_RECEIPT" -> "QUARANTINED";
+"QUARANTINED" -> "AVAILABLE";
+"AVAILABLE" -> "RESERVED";
+"RESERVED" -> "ALLOCATED";
+"ALLOCATED" -> "PICKING";
+"PICKING" -> "IN_TRANSIT_INTERNAL";
+"IN_TRANSIT_INTERNAL" -> "DAMAGED";
+"DAMAGED" -> "BLOCKED";
+"BLOCKED" -> "EXPIRED";
+"EXPIRED" -> "DEPLETED";
+}

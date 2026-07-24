@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The canonical lifecycle contains 27 stages: Organization identity and onboarding. 2. Demand and requirement definition. 3. Request for quotation. 4. Supplier discovery and qualification. 5. Quotation invitation and submission. 6. Comparison and normalization. 7. Negotiation and s…">
+<meta name="color-scheme" content="light dark">
+<title>End-to-End Global Trade Lifecycle · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/search-index.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/01-NORMATIVE-CORE/04-END-TO-END-GLOBAL-TRADE-LIFECYCLE.html" data-root="../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../index.html"><img src="../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../pdf-library.html">PDFs</a>
+    <a href="../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../index.html">Home</a><span class="sep">/</span><span>Normative Core</span><span class="sep">/</span><span>End-to-End Global Trade Lifecycle</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Normative Core</span><span>251 words</span></div>
+        <h1>End-to-End Global Trade Lifecycle</h1>
+        <p class="lede">The canonical lifecycle contains 27 stages: Organization identity and onboarding. 2. Demand and requirement definition. 3. Request for quotation. 4. Supplier discovery and qualification. 5. Quotation invitation and submission. 6. Comparison and normalization. 7. Negotiation and s…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<p>The canonical lifecycle contains 27 stages:</p>
+<ol>
+<li>Organization identity and onboarding.</li>
+<li>Demand and requirement definition.</li>
+<li>Request for quotation.</li>
+<li>Supplier discovery and qualification.</li>
+<li>Quotation invitation and submission.</li>
+<li>Comparison and normalization.</li>
+<li>Negotiation and supplier selection.</li>
+<li>Contract and accepted terms.</li>
+<li>Proforma Invoice.</li>
+<li>Payment and risk approval.</li>
+<li>Purchase Order and acknowledgement.</li>
+<li>Production planning and capacity commitment.</li>
+<li>Production execution and milestones.</li>
+<li>Quality inspection, nonconformance, and release.</li>
+<li>Packing List and Commercial Invoice.</li>
+<li>Export customs and legal release.</li>
+<li>Transport planning and booking.</li>
+<li>Pickup, custody, and handover.</li>
+<li>International transport and tracking.</li>
+<li>Import customs, duties, and legal release.</li>
+<li>Delivery and warehouse receiving.</li>
+<li>Inventory synchronization and availability.</li>
+<li>Product publication and marketplace eligibility.</li>
+<li>Checkout and customer order.</li>
+<li>Allocation, fulfilment, and last-mile delivery.</li>
+<li>Returns, claims, refunds, and disputes.</li>
+<li>Settlement, reporting, ESG, and learning.</li>
+</ol>
+<h2 id="stage-contract">Stage contract<a aria-label="Link to section" class="heading-anchor" href="#stage-contract">#</a></h2>
+<p>Every stage must specify:</p>
+<ul>
+<li>owner and external authority;</li>
+<li>entry and exit criteria;</li>
+<li>canonical subjects and versions;</li>
+<li>state machines and invariants;</li>
+<li>Decisions, Commands, Events, and queries;</li>
+<li>evidence and documents;</li>
+<li>workflow, deadlines, retries, and compensation;</li>
+<li>APIs, database ownership, and Portal journeys;</li>
+<li>AI participation and autonomy;</li>
+<li>security, privacy, SLOs, tests, and recovery;</li>
+<li>correction and dispute behavior.</li>
+</ul>
+<h2 id="lifecycle-orchestration">Lifecycle orchestration<a aria-label="Link to section" class="heading-anchor" href="#lifecycle-orchestration">#</a></h2>
+<p>The lifecycle is not a single central transaction. Durable workflows coordinate independently owned aggregates. State is advanced only by verified facts. If an external outcome is unknown, the process enters an explicit reconciliation state rather than assuming success or repeating the action blindly.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#stage-contract">Stage contract</a><a class="toc-level-2" href="#lifecycle-orchestration">Lifecycle orchestration</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="03-DOMAIN-MAP-AND-OWNERSHIP.html"><span>Previous</span><strong>Domain Map and Ownership</strong></a>
+        <a class="next" href="05-SERVICE-ARCHITECTURE.html"><span>Next</span><strong>Service Architecture</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

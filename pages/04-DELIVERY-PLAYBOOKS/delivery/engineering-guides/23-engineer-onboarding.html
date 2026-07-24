@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A new GTOS engineer first learns the conceptual distinctions that drive implementation: reality is not the database; identity is not an identifier; state is scoped; Events are completed facts; Observations are not automatically truth; recommendations are not Decisions; execution…">
+<meta name="color-scheme" content="light dark">
+<title>Engineer Onboarding Guide · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../../site.webmanifest">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/search-index.js"></script>
+<script defer src="../../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/23-engineer-onboarding.html" data-root="../../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../../index.html"><img src="../../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <a href="../../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Delivery</span><span class="sep">/</span><span>Engineering Guides</span><span class="sep">/</span><span>Engineer Onboarding Guide</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>283 words</span></div>
+        <h1>Engineer Onboarding Guide</h1>
+        <p class="lede">A new GTOS engineer first learns the conceptual distinctions that drive implementation: reality is not the database; identity is not an identifier; state is scoped; Events are completed facts; Observations are not automatically truth; recommendations are not Decisions; execution…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="first-principles">First Principles<a aria-label="Link to section" class="heading-anchor" href="#first-principles">#</a></h2>
+<p>A new GTOS engineer first learns the conceptual distinctions that drive implementation: reality is not the database; identity is not an identifier; state is scoped; Events are completed facts; Observations are not automatically truth; recommendations are not Decisions; execution requires Intent; correction preserves history.</p>
+<h2 id="first-week">First Week<a aria-label="Link to section" class="heading-anchor" href="#first-week">#</a></h2>
+<p>Read the Reference Theory, Canon, Constitution, Domain Architecture, Engineering Standards, and the charter for the assigned domain. Review one end-to-end scenario, one incident, one ADR, one Command, one Event, and one runbook. Set up the local environment and run validation and build tools.</p>
+<h2 id="first-assignment">First Assignment<a aria-label="Link to section" class="heading-anchor" href="#first-assignment">#</a></h2>
+<p>The initial assignment SHOULD be a bounded vertical slice or defect that crosses model, test, observability, and documentation. Purely cosmetic work does not teach authority, contracts, or operations. Pair with a domain expert and experienced engineer.</p>
+<h2 id="required-competencies">Required Competencies<a aria-label="Link to section" class="heading-anchor" href="#required-competencies">#</a></h2>
+<p>The engineer can explain the domain owner, aggregates, invariants, Command and Event semantics, temporal fields, idempotency, contract versions, authorization context, data classification, SLOs, and recovery. AI engineers additionally explain evidence, output type, Mandate, tools, evaluation, and containment.</p>
+<h2 id="development-workflow">Development Workflow<a aria-label="Link to section" class="heading-anchor" href="#development-workflow">#</a></h2>
+<p>Before coding, confirm Definition of Ready. During implementation, update tests, contracts, documentation, telemetry, and ADRs. Before review, run validation and demonstrate failure paths. Code review examines business meaning and operability, not only style.</p>
+<h2 id="production-responsibility">Production Responsibility<a aria-label="Link to section" class="heading-anchor" href="#production-responsibility">#</a></h2>
+<p>Engineers participate in production readiness, observe deployments, learn runbooks, and review incidents. Ownership does not end when code merges. Teams are expected to understand how their capability behaves under duplicate, delay, correction, dependency failure, and recovery.</p>
+<h2 id="learning-path">Learning Path<a aria-label="Link to section" class="heading-anchor" href="#learning-path">#</a></h2>
+<p>After domain proficiency, engineers rotate through partner integration, security or policy, data lineage, AI evaluation, and operations. The objective is not that every engineer becomes a chief architect, but that local decisions preserve the end-to-end operating model.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#first-principles">First Principles</a><a class="toc-level-2" href="#first-week">First Week</a><a class="toc-level-2" href="#first-assignment">First Assignment</a><a class="toc-level-2" href="#required-competencies">Required Competencies</a><a class="toc-level-2" href="#development-workflow">Development Workflow</a><a class="toc-level-2" href="#production-responsibility">Production Responsibility</a><a class="toc-level-2" href="#learning-path">Learning Path</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="22-project-plan-template.html"><span>Previous</span><strong>GTOS Project Plan Template</strong></a>
+        <a class="next" href="24-engineering-acceptance.html"><span>Next</span><strong>Engineering Acceptance and Handover</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

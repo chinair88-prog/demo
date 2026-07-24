@@ -1,0 +1,6 @@
+digraph G {
+rankdir=LR; graph [bgcolor="transparent", pad="0.35", splines="spline", nodesep="0.35", ranksep="0.8"];
+node [fontname="Arial", fontsize=10, shape=rect, style="rounded,filled", fillcolor="#F8FBFC", color="#2C7080", penwidth=1.4];
+edge [color="#6A8790", arrowsize=0.65];
+Identity -> Customer; Customer -> Cart; Product -> Offer; Pricing -> Offer; Offer -> Cart; Cart -> Checkout; Checkout -> Order; Order -> Payment; Order -> Inventory; Inventory -> Warehouse; Warehouse -> Shipping; Shipping -> Delivery; Delivery -> Returns; Payment -> Settlement; Procurement -> Manufacturing; Manufacturing -> Quality; Quality -> Packing; Packing -> Customs; Customs -> Shipping; AI -> Product; AI -> Pricing; AI -> Order; Compliance -> Customs; Compliance -> Settlement;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Long-Running Trade Workflow Pattern · GTOS Handbook</title>
+<meta name="description" content="LongRunning Trade Workflow Pattern Context International trade workflows may span weeks, involve many organizations, depend on documents and decisions, and enco">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/reference-patterns/index.html">Reference Patterns</a> <span class="sep">›</span> <span>Long-Running Trade Workflow Pattern</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Long-Running Trade Workflow Pattern</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#context">Context</a></li><li class="toc-level-2"><a href="#pattern">Pattern</a></li><li class="toc-level-2"><a href="#example-sequence">Example Sequence</a></li><li class="toc-level-2"><a href="#rules">Rules</a></li><li class="toc-level-2"><a href="#observability">Observability</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="long-running-trade-workflow-pattern">Long-Running Trade Workflow Pattern</h1>
+<br>
+<h2 id="context">Context <a href="#context" class="heading-anchor">#</a></h2>
+<br>
+<p>International trade workflows may span weeks, involve many organizations, depend on documents and decisions, and encounter partial failure. A single distributed transaction is neither available nor desirable.</p>
+<br>
+<h2 id="pattern">Pattern <a href="#pattern" class="heading-anchor">#</a></h2>
+<br>
+<p>A workflow coordinates Intent, Commands, Events, timers, evidence requests, human tasks, and compensation. Domains remain authoritative for their facts. The workflow owns coordination state only.</p>
+<br>
+<h2 id="example-sequence">Example Sequence <a href="#example-sequence" class="heading-anchor">#</a></h2>
+<br>
+<li>An accepted Order creates Intent to fulfil.</li>
+<li>Shipment planning requests transport booking.</li>
+<li>The Transport Domain records booking outcome.</li>
+<li>Documentation requests missing certificates.</li>
+<li>Compliance evaluates evidence and may request inspection.</li>
+<li>Finance confirms payment conditions.</li>
+<li>Release Decision authorizes delivery execution.</li>
+<li>Outcome Events close obligations.</li>
+<br>
+<h2 id="rules">Rules <a href="#rules" class="heading-anchor">#</a></h2>
+<br>
+<p>Every step SHALL be idempotent. Timers SHALL identify business meaning, not only technical delay. Compensation SHALL be modeled as new authorized action, not deletion of history. Human intervention SHALL be first-class. Workflow retry SHALL NOT assume the prior Command failed merely because a response was lost.</p>
+<br>
+<h2 id="observability">Observability <a href="#observability" class="heading-anchor">#</a></h2>
+<br>
+<p>Operators need workflow age, blocked reason, missing evidence, current authority dependency, retry state, and expected next outcome. Technical traces alone are insufficient.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

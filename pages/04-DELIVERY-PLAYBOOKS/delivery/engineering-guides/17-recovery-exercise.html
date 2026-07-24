@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The exercise proves that GTOS can restore service and reconcile business truth after a realistic failure. A successful infrastructure failover without business completeness is a failed exercise. Select a scenario that crosses domains and trust boundaries: regional outage during c…">
+<meta name="color-scheme" content="light dark">
+<title>Business Recovery Exercise · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../../site.webmanifest">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/search-index.js"></script>
+<script defer src="../../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/17-recovery-exercise.html" data-root="../../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../../index.html"><img src="../../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <a href="../../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Delivery</span><span class="sep">/</span><span>Engineering Guides</span><span class="sep">/</span><span>Business Recovery Exercise</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>243 words</span></div>
+        <h1>Business Recovery Exercise</h1>
+        <p class="lede">The exercise proves that GTOS can restore service and reconcile business truth after a realistic failure. A successful infrastructure failover without business completeness is a failed exercise. Select a scenario that crosses domains and trust boundaries: regional outage during c…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="objective">Objective<a aria-label="Link to section" class="heading-anchor" href="#objective">#</a></h2>
+<p>The exercise proves that GTOS can restore service and reconcile business truth after a realistic failure. A successful infrastructure failover without business completeness is a failed exercise.</p>
+<h2 id="scenario-design">Scenario Design<a aria-label="Link to section" class="heading-anchor" href="#scenario-design">#</a></h2>
+<p>Select a scenario that crosses domains and trust boundaries: regional outage during customs release, Event transport loss during shipment custody transfer, compromised partner credential during payment processing, or data-store restoration while corrections are in flight.</p>
+<p>Define failure time, affected components, data boundary, known and hidden symptoms, expected detection, business deadlines, and legal or partner obligations. Inject ambiguity so responders must acquire evidence rather than follow a scripted answer.</p>
+<h2 id="exercise-phases">Exercise Phases<a aria-label="Link to section" class="heading-anchor" href="#exercise-phases">#</a></h2>
+<ol>
+<li>Detect and declare the incident.</li>
+<li>Establish command roles and preserve evidence.</li>
+<li>Contain unsafe execution and compromised authority.</li>
+<li>Restore identity, policy, authoritative stores, Event transport, workflow, and projections in dependency order.</li>
+<li>Identify gaps, duplicates, stale projections, and unresolved Commands.</li>
+<li>Reconcile identities, state, obligations, Decisions, Intent, Events, and financial totals.</li>
+<li>Notify participants and regulators where required.</li>
+<li>Return to controlled operation and close temporary authority.</li>
+</ol>
+<h2 id="success-criteria">Success Criteria<a aria-label="Link to section" class="heading-anchor" href="#success-criteria">#</a></h2>
+<p>RTO and RPO are met or variances explained. No unauthorized default action occurs. Historical and current state can be reconstructed. Duplicate effects are prevented or corrected. Partner exchanges are reconciled. Evidence proves each restoration and decision.</p>
+<h2 id="review">Review<a aria-label="Link to section" class="heading-anchor" href="#review">#</a></h2>
+<p>The review distinguishes technical restoration, business reconciliation, and stakeholder recovery. Actions address architecture, tooling, runbooks, access, training, capacity, and partner agreements. The exercise is repeated until critical weaknesses are verified closed.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#objective">Objective</a><a class="toc-level-2" href="#scenario-design">Scenario Design</a><a class="toc-level-2" href="#exercise-phases">Exercise Phases</a><a class="toc-level-2" href="#success-criteria">Success Criteria</a><a class="toc-level-2" href="#review">Review</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="16-event-consumer-reference.html"><span>Previous</span><strong>Event Consumer Reference Flow</strong></a>
+        <a class="next" href="18-documentation-standard.html"><span>Next</span><strong>Architecture Documentation Standard</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

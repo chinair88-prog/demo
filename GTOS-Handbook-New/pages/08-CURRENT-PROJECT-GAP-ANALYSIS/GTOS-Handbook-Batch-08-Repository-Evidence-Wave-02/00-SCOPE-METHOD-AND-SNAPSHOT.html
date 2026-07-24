@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>00 — Scope, Method, and Repository Snapshot · GTOS Handbook</title>
+<meta name="description" content="00 — Scope, Method, and Repository Snapshot Field Value Repository chinair88prog/allinb2c Evidence snapshot 14cc83805e7386c3d5cdec6ad191b1078fd502ff Handbook br">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/index.html">GTOS Handbook Batch 08 Repository Evidence Wave 02</a> <span class="sep">›</span> <span>00 — Scope, Method, and Repository Snapshot</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>00 — Scope, Method, and Repository Snapshot</h1>
+      </header>
+      
+      <div class="prose">
+        <h1 id="00-scope-method-and-repository-snapshot">00 — Scope, Method, and Repository Snapshot</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Field</th>
+<th class="table-sort">Value</th>
+</tr></thead><tbody>
+<tr>
+<td>Repository</td>
+<td><code>chinair88-prog/allinb2c</code></td>
+</tr>
+<tr>
+<td>Evidence snapshot</td>
+<td><code>14cc83805e7386c3d5cdec6ad191b1078fd502ff</code></td>
+</tr>
+<tr>
+<td>Handbook branch</td>
+<td><code>gtos/handbook-repository-grounded-expansion-v2</code></td>
+</tr>
+<tr>
+<td>Wave</td>
+<td>Repository Evidence Wave 02</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Quality؛ documents؛ customs؛ transport؛ warehouse؛ inventory</td>
+</tr>
+<tr>
+<td>Evidence standard</td>
+<td>ادعای محدود و پشتیبانی‌شده با فایل اجرایی بررسی‌شده</td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="-">روش بررسی <a href="#-" class="heading-anchor">#</a></h2>
+<br>
+<p>ابتدا جست‌وجوی کد انجام شد و سپس فایل‌های منتخب Java، TypeScript و SQL مستقیماً خوانده شدند. وجود نام فایل یا route به‌تنهایی Implementation محسوب نشد.</p>
+<br>
+<p>در تمام فصل‌ها این تمایزها حفظ شده‌اند:</p>
+<br>
+<li>frontend presentation در برابر backend execution؛</li>
+<li>software quality در برابر trade-goods quality؛</li>
+<li>platform status در برابر external legal authority؛</li>
+<li>وجود جدول در برابر lifecycle کامل؛</li>
+<li>ذخیره idempotency key در برابر جلوگیری واقعی از duplicate؛</li>
+<li>وجود tenant field در برابر tenant enforcement قابل اعتماد؛</li>
+<li>status string در برابر state machine کنترل‌شده؛</li>
+<li>فراخوانی Event publisher در برابر delivery تضمین‌شده و outbox.</li>
+<br>
+<h2 id="">محدودیت‌ها <a href="#" class="heading-anchor">#</a></h2>
+<br>
+<li>Deployment این snapshot اثبات نشده است.</li>
+<li>وجود فایل Test به‌معنی اجرای موفق Test یا CI نیست.</li>
+<li>migrationها از روی source بررسی شده‌اند، نه اجرای مستقل.</li>
+<li>outcomeهای customs، carrier، inspector و warehouse فقط با authority evidence می‌توانند authoritative شوند.</li>
+<li>بخشی از controllerها direct JDBC دارند و هماهنگی runtime datasource با migration نیازمند integration test است.</li>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

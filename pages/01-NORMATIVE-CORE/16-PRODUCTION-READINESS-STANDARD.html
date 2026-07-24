@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A capability may enter production only when: ownership and on-call are assigned; - threat model and privacy review are complete; - authentication, authorization, tenant isolation, rate limiting, and audit are tested; - migrations are upgrade-tested and rollback/backout is defined…">
+<meta name="color-scheme" content="light dark">
+<title>Production Readiness Standard · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/search-index.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/01-NORMATIVE-CORE/16-PRODUCTION-READINESS-STANDARD.html" data-root="../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../index.html"><img src="../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../pdf-library.html">PDFs</a>
+    <a href="../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../index.html">Home</a><span class="sep">/</span><span>Normative Core</span><span class="sep">/</span><span>Production Readiness Standard</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Normative Core</span><span>131 words</span></div>
+        <h1>Production Readiness Standard</h1>
+        <p class="lede">A capability may enter production only when: ownership and on-call are assigned; - threat model and privacy review are complete; - authentication, authorization, tenant isolation, rate limiting, and audit are tested; - migrations are upgrade-tested and rollback/backout is defined…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<p>A capability may enter production only when:</p>
+<ul>
+<li>ownership and on-call are assigned;</li>
+<li>threat model and privacy review are complete;</li>
+<li>authentication, authorization, tenant isolation, rate limiting, and audit are tested;</li>
+<li>migrations are upgrade-tested and rollback/backout is defined;</li>
+<li>idempotency and concurrency behavior are proven;</li>
+<li>Events and workflows survive duplicate, loss, delay, restart, and replay;</li>
+<li>dependencies have timeouts, circuit breakers, and fallback/reconciliation;</li>
+<li>SLOs, dashboards, alerts, runbooks, and capacity exist;</li>
+<li>backup and restore have been exercised;</li>
+<li>performance and failure tests meet thresholds;</li>
+<li>Portal E2E and accessibility pass;</li>
+<li>AI evaluations and kill switches pass where AI is used;</li>
+<li>release, rollback, and communication plans are approved;</li>
+<li>known risks and exceptions are recorded with expiry.</li>
+</ul>
+<p>Production readiness is a joint Decision by the Domain owner, platform owner, security, SRE, and relevant business authority.</p>
+</div>
+        
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="15-DOMAIN-IMPLEMENTATION-TEMPLATE.html"><span>Previous</span><strong>Domain Implementation Template</strong></a>
+        <a class="next" href="../02-FOUNDATIONS/00-REFERENCE-THEORY/causality-and-correction.html"><span>Next</span><strong>Causality, Contradiction, and Correction</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

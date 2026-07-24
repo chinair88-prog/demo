@@ -1,0 +1,74 @@
+---
+title: "04 — Import Customs, Duties, and Release"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="04 — Import Customs, Duties, and Release"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "04 — Import Customs, Duties, and Release" }
+  ]}
+>
+
+<br />
+<h2 id="evidence-maturity">Evidence maturity</h2>
+<br />
+<p>Import Customs یکی از بالغ‌ترین بخش‌های بررسی‌شده در Wave 02 است.</p>
+<br />
+<p>Migration V16 این جدول‌ها را ایجاد می‌کند:</p>
+<br />
+<p>- <code class="code-inline">partner.import_declarations</code></p>
+<p>- <code class="code-inline">partner.wms_inbound_orders</code></p>
+<p>- <code class="code-inline">partner.wms_inbound_items</code></p>
+<p>- <code class="code-inline">partner.warehouse_receipts</code></p>
+<br />
+<p>Controller یک lifecycle Partner-scoped دارد:</p>
+<br />
+<p>- list و detail؛</p>
+<p>- create از Shipment متعلق به Partner؛</p>
+<p>- generic update فقط در <code class="code-inline">DRAFT</code> و <code class="code-inline">CUSTOMS_HOLD</code>؛</p>
+<p>- submit اختصاصی؛</p>
+<p>- mark-duty-paid اختصاصی؛</p>
+<p>- mark-cleared اختصاصی؛</p>
+<p>- status history و audit؛</p>
+<p>- sync وضعیت Shipment به <code class="code-inline">CUSTOMS_CLEARED</code>.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_GAP</code>.</p>
+<br />
+<h2 id="-">کنترل‌های مثبت</h2>
+<br />
+<p>- Partner ID از JWT principal گرفته می‌شود.</p>
+<p>- بسیاری از read/writeها با Partner ID محدود می‌شوند.</p>
+<p>- create بررسی می‌کند Shipment متعلق به Partner باشد.</p>
+<p>- terminal status از generic PATCH ممنوع است.</p>
+<p>- submit فقط از <code class="code-inline">DRAFT</code> مجاز است.</p>
+<p>- clear به Shipment لینک‌شده نیاز دارد.</p>
+<p>- audit snapshot و history ثبت می‌شود.</p>
+<br />
+<h2 id="gap-">Gapهای مهم</h2>
+<br />
+<p>1. Migration عمداً <code class="code-inline">partner.import_declarations</code> را DROP و recreate می‌کند؛ این رفتار destructive است.</p>
+<p>2. <code class="code-inline">mark-duty-paid</code> از وضعیت <code class="code-inline">CLEARED</code> نیز مجاز است که lifecycle را غیرمنطقی می‌کند.</p>
+<p>3. duty/tax صفر یا null فقط warning ایجاد می‌کند و عملیات را block نمی‌کند.</p>
+<p>4. <code class="code-inline">mark-cleared</code> یک application action است و authority response خارجی اثبات نشده.</p>
+<p>5. Shipment status با direct cross-table mutation تغییر می‌کند.</p>
+<p>6. JDBC updateها optimistic version predicate ندارند.</p>
+<p>7. status history در JSON mutable است.</p>
+<p>8. Provider WMS tables با Warehouse/Inventory ownership هم‌پوشانی دارند.</p>
+<br />
+<h2 id="-canonical">مدل canonical</h2>
+<br />
+<p>Truthهای زیر باید مستقل باشند:</p>
+<br />
+<p>- <code class="code-inline">ImportDeclarationSubmitted</code> — platform fact؛</p>
+<p>- <code class="code-inline">DutyAssessmentObserved</code> — authority observation؛</p>
+<p>- <code class="code-inline">DutyPaymentIntent</code> و <code class="code-inline">DutyPaymentOutcome</code> — Finance/Payment؛</p>
+<p>- <code class="code-inline">ImportReleaseObserved</code> — authority observation؛</p>
+<p>- <code class="code-inline">ShipmentCustomsPerspectiveChanged</code> — projection.</p>
+<br />
+<p>هیچ کاربر برنامه نباید بدون authority evidence بتواند legal clearance بسازد.</p>
+<br />
+</ContentPage>

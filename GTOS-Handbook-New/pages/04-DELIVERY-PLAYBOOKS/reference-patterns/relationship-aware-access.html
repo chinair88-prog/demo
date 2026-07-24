@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Relationship-Aware Access Pattern · GTOS Handbook</title>
+<meta name="description" content="RelationshipAware Access Pattern Problem Rolebased access alone cannot express trade relationships such as broker mandate, carrier custody, buyersupplier contra">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/reference-patterns/index.html">Reference Patterns</a> <span class="sep">›</span> <span>Relationship-Aware Access Pattern</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Relationship-Aware Access Pattern</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#problem">Problem</a></li><li class="toc-level-2"><a href="#policy-context">Policy Context</a></li><li class="toc-level-2"><a href="#example">Example</a></li><li class="toc-level-2"><a href="#controls">Controls</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="relationship-aware-access-pattern">Relationship-Aware Access Pattern</h1>
+<br>
+<h2 id="problem">Problem <a href="#problem" class="heading-anchor">#</a></h2>
+<br>
+<p>Role-based access alone cannot express trade relationships such as broker mandate, carrier custody, buyer-supplier contract, insurer coverage, customs jurisdiction, or temporary investigation assignment.</p>
+<br>
+<h2 id="policy-context">Policy Context <a href="#policy-context" class="heading-anchor">#</a></h2>
+<br>
+<p>Authorization evaluates:</p>
+<br>
+<li>authenticated identity;</li>
+<li>requested action;</li>
+<li>resource and classification;</li>
+<li>active Relationship and role;</li>
+<li>delegation or mandate;</li>
+<li>jurisdiction;</li>
+<li>business purpose;</li>
+<li>case or workflow context;</li>
+<li>time;</li>
+<li>risk and evidence requirements.</li>
+<br>
+<h2 id="example">Example <a href="#example" class="heading-anchor">#</a></h2>
+<br>
+<p>A customs broker may submit a declaration for an importer only while a valid mandate exists for the applicable jurisdiction and commodity scope. Access to unrelated importer records is not implied.</p>
+<br>
+<h2 id="controls">Controls <a href="#controls" class="heading-anchor">#</a></h2>
+<br>
+<p>Relationship validity SHALL be checked at decision time. Revocation SHALL propagate promptly. Cached authorization SHALL not outlive delegation. Policy results SHALL record version and material inputs. Emergency access requires heightened logging, expiry, and review.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

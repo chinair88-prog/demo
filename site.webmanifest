@@ -1,0 +1,15 @@
+{
+  "name": "GTOS Enterprise Engineering Handbook",
+  "short_name": "GTOS Handbook",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f6f8fa",
+  "theme_color": "#0f766e",
+  "icons": [
+    {
+      "src": "assets/icons/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

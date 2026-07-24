@@ -1,0 +1,43 @@
+---
+title: "Architecture Quality Gates"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Architecture Quality Gates"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Architecture Quality Gates" }
+  ]}
+>
+
+<br />
+<h2 id="gate-1-semantic-integrity">Gate 1 — Semantic Integrity</h2>
+<br />
+<p>All business concepts use glossary definitions. Ownership, identity, time, state, and relationship semantics are explicit. Commands and Events are distinct.</p>
+<br />
+<h2 id="gate-2-authority-and-decision">Gate 2 — Authority and Decision</h2>
+<br />
+<p>Decision classes identify authority, evidence, policy, escalation, appeal, and expected outcome. AI outputs are typed. Execution traces to Intent.</p>
+<br />
+<h2 id="gate-3-data-and-history">Gate 3 — Data and History</h2>
+<br />
+<p>Authoritative and derived data are distinguishable. Temporal semantics, lineage, quality, retention, correction, and reconstruction are testable.</p>
+<br />
+<h2 id="gate-4-security-and-privacy">Gate 4 — Security and Privacy</h2>
+<br />
+<p>Identity, delegation, purpose, jurisdiction, classification, authorization, audit, and threat controls are complete.</p>
+<br />
+<h2 id="gate-5-resilience-and-operations">Gate 5 — Resilience and Operations</h2>
+<br />
+<p>SLO, RTO, RPO, degradation, replay, reconciliation, runbooks, incident evidence, and recovery exercises exist.</p>
+<br />
+<h2 id="gate-6-change-safety">Gate 6 — Change Safety</h2>
+<br />
+<p>Contracts, compatibility, migration, rollback, observability, and deprecation are defined.</p>
+<br />
+<p>A release failing a mandatory Gate SHALL not claim architectural conformance.</p>
+<br />
+</ContentPage>

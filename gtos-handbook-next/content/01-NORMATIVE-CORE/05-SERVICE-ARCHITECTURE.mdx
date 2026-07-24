@@ -1,0 +1,45 @@
+---
+title: "Service Architecture"
+section: "Normative Core"
+---
+
+<ContentPage
+  title="Service Architecture"
+  section="Normative Core"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Normative Core", href: "/content" },
+    { label: "Service Architecture" }
+  ]}
+>
+
+<br />
+<h2 id="service-boundary">Service boundary</h2>
+<br />
+<p>A service is justified by independent business ownership, lifecycle, scaling, security, data, or operational needs. A table group or UI menu is not sufficient reason for a service.</p>
+<br />
+<p>Each service contains:</p>
+<br />
+<CodeBlock code={"API / Adapter Layer\nApplication Layer\nDomain Layer\nPersistence and Integration Layer\nSecurity and Policy Layer\nEvent and Workflow Layer\nObservability and Operations Layer\nTest and Conformance Layer"} language="text" />
+<br />
+<h2 id="database-ownership">Database ownership</h2>
+<br />
+<p>Each service owns its writes. Cross-service database joins and updates are prohibited. Read models may be built through Events, APIs, CDC under governance, or analytical pipelines.</p>
+<br />
+<h2 id="synchronous-communication">Synchronous communication</h2>
+<br />
+<p>Use synchronous calls for bounded request-response interactions where the caller requires an immediate answer and the dependency can meet the latency and availability budget. Apply timeouts, circuit breaking, authentication, authorization, tracing, idempotency, and explicit error contracts.</p>
+<br />
+<h2 id="asynchronous-communication">Asynchronous communication</h2>
+<br />
+<p>Use Events for completed facts and durable decoupling. Producers commit state plus outbox atomically. Consumers use inbox/idempotency, versioned schemas, replay safety, ordering strategy, DLQ, and reconciliation.</p>
+<br />
+<h2 id="long-running-processes">Long-running processes</h2>
+<br />
+<p>Use a durable workflow engine or persisted saga state for multi-step trade processes. Workflow state is coordination state, not Domain truth.</p>
+<br />
+<h2 id="service-template">Service template</h2>
+<br />
+<p>Every service repository module shall include ownership metadata, ADRs, API/Event specifications, migrations, dependency policy, SLO, dashboards, alerts, runbooks, threat model, test strategy, and deprecation plan.</p>
+<br />
+</ContentPage>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>08 — ESG, Sustainability Goals, and Assurance · GTOS Handbook</title>
+<meta name="description" content="08 — ESG, Sustainability Goals, and Assurance Implemented goal management Compliance Service برای Sustainability Goal این رفتارها را دارد: create/update؛ activa">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/index.html">GTOS Handbook Batch 09 Repository Evidence Wave 03</a> <span class="sep">›</span> <span>08 — ESG, Sustainability Goals, and Assurance</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>08 — ESG, Sustainability Goals, and Assurance</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#implemented-goal-management">Implemented goal management</a></li><li class="toc-level-2"><a href="#critical-esg-findings">Critical ESG findings</a></li><li class="toc-level-2"><a href="#assurance-boundary">Assurance boundary</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="08-esg-sustainability-goals-and-assurance">08 — ESG, Sustainability Goals, and Assurance</h1>
+<br>
+<h2 id="implemented-goal-management">Implemented goal management <a href="#implemented-goal-management" class="heading-anchor">#</a></h2>
+<br>
+<p>Compliance Service برای Sustainability Goal این رفتارها را دارد:</p>
+<br>
+<li>create/update؛</li>
+<li>activate؛</li>
+<li>update progress؛</li>
+<li>archive/delete؛</li>
+<li>get/list/filter by tenant/status/type؛</li>
+<li>Kafka send برای goal events.</li>
+<br>
+<p>Goal شامل baseline، target، year، scope، reduction type، framework، SBTi flag، plan، milestones، owner، budget و progress است.</p>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="critical-esg-findings">Critical ESG findings <a href="#critical-esg-findings" class="heading-anchor">#</a></h2>
+<br>
+<li>Controller authorization و trusted tenant context آشکار ندارد.</li>
+<li>tenantId از request/path گرفته می‌شود.</li>
+<li>get/update/activate/delete by ID tenant-scoped نیستند.</li>
+<li><code>getAllGoals()</code> global است.</li>
+<li>currentValue از request parameter مستقیم پذیرفته می‌شود؛ Measurement Source، methodology، evidence و assurance وجود ندارد.</li>
+<li>progress formula target semantics را مخلوط می‌کند: درصد کاهش محاسبه‌شده با <code>targetValue</code> مقایسه می‌شود، درحالی‌که targetValue ممکن است absolute target باشد.</li>
+<li>statusهای ON_TRACK/BEHIND_SCHEDULE فقط با threshold ثابت 75 تعیین می‌شوند و timeline نسبت به targetYear لحاظ نمی‌شود.</li>
+<li><code>isScienceBased</code> و SBTi fields self-asserted هستند.</li>
+<li>Event payload فقط string نوع و ID است؛ failure catch/log می‌شود و outbox ندارد.</li>
+<li>hard delete برای ESG goal وجود دارد.</li>
+<li>یک SustainabilityGoal Entity دیگر در <code>specialized/carbon-tracking-service</code> وجود دارد؛ ownership conflict باید حل شود.</li>
+<br>
+<h2 id="assurance-boundary">Assurance boundary <a href="#assurance-boundary" class="heading-anchor">#</a></h2>
+<br>
+<p>یک Goal record به‌تنهایی ESG disclosure، verified carbon footprint یا SBTi validation نیست.</p>
+<br>
+<p>مدل هدف:</p>
+<br>
+<pre><code class="language-text">
+MeasurementSource
+
+→ ActivityData
+
+→ EmissionFactorVersion
+
+→ CalculationMethodVersion
+
+→ SustainabilityMetricObservation
+
+→ AssuranceEvidence
+
+→ GoalProgressAssessment
+
+→ DisclosureVersion
+
+</code></pre>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

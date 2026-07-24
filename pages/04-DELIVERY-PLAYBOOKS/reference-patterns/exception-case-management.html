@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Not every trade condition can be automated safely. Missing documents, conflicting identities, damaged cargo, policy ambiguity, suspected fraud, and partner disagreement require collaborative resolution. A Case contains issues, subjects, participants, authority, severity, tasks, e…">
+<meta name="color-scheme" content="light dark">
+<title>Exception and Case Management Pattern · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/reference-patterns/exception-case-management.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Reference Patterns</span><span class="sep">/</span><span>Exception and Case Management Pattern</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>132 words</span></div>
+        <h1>Exception and Case Management Pattern</h1>
+        <p class="lede">Not every trade condition can be automated safely. Missing documents, conflicting identities, damaged cargo, policy ambiguity, suspected fraud, and partner disagreement require collaborative resolution. A Case contains issues, subjects, participants, authority, severity, tasks, e…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="context">Context<a aria-label="Link to section" class="heading-anchor" href="#context">#</a></h2>
+<p>Not every trade condition can be automated safely. Missing documents, conflicting identities, damaged cargo, policy ambiguity, suspected fraud, and partner disagreement require collaborative resolution.</p>
+<h2 id="case-structure">Case Structure<a aria-label="Link to section" class="heading-anchor" href="#case-structure">#</a></h2>
+<p>A Case contains issues, subjects, participants, authority, severity, tasks, evidence requests, decisions, communications, deadlines, and resolution.</p>
+<h2 id="rules">Rules<a aria-label="Link to section" class="heading-anchor" href="#rules">#</a></h2>
+<p>A Case SHALL not become a second source of domain truth. It references domain facts and publishes authorized Decisions and Outcomes back to owning domains. Case notes are Observations unless formally asserted under authority.</p>
+<h2 id="closure">Closure<a aria-label="Link to section" class="heading-anchor" href="#closure">#</a></h2>
+<p>Closure requires resolution criteria, authority, downstream remediation, and evidence completeness. Reopening creates new history. Metrics include age, blocked time, evidence wait, decision reversal, and recurrence.</p>
+<h2 id="ai">AI<a aria-label="Link to section" class="heading-anchor" href="#ai">#</a></h2>
+<p>AI may summarize, classify, identify missing evidence, or recommend next action. It SHALL not fabricate closure evidence or silently decide high-impact disputes.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#context">Context</a><a class="toc-level-2" href="#case-structure">Case Structure</a><a class="toc-level-2" href="#rules">Rules</a><a class="toc-level-2" href="#closure">Closure</a><a class="toc-level-2" href="#ai">AI</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="evidence-chain.html"><span>Previous</span><strong>Evidence Chain Pattern</strong></a>
+        <a class="next" href="federated-truth.html"><span>Next</span><strong>Federated Truth Pattern</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

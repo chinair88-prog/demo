@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="GTOS documentation is part of the control system. It communicates meaning, supports delivery, enables audit, and preserves decisions. Documents that cannot be maintained or verified create false confidence. Normative documents declare title, purpose, owner, status, version, scope…">
+<meta name="color-scheme" content="light dark">
+<title>Architecture Documentation Standard · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../../site.webmanifest">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/search-index.js"></script>
+<script defer src="../../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/18-documentation-standard.html" data-root="../../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../../index.html"><img src="../../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <a href="../../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Delivery</span><span class="sep">/</span><span>Engineering Guides</span><span class="sep">/</span><span>Architecture Documentation Standard</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>265 words</span></div>
+        <h1>Architecture Documentation Standard</h1>
+        <p class="lede">GTOS documentation is part of the control system. It communicates meaning, supports delivery, enables audit, and preserves decisions. Documents that cannot be maintained or verified create false confidence. Normative documents declare title, purpose, owner, status, version, scope…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="purpose">Purpose<a aria-label="Link to section" class="heading-anchor" href="#purpose">#</a></h2>
+<p>GTOS documentation is part of the control system. It communicates meaning, supports delivery, enables audit, and preserves decisions. Documents that cannot be maintained or verified create false confidence.</p>
+<h2 id="required-metadata">Required Metadata<a aria-label="Link to section" class="heading-anchor" href="#required-metadata">#</a></h2>
+<p>Normative documents declare title, purpose, owner, status, version, scope, dependencies, review date, and approval authority. Generated pages inherit repository version and source path. Machine-readable registries are used when structured ownership or traceability is required.</p>
+<h2 id="writing-rules">Writing Rules<a aria-label="Link to section" class="heading-anchor" href="#writing-rules">#</a></h2>
+<p>Use business terms from the glossary. Define new terms before use. Use SHALL only for objective conformance. Separate facts, assumptions, decisions, recommendations, examples, and open questions. Prefer tables for comparisons and matrices, diagrams for structure and flow, and scenarios for behavior.</p>
+<h2 id="diagram-rules">Diagram Rules<a aria-label="Link to section" class="heading-anchor" href="#diagram-rules">#</a></h2>
+<p>Every diagram has purpose, scope, legend where needed, and owned source. Logical diagrams SHALL not imply physical deployment accidentally. Arrows state meaning: data, Command, Event, authority, or dependency. Colors are not the sole carrier of information.</p>
+<h2 id="currency">Currency<a aria-label="Link to section" class="heading-anchor" href="#currency">#</a></h2>
+<p>Documentation changes with the implementation when meaning or operation changes. Broken links, obsolete owners, unsupported versions, and unresolved placeholders fail release validation. Generated site files are not edited directly.</p>
+<h2 id="decision-records">Decision Records<a aria-label="Link to section" class="heading-anchor" href="#decision-records">#</a></h2>
+<p>Consequential decisions use ADRs with context, options, decision, consequences, Canon traceability, and review trigger. Chat transcripts and presentation slides MAY support context but are not substitutes for the approved record.</p>
+<h2 id="operational-documentation">Operational Documentation<a aria-label="Link to section" class="heading-anchor" href="#operational-documentation">#</a></h2>
+<p>Runbooks contain triggers, authority, prerequisites, steps, evidence, rollback, escalation, and completion. During incidents, operators must be able to navigate from alert to runbook, dependency, owner, dashboard, and recent changes.</p>
+<h2 id="accessibility">Accessibility<a aria-label="Link to section" class="heading-anchor" href="#accessibility">#</a></h2>
+<p>Tables have clear headers, diagrams include text alternatives, language is direct, pages print cleanly, and UI supports keyboard navigation and responsive layouts.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#purpose">Purpose</a><a class="toc-level-2" href="#required-metadata">Required Metadata</a><a class="toc-level-2" href="#writing-rules">Writing Rules</a><a class="toc-level-2" href="#diagram-rules">Diagram Rules</a><a class="toc-level-2" href="#currency">Currency</a><a class="toc-level-2" href="#decision-records">Decision Records</a><a class="toc-level-2" href="#operational-documentation">Operational Documentation</a><a class="toc-level-2" href="#accessibility">Accessibility</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="17-recovery-exercise.html"><span>Previous</span><strong>Business Recovery Exercise</strong></a>
+        <a class="next" href="19-architecture-debt.html"><span>Next</span><strong>Architecture Debt Management</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

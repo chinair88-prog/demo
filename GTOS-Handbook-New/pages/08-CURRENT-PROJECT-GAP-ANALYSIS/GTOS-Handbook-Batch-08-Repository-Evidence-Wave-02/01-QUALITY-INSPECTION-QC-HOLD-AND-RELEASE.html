@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>01 — Quality Inspection, QC Hold, and Release · GTOS Handbook</title>
+<meta name="description" content="01 — Quality Inspection, QC Hold, and Release نتیجه اجرایی Aggregate مستقل و canonical برای بازرسی کیفیت کالای تجاری در شواهد بررسی‌شده پیدا نشد. سه مفهوم متفاو">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/index.html">GTOS Handbook Batch 08 Repository Evidence Wave 02</a> <span class="sep">›</span> <span>01 — Quality Inspection, QC Hold, and Release</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>01 — Quality Inspection, QC Hold, and Release</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#-">نتیجه اجرایی</a></li><li class="toc-level-2"><a href="#-inspection">صفحه Inspection</a></li><li class="toc-level-2"><a href="#software-quality-controller">Software Quality Controller</a></li><li class="toc-level-2"><a href="#-inventory-qc">رفتار واقعی Inventory QC</a></li><li class="toc-level-2"><a href="#qc-hold-workbench">QC Hold Workbench</a></li><li class="toc-level-2"><a href="#subjects-">Subjects مفقود</a></li><li class="toc-level-2"><a href="#-">اقدامات اصلاحی</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="01-quality-inspection-qc-hold-and-release">01 — Quality Inspection, QC Hold, and Release</h1>
+<br>
+<h2 id="-">نتیجه اجرایی <a href="#-" class="heading-anchor">#</a></h2>
+<br>
+<p>Aggregate مستقل و canonical برای بازرسی کیفیت کالای تجاری در شواهد بررسی‌شده پیدا نشد. سه مفهوم متفاوت با واژه Quality مخلوط شده‌اند:</p>
+<br>
+<li>صفحه <code>apps/quality-dashboard/app/inspections/page.tsx</code> داده‌های Inspection را از یک آرایه ثابت محلی می‌خواند.</li>
+<li><code>QualityController</code> در dashboard-service کیفیت نرم‌افزار/پروژه، metric، gate و report را مدیریت می‌کند.</li>
+<li>Inventory و Warehouse یک فرآیند محدودتر QC Hold و stock disposition دارند.</li>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Capability</th>
+<th class="table-sort">Status</th>
+</tr></thead><tbody>
+<tr>
+<td>Trade inspection planning and evidence</td>
+<td><code>REFERENCE_ARCHITECTURE</code></td>
+</tr>
+<tr>
+<td>Quality Dashboard inspection page</td>
+<td><code>FRONTEND_MOCK</code></td>
+</tr>
+<tr>
+<td>Software-quality gates/reports</td>
+<td><code>VERIFIED_IMPLEMENTED</code>، اما Domain متفاوت</td>
+</tr>
+<tr>
+<td>Stock QC hold and disposition</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td>Final release certificate</td>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="-inspection">صفحه Inspection <a href="#-inspection" class="heading-anchor">#</a></h2>
+<br>
+<p>صفحه Quality Dashboard نوع‌های <code>incoming</code>، <code>in-process</code>، <code>final</code> و <code>outgoing</code> و نتیجه‌های <code>pass</code>، <code>fail</code> و <code>pending</code> را نمایش می‌دهد، اما رکوردها در ثابت <code>INSPECTIONS</code> تعریف شده‌اند. فیلتر، جست‌وجو و آمار نیز فقط روی همان آرایه اجرا می‌شوند.</p>
+<br>
+<p>این صفحه نباید به‌عنوان اثبات backend inspection معرفی شود.</p>
+<br>
+<h2 id="software-quality-controller">Software Quality Controller <a href="#software-quality-controller" class="heading-anchor">#</a></h2>
+<br>
+<p>مسیر <code>/api/quality</code> رفتارهای زیر را دارد:</p>
+<br>
+<li>dashboard و score بر اساس projectId؛</li>
+<li>trendهای metric؛</li>
+<li>ingestion و aggregation metric؛</li>
+<li>check و status و failed conditions برای quality gate؛</li>
+<li>تولید، export و schedule report.</li>
+<br>
+<p>این مدل فاقد Production Lot، Sample، Measurement، Specification، Inspector، Laboratory، Defect و Release Certificate است؛ بنابراین متعلق به Stage کیفیت کالا نیست.</p>
+<br>
+<h2 id="-inventory-qc">رفتار واقعی Inventory QC <a href="#-inventory-qc" class="heading-anchor">#</a></h2>
+<br>
+<p><code>InventoryPostingService</code> رفتارهای زیر را پیاده‌سازی می‌کند:</p>
+<br>
+<li>انتقال quantity از Available به QC Hold؛</li>
+<li>کنترل کافی‌بودن available quantity؛</li>
+<li>disposition نوع <code>PASS</code> و بازگشت به Available؛</li>
+<li><code>FAIL_DAMAGED</code> و انتقال به Damaged؛</li>
+<li><code>FAIL_BLOCKED</code> و انتقال به Blocked؛</li>
+<li>ثبت ledger eventهای <code>QC_HOLD</code>، <code>QC_PASS</code>، <code>QC_FAIL_DAMAGED</code> و <code>QC_FAIL_BLOCKED</code>.</li>
+<br>
+<p>این رفتار stock disposition را ثابت می‌کند، اما ثابت نمی‌کند چه کسی بازرسی کرده، چه specification و sampling plan استفاده شده، چه measurementهایی ثبت شده و چه authorityای release را صادر کرده است.</p>
+<br>
+<h2 id="qc-hold-workbench">QC Hold Workbench <a href="#qc-hold-workbench" class="heading-anchor">#</a></h2>
+<br>
+<p>Warehouse UI:</p>
+<br>
+<li>از <code>inventoryApi.listQcHolds()</code> استفاده می‌کند؛</li>
+<li><code>PATCH /api/proxy/quality/status</code> را با actionهای inspect/release/reject فراخوانی می‌کند؛</li>
+<li>stateهای <code>PENDING</code>، <code>INSPECTING</code>، <code>RELEASED</code> و <code>REJECTED</code> دارد؛</li>
+<li>ادعا می‌کند Release باعث Inventory Restock و Reject باعث Stock Adjustment می‌شود.</li>
+<br>
+<p>backend متناظر <code>/quality/status</code> در شواهد این Wave پیدا نشد؛ بنابراین این side effectها <code>CLIENT_CONTRACT_UNVERIFIED</code> هستند.</p>
+<br>
+<h2 id="subjects-">Subjects مفقود <a href="#subjects-" class="heading-anchor">#</a></h2>
+<br>
+<p>برای تکمیل Stage کیفیت هنوز این Subjects لازم‌اند:</p>
+<br>
+<li><code>InspectionPlan</code></li>
+<li><code>Inspection</code></li>
+<li><code>Sample</code></li>
+<li><code>Measurement</code></li>
+<li><code>SpecificationVersion</code></li>
+<li><code>Defect</code></li>
+<li><code>Nonconformance</code></li>
+<li><code>CorrectiveAction</code></li>
+<li><code>QualityDecision</code></li>
+<li><code>ReleaseCertificate</code></li>
+<li><code>ReleaseRevocation</code></li>
+<li>Inspector/Laboratory mandate و calibration evidence</li>
+<br>
+<h2 id="-">اقدامات اصلاحی <a href="#-" class="heading-anchor">#</a></h2>
+<br>
+<li>Software Quality از Trade Quality نام‌گذاری و ownership جدا داشته باشد.</li>
+<li>Mock inspection UI به API واقعی متصل یا صریحاً Demo علامت‌گذاری شود.</li>
+<li>Quality Domain مستقل از Inventory ایجاد شود.</li>
+<li>Quality Decision از طریق Command تایپ‌شده به Inventory disposition متصل شود.</li>
+<li>specification version، inspector identity، evidence، rationale و revocation ثبت شوند.</li>
+<li>proxy مربوط به <code>/quality/status</code> پیدا، مستند و integration-test شود.</li>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

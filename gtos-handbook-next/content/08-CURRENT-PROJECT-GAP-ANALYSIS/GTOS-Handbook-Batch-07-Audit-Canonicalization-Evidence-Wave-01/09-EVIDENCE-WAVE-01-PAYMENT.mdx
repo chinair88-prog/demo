@@ -1,0 +1,48 @@
+---
+title: "Repository Evidence Wave 01 - Payment"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="Repository Evidence Wave 01 - Payment"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "Repository Evidence Wave 01 - Payment" }
+  ]}
+>
+
+<br />
+<h2 id="evidence-baseline">Evidence baseline</h2>
+<br />
+<p>Inspected files:</p>
+<br />
+<p>- <code class="code-inline">backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/entity/PaymentIntentEntity.java</code></p>
+<p>- <code class="code-inline">backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/service/PaymentIntentService.java</code></p>
+<p>- <code class="code-inline">backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/api/PaymentController.java</code></p>
+<br />
+<h2 id="verified-implementation">Verified implementation</h2>
+<br />
+<p><code class="code-inline">PaymentIntentEntity</code> maps to <code class="code-inline">payment_service_intents</code> and defines indexes for order, status, provider, customer, creation, expiry, and tenant. It records amount, currency, capture mode, status, provider, provider reference, customer, description, expiry, errors, metadata, a unique idempotency key, and a JPA optimistic-lock version.</p>
+<br />
+<p>Lifecycle methods support captured, partially captured, cancelled, expired, and failed states. Captured intents cannot be cancelled.</p>
+<br />
+<p><code class="code-inline">PaymentIntentService</code> implements creation, idempotency lookup, tenant-aware queries, pagination, provider/customer/status filters, and cancellation. The service obtains tenant context from a gateway-injected header and uses unscoped behavior when the context is absent for internal flows.</p>
+<br />
+<p><code class="code-inline">PaymentController</code> exposes payment intents, capture, refund, settlement, payout, webhook, dispute, summary, and provider information under <code class="code-inline">/api/payments</code>.</p>
+<br />
+<h2 id="verified-gaps-and-risks">Verified gaps and risks</h2>
+<br />
+<p>- Legacy/internal unscoped access is deliberately preserved and requires strong trusted-caller controls.</p>
+<p>- Tenant context depends on a gateway-injected header; direct-service access must be prevented or independently authenticated.</p>
+<p>- Idempotency lookup is by idempotency key without an inspected tenant predicate; a global unique key may cause cross-tenant behavior unless keys are globally namespaced and responses are protected.</p>
+<p>- The inspected payment-intent status model starts at <code class="code-inline">REQUIRES_CAPTURE</code>; separate authorization, risk approval, and Outcome Unknown states are not part of this Entity.</p>
+<p>- No formal PI risk-approval Decision aggregate was established in the inspected files.</p>
+<p>- Webhook signature verification and provider-outcome reconciliation require inspection of additional classes.</p>
+<br />
+<h2 id="status-decision">Status decision</h2>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Capability","sortable":true},{"key":"col1","label":"Status","sortable":true}]} data={[{"col0":"payment-intent entity, indexes, expiry and lifecycle methods","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"idempotency key and optimistic locking","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"tenant-aware intent reads","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code> with legacy unscoped path"},{"col0":"intent/capture/refund/settlement/payout/webhook API surface","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"trusted gateway and direct-access enforcement","col1":"<code class=\"code-inline\">REQUIRES_REPOSITORY_REVIEW</code>"},{"col0":"PI payment-risk approval workflow","col1":"<code class=\"code-inline\">PARTIAL_IMPLEMENTATION</code> / separate capability not verified"},{"col0":"provider signature and Outcome Unknown reconciliation","col1":"<code class=\"code-inline\">REQUIRES_REPOSITORY_REVIEW</code>"}]} />
+<br />
+</ContentPage>

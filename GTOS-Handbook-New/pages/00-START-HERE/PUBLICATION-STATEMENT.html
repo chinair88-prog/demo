@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Publication Statement · GTOS Handbook</title>
+<meta name="description" content="Publication Statement This edition consolidates the complete handbook corpus produced during the GTOS architecture program into one governed publication. What t">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/00-START-HERE/index.html">START HERE</a> <span class="sep">›</span> <span>Publication Statement</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Start Here</span>
+        </div>
+        <h1>Publication Statement</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#what-this-edition-is">What this edition is</a></li><li class="toc-level-2"><a href="#what-this-edition-is-not">What this edition is not</a></li><li class="toc-level-2"><a href="#authority-hierarchy">Authority hierarchy</a></li><li class="toc-level-2"><a href="#final-edition-interpretation">Final-edition interpretation</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="publication-statement">Publication Statement</h1>
+<br>
+<p>This edition consolidates the complete handbook corpus produced during the GTOS architecture program into one governed publication.</p>
+<br>
+<h2 id="what-this-edition-is">What this edition is <a href="#what-this-edition-is" class="heading-anchor">#</a></h2>
+<br>
+<li>the target enterprise architecture for GTOS;</li>
+<li>the domain and lifecycle specification for global trade;</li>
+<li>the implementation guide for backend, frontend, data, events, workflows, AI, security, testing, infrastructure, and operations;</li>
+<li>the conformance baseline for engineering reviews and release readiness;</li>
+<li>the roadmap for completing and correcting the current project.</li>
+<br>
+<h2 id="what-this-edition-is-not">What this edition is not <a href="#what-this-edition-is-not" class="heading-anchor">#</a></h2>
+<br>
+<li>a statement that the current source code already conforms;</li>
+<li>legal advice or a substitute for jurisdiction-specific counsel;</li>
+<li>proof that a deployment is secure, compliant, resilient, or production ready;</li>
+<li>permission to bypass architecture, security, financial, quality, customs, or privacy approvals.</li>
+<br>
+<h2 id="authority-hierarchy">Authority hierarchy <a href="#authority-hierarchy" class="heading-anchor">#</a></h2>
+<br>
+<li>Canon and Constitution.</li>
+<li>Normative Core.</li>
+<li>Detailed Volumes.</li>
+<li>Architecture Decision Records.</li>
+<li>Domain implementation specifications.</li>
+<li>Code, configuration, migrations, tests, and runtime evidence.</li>
+<li>Current-project gap reports.</li>
+<br>
+<p>A lower layer may implement or specialize a higher layer; it may not silently contradict it.</p>
+<br>
+<h2 id="final-edition-interpretation">Final-edition interpretation <a href="#final-edition-interpretation" class="heading-anchor">#</a></h2>
+<br>
+<p>“Final” means the publication is a complete implementation blueprint and governed reference edition. It does not mean architecture can never evolve. Changes require an ADR, compatibility analysis, migration plan, conformance update, and release note.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

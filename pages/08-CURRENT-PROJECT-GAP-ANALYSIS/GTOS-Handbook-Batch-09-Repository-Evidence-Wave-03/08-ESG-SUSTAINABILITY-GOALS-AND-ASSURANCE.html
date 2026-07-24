@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Compliance Service برای Sustainability Goal این رفتارها را دارد: create/update؛ - activate؛ - update progress؛ - archive/delete؛ - get/list/filter by tenant/status/type؛ - Kafka send برای goal events. Goal شامل baseline، target، year، scope، reduction type، framework، SBTi flag،…">
+<meta name="color-scheme" content="light dark">
+<title>08 — ESG, Sustainability Goals, and Assurance · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/08-ESG-SUSTAINABILITY-GOALS-AND-ASSURANCE.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 09 Repository Evidence Wave 03</span><span class="sep">/</span><span>08 — ESG, Sustainability Goals, and Assurance</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>216 words</span></div>
+        <h1>08 — ESG, Sustainability Goals, and Assurance</h1>
+        <p class="lede">Compliance Service برای Sustainability Goal این رفتارها را دارد: create/update؛ - activate؛ - update progress؛ - archive/delete؛ - get/list/filter by tenant/status/type؛ - Kafka send برای goal events. Goal شامل baseline، target، year، scope، reduction type، framework، SBTi flag،…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="implemented-goal-management">Implemented goal management<a aria-label="Link to section" class="heading-anchor" href="#implemented-goal-management">#</a></h2>
+<p>Compliance Service برای Sustainability Goal این رفتارها را دارد:</p>
+<ul>
+<li>create/update؛</li>
+<li>activate؛</li>
+<li>update progress؛</li>
+<li>archive/delete؛</li>
+<li>get/list/filter by tenant/status/type؛</li>
+<li>Kafka send برای goal events.</li>
+</ul>
+<p>Goal شامل baseline، target، year، scope، reduction type، framework، SBTi flag، plan، milestones، owner، budget و progress است.</p>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h2 id="critical-esg-findings">Critical ESG findings<a aria-label="Link to section" class="heading-anchor" href="#critical-esg-findings">#</a></h2>
+<ul>
+<li>Controller authorization و trusted tenant context آشکار ندارد.</li>
+<li>tenantId از request/path گرفته می‌شود.</li>
+<li>get/update/activate/delete by ID tenant-scoped نیستند.</li>
+<li><code>getAllGoals()</code> global است.</li>
+<li>currentValue از request parameter مستقیم پذیرفته می‌شود؛ Measurement Source، methodology، evidence و assurance وجود ندارد.</li>
+<li>progress formula target semantics را مخلوط می‌کند: درصد کاهش محاسبه‌شده با <code>targetValue</code> مقایسه می‌شود، درحالی‌که targetValue ممکن است absolute target باشد.</li>
+<li>statusهای ON_TRACK/BEHIND_SCHEDULE فقط با threshold ثابت 75 تعیین می‌شوند و timeline نسبت به targetYear لحاظ نمی‌شود.</li>
+<li><code>isScienceBased</code> و SBTi fields self-asserted هستند.</li>
+<li>Event payload فقط string نوع و ID است؛ failure catch/log می‌شود و outbox ندارد.</li>
+<li>hard delete برای ESG goal وجود دارد.</li>
+<li>یک SustainabilityGoal Entity دیگر در <code>specialized/carbon-tracking-service</code> وجود دارد؛ ownership conflict باید حل شود.</li>
+</ul>
+<h2 id="assurance-boundary">Assurance boundary<a aria-label="Link to section" class="heading-anchor" href="#assurance-boundary">#</a></h2>
+<p>یک Goal record به‌تنهایی ESG disclosure، verified carbon footprint یا SBTi validation نیست.</p>
+<p>مدل هدف:</p>
+<div class="code-block"><div class="code-toolbar"><span>text</span><button class="copy-code" type="button">Copy</button></div><div class="highlight"><pre><span></span>MeasurementSource
+→ ActivityData
+→ EmissionFactorVersion
+→ CalculationMethodVersion
+→ SustainabilityMetricObservation
+→ AssuranceEvidence
+→ GoalProgressAssessment
+→ DisclosureVersion
+</pre></div>
+</div></div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#implemented-goal-management">Implemented goal management</a><a class="toc-level-2" href="#critical-esg-findings">Critical ESG findings</a><a class="toc-level-2" href="#assurance-boundary">Assurance boundary</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="07-SETTLEMENT-RECONCILIATION-AND-PAYOUT.html"><span>Previous</span><strong>07 — Settlement, Reconciliation, and Payout</strong></a>
+        <a class="next" href="09-AI-EVALUATION-AND-GOVERNED-LEARNING.html"><span>Next</span><strong>09 — AI Evaluation and Governed Learning</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

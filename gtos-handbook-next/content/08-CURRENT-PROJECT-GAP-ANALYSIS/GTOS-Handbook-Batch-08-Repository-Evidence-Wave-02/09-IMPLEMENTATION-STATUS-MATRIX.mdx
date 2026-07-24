@@ -1,0 +1,19 @@
+---
+title: "09 — Implementation Status Matrix"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="09 — Implementation Status Matrix"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "09 — Implementation Status Matrix" }
+  ]}
+>
+
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Area","sortable":true},{"key":"col1","label":"Narrow verified behavior","sortable":true},{"key":"col2","label":"Classification","sortable":true},{"key":"col3","label":"Main blocker","sortable":true}]} data={[{"col0":"Trade Quality Inspection","col1":"Mock inspection UI only","col2":"<code class=\"code-inline\">REFERENCE_ARCHITECTURE</code>","col3":"Aggregate/API/Evidence missing"},{"col0":"Software Quality Gates","col1":"Metrics, gates, reports","col2":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>","col3":"Different Domain"},{"col0":"Inventory QC Hold","col1":"Hold and disposition","col2":"<code class=\"code-inline\">PARTIAL_IMPLEMENTATION</code>","col3":"Inspection Decision absent"},{"col0":"Tajerestan Packing List","col1":"Entity, create/get/list/Event","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>","col3":"identity, weights, versioning"},{"col0":"Partner Packing List","col1":"list/get/patch/audit","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>","col3":"create unavailable, duplicate owner"},{"col0":"Commercial Invoice","col1":"table/list/get/patch","col2":"<code class=\"code-inline\">PARTIAL_IMPLEMENTATION</code>","col3":"create/generate/issue missing"},{"col0":"Export Declaration","col1":"table/create/list/update/submit","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>","col3":"authority evidence/doc operations"},{"col0":"PO Customs","col1":"mutable PO status and Event","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>","col3":"not legal release"},{"col0":"Import Declaration","col1":"full operational lifecycle","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>","col3":"manual authority/state/migration gaps"},{"col0":"Booking","col1":"table and real Portal/API","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>","col3":"custody boundary"},{"col0":"Trade Shipment","col1":"entity/API/tracking/Kafka","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>","col3":"tenant and Event reliability"},{"col0":"Custody Transfer","col1":"HANDED_OVER status only","col2":"<code class=\"code-inline\">CLIENT_CONTRACT_PRESENT</code>","col3":"no bilateral evidence"},{"col0":"Warehouse ASN/Dock","col1":"create/status/schedule/check-in","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>","col3":"scoping, receipt evidence, Event"},{"col0":"Provider WMS","col1":"tables and references","col2":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code> schema","col3":"competing owner/runtime verification"},{"col0":"Inventory","col1":"balance/posting/QC/reservation","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>","col3":"auth, idempotency, invariants"}]} />
+<br />
+</ContentPage>

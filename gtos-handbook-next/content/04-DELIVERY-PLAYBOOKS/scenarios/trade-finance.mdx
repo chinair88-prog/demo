@@ -1,0 +1,37 @@
+---
+title: "Scenario — Trade Finance and Settlement"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Scenario — Trade Finance and Settlement"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Scenario — Trade Finance and Settlement" }
+  ]}
+>
+
+<br />
+<h2 id="context">Context</h2>
+<br />
+<p>A buyer, seller, bank, carrier, and insurer coordinate documentary obligations and payment.</p>
+<br />
+<h2 id="separation-of-concepts">Separation of Concepts</h2>
+<br />
+<p>An invoice is evidence of a claimed obligation, not proof of settlement. A bank recommendation is not payment approval. Payment approval is a Decision. Payment Intent authorizes execution. Settlement is an Event owned by the settlement authority.</p>
+<br />
+<h2 id="workflow">Workflow</h2>
+<br />
+<p>Agreement terms define required documents and deadlines. Documents are presented with versions and signatures. Validation produces observations and findings. The bank decision uses an Evidence Set and policy. Approved payment produces Intent with amount, currency, beneficiary, limits, and idempotency key. The payment service executes and records settlement or failure.</p>
+<br />
+<h2 id="duplicate-protection">Duplicate Protection</h2>
+<br />
+<p>A lost response does not imply failed settlement. Retrying with the same idempotency key queries or resumes execution. A second business payment requires new Intent and authority.</p>
+<br />
+<h2 id="correction">Correction</h2>
+<br />
+<p>If a document was fraudulent, investigation does not delete settlement history. New evidence may create fraud Decision, recovery Intent, insurance claim, or legal hold.</p>
+<br />
+</ContentPage>

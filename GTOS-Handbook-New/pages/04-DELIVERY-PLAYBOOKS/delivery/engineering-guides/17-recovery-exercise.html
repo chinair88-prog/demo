@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Business Recovery Exercise · GTOS Handbook</title>
+<meta name="description" content="Business Recovery Exercise Objective The exercise proves that GTOS can restore service and reconcile business truth after a realistic failure. A successful infr">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Business Recovery Exercise</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Business Recovery Exercise</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#objective">Objective</a></li><li class="toc-level-2"><a href="#scenario-design">Scenario Design</a></li><li class="toc-level-2"><a href="#exercise-phases">Exercise Phases</a></li><li class="toc-level-2"><a href="#success-criteria">Success Criteria</a></li><li class="toc-level-2"><a href="#review">Review</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="business-recovery-exercise">Business Recovery Exercise</h1>
+<br>
+<h2 id="objective">Objective <a href="#objective" class="heading-anchor">#</a></h2>
+<br>
+<p>The exercise proves that GTOS can restore service and reconcile business truth after a realistic failure. A successful infrastructure failover without business completeness is a failed exercise.</p>
+<br>
+<h2 id="scenario-design">Scenario Design <a href="#scenario-design" class="heading-anchor">#</a></h2>
+<br>
+<p>Select a scenario that crosses domains and trust boundaries: regional outage during customs release, Event transport loss during shipment custody transfer, compromised partner credential during payment processing, or data-store restoration while corrections are in flight.</p>
+<br>
+<p>Define failure time, affected components, data boundary, known and hidden symptoms, expected detection, business deadlines, and legal or partner obligations. Inject ambiguity so responders must acquire evidence rather than follow a scripted answer.</p>
+<br>
+<h2 id="exercise-phases">Exercise Phases <a href="#exercise-phases" class="heading-anchor">#</a></h2>
+<br>
+<li>Detect and declare the incident.</li>
+<li>Establish command roles and preserve evidence.</li>
+<li>Contain unsafe execution and compromised authority.</li>
+<li>Restore identity, policy, authoritative stores, Event transport, workflow, and projections in dependency order.</li>
+<li>Identify gaps, duplicates, stale projections, and unresolved Commands.</li>
+<li>Reconcile identities, state, obligations, Decisions, Intent, Events, and financial totals.</li>
+<li>Notify participants and regulators where required.</li>
+<li>Return to controlled operation and close temporary authority.</li>
+<br>
+<h2 id="success-criteria">Success Criteria <a href="#success-criteria" class="heading-anchor">#</a></h2>
+<br>
+<p>RTO and RPO are met or variances explained. No unauthorized default action occurs. Historical and current state can be reconstructed. Duplicate effects are prevented or corrected. Partner exchanges are reconciled. Evidence proves each restoration and decision.</p>
+<br>
+<h2 id="review">Review <a href="#review" class="heading-anchor">#</a></h2>
+<br>
+<p>The review distinguishes technical restoration, business reconciliation, and stakeholder recovery. Actions address architecture, tooling, runbooks, access, training, capacity, and partner agreements. The exercise is repeated until critical weaknesses are verified closed.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Service Architecture · GTOS Handbook</title>
+<meta name="description" content="Service Architecture Service boundary A service is justified by independent business ownership, lifecycle, scaling, security, data, or operational needs. A tabl">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/01-NORMATIVE-CORE/index.html">NORMATIVE CORE</a> <span class="sep">›</span> <span>Service Architecture</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Normative Core</span>
+        </div>
+        <h1>Service Architecture</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#service-boundary">Service boundary</a></li><li class="toc-level-2"><a href="#database-ownership">Database ownership</a></li><li class="toc-level-2"><a href="#synchronous-communication">Synchronous communication</a></li><li class="toc-level-2"><a href="#asynchronous-communication">Asynchronous communication</a></li><li class="toc-level-2"><a href="#long-running-processes">Long-running processes</a></li><li class="toc-level-2"><a href="#service-template">Service template</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="service-architecture">Service Architecture</h1>
+<br>
+<h2 id="service-boundary">Service boundary <a href="#service-boundary" class="heading-anchor">#</a></h2>
+<br>
+<p>A service is justified by independent business ownership, lifecycle, scaling, security, data, or operational needs. A table group or UI menu is not sufficient reason for a service.</p>
+<br>
+<p>Each service contains:</p>
+<br>
+<pre><code class="language-text">
+API / Adapter Layer
+
+Application Layer
+
+Domain Layer
+
+Persistence and Integration Layer
+
+Security and Policy Layer
+
+Event and Workflow Layer
+
+Observability and Operations Layer
+
+Test and Conformance Layer
+
+</code></pre>
+<br>
+<h2 id="database-ownership">Database ownership <a href="#database-ownership" class="heading-anchor">#</a></h2>
+<br>
+<p>Each service owns its writes. Cross-service database joins and updates are prohibited. Read models may be built through Events, APIs, CDC under governance, or analytical pipelines.</p>
+<br>
+<h2 id="synchronous-communication">Synchronous communication <a href="#synchronous-communication" class="heading-anchor">#</a></h2>
+<br>
+<p>Use synchronous calls for bounded request-response interactions where the caller requires an immediate answer and the dependency can meet the latency and availability budget. Apply timeouts, circuit breaking, authentication, authorization, tracing, idempotency, and explicit error contracts.</p>
+<br>
+<h2 id="asynchronous-communication">Asynchronous communication <a href="#asynchronous-communication" class="heading-anchor">#</a></h2>
+<br>
+<p>Use Events for completed facts and durable decoupling. Producers commit state plus outbox atomically. Consumers use inbox/idempotency, versioned schemas, replay safety, ordering strategy, DLQ, and reconciliation.</p>
+<br>
+<h2 id="long-running-processes">Long-running processes <a href="#long-running-processes" class="heading-anchor">#</a></h2>
+<br>
+<p>Use a durable workflow engine or persisted saga state for multi-step trade processes. Workflow state is coordination state, not Domain truth.</p>
+<br>
+<h2 id="service-template">Service template <a href="#service-template" class="heading-anchor">#</a></h2>
+<br>
+<p>Every service repository module shall include ownership metadata, ADRs, API/Event specifications, migrations, dependency policy, SLO, dashboards, alerts, runbooks, threat model, test strategy, and deprecation plan.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

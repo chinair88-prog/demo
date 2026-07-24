@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Event names describe completed business facts in past tense. ShipmentReleased is valid; ReleaseShipment is a Command. Technical lifecycle Events are allowed but SHALL not masquerade as business facts. The Event envelope includes event identity, type, subject identity, source iden…">
+<meta name="color-scheme" content="light dark">
+<title>GTOS Event Contract Standard · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/standards/event-contract-standard.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Standards</span><span class="sep">/</span><span>GTOS Event Contract Standard</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>233 words</span></div>
+        <h1>GTOS Event Contract Standard</h1>
+        <p class="lede">Event names describe completed business facts in past tense. ShipmentReleased is valid; ReleaseShipment is a Command. Technical lifecycle Events are allowed but SHALL not masquerade as business facts. The Event envelope includes event identity, type, subject identity, source iden…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="business-naming">Business Naming<a aria-label="Link to section" class="heading-anchor" href="#business-naming">#</a></h2>
+<p>Event names describe completed business facts in past tense. <code>ShipmentReleased</code> is valid; <code>ReleaseShipment</code> is a Command. Technical lifecycle Events are allowed but SHALL not masquerade as business facts.</p>
+<h2 id="envelope">Envelope<a aria-label="Link to section" class="heading-anchor" href="#envelope">#</a></h2>
+<p>The Event envelope includes event identity, type, subject identity, source identity and domain, occurrence time, observation time where applicable, recording time, schema version, authority reference where material, correlation, causation, integrity, and payload.</p>
+<h2 id="immutability">Immutability<a aria-label="Link to section" class="heading-anchor" href="#immutability">#</a></h2>
+<p>Published Events are immutable. A correction or retraction is a new Event referencing the prior Event. Infrastructure metadata may be appended without changing business payload meaning.</p>
+<h2 id="ordering">Ordering<a aria-label="Link to section" class="heading-anchor" href="#ordering">#</a></h2>
+<p>Ordering is guaranteed only within an explicitly declared scope such as aggregate identity or partition key. Consumers SHALL not assume global order. Occurrence order, publication order, and receipt order are distinct.</p>
+<h2 id="delivery-and-idempotency">Delivery and Idempotency<a aria-label="Link to section" class="heading-anchor" href="#delivery-and-idempotency">#</a></h2>
+<p>At-least-once delivery is expected. Consumers deduplicate by Event identity and protect business invariants. A duplicate Event SHALL not create duplicate business effect.</p>
+<h2 id="schema-evolution">Schema Evolution<a aria-label="Link to section" class="heading-anchor" href="#schema-evolution">#</a></h2>
+<p>Schemas have semantic owners. Breaking changes use a major version or a new Event type. Translators preserve original identity and provenance. Historical Events remain readable for the required retention period.</p>
+<h2 id="replay">Replay<a aria-label="Link to section" class="heading-anchor" href="#replay">#</a></h2>
+<p>Replay is controlled, observable, and authorized. Consumers distinguish live and replay processing when operational behavior differs. Notifications and irreversible side effects SHALL not be repeated without explicit replay policy.</p>
+<h2 id="privacy">Privacy<a aria-label="Link to section" class="heading-anchor" href="#privacy">#</a></h2>
+<p>Events contain the minimum necessary information. Highly sensitive payloads SHOULD use references with access control rather than broad replication.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#business-naming">Business Naming</a><a class="toc-level-2" href="#envelope">Envelope</a><a class="toc-level-2" href="#immutability">Immutability</a><a class="toc-level-2" href="#ordering">Ordering</a><a class="toc-level-2" href="#delivery-and-idempotency">Delivery and Idempotency</a><a class="toc-level-2" href="#schema-evolution">Schema Evolution</a><a class="toc-level-2" href="#replay">Replay</a><a class="toc-level-2" href="#privacy">Privacy</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="conformance-assessment-standard.html"><span>Previous</span><strong>Conformance Assessment Standard</strong></a>
+        <a class="next" href="financial-control-standard.html"><span>Next</span><strong>Financial Control Standard</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

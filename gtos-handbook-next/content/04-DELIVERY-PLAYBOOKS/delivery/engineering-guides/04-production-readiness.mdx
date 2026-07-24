@@ -1,0 +1,49 @@
+---
+title: "Production Readiness Review"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Production Readiness Review"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Production Readiness Review" }
+  ]}
+>
+
+<br />
+<h2 id="purpose">Purpose</h2>
+<br />
+<p>The Production Readiness Review establishes that a capability can safely carry real trade decisions and effects. It combines architecture, engineering, security, data, AI, and operations evidence.</p>
+<br />
+<h2 id="service-ownership">Service Ownership</h2>
+<br />
+<p>The service has an accountable product owner, domain owner, engineering owner, security contact, and on-call rotation. Escalation paths include partner, regulatory, financial, and executive contacts where applicable.</p>
+<br />
+<h2 id="functional-integrity">Functional Integrity</h2>
+<br />
+<p>State models and invariants are implemented and tested. Commands are idempotent. Events represent completed facts. Corrections preserve history. Domain and contract versions are registered. Data migration and reconciliation are complete.</p>
+<br />
+<h2 id="security-and-privacy">Security and Privacy</h2>
+<br />
+<p>Threat models are current. Identities, credentials, delegation, policy, purpose, classification, secrets, encryption, audit, and incident containment are tested. Administrative capabilities use stronger controls. AI tools cannot bypass external policy enforcement.</p>
+<br />
+<h2 id="reliability">Reliability</h2>
+<br />
+<p>SLOs and error budgets reflect business journeys. Capacity covers peak, replay, recovery, and partner delay. Dependencies have timeout, retry, circuit, degradation, and ownership. Backups and restoration have been tested. Recovery includes business reconciliation.</p>
+<br />
+<h2 id="observability">Observability</h2>
+<br />
+<p>Dashboards show availability, latency, errors, saturation, Event freshness, queue age, business state age, policy denial, evidence gaps, decision outcomes, and correction backlog. Alerts map to runbooks and accountable responders.</p>
+<br />
+<h2 id="change-and-rollback">Change and Rollback</h2>
+<br />
+<p>Deployment is staged and observable. Rollback criteria are objective. Rollback SHALL not delete new business facts or re-enable incompatible contracts. Feature flags, policy switches, tool disablement, or traffic controls support containment.</p>
+<br />
+<h2 id="gono-go">Go/No-Go</h2>
+<br />
+<p>Critical findings block launch. Major findings require approved compensating controls and dates. The decision record captures attendees, evidence, dissent, risks, authority, and conditions. A successful review is valid only for the declared release, environment, and scope.</p>
+<br />
+</ContentPage>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="CartController و CartService رفتارهای زیر را دارند: create/get cart by user or session؛ - get by cart ID؛ - add/update/remove item؛ - coupon attach/remove؛ - guest-to-user merge؛ - clear and expiry cleanup. Classification: IMPLEMENTED WITH CRITICAL GAPS . userId، sessionId و cart…">
+<meta name="color-scheme" content="light dark">
+<title>03 — Cart, Checkout, and AI Insights · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/03-CART-CHECKOUT-AND-AI-INSIGHTS.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 09 Repository Evidence Wave 03</span><span class="sep">/</span><span>03 — Cart, Checkout, and AI Insights</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>333 words</span></div>
+        <h1>03 — Cart, Checkout, and AI Insights</h1>
+        <p class="lede">CartController و CartService رفتارهای زیر را دارند: create/get cart by user or session؛ - get by cart ID؛ - add/update/remove item؛ - coupon attach/remove؛ - guest-to-user merge؛ - clear and expiry cleanup. Classification: IMPLEMENTED WITH CRITICAL GAPS . userId، sessionId و cart…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="cart-implementation">Cart implementation<a aria-label="Link to section" class="heading-anchor" href="#cart-implementation">#</a></h2>
+<p><code>CartController</code> و <code>CartService</code> رفتارهای زیر را دارند:</p>
+<ul>
+<li>create/get cart by user or session؛</li>
+<li>get by cart ID؛</li>
+<li>add/update/remove item؛</li>
+<li>coupon attach/remove؛</li>
+<li>guest-to-user merge؛</li>
+<li>clear and expiry cleanup.</li>
+</ul>
+<p>Classification: <code>IMPLEMENTED_WITH_CRITICAL_GAPS</code>.</p>
+<h2 id="cart-security-and-commercial-integrity-gaps">Cart security and commercial integrity gaps<a aria-label="Link to section" class="heading-anchor" href="#cart-security-and-commercial-integrity-gaps">#</a></h2>
+<ul>
+<li>userId، sessionId و cartId از request پذیرفته می‌شوند.</li>
+<li>get/update/delete by cart ID ownership check آشکار ندارند.</li>
+<li>Cart item فیلدهای SKU، name، unitPrice، currency، providerId و attributes را از Client می‌پذیرد.</li>
+<li>Catalog/Offer/Inventory lookup قبل از add دیده نشد.</li>
+<li>MOQ، maximum quantity، channel eligibility و availability validate نمی‌شوند.</li>
+<li>Coupon فقط به cart attach می‌شود؛ comment صریحاً می‌گوید validation واقعی بعداً توسط CouponService انجام می‌شود.</li>
+<li>guest merge با userId/sessionId ارسالی Caller انجام می‌شود.</li>
+</ul>
+<h2 id="checkout-implementation">Checkout implementation<a aria-label="Link to section" class="heading-anchor" href="#checkout-implementation">#</a></h2>
+<p><code>CheckoutController</code>:</p>
+<ul>
+<li>checkout start؛</li>
+<li>cart-to-order conversion؛</li>
+<li>checkout validation؛</li>
+<li>order verification؛</li>
+<li>payment confirmation؛</li>
+<li>AI insights.</li>
+</ul>
+<p>اما checkout قیمت‌های Cart را مستقیماً به Order Item منتقل می‌کند. comparison واقعی با Catalog/Offer انجام نمی‌شود. tenantId نیز از Checkout request وارد Order می‌شود، مگر TenantContext در Order layer آن را override کند.</p>
+<p><code>confirm-payment</code> مستقیماً Order را paid می‌کند و در فایل بررسی‌شده signed provider callback، idempotency، amount/currency reconciliation یا Payment Intent ownership اثبات نشد.</p>
+<p>Classification: <code>IMPLEMENTED_WITH_CRITICAL_GAPS</code>.</p>
+<h2 id="simulated-ai">Simulated AI<a aria-label="Link to section" class="heading-anchor" href="#simulated-ai">#</a></h2>
+<p>کد صریحاً AI analysis را <code>reference implementation that simulates AI decisions</code> معرفی می‌کند.</p>
+<p>Fraud score، ETA، payment suggestion، warehouse routing و upsell با ruleهای محلی و hard-coded ساخته می‌شوند؛ برای نمونه warehouseهای <code>wh-main</code> و <code>wh-special</code> و carrierهای فرضی انتخاب می‌شوند.</p>
+<p>Classification:</p>
+<ul>
+<li>AI checkout advice: <code>SIMULATED_REFERENCE_IMPLEMENTATION</code></li>
+<li>persisted AI decision: <code>PLANNED_NOT_IMPLEMENTED</code>؛ کد فقط آن را log می‌کند.</li>
+</ul>
+<h2 id="required-checkout-contract">Required checkout contract<a aria-label="Link to section" class="heading-anchor" href="#required-checkout-contract">#</a></h2>
+<p>Checkout باید:</p>
+<ol>
+<li>actor/cart ownership را verify کند؛</li>
+<li>Offer و Price Version را دوباره resolve کند؛</li>
+<li>availability و reservation را اجرا کند؛</li>
+<li>shipping/tax/discount را authoritative محاسبه کند؛</li>
+<li>quote expiry و idempotency داشته باشد؛</li>
+<li>Payment Intent بسازد؛</li>
+<li>Order Snapshot immutable ایجاد کند؛</li>
+<li>AI output را advisory و traceable نگه دارد.</li>
+</ol>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#cart-implementation">Cart implementation</a><a class="toc-level-2" href="#cart-security-and-commercial-integrity-gaps">Cart security and commercial integrity gaps</a><a class="toc-level-2" href="#checkout-implementation">Checkout implementation</a><a class="toc-level-2" href="#simulated-ai">Simulated AI</a><a class="toc-level-2" href="#required-checkout-contract">Required checkout contract</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="02-PRICING-PRICE-VERSION-AND-COMMERCIAL-SNAPSHOT.html"><span>Previous</span><strong>02 — Pricing, Price Version, and Commercial Snapshot</strong></a>
+        <a class="next" href="04-CUSTOMER-ORDER-AND-WORKFLOW.html"><span>Next</span><strong>04 — Customer Order and Workflow</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

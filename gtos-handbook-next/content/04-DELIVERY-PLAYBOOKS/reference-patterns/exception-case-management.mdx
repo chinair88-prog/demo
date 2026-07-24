@@ -1,0 +1,37 @@
+---
+title: "Exception and Case Management Pattern"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Exception and Case Management Pattern"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Exception and Case Management Pattern" }
+  ]}
+>
+
+<br />
+<h2 id="context">Context</h2>
+<br />
+<p>Not every trade condition can be automated safely. Missing documents, conflicting identities, damaged cargo, policy ambiguity, suspected fraud, and partner disagreement require collaborative resolution.</p>
+<br />
+<h2 id="case-structure">Case Structure</h2>
+<br />
+<p>A Case contains issues, subjects, participants, authority, severity, tasks, evidence requests, decisions, communications, deadlines, and resolution.</p>
+<br />
+<h2 id="rules">Rules</h2>
+<br />
+<p>A Case SHALL not become a second source of domain truth. It references domain facts and publishes authorized Decisions and Outcomes back to owning domains. Case notes are Observations unless formally asserted under authority.</p>
+<br />
+<h2 id="closure">Closure</h2>
+<br />
+<p>Closure requires resolution criteria, authority, downstream remediation, and evidence completeness. Reopening creates new history. Metrics include age, blocked time, evidence wait, decision reversal, and recurrence.</p>
+<br />
+<h2 id="ai">AI</h2>
+<br />
+<p>AI may summarize, classify, identify missing evidence, or recommend next action. It SHALL not fabricate closure evidence or silently decide high-impact disputes.</p>
+<br />
+</ContentPage>

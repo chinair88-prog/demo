@@ -1,0 +1,140 @@
+[
+  {
+    "file": "00-MASTER-OVERVIEW.pdf",
+    "pages": 45,
+    "bytes": 181865,
+    "sha256": "c13ebd8aef0dc1ed15f0ad5fba024b6528e7bc0e5ba39a5d5b4a7ec9bc43ca7d"
+  },
+  {
+    "file": "01-FOUNDATIONS.pdf",
+    "pages": 89,
+    "bytes": 225119,
+    "sha256": "6c5fd400be03407ea815323d73608fd91508b0a57a2defe4224af74155d9c39c"
+  },
+  {
+    "file": "02-volume--02-repository-evidence-atlas.pdf",
+    "pages": 141,
+    "bytes": 441550,
+    "sha256": "5a6665241fe454696244aa7aefc20a0f7beccd2df8bf5f42c57f2f4c220d9947"
+  },
+  {
+    "file": "03-volume-03-end-to-end-global-trade-lifecycle.pdf",
+    "pages": 193,
+    "bytes": 586584,
+    "sha256": "2416295e5653e398164f327b767a24d7df8596a28e302a23ce653fec1cee193f"
+  },
+  {
+    "file": "04-volume-04-portal-and-experience-architecture.pdf",
+    "pages": 373,
+    "bytes": 1086168,
+    "sha256": "cf9549c5428e40bfd58baeee3a356b93feeef93e2de19ac36c16703d93ca2cca"
+  },
+  {
+    "file": "05-volume-05-identity-tenant-organization.pdf",
+    "pages": 148,
+    "bytes": 463155,
+    "sha256": "5c7f097b19bbeca31c8b22150aac655da16c285fc54d7bd966ac71deac5974e5"
+  },
+  {
+    "file": "06-volume-06-commerce-domain-architecture.pdf",
+    "pages": 500,
+    "bytes": 1453779,
+    "sha256": "b32fff45decc374de811113733f7172071ba5ac7c22d993a684b4ff9117049f2"
+  },
+  {
+    "file": "07-volume-07-fulfilment-supply-chain-domain-architecture.pdf",
+    "pages": 466,
+    "bytes": 1354220,
+    "sha256": "03e8dbcd61217397e752c53af2c62268cc15df5fc0481e9ff8164f99d83c92d6"
+  },
+  {
+    "file": "08-volume-08-engagement-communication-architecture.pdf",
+    "pages": 300,
+    "bytes": 858579,
+    "sha256": "e4ac93829da360a73652270cee62583556cf34cf7a14f60ab894d0f94d82da2c"
+  },
+  {
+    "file": "09-volume-09-ai-operating-system.pdf",
+    "pages": 324,
+    "bytes": 951517,
+    "sha256": "e877042f9209552ee1f55d682d0f2f3e66bfd41d17dd87e4dc0b7176edcb0308"
+  },
+  {
+    "file": "10-volume-10-data-database-reference.pdf",
+    "pages": 254,
+    "bytes": 756530,
+    "sha256": "21a6045c0f6ce0bcb9426ddfd79f4c88202cf56537860eec39f06234b4b9c1ce"
+  },
+  {
+    "file": "11-volume-11-api-event-workflow-tool-contracts.pdf",
+    "pages": 183,
+    "bytes": 562205,
+    "sha256": "f3c2428a944640b0a2e4041e8bcbfae118a1cb5e29db814bef51c1972449f0b2"
+  },
+  {
+    "file": "12-volume-12-platform-architecture.pdf",
+    "pages": 120,
+    "bytes": 384993,
+    "sha256": "3b1ad2ed6c881ce99068208e96548cf05a715cc11cbedb022ae99b716fe794c1"
+  },
+  {
+    "file": "13-volume-13-infrastructure-deployment.pdf",
+    "pages": 148,
+    "bytes": 463191,
+    "sha256": "4a7ae25607db9d936a75e1dc177ea46f256a39425834f81954260c011481aa9f"
+  },
+  {
+    "file": "14-volume-14-security-privacy-compliance.pdf",
+    "pages": 183,
+    "bytes": 559682,
+    "sha256": "d3d3fd2487c7ce9e40777a8f84ff263ff8a2b3fa5fa981fca63a3e524912adc7"
+  },
+  {
+    "file": "15-volume-15-engineering-handbook.pdf",
+    "pages": 148,
+    "bytes": 462426,
+    "sha256": "45311e0073023f060e66421702a1de89581efb819c145899092aa5ec2783e77b"
+  },
+  {
+    "file": "16-volume-16-operations-sre.pdf",
+    "pages": 148,
+    "bytes": 462117,
+    "sha256": "facb5aba02988bc752dc3019a66d2848a9f875dfcd61da6e5d33f0b8f65f9aad"
+  },
+  {
+    "file": "17-volume-17-testing-verification-conformance.pdf",
+    "pages": 148,
+    "bytes": 463593,
+    "sha256": "6e3b79a4324fb3799e601706d2398293bb9c5902723058cbb87ed349a0a4e48b"
+  },
+  {
+    "file": "18-volume-18-migration-legacy-evolution.pdf",
+    "pages": 113,
+    "bytes": 366287,
+    "sha256": "e06ffe07882b5609de765da80a648cda796b1460affe660061497bba9cb027c8"
+  },
+  {
+    "file": "19-volume-19-implementation-profiles.pdf",
+    "pages": 323,
+    "bytes": 932887,
+    "sha256": "e33dadcdf53cb3b84dee5c15ff36cd65d6b2353a81ae6bdba21799a6e40ae975"
+  },
+  {
+    "file": "20-volume-20-appendices-generated-reference.pdf",
+    "pages": 212,
+    "bytes": 635465,
+    "sha256": "9d52af7fa293d08c6f09f430dfb2313634d8395f87baadf0782e00ed7f7a21a0"
+  },
+  {
+    "file": "21-DELIVERY-PLAYBOOKS.pdf",
+    "pages": 129,
+    "bytes": 277738,
+    "sha256": "54956ed7e47dd37cbe7a3a370b964a550e3413eed3266bbffd478376ddadc93e"
+  },
+  {
+    "file": "22-CURRENT-PROJECT-GAP-ANALYSIS.pdf",
+    "pages": 137,
+    "bytes": 323570,
+    "sha256": "0d849953988e318de990392663928692830fa6aa823835492d9bbfde49d94b3b"
+  }
+]

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>04 — Import Customs, Duties, and Release · GTOS Handbook</title>
+<meta name="description" content="04 — Import Customs, Duties, and Release Evidence maturity Import Customs یکی از بالغ‌ترین بخش‌های بررسی‌شده در Wave 02 است. Migration V16 این جدول‌ها را ایجاد ">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/index.html">GTOS Handbook Batch 08 Repository Evidence Wave 02</a> <span class="sep">›</span> <span>04 — Import Customs, Duties, and Release</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>04 — Import Customs, Duties, and Release</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#evidence-maturity">Evidence maturity</a></li><li class="toc-level-2"><a href="#-">کنترل‌های مثبت</a></li><li class="toc-level-2"><a href="#gap-">Gapهای مهم</a></li><li class="toc-level-2"><a href="#-canonical">مدل canonical</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="04-import-customs-duties-and-release">04 — Import Customs, Duties, and Release</h1>
+<br>
+<h2 id="evidence-maturity">Evidence maturity <a href="#evidence-maturity" class="heading-anchor">#</a></h2>
+<br>
+<p>Import Customs یکی از بالغ‌ترین بخش‌های بررسی‌شده در Wave 02 است.</p>
+<br>
+<p>Migration V16 این جدول‌ها را ایجاد می‌کند:</p>
+<br>
+<li><code>partner.import_declarations</code></li>
+<li><code>partner.wms_inbound_orders</code></li>
+<li><code>partner.wms_inbound_items</code></li>
+<li><code>partner.warehouse_receipts</code></li>
+<br>
+<p>Controller یک lifecycle Partner-scoped دارد:</p>
+<br>
+<li>list و detail؛</li>
+<li>create از Shipment متعلق به Partner؛</li>
+<li>generic update فقط در <code>DRAFT</code> و <code>CUSTOMS_HOLD</code>؛</li>
+<li>submit اختصاصی؛</li>
+<li>mark-duty-paid اختصاصی؛</li>
+<li>mark-cleared اختصاصی؛</li>
+<li>status history و audit؛</li>
+<li>sync وضعیت Shipment به <code>CUSTOMS_CLEARED</code>.</li>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="-">کنترل‌های مثبت <a href="#-" class="heading-anchor">#</a></h2>
+<br>
+<li>Partner ID از JWT principal گرفته می‌شود.</li>
+<li>بسیاری از read/writeها با Partner ID محدود می‌شوند.</li>
+<li>create بررسی می‌کند Shipment متعلق به Partner باشد.</li>
+<li>terminal status از generic PATCH ممنوع است.</li>
+<li>submit فقط از <code>DRAFT</code> مجاز است.</li>
+<li>clear به Shipment لینک‌شده نیاز دارد.</li>
+<li>audit snapshot و history ثبت می‌شود.</li>
+<br>
+<h2 id="gap-">Gapهای مهم <a href="#gap-" class="heading-anchor">#</a></h2>
+<br>
+<li>Migration عمداً <code>partner.import_declarations</code> را DROP و recreate می‌کند؛ این رفتار destructive است.</li>
+<li><code>mark-duty-paid</code> از وضعیت <code>CLEARED</code> نیز مجاز است که lifecycle را غیرمنطقی می‌کند.</li>
+<li>duty/tax صفر یا null فقط warning ایجاد می‌کند و عملیات را block نمی‌کند.</li>
+<li><code>mark-cleared</code> یک application action است و authority response خارجی اثبات نشده.</li>
+<li>Shipment status با direct cross-table mutation تغییر می‌کند.</li>
+<li>JDBC updateها optimistic version predicate ندارند.</li>
+<li>status history در JSON mutable است.</li>
+<li>Provider WMS tables با Warehouse/Inventory ownership هم‌پوشانی دارند.</li>
+<br>
+<h2 id="-canonical">مدل canonical <a href="#-canonical" class="heading-anchor">#</a></h2>
+<br>
+<p>Truthهای زیر باید مستقل باشند:</p>
+<br>
+<li><code>ImportDeclarationSubmitted</code> — platform fact؛</li>
+<li><code>DutyAssessmentObserved</code> — authority observation؛</li>
+<li><code>DutyPaymentIntent</code> و <code>DutyPaymentOutcome</code> — Finance/Payment؛</li>
+<li><code>ImportReleaseObserved</code> — authority observation؛</li>
+<li><code>ShipmentCustomsPerspectiveChanged</code> — projection.</li>
+<br>
+<p>هیچ کاربر برنامه نباید بدون authority evidence بتواند legal clearance بسازد.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

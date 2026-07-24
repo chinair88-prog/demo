@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cutover Command Center Guide · GTOS Handbook</title>
+<meta name="description" content="Cutover Command Center Guide Objective Cutover transfers operational responsibility, consumers, data, and business effects from an old arrangement to a new one ">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Cutover Command Center Guide</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Cutover Command Center Guide</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#objective">Objective</a></li><li class="toc-level-2"><a href="#command-structure">Command Structure</a></li><li class="toc-level-2"><a href="#readiness-board">Readiness Board</a></li><li class="toc-level-2"><a href="#execution-plan">Execution Plan</a></li><li class="toc-level-2"><a href="#data-reconciliation">Data Reconciliation</a></li><li class="toc-level-2"><a href="#rollback">Rollback</a></li><li class="toc-level-2"><a href="#closure">Closure</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="cutover-command-center-guide">Cutover Command Center Guide</h1>
+<br>
+<h2 id="objective">Objective <a href="#objective" class="heading-anchor">#</a></h2>
+<br>
+<p>Cutover transfers operational responsibility, consumers, data, and business effects from an old arrangement to a new one while preserving identity, history, authority, and continuity.</p>
+<br>
+<h2 id="command-structure">Command Structure <a href="#command-structure" class="heading-anchor">#</a></h2>
+<br>
+<p>The Cutover Commander coordinates decisions. Domain leads validate business truth. Data leads reconcile migration. Platform and infrastructure leads manage deployment. Security monitors access and threats. Operations controls incidents. Partner leads confirm external readiness. An evidence recorder maintains the authoritative timeline.</p>
+<br>
+<h2 id="readiness-board">Readiness Board <a href="#readiness-board" class="heading-anchor">#</a></h2>
+<br>
+<p>The board tracks migration status, consumer status, contract versions, partner certification, data reconciliation, open defects, security state, SLO health, capacity, rollback window, and decision authority. Status must be based on current evidence, not verbal optimism.</p>
+<br>
+<h2 id="execution-plan">Execution Plan <a href="#execution-plan" class="heading-anchor">#</a></h2>
+<br>
+<p>The plan defines freeze points, final extraction, transformation, load, validation, ownership switch, traffic shift, Event subscription position, workflow transfer, and communication. Each step has owner, expected duration, verification, and abort condition.</p>
+<br>
+<h2 id="data-reconciliation">Data Reconciliation <a href="#data-reconciliation" class="heading-anchor">#</a></h2>
+<br>
+<p>Reconciliation compares business propositions and totals across identity, state, obligations, money, and history. Counts alone are inadequate. Sampling includes corrected records, late Events, disputed identities, and historical queries.</p>
+<br>
+<h2 id="rollback">Rollback <a href="#rollback" class="heading-anchor">#</a></h2>
+<br>
+<p>Rollback distinguishes technical rollback from business reversal. Once new facts have been created, returning software does not make those facts disappear. The plan may require forward correction, compensation, dual read, or controlled pause rather than restoration of an old snapshot.</p>
+<br>
+<h2 id="closure">Closure <a href="#closure" class="heading-anchor">#</a></h2>
+<br>
+<p>Cutover closes after stability criteria, consumer confirmation, reconciliation, incident review, and decommission actions are assigned. Elevated monitoring continues for a defined period. Temporary credentials, bridges, and exceptions are removed or governed.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

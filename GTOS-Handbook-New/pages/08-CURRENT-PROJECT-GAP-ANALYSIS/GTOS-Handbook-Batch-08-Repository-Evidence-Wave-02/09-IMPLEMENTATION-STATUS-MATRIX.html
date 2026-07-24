@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>09 — Implementation Status Matrix · GTOS Handbook</title>
+<meta name="description" content="09 — Implementation Status Matrix Area Narrow verified behavior Classification Main blocker Trade Quality Inspection Mock inspection UI only REFERENCEARCHITECTU">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/index.html">GTOS Handbook Batch 08 Repository Evidence Wave 02</a> <span class="sep">›</span> <span>09 — Implementation Status Matrix</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>09 — Implementation Status Matrix</h1>
+      </header>
+      
+      <div class="prose">
+        <h1 id="09-implementation-status-matrix">09 — Implementation Status Matrix</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Area</th>
+<th class="table-sort">Narrow verified behavior</th>
+<th class="table-sort">Classification</th>
+<th class="table-sort">Main blocker</th>
+</tr></thead><tbody>
+<tr>
+<td>Trade Quality Inspection</td>
+<td>Mock inspection UI only</td>
+<td><code>REFERENCE_ARCHITECTURE</code></td>
+<td>Aggregate/API/Evidence missing</td>
+</tr>
+<tr>
+<td>Software Quality Gates</td>
+<td>Metrics, gates, reports</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+<td>Different Domain</td>
+</tr>
+<tr>
+<td>Inventory QC Hold</td>
+<td>Hold and disposition</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+<td>Inspection Decision absent</td>
+</tr>
+<tr>
+<td>Tajerestan Packing List</td>
+<td>Entity, create/get/list/Event</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>identity, weights, versioning</td>
+</tr>
+<tr>
+<td>Partner Packing List</td>
+<td>list/get/patch/audit</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>create unavailable, duplicate owner</td>
+</tr>
+<tr>
+<td>Commercial Invoice</td>
+<td>table/list/get/patch</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+<td>create/generate/issue missing</td>
+</tr>
+<tr>
+<td>Export Declaration</td>
+<td>table/create/list/update/submit</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>authority evidence/doc operations</td>
+</tr>
+<tr>
+<td>PO Customs</td>
+<td>mutable PO status and Event</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>not legal release</td>
+</tr>
+<tr>
+<td>Import Declaration</td>
+<td>full operational lifecycle</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>manual authority/state/migration gaps</td>
+</tr>
+<tr>
+<td>Booking</td>
+<td>table and real Portal/API</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>custody boundary</td>
+</tr>
+<tr>
+<td>Trade Shipment</td>
+<td>entity/API/tracking/Kafka</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>tenant and Event reliability</td>
+</tr>
+<tr>
+<td>Custody Transfer</td>
+<td>HANDED_OVER status only</td>
+<td><code>CLIENT_CONTRACT_PRESENT</code></td>
+<td>no bilateral evidence</td>
+</tr>
+<tr>
+<td>Warehouse ASN/Dock</td>
+<td>create/status/schedule/check-in</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>scoping, receipt evidence, Event</td>
+</tr>
+<tr>
+<td>Provider WMS</td>
+<td>tables and references</td>
+<td><code>VERIFIED_IMPLEMENTED</code> schema</td>
+<td>competing owner/runtime verification</td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td>balance/posting/QC/reservation</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>auth, idempotency, invariants</td>
+</tr>
+</tbody></table></div>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

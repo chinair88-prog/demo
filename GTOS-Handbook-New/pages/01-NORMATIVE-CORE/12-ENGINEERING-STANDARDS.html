@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Engineering Standards · GTOS Handbook</title>
+<meta name="description" content="Engineering Standards Code structure Use clear Domain, application, adapter, and infrastructure boundaries. Domain code must not depend on transport frameworks.">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/01-NORMATIVE-CORE/index.html">NORMATIVE CORE</a> <span class="sep">›</span> <span>Engineering Standards</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Normative Core</span>
+        </div>
+        <h1>Engineering Standards</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#code-structure">Code structure</a></li><li class="toc-level-2"><a href="#quality-gates">Quality gates</a></li><li class="toc-level-2"><a href="#git-and-review">Git and review</a></li><li class="toc-level-2"><a href="#configuration">Configuration</a></li><li class="toc-level-2"><a href="#error-handling">Error handling</a></li><li class="toc-level-2"><a href="#documentation-as-code">Documentation as code</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="engineering-standards">Engineering Standards</h1>
+<br>
+<h2 id="code-structure">Code structure <a href="#code-structure" class="heading-anchor">#</a></h2>
+<br>
+<p>Use clear Domain, application, adapter, and infrastructure boundaries. Domain code must not depend on transport frameworks. Persistence models should not dictate business semantics.</p>
+<br>
+<h2 id="quality-gates">Quality gates <a href="#quality-gates" class="heading-anchor">#</a></h2>
+<br>
+<p>Every change passes formatting, static analysis, dependency rules, unit/property tests, integration tests, contract tests, security checks, migration checks, build reproducibility, and documentation validation.</p>
+<br>
+<h2 id="git-and-review">Git and review <a href="#git-and-review" class="heading-anchor">#</a></h2>
+<br>
+<p>Use small reviewable changes, protected branches, signed or attributable commits, mandatory review for critical areas, CODEOWNERS, semantic commit messages, and linked ADR/issue/test evidence.</p>
+<br>
+<h2 id="configuration">Configuration <a href="#configuration" class="heading-anchor">#</a></h2>
+<br>
+<p>Configuration is typed, validated, environment-specific, secret-free in source, and observable. Defaults must be safe. Runtime changes are audited.</p>
+<br>
+<h2 id="error-handling">Error handling <a href="#error-handling" class="heading-anchor">#</a></h2>
+<br>
+<p>Errors are typed and classified as validation, authorization, conflict, dependency, timeout, outcome unknown, business rejection, or internal defect. Do not expose secrets or implementation details.</p>
+<br>
+<h2 id="documentation-as-code">Documentation as code <a href="#documentation-as-code" class="heading-anchor">#</a></h2>
+<br>
+<p>Architecture, APIs, Events, migrations, operational procedures, diagrams, and conformance evidence live with version control and CI validation.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

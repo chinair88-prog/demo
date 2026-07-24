@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Content Quality Audit · GTOS Handbook</title>
+<meta name="description" content="Content Quality Audit Corpuswide result The generated Batches 0206 contain a large amount of repeated architecturetemplate text. Commonline instance ratio acros">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-07-Audit-Canonicalization-Evidence-Wave-01/index.html">GTOS Handbook Batch 07 Audit Canonicalization Evidence Wave 01</a> <span class="sep">›</span> <span>Content Quality Audit</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>Content Quality Audit</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#corpus-wide-result">Corpus-wide result</a></li><li class="toc-level-2"><a href="#interpretation">Interpretation</a></li><li class="toc-level-2"><a href="#maturity-correction">Maturity correction</a></li><li class="toc-level-2"><a href="#quality-decision">Quality decision</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="content-quality-audit">Content Quality Audit</h1>
+<br>
+<h2 id="corpus-wide-result">Corpus-wide result <a href="#corpus-wide-result" class="heading-anchor">#</a></h2>
+<br>
+<p>The generated Batches 02-06 contain a large amount of repeated architecture-template text.</p>
+<br>
+<li>Common-line instance ratio across Batches 01-06: <strong>80.2%</strong></li>
+<li>Batch 01 mean common-line ratio: <strong>22.3%</strong></li>
+<li>Batch 02 mean common-line ratio: <strong>82.5%</strong></li>
+<li>Batch 03 mean common-line ratio: <strong>83.0%</strong></li>
+<li>Batch 04 mean common-line ratio: <strong>81.5%</strong></li>
+<li>Batch 05 mean common-line ratio: <strong>83.2%</strong></li>
+<li>Batch 06 mean common-line ratio: <strong>83.1%</strong></li>
+<br>
+<h2 id="interpretation">Interpretation <a href="#interpretation" class="heading-anchor">#</a></h2>
+<br>
+<p>Batch 01 contains more stage-specific material, although it still requires source enrichment. Batches 02-06 are primarily architecture skeletons generated from one common chapter pattern. The chapter titles, owners, purposes, and a small number of phrases vary; most lifecycle, API, table, security, SLO, testing, and checklist sections are repeated.</p>
+<br>
+<h2 id="maturity-correction">Maturity correction <a href="#maturity-correction" class="heading-anchor">#</a></h2>
+<br>
+<p>The repeated status <code>Draft Complete for Architecture Review</code> was too strong. It has been replaced in <code>AUDITED-v2</code> packages by:</p>
+<br>
+<p><code>Generated First-Draft Architecture Skeleton - Domain-Specific Expansion Required</code></p>
+<br>
+<p>and:</p>
+<br>
+<p><code>TEMPLATE_DERIVED_REFERENCE_SKELETON</code></p>
+<br>
+<h2 id="quality-decision">Quality decision <a href="#quality-decision" class="heading-anchor">#</a></h2>
+<br>
+<p>The skeletons may be retained as checklists and target-architecture scaffolding. They must not be counted as completed repository specifications or as evidence that the 5,000-8,000 page objective has been achieved.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

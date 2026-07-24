@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Trade participants and beneficial owners are screened against external lists that change over time and contain uncertain identity information. A screening match is a Claim or risk signal, not proof that the party is sanctioned. The system preserves list edition, matching method,…">
+<meta name="color-scheme" content="light dark">
+<title>Scenario — Sanctions and Restricted-Party Screening · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/scenarios/sanctions-screening.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Scenarios</span><span class="sep">/</span><span>Scenario — Sanctions and Restricted-Party Screening</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>157 words</span></div>
+        <h1>Scenario — Sanctions and Restricted-Party Screening</h1>
+        <p class="lede">Trade participants and beneficial owners are screened against external lists that change over time and contain uncertain identity information. A screening match is a Claim or risk signal, not proof that the party is sanctioned. The system preserves list edition, matching method,…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="context">Context<a aria-label="Link to section" class="heading-anchor" href="#context">#</a></h2>
+<p>Trade participants and beneficial owners are screened against external lists that change over time and contain uncertain identity information.</p>
+<h2 id="knowledge-discipline">Knowledge Discipline<a aria-label="Link to section" class="heading-anchor" href="#knowledge-discipline">#</a></h2>
+<p>A screening match is a Claim or risk signal, not proof that the party is sanctioned. The system preserves list edition, matching method, identifiers, confidence, and analyst evidence.</p>
+<h2 id="decision">Decision<a aria-label="Link to section" class="heading-anchor" href="#decision">#</a></h2>
+<p>Policy defines thresholds for automatic clear, evidence request, human review, or prohibition. A binding decision requires authority and records the knowledge cutoff.</p>
+<h2 id="temporal-behavior">Temporal Behavior<a aria-label="Link to section" class="heading-anchor" href="#temporal-behavior">#</a></h2>
+<p>A party may be clear when an order is accepted and later listed before shipment. GTOS distinguishes decision time, policy effective time, and execution time. Controls may require re-screening at defined lifecycle points.</p>
+<h2 id="correction">Correction<a aria-label="Link to section" class="heading-anchor" href="#correction">#</a></h2>
+<p>False-positive resolution records evidence and authority. It does not remove the fact that a match occurred and influenced earlier operations.</p>
+<h2 id="ai">AI<a aria-label="Link to section" class="heading-anchor" href="#ai">#</a></h2>
+<p>AI may assist entity resolution and evidence summarization, but SHALL not promote probabilistic similarity into legal identity without the approved decision path.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#context">Context</a><a class="toc-level-2" href="#knowledge-discipline">Knowledge Discipline</a><a class="toc-level-2" href="#decision">Decision</a><a class="toc-level-2" href="#temporal-behavior">Temporal Behavior</a><a class="toc-level-2" href="#correction">Correction</a><a class="toc-level-2" href="#ai">AI</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="pharmaceutical-cold-chain.html"><span>Previous</span><strong>Scenario — Pharmaceutical Cold Chain</strong></a>
+        <a class="next" href="trade-finance.html"><span>Next</span><strong>Scenario — Trade Finance and Settlement</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

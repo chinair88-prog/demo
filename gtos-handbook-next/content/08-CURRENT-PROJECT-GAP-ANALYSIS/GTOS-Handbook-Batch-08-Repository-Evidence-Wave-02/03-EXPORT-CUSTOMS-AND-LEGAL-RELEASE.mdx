@@ -1,0 +1,73 @@
+---
+title: "03 — Export Customs and Legal Release"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="03 — Export Customs and Legal Release"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "03 — Export Customs and Legal Release" }
+  ]}
+>
+
+<br />
+<h2 id="provider-implementation">Provider implementation</h2>
+<br />
+<p>Migration واقعی <code class="code-inline">partner.export_declarations</code> را با این داده‌ها ایجاد می‌کند:</p>
+<br />
+<p>- declaration number و customs office؛</p>
+<p>- shipment، commercial invoice و packing list؛</p>
+<p>- Partner و declarant؛</p>
+<p>- transport، vessel، voyage و container؛</p>
+<p>- ports و destination country؛</p>
+<p>- package/weight/value/currency؛</p>
+<p>- status، customs response و metadata.</p>
+<br />
+<p>Partner Logistics Controller رفتارهای list، detail، create، update و submit را دارد و status history و audit ثبت می‌کند.</p>
+<br />
+<p>ثبت <code class="code-inline">SUBMITTED</code> فقط یک platform fact است: سیستم ثبت کرده کاربر submission action انجام داده است. این وضعیت اثبات نمی‌کند Customs Authority اظهارنامه را پذیرفته یا کالا را release کرده است.</p>
+<br />
+<p>Customs document add/remove هنوز با 503 پاسخ می‌دهند.</p>
+<br />
+<h2 id="tajerestan-customs">Tajerestan Customs</h2>
+<br />
+<p>Tajerestan مسیرهای زیر را دارد:</p>
+<br />
+<p>- <code class="code-inline">POST /api/v1/trade/customs/{poId}/clear</code></p>
+<p>- get status؛</p>
+<p>- list و stats.</p>
+<br />
+<p>Service مستقیماً فیلدهای customs روی Purchase Order را تغییر می‌دهد و <code class="code-inline">trade.customs.cleared</code> منتشر می‌کند. External customs adapter، signed authority response یا declaration aggregate در فایل‌های بررسی‌شده دیده نشد.</p>
+<br />
+<p>این رابطه نادرست است:</p>
+<br />
+<CodeBlock code={"Application user sets PO.customsStatus = CLEARED\n    ≠\nCustoms authority issued legal release"} language="text" />
+<br />
+<p>این بخش برای ثبت internal status، <code class="code-inline">IMPLEMENTED_WITH_GAP</code> است؛ برای legal release، <code class="code-inline">REFERENCE_ARCHITECTURE</code>.</p>
+<br />
+<h2 id="gap-">Gapهای اصلی</h2>
+<br />
+<p>- statusها string آزاد هستند.</p>
+<p>- Partner ownership در همه SQL statementها یکدست دیده نمی‌شود.</p>
+<p>- callback signature، response correlation، Outcome Unknown و revocation وجود ندارد.</p>
+<p>- document attachment executable نیست.</p>
+<p>- history در JSON mutable ذخیره می‌شود.</p>
+<p>- Partner declaration و Tajerestan PO customs دو مدل رقیب‌اند.</p>
+<br />
+<h2 id="-canonical">تصمیم canonical</h2>
+<br />
+<p>Export Customs باید این Truthها را جدا کند:</p>
+<br />
+<p>1. <code class="code-inline">ExportDeclarationPrepared</code></p>
+<p>2. <code class="code-inline">ExportDeclarationSubmitted</code></p>
+<p>3. <code class="code-inline">AuthorityResponseObserved</code></p>
+<p>4. <code class="code-inline">ExportLegalReleaseObserved</code></p>
+<p>5. <code class="code-inline">AuthorityDecisionCorrectedOrRevoked</code></p>
+<p>6. derived shipment-readiness perspective</p>
+<br />
+<p>Legal release فقط با authority evidence معتبر است.</p>
+<br />
+</ContentPage>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PO یا declaration application status نباید legal customs release نامیده شود. 2. tenant/company/user از request به‌عنوان authority پذیرفته نشود. 3. Shipping، Warehouse، Inventory و Partner SQL کاملاً tenant-scoped شوند. 4. مالکیت Packing List، Warehouse Receipt، Shipment و Customs…">
+<meta name="color-scheme" content="light dark">
+<title>12 — Remediation and Verification Plan · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/12-REMEDIATION-AND-VERIFICATION-PLAN.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 08 Repository Evidence Wave 02</span><span class="sep">/</span><span>12 — Remediation and Verification Plan</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>226 words</span></div>
+        <h1>12 — Remediation and Verification Plan</h1>
+        <p class="lede">PO یا declaration application status نباید legal customs release نامیده شود. 2. tenant/company/user از request به‌عنوان authority پذیرفته نشود. 3. Shipping، Warehouse، Inventory و Partner SQL کاملاً tenant-scoped شوند. 4. مالکیت Packing List، Warehouse Receipt، Shipment و Customs…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="priority-0-جلوگیری-از-false-authority">Priority 0 — جلوگیری از False Authority<a aria-label="Link to section" class="heading-anchor" href="#priority-0-جلوگیری-از-false-authority">#</a></h2>
+<ol>
+<li>PO یا declaration application status نباید legal customs release نامیده شود.</li>
+<li>tenant/company/user از request به‌عنوان authority پذیرفته نشود.</li>
+<li>Shipping، Warehouse، Inventory و Partner SQL کاملاً tenant-scoped شوند.</li>
+<li>مالکیت Packing List، Warehouse Receipt، Shipment و Customs canonical شود.</li>
+<li>tenant assignment اشتباه Shipment Item اصلاح و داده موجود migrate شود.</li>
+</ol>
+<h2 id="priority-1-truth-preservation-و-execution-safety">Priority 1 — Truth Preservation و Execution Safety<a aria-label="Link to section" class="heading-anchor" href="#priority-1-truth-preservation-و-execution-safety">#</a></h2>
+<ol>
+<li>document version/signature immutable اضافه شود.</li>
+<li>outbox/inbox برای Trade Documents، Customs، Shipping، Warehouse و Inventory ایجاد شود.</li>
+<li>JSON history با append-only journal جایگزین شود.</li>
+<li>idempotency قبل از stock mutation بررسی شود.</li>
+<li>state transition guard و optimistic version predicate اضافه شود.</li>
+<li>external outcome دارای source reference، observed time، received time و correction باشد.</li>
+</ol>
+<h2 id="priority-2-تکمیل-capability">Priority 2 — تکمیل Capability<a aria-label="Link to section" class="heading-anchor" href="#priority-2-تکمیل-capability">#</a></h2>
+<ol>
+<li>Trade Quality Aggregate ساخته شود.</li>
+<li>Commercial Invoice create و PL-to-CI reconciliation پیاده‌سازی شود.</li>
+<li>customs document و authority-response ingestion ساخته شود.</li>
+<li>CustodyRelationship با attestations پیاده شود.</li>
+<li>Warehouse Receipt با typed contract به Inventory متصل شود.</li>
+<li>quarantine و channel eligibility قبل از availability اعمال شود.</li>
+</ol>
+<h2 id="evidence-لازم-برای-ارتقای-status">Evidence لازم برای ارتقای Status<a aria-label="Link to section" class="heading-anchor" href="#evidence-لازم-برای-ارتقای-status">#</a></h2>
+<ul>
+<li>migration روی empty و upgrade database؛</li>
+<li>tenant-isolation tests؛</li>
+<li>concurrent posting/reservation tests؛</li>
+<li>duplicate/replay tests؛</li>
+<li>outbox failure/recovery؛</li>
+<li>customs/provider signature verification؛</li>
+<li>cross-document reconciliation؛</li>
+<li>Portal E2E بدون mock fallback؛</li>
+<li>audit reconstruction و backup/restore.</li>
+</ul>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#priority-0-جلوگیری-از-false-authority">Priority 0 — جلوگیری از False Authority</a><a class="toc-level-2" href="#priority-1-truth-preservation-و-execution-safety">Priority 1 — Truth Preservation و Execution Safety</a><a class="toc-level-2" href="#priority-2-تکمیل-capability">Priority 2 — تکمیل Capability</a><a class="toc-level-2" href="#evidence-لازم-برای-ارتقای-status">Evidence لازم برای ارتقای Status</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="11-WAVE-02-TRACEABILITY-MATRIX.html"><span>Previous</span><strong>11 — Wave 02 Traceability Matrix</strong></a>
+        <a class="next" href="13-NEXT-WAVE-PLAN.html"><span>Next</span><strong>13 — Repository Evidence Wave 03 Plan</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

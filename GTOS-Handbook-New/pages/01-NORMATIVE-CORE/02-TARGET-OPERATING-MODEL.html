@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Target Operating Model · GTOS Handbook</title>
+<meta name="description" content="Target Operating Model Product organization GTOS should be operated through durable product and platform teams aligned to bounded contexts, not temporary compon">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/01-NORMATIVE-CORE/index.html">NORMATIVE CORE</a> <span class="sep">›</span> <span>Target Operating Model</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Normative Core</span>
+        </div>
+        <h1>Target Operating Model</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#product-organization">Product organization</a></li><li class="toc-level-3"><a href="#business-product-groups">Business product groups</a></li><li class="toc-level-3"><a href="#platform-groups">Platform groups</a></li><li class="toc-level-2"><a href="#decision-rights">Decision rights</a></li><li class="toc-level-2"><a href="#delivery-model">Delivery model</a></li><li class="toc-level-2"><a href="#governance-cadence">Governance cadence</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="target-operating-model">Target Operating Model</h1>
+<br>
+<h2 id="product-organization">Product organization <a href="#product-organization" class="heading-anchor">#</a></h2>
+<br>
+<p>GTOS should be operated through durable product and platform teams aligned to bounded contexts, not temporary component projects.</p>
+<br>
+<h3 id="business-product-groups">Business product groups <a href="#business-product-groups" class="heading-anchor">#</a></h3>
+<br>
+<li>Identity and Organization;</li>
+<li>Customer and CRM;</li>
+<li>Product, Catalog, Marketplace, Pricing, and Promotions;</li>
+<li>Procurement, Quotation, Contract, PI, and Purchase Order;</li>
+<li>Payment, Wallet, Billing, Finance Control, and Settlement;</li>
+<li>Manufacturing and Quality;</li>
+<li>Shipping, Customs, Provider, and Regulatory;</li>
+<li>Warehouse, Inventory, Fulfilment, Delivery, and Returns;</li>
+<li>Engagement and Communications.</li>
+<br>
+<h3 id="platform-groups">Platform groups <a href="#platform-groups" class="heading-anchor">#</a></h3>
+<br>
+<li>Developer Platform and API Gateway;</li>
+<li>Data Platform;</li>
+<li>Event and Workflow Platform;</li>
+<li>Identity and Security Platform;</li>
+<li>AI Platform and Model Governance;</li>
+<li>Observability and Reliability Platform;</li>
+<li>Cloud and Infrastructure Platform.</li>
+<br>
+<h2 id="decision-rights">Decision rights <a href="#decision-rights" class="heading-anchor">#</a></h2>
+<br>
+<li>Domain teams own business semantics and invariants.</li>
+<li>Platform teams own reusable technical capabilities and paved roads.</li>
+<li>Security and privacy authorities define mandatory controls and exceptions.</li>
+<li>Architecture governance resolves ownership and compatibility disputes.</li>
+<li>SRE defines production readiness and reliability policy.</li>
+<li>AI Governance approves autonomy, tools, evaluation, and kill-switch policy.</li>
+<br>
+<h2 id="delivery-model">Delivery model <a href="#delivery-model" class="heading-anchor">#</a></h2>
+<br>
+<p>Work is delivered as vertical slices that include Domain behavior, persistence, contract, Portal journey, security, observability, tests, migration, runbook, and release evidence.</p>
+<br>
+<h2 id="governance-cadence">Governance cadence <a href="#governance-cadence" class="heading-anchor">#</a></h2>
+<br>
+<li>weekly Domain design review;</li>
+<li>biweekly contract and integration review;</li>
+<li>monthly architecture and security council;</li>
+<li>quarterly resilience, disaster recovery, and AI governance review;</li>
+<li>release-specific production readiness review;</li>
+<li>annual Canon and Constitution review.</li>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

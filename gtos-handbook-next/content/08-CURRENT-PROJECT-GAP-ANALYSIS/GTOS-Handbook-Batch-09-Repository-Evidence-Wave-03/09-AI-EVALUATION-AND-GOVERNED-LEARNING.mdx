@@ -1,0 +1,55 @@
+---
+title: "09 — AI Evaluation and Governed Learning"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="09 — AI Evaluation and Governed Learning"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "09 — AI Evaluation and Governed Learning" }
+  ]}
+>
+
+<br />
+<h2 id="implemented-evaluation-capability">Implemented evaluation capability</h2>
+<br />
+<p>AI Orchestrator این رفتارها را دارد:</p>
+<br />
+<p>- submit human evaluation برای Agent Run؛</p>
+<p>- recent evaluations by tenant؛</p>
+<p>- evaluations by run؛</p>
+<p>- use-case stats؛</p>
+<p>- autonomy-level recommendation.</p>
+<br />
+<p>Evaluation شامل rating، accuracy، safety، usefulness، comment، corrections و tags است. Rolling averages و recommendation ruleها نیز اجرا می‌شوند.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_GAP</code>.</p>
+<br />
+<h2 id="positive-evidence">Positive evidence</h2>
+<br />
+<p>- rating enum-like validation دارد.</p>
+<p>- aggregate stats per tenant/use case ذخیره می‌شود.</p>
+<p>- high/low safety and accuracy thresholds recommendation تولید می‌کنند.</p>
+<p>- minimum sample sizes برای برخی escalationها در نظر گرفته شده است.</p>
+<br />
+<h2 id="critical-evaluation-findings">Critical evaluation findings</h2>
+<br />
+<p>1. evaluatorUserId از request پذیرفته و فقط با prefix <code class="code-inline">human:</code> ذخیره می‌شود.</p>
+<p>2. Agent Run existence، completion، tenant ownership و use-case match verify نمی‌شود.</p>
+<p>3. <code class="code-inline">GET evaluations/{runId}</code> header tenant را می‌گیرد ولی Service فقط بر اساس runId query می‌کند.</p>
+<p>4. accuracy/safety/usefulness score range validate نمی‌شود.</p>
+<p>5. duplicate evaluation یا evaluator conflict policy دیده نشد.</p>
+<p>6. evaluation independence، reviewer role، blind review و conflict-of-interest وجود ندارد.</p>
+<p>7. corrections/tags به‌صورت strings/JSON ذخیره می‌شوند.</p>
+<p>8. recommendation فقط heuristic است و policy change خودکار/approval governance کامل ندارد.</p>
+<p>9. default current autonomy level برابر 3 است، حتی بدون profile evidence.</p>
+<p>10. evaluation quality، dataset version، model version، prompt/tool configuration و output artifact به‌طور صریح snapshot نشده‌اند.</p>
+<br />
+<h2 id="governed-learning-boundary">Governed learning boundary</h2>
+<br />
+<p>Evaluation feedback نباید مستقیماً Model یا Autonomy را تغییر دهد. Recommendation باید با evidence window، model/run version، reviewer authority، safety veto، approval و rollback همراه باشد.</p>
+<br />
+</ContentPage>

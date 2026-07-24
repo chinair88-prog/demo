@@ -1,0 +1,14 @@
+
+digraph G {
+  graph [rankdir=LR, bgcolor="transparent", pad=0.2];
+  node [shape=box, style="rounded,filled", fillcolor="#f3efff", color="#6650a4", fontname="DejaVu Sans", fontsize=9];
+  edge [color="#7868a6", arrowsize=0.65];
+  Request -> AIGateway -> Policy -> ContextBuilder -> Planner -> ModelRouter -> Candidate;
+  Candidate -> Critic -> Approval -> ToolGateway -> DomainAPI -> OutcomeObserver -> Evaluation;
+  RAG -> ContextBuilder;
+  Memory -> ContextBuilder;
+  ToolRegistry -> ToolGateway;
+  KillSwitch -> AIGateway [style=dashed];
+  Audit -> AIGateway [dir=back, style=dashed];
+  Audit -> ToolGateway [dir=back, style=dashed];
+}

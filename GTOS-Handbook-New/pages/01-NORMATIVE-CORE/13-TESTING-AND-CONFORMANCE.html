@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Testing and Conformance · GTOS Handbook</title>
+<meta name="description" content="Testing and Conformance Test layers unit tests for pure rules and invariants; propertybased tests for state and numerical constraints; database/migration tests ">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/01-NORMATIVE-CORE/index.html">NORMATIVE CORE</a> <span class="sep">›</span> <span>Testing and Conformance</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Normative Core</span>
+        </div>
+        <h1>Testing and Conformance</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#test-layers">Test layers</a></li><li class="toc-level-2"><a href="#conformance-levels">Conformance levels</a></li><li class="toc-level-2"><a href="#release-evidence">Release evidence</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="testing-and-conformance">Testing and Conformance</h1>
+<br>
+<h2 id="test-layers">Test layers <a href="#test-layers" class="heading-anchor">#</a></h2>
+<br>
+<li>unit tests for pure rules and invariants;</li>
+<li>property-based tests for state and numerical constraints;</li>
+<li>database/migration tests with real engines;</li>
+<li>component integration tests with real dependencies;</li>
+<li>API and Event contract tests;</li>
+<li>workflow restart, timeout, duplicate, ordering, and compensation tests;</li>
+<li>security, authorization, tenant-isolation, privacy, and abuse tests;</li>
+<li>Portal E2E tests;</li>
+<li>performance, capacity, soak, and resilience tests;</li>
+<li>backup/restore and disaster-recovery exercises;</li>
+<li>AI evaluation and adversarial tests.</li>
+<br>
+<h2 id="conformance-levels">Conformance levels <a href="#conformance-levels" class="heading-anchor">#</a></h2>
+<br>
+<li>C0: documentation skeleton;</li>
+<li>C1: Domain semantics and contracts defined;</li>
+<li>C2: implementation and automated tests exist;</li>
+<li>C3: security, observability, recovery, and migration verified;</li>
+<li>C4: production evidence and operational ownership established;</li>
+<li>C5: independently certified for high-assurance use where required.</li>
+<br>
+<h2 id="release-evidence">Release evidence <a href="#release-evidence" class="heading-anchor">#</a></h2>
+<br>
+<p>A release package contains versioned artifacts, SBOM, signatures, migration report, test results, security findings, compatibility report, performance evidence, runbook, rollback plan, dashboards, approvals, and known limitations.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

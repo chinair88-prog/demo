@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="AI Gateway and provider abstraction; - Model Router and policy-aware selection; - Context Builder and governed retrieval; - Prompt and instruction registry; - Agent Runtime and state machine; - Planner, critic, verifier, and supervisor; - Tool Registry and execution gateway; - sh…">
+<meta name="color-scheme" content="light dark">
+<title>AI-Native Architecture · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/search-index.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/01-NORMATIVE-CORE/09-AI-NATIVE-ARCHITECTURE.html" data-root="../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../index.html"><img src="../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../pdf-library.html">PDFs</a>
+    <a href="../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../index.html">Home</a><span class="sep">/</span><span>Normative Core</span><span class="sep">/</span><span>AI-Native Architecture</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Normative Core</span><span>195 words</span></div>
+        <h1>AI-Native Architecture</h1>
+        <p class="lede">AI Gateway and provider abstraction; - Model Router and policy-aware selection; - Context Builder and governed retrieval; - Prompt and instruction registry; - Agent Runtime and state machine; - Planner, critic, verifier, and supervisor; - Tool Registry and execution gateway; - sh…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="ai-control-plane">AI control plane<a aria-label="Link to section" class="heading-anchor" href="#ai-control-plane">#</a></h2>
+<p>GTOS AI consists of:</p>
+<ul>
+<li>AI Gateway and provider abstraction;</li>
+<li>Model Router and policy-aware selection;</li>
+<li>Context Builder and governed retrieval;</li>
+<li>Prompt and instruction registry;</li>
+<li>Agent Runtime and state machine;</li>
+<li>Planner, critic, verifier, and supervisor;</li>
+<li>Tool Registry and execution gateway;</li>
+<li>short-term, episodic, semantic, and organizational memory;</li>
+<li>evaluation, observability, safety, incident, and kill-switch systems.</li>
+</ul>
+<h2 id="autonomy-levels">Autonomy levels<a aria-label="Link to section" class="heading-anchor" href="#autonomy-levels">#</a></h2>
+<ul>
+<li>A0: information only;</li>
+<li>A1: recommendation requiring human Decision;</li>
+<li>A2: automatic low-risk action with reviewable evidence;</li>
+<li>A3: bounded workflow autonomy under policy and approval thresholds;</li>
+<li>A4: exceptional high autonomy allowed only for explicitly certified domains.</li>
+</ul>
+<p>Financial, legal, customs, quality release, custody, privileged security, and authoritative correction actions default to A0 or A1.</p>
+<h2 id="agent-run-record">Agent run record<a aria-label="Link to section" class="heading-anchor" href="#agent-run-record">#</a></h2>
+<p>Every run records tenant, principal, purpose, input, knowledge cutoff, context sources, prompt/model/tool versions, policy evaluations, approvals, tool calls, structured outputs, uncertainty, costs, observed outcomes, corrections, and evaluation.</p>
+<h2 id="rag-and-memory">RAG and memory<a aria-label="Link to section" class="heading-anchor" href="#rag-and-memory">#</a></h2>
+<p>Retrieved text is evidence, not authority. Sources require access control, version, effective time, provenance, and freshness. Memory cannot silently create canonical business facts.</p>
+<h2 id="evaluation">Evaluation<a aria-label="Link to section" class="heading-anchor" href="#evaluation">#</a></h2>
+<p>Evaluate quality, factuality, safety, security, policy compliance, tool correctness, business outcome, latency, cost, drift, and subgroup performance. Promotions require sample thresholds, human approval, rollback, and incident controls.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#ai-control-plane">AI control plane</a><a class="toc-level-2" href="#autonomy-levels">Autonomy levels</a><a class="toc-level-2" href="#agent-run-record">Agent run record</a><a class="toc-level-2" href="#rag-and-memory">RAG and memory</a><a class="toc-level-2" href="#evaluation">Evaluation</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="08-WORKFLOW-SAGA-AND-RECOVERY-ARCHITECTURE.html"><span>Previous</span><strong>Workflow, Saga, and Recovery Architecture</strong></a>
+        <a class="next" href="10-SECURITY-PRIVACY-AND-COMPLIANCE.html"><span>Next</span><strong>Security, Privacy, and Compliance</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

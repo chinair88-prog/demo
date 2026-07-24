@@ -1,0 +1,45 @@
+---
+title: "Financial Control Standard"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Financial Control Standard"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Financial Control Standard" }
+  ]}
+>
+
+<br />
+<h2 id="separation-of-duties">Separation of Duties</h2>
+<br />
+<p>Creation of an obligation, approval of payment, execution of settlement, and reconciliation SHOULD be separable. Where automation combines steps, independent policy and audit controls are required.</p>
+<br />
+<h2 id="monetary-semantics">Monetary Semantics</h2>
+<br />
+<p>Amounts include currency, precision, sign meaning, tax or fee treatment, exchange-rate source, and effective time. Floating-point representation SHALL not be used for authoritative monetary calculation.</p>
+<br />
+<h2 id="payment-intent">Payment Intent</h2>
+<br />
+<p>Payment execution requires Intent containing beneficiary, account or instrument reference, amount, currency, purpose, authority, limits, validity, and idempotency.</p>
+<br />
+<h2 id="fraud-and-risk">Fraud and Risk</h2>
+<br />
+<p>Risk signals inform policy and Decisions but do not silently change obligations. High-risk or unusual transactions may require additional evidence or dual approval.</p>
+<br />
+<h2 id="settlement">Settlement</h2>
+<br />
+<p>A provider acceptance is not settlement. Settlement state is owned by the recognized settlement authority. Reconciliation compares authoritative settlement facts to obligations and execution records.</p>
+<br />
+<h2 id="correction">Correction</h2>
+<br />
+<p>Financial corrections use adjustment, reversal, refund, chargeback, or compensating entry according to authority and accounting meaning. Historical entries are not simply edited.</p>
+<br />
+<h2 id="audit">Audit</h2>
+<br />
+<p>Records preserve decision authority, evidence, approval, execution, provider response, settlement, reconciliation, and exceptions.</p>
+<br />
+</ContentPage>

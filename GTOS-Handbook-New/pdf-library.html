@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PDF Library · GTOS Handbook</title>
+<meta name="description" content="23 professionally paginated PDF books — the complete GTOS handbook collection for reading, review, and controlled distribution.">
+<link rel="stylesheet" href="assets/css/site.css">
+<script defer src="assets/js/nav-data.js"></script>
+<script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="index.html"><span class="logo-icon">G</span><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" onclick="openSearch()"><span>Search the handbook…</span><kbd>Ctrl K</kbd></button>
+  <div class="top-actions">
+    <a href="architecture-atlas.html">Atlas</a>
+    <button class="theme-toggle" onclick="toggleTheme()">◐</button>
+  </div>
+</header>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+  <main class="main-content">
+    <article class="page-container wide">
+      <nav class="breadcrumbs"><a href="index.html">Home</a> <span class="sep">›</span> <span>PDF Library</span></nav>
+      <header class="page-header">
+        <span class="status-badge info">Controlled Publication Set</span><span style="font-size:.85rem;color:var(--text-muted);margin-left:8px">4,825 pages total</span>
+        <h1>PDF Edition Library</h1>
+        <p class="lede">The professionally paginated handbook collection, organized for executive review, engineering study and controlled distribution. All 23 volumes with SHA-256 integrity verification.</p>
+      </header>
+      <div class="pdf-grid">
+        <a class="pdf-card" href="downloads/pdfs/00-MASTER-OVERVIEW.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Master Overview</h3><p>45 pages · 0.2 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/01-FOUNDATIONS.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Foundations</h3><p>89 pages · 0.2 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/02-volume--02-repository-evidence-atlas.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 02 — Repository Evidence Atlas</h3><p>141 pages · 0.4 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/03-volume-03-end-to-end-global-trade-lifecycle.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 03 — Global Trade Lifecycle</h3><p>193 pages · 0.6 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/04-volume-04-portal-and-experience-architecture.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 04 — Portal & Experience Architecture</h3><p>373 pages · 1.0 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/05-volume-05-identity-tenant-organization.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 05 — Identity, Tenant & Organization</h3><p>148 pages · 0.4 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/06-volume-06-commerce-domain-architecture.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 06 — Commerce Domain Architecture</h3><p>500 pages · 1.4 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/07-volume-07-fulfilment-supply-chain-domain-architecture.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 07 — Fulfilment & Supply Chain</h3><p>466 pages · 1.3 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/08-volume-08-engagement-communication-architecture.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 08 — Engagement & Communication</h3><p>300 pages · 0.8 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/09-volume-09-ai-operating-system.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 09 — AI Operating System</h3><p>324 pages · 0.9 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/10-volume-10-data-database-reference.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 10 — Data & Database Reference</h3><p>254 pages · 0.7 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/11-volume-11-api-event-workflow-tool-contracts.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 11 — API, Event & Workflow Contracts</h3><p>183 pages · 0.5 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/12-volume-12-platform-architecture.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 12 — Platform Architecture</h3><p>120 pages · 0.4 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/13-volume-13-infrastructure-deployment.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 13 — Infrastructure & Deployment</h3><p>148 pages · 0.4 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/14-volume-14-security-privacy-compliance.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 14 — Security, Privacy & Compliance</h3><p>183 pages · 0.5 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/15-volume-15-engineering-handbook.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 15 — Engineering Handbook</h3><p>148 pages · 0.4 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/16-volume-16-operations-sre.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 16 — Operations & SRE</h3><p>148 pages · 0.4 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/17-volume-17-testing-verification-conformance.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 17 — Testing & Conformance</h3><p>148 pages · 0.4 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/18-volume-18-migration-legacy-evolution.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 18 — Migration & Evolution</h3><p>113 pages · 0.3 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/19-volume-19-implementation-profiles.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 19 — Implementation Profiles</h3><p>323 pages · 0.9 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/20-volume-20-appendices-generated-reference.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Vol 20 — Appendices & Reference</h3><p>212 pages · 0.6 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/21-DELIVERY-PLAYBOOKS.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Delivery Playbooks</h3><p>129 pages · 0.3 MB</p><span class="dl">Download</span></div>
+        </a>
+        <a class="pdf-card" href="downloads/pdfs/22-CURRENT-PROJECT-GAP-ANALYSIS.pdf">
+          <div class="pdf-icon-box">PDF</div>
+          <div><h3>Current Project Gap Analysis</h3><p>137 pages · 0.3 MB</p><span class="dl">Download</span></div>
+        </a>
+      </div>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar"><input type="search" placeholder="Search…"><button class="search-close" onclick="closeSearch()">×</button></div>
+    <div class="search-meta"></div><div class="search-results"></div>
+  </div>
+</div>
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>PDF Edition Library · 23 Books · 4,825 Pages</span>
+</footer>
+</body>
+</html>

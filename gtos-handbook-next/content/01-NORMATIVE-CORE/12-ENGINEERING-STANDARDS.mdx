@@ -1,0 +1,41 @@
+---
+title: "Engineering Standards"
+section: "Normative Core"
+---
+
+<ContentPage
+  title="Engineering Standards"
+  section="Normative Core"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Normative Core", href: "/content" },
+    { label: "Engineering Standards" }
+  ]}
+>
+
+<br />
+<h2 id="code-structure">Code structure</h2>
+<br />
+<p>Use clear Domain, application, adapter, and infrastructure boundaries. Domain code must not depend on transport frameworks. Persistence models should not dictate business semantics.</p>
+<br />
+<h2 id="quality-gates">Quality gates</h2>
+<br />
+<p>Every change passes formatting, static analysis, dependency rules, unit/property tests, integration tests, contract tests, security checks, migration checks, build reproducibility, and documentation validation.</p>
+<br />
+<h2 id="git-and-review">Git and review</h2>
+<br />
+<p>Use small reviewable changes, protected branches, signed or attributable commits, mandatory review for critical areas, CODEOWNERS, semantic commit messages, and linked ADR/issue/test evidence.</p>
+<br />
+<h2 id="configuration">Configuration</h2>
+<br />
+<p>Configuration is typed, validated, environment-specific, secret-free in source, and observable. Defaults must be safe. Runtime changes are audited.</p>
+<br />
+<h2 id="error-handling">Error handling</h2>
+<br />
+<p>Errors are typed and classified as validation, authorization, conflict, dependency, timeout, outcome unknown, business rejection, or internal defect. Do not expose secrets or implementation details.</p>
+<br />
+<h2 id="documentation-as-code">Documentation as code</h2>
+<br />
+<p>Architecture, APIs, Events, migrations, operational procedures, diagrams, and conformance evidence live with version control and CI validation.</p>
+<br />
+</ContentPage>

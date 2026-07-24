@@ -1,0 +1,43 @@
+---
+title: "Architecture Design Review Facilitation"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Architecture Design Review Facilitation"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Architecture Design Review Facilitation" }
+  ]}
+>
+
+<br />
+<h2 id="before-the-review">Before the Review</h2>
+<br />
+<p>The author distributes a concise context, proposed decision, diagrams, scenarios, Canon dependencies, alternatives, risks, contracts, and open questions. Reviewers receive enough time to inspect the material. A meeting is not used to reveal an unread design for the first time.</p>
+<br />
+<h2 id="review-sequence">Review Sequence</h2>
+<br />
+<p>Begin with business reality and intended outcome. Confirm the truth owner and authority boundary. Walk through identities, Relationships, time, state, Commands, Events, Decisions, Intent, and corrections. Then review data, AI, security, platform, infrastructure, and operations.</p>
+<br />
+<p>Use concrete scenarios rather than debating abstract preferences. Include a normal case, an invalid transition, late evidence, contradictory evidence, retry after response loss, partner outage, security abuse, and disaster recovery.</p>
+<br />
+<h2 id="decision-matrix">Decision Matrix</h2>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Dimension","sortable":true},{"key":"col1","label":"Questions","sortable":true}]} data={[{"col0":"Correctness","col1":"Does the design preserve the GTOS concepts and invariants?"},{"col0":"Authority","col1":"Are assertions, Decisions, delegation, and execution legitimate?"},{"col0":"Compatibility","col1":"Can existing consumers and historical data retain meaning?"},{"col0":"Security","col1":"Are trust boundaries, purpose, jurisdiction, and abuse controlled?"},{"col0":"Operability","col1":"Can teams observe, support, recover, and reconcile?"},{"col0":"Evolution","col1":"Can the design change without semantic fragmentation?"},{"col0":"Cost","col1":"Is complexity proportional to business impact?"}]} />
+<br />
+<h2 id="review-outcomes">Review Outcomes</h2>
+<br />
+<p>Outcomes are approved, approved with conditions, revise and return, or rejected. Conditions have owners and due dates. Dissent and rejected alternatives are preserved. Approval applies to a version and scope, not to all future implementation changes.</p>
+<br />
+<h2 id="healthy-review-behavior">Healthy Review Behavior</h2>
+<br />
+<p>Reviewers challenge the design, not the person. Seniority does not replace evidence. Novelty is neither a virtue nor a defect. A simpler design wins only when it preserves required semantics and controls. A sophisticated design is rejected when operational ownership is not credible.</p>
+<br />
+<h2 id="after-the-review">After the Review</h2>
+<br />
+<p>Update the ADR, architecture models, risks, contracts, and backlog. Verify that conditions enter delivery planning. Significant deviations return to review rather than appearing only in code.</p>
+<br />
+</ContentPage>

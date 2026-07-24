@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>05 — Allocation, Fulfilment, Pick, Pack, and Last Mile · GTOS Handbook</title>
+<meta name="description" content="05 — Allocation, Fulfilment, Pick, Pack, and Last Mile Allocation Inventory Reservation در Wave 02 وجود داشت، اما اتصال واقعی Order به Inventory در OrderWorkflo">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/index.html">GTOS Handbook Batch 09 Repository Evidence Wave 03</a> <span class="sep">›</span> <span>05 — Allocation, Fulfilment, Pick, Pack, and Last Mile</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>05 — Allocation, Fulfilment, Pick, Pack, and Last Mile</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#allocation">Allocation</a></li><li class="toc-level-2"><a href="#legacy-fulfilment">Legacy Fulfilment</a></li><li class="toc-level-2"><a href="#pick-and-pack">Pick and Pack</a></li><li class="toc-level-2"><a href="#pickpack-gaps">Pick/Pack gaps</a></li><li class="toc-level-2"><a href="#last-mile-optimizer">Last-Mile Optimizer</a></li><li class="toc-level-2"><a href="#delivery-proof">Delivery Proof</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="05-allocation-fulfilment-pick-pack-and-last-mile">05 — Allocation, Fulfilment, Pick, Pack, and Last Mile</h1>
+<br>
+<h2 id="allocation">Allocation <a href="#allocation" class="heading-anchor">#</a></h2>
+<br>
+<p>Inventory Reservation در Wave 02 وجود داشت، اما اتصال واقعی Order به Inventory در <code>OrderWorkflowOrchestrator</code> فقط comment است:</p>
+<br>
+<li>validate products؛</li>
+<li>reserve inventory؛</li>
+<li>pre-authorize/capture payment؛</li>
+<li>create fulfilment order.</li>
+<br>
+<p>بنابراین Order-driven Allocation برابر است با <code>PLANNED_NOT_IMPLEMENTED</code>.</p>
+<br>
+<h2 id="legacy-fulfilment">Legacy Fulfilment <a href="#legacy-fulfilment" class="heading-anchor">#</a></h2>
+<br>
+<p>Warehouse <code>FulfillmentService</code>:</p>
+<br>
+<li>deprecated و forRemoval است؛</li>
+<li>Sales Order list/get/update status دارد؛</li>
+<li>get/update by ID tenant scope آشکار ندارند؛</li>
+<li>status string آزاد است.</li>
+<br>
+<p>Classification: <code>DEPRECATED_IMPLEMENTATION</code>.</p>
+<br>
+<h2 id="pick-and-pack">Pick and Pack <a href="#pick-and-pack" class="heading-anchor">#</a></h2>
+<br>
+<p><code>PickPackService</code> و Controller واقعاً این Subjects را مدیریت می‌کنند:</p>
+<br>
+<li>Pick Wave؛</li>
+<li>Pick Task؛</li>
+<li>Pack Task؛</li>
+<li>assign/start/complete/cancel؛</li>
+<li>picked quantity و short pick؛</li>
+<li>tracking number، shipping label، weight، volume و box count.</li>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="pickpack-gaps">Pick/Pack gaps <a href="#pickpack-gaps" class="heading-anchor">#</a></h2>
+<br>
+<li>tenantId از request گرفته می‌شود.</li>
+<li>get/update operations by ID tenant-scoped نیستند.</li>
+<li>statusها string و transitionها محدود/ناهمگون‌اند.</li>
+<li>confirmPick over-pick را منع نمی‌کند؛ quantity برابر یا بزرگ‌تر از requested، <code>PICKED</code> می‌شود.</li>
+<li>Inventory reservation consumption/decrement دیده نشد.</li>
+<li>wave/task creation به Order/Inventory entitlement متصل نیست.</li>
+<li>Pack Task order/shipment references را verify نمی‌کند.</li>
+<li>Event/outbox برای Picked/Packed پیدا نشد.</li>
+<li>Dispatch/Handover از Pack completion جدا و canonical نشده است.</li>
+<br>
+<h2 id="last-mile-optimizer">Last-Mile Optimizer <a href="#last-mile-optimizer" class="heading-anchor">#</a></h2>
+<br>
+<p><code>LastMileCarrierOptimizer</code>:</p>
+<br>
+<li>Carrier profileهای DHL، FedEx، UPS و China Post را در memory seed می‌کند؛</li>
+<li>static rate table دارد؛</li>
+<li>rate shopping، composite scoring، fallback chain و delivery promise می‌سازد.</li>
+<br>
+<p>این یک static decision engine است، نه live carrier integration.</p>
+<br>
+<p>Classification: <code>SIMULATED_REFERENCE_IMPLEMENTATION</code>.</p>
+<br>
+<p>موارد مفقود:</p>
+<br>
+<li>negotiated/live rates؛</li>
+<li>currency و quote expiry؛</li>
+<li>serviceability/capacity؛</li>
+<li>carrier booking/label purchase؛</li>
+<li>provider request/response IDs؛</li>
+<li>pickup acceptance؛</li>
+<li>tracking webhook؛</li>
+<li>delivery exception؛</li>
+<li>Proof of Delivery.</li>
+<br>
+<h2 id="delivery-proof">Delivery Proof <a href="#delivery-proof" class="heading-anchor">#</a></h2>
+<br>
+<p><code>OrderEntity.deliver()</code> فقط از SHIPPED به DELIVERED تغییر می‌دهد و timestamp ثبت می‌کند. Signature، recipient identity، delivery photo، geo/location، carrier event reference یا correction flow پیدا نشد.</p>
+<br>
+<p>Classification:</p>
+<br>
+<li>Order delivery status: <code>IMPLEMENTED_WITH_GAP</code></li>
+<li>Proof of Delivery: <code>PLANNED_NOT_IMPLEMENTED</code></li>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

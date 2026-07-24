@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="TargetPriceController و TargetPriceService : create/update/delete policy؛ - list by tenant/product؛ - lookup active target price. SmartPricingService و SmartPricingController : Price Rule CRUD؛ - Landed Cost CRUD؛ - Market Price Snapshot؛ - competitor averages؛ - price calculatio…">
+<meta name="color-scheme" content="light dark">
+<title>02 — Pricing, Price Version, and Commercial Snapshot · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/02-PRICING-PRICE-VERSION-AND-COMMERCIAL-SNAPSHOT.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 09 Repository Evidence Wave 03</span><span class="sep">/</span><span>02 — Pricing, Price Version, and Commercial Snapshot</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>223 words</span></div>
+        <h1>02 — Pricing, Price Version, and Commercial Snapshot</h1>
+        <p class="lede">TargetPriceController و TargetPriceService : create/update/delete policy؛ - list by tenant/product؛ - lookup active target price. SmartPricingService و SmartPricingController : Price Rule CRUD؛ - Landed Cost CRUD؛ - Market Price Snapshot؛ - competitor averages؛ - price calculatio…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="implemented-pricing-capabilities">Implemented pricing capabilities<a aria-label="Link to section" class="heading-anchor" href="#implemented-pricing-capabilities">#</a></h2>
+<p>دو implementation اصلی وجود دارد:</p>
+<h3 id="pricing-service-target-price">Pricing Service Target Price<a aria-label="Link to section" class="heading-anchor" href="#pricing-service-target-price">#</a></h3>
+<p><code>TargetPriceController</code> و <code>TargetPriceService</code>:</p>
+<ul>
+<li>create/update/delete policy؛</li>
+<li>list by tenant/product؛</li>
+<li>lookup active target price.</li>
+</ul>
+<h3 id="marketplace-smart-pricing">Marketplace Smart Pricing<a aria-label="Link to section" class="heading-anchor" href="#marketplace-smart-pricing">#</a></h3>
+<p><code>SmartPricingService</code> و <code>SmartPricingController</code>:</p>
+<ul>
+<li>Price Rule CRUD؛</li>
+<li>Landed Cost CRUD؛</li>
+<li>Market Price Snapshot؛</li>
+<li>competitor averages؛</li>
+<li>price calculation؛</li>
+<li>pricing overview.</li>
+</ul>
+<p>Strategies شامل Cost Plus، Market Based، Dynamic، Penetration، Skimming، Volume Tiered، Promotional و Bundle هستند.</p>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h2 id="critical-pricing-findings">Critical pricing findings<a aria-label="Link to section" class="heading-anchor" href="#critical-pricing-findings">#</a></h2>
+<ul>
+<li>tenant/company در Target Price و Smart Pricing از request/query گرفته می‌شوند.</li>
+<li>get/update/delete rule by ID tenant-scoped نیستند.</li>
+<li>Target Price status string آزاد است.</li>
+<li>Catalog Product و Marketplace Catalog Entry نیز قیمت مستقل ذخیره می‌کنند.</li>
+<li>Category و Warehouse rule matching در engine عملاً <code>true</code> و با comment <code>simplified</code> اجرا می‌شود؛ در نتیجه rule می‌تواند خارج از scope اعمال شود.</li>
+<li>Volume tiers hard-coded هستند.</li>
+<li>manual discount/surcharge از request پذیرفته می‌شود.</li>
+<li>response currency در محاسبه Smart Pricing به USD hard-code شده است.</li>
+<li>competitor source authenticity، timestamp policy و observation confidence محدود است.</li>
+<li>Price Version، approval، publication، effective interval، supersession و accepted checkout quote مستقل پیدا نشد.</li>
+</ul>
+<h2 id="canonical-pricing-model">Canonical pricing model<a aria-label="Link to section" class="heading-anchor" href="#canonical-pricing-model">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span>text</span><button class="copy-code" type="button">Copy</button></div><div class="highlight"><pre><span></span>CostObservation
++ LandedCostVersion
++ MarketPriceObservation
++ PricingRuleVersion
+→ PriceCalculation
+→ PriceApprovalDecision
+→ PriceVersion
+→ OfferPrice
+→ CheckoutPriceSnapshot
+</pre></div>
+</div><p>Cart و Order باید Price Snapshot را با rule/version/effective time ذخیره کنند، نه اینکه <code>unitPrice</code> Client را حقیقت تلقی کنند.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#implemented-pricing-capabilities">Implemented pricing capabilities</a><a class="toc-level-3" href="#pricing-service-target-price">Pricing Service Target Price</a><a class="toc-level-3" href="#marketplace-smart-pricing">Marketplace Smart Pricing</a><a class="toc-level-2" href="#critical-pricing-findings">Critical pricing findings</a><a class="toc-level-2" href="#canonical-pricing-model">Canonical pricing model</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="01-PRODUCT-CATALOG-MARKETPLACE-AND-OFFER.html"><span>Previous</span><strong>01 — Product Catalog, Marketplace Catalog, and Offer</strong></a>
+        <a class="next" href="03-CART-CHECKOUT-AND-AI-INSIGHTS.html"><span>Next</span><strong>03 — Cart, Checkout, and AI Insights</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

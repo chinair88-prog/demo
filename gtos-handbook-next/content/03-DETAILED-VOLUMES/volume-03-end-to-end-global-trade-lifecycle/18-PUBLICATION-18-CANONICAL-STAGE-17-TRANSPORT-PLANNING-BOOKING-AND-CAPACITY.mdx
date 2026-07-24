@@ -1,0 +1,452 @@
+---
+title: "Publication Chapter 18 — Transport Planning, Booking, and Capacity"
+section: "Detailed Volumes"
+---
+
+<ContentPage
+  title="Publication Chapter 18 — Transport Planning, Booking, and Capacity"
+  section="Detailed Volumes"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Detailed Volumes", href: "/content" },
+    { label: "Publication Chapter 18 — Transport Planning, Booking, and Capacity" }
+  ]}
+>
+
+<br />
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="1-executive-orientation">1. Executive Orientation</h2>
+<br />
+<p>This stage exists to <strong>convert a shipment requirement into a confirmed transport arrangement with route, mode, provider, carrier, capacity, cost, and schedule</strong>.</p>
+<br />
+<p>Its output is not merely a screen state or document download. It is a governed set of identified subjects, Relationships, Decisions, Intent, Commands, completed facts, external observations, evidence, and correction history.</p>
+<br />
+<CodeBlock code={"Reality or external outcome\n    ≠ platform Observation\n    ≠ derived Perspective\n    ≠ AI Prediction\n    ≠ Recommendation\n    ≠ authorized Decision\n    ≠ execution Intent"} language="text" />
+<br />
+<h3 id="11-accountability">1.1 Accountability</h3>
+<br />
+<p>The accountable capability is <strong>Shipping / Provider / external carrier</strong>. Supporting Portals, workflow engines, reports, search indexes, integration adapters, and AI Agents may coordinate or present the work, but they do not silently become owners of the underlying business truth.</p>
+<br />
+<h3 id="12-primary-business-outcomes">1.2 Primary business outcomes</h3>
+<br />
+<p>- a stable subject identity and exact source-version lineage;</p>
+<p>- explicit authority and effective mandate;</p>
+<p>- a testable lifecycle outcome;</p>
+<p>- evidence sufficient for downstream use and later reconstruction;</p>
+<p>- visible failure, partial completion, uncertainty, and correction;</p>
+<p>- a completed-fact Event or qualified external observation;</p>
+<p>- downstream activation without shared-database ownership transfer.</p>
+<br />
+<h3 id="13-non-goals">1.3 Non-goals</h3>
+<br />
+<p>- treating a registered module as proof of complete implementation;</p>
+<p>- treating a frontend route as proof of backend behavior;</p>
+<p>- allowing an AI recommendation to become a binding Decision;</p>
+<p>- inventing external-provider or government-authority success;</p>
+<p>- overwriting history during amendment or correction;</p>
+<p>- combining unrelated states into one generic <code class="code-inline">status</code> field.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="2-entry-and-exit-criteria">2. Entry and Exit Criteria</h2>
+<br />
+<h3 id="21-entry-criteria">2.1 Entry criteria</h3>
+<br />
+<p>1. Every upstream subject reference resolves to a stable identifier.</p>
+<p>2. The exact approved, accepted, issued, or observed version is known.</p>
+<p>3. The initiating human, service, organization, or AI Agent is authenticated.</p>
+<p>4. The represented principal and mandate are valid at command time.</p>
+<p>5. Required Evidence exists, or an explicit authorized exception is linked.</p>
+<p>6. Applicable Policy and jurisdiction versions are fixed.</p>
+<p>7. Duplicate, stale-version, and replay checks have run.</p>
+<p>8. Any conflicting active process is resolved, suspended, or explicitly related.</p>
+<br />
+<h3 id="22-exit-criteria">2.2 Exit criteria</h3>
+<br />
+<p>1. The authoritative Domain or external authority records the outcome.</p>
+<p>2. State and version changes are durable.</p>
+<p>3. A completed-fact Event or qualified observation is available.</p>
+<p>4. Downstream consumers receive stable subject, correlation, and causation references.</p>
+<p>5. Unknown, partial, disputed, or failed outcomes remain visible.</p>
+<p>6. Corrections preserve the original record and reason.</p>
+<p>7. Metrics, audit evidence, and operational signals are emitted.</p>
+<p>8. A qualified reviewer can reconstruct who knew what, when, and why.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="3-ubiquitous-language-and-subject-model">3. Ubiquitous Language and Subject Model</h2>
+<br />
+<p>Primary subject families:</p>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Subject","sortable":true},{"key":"col1","label":"Required interpretation","sortable":true}]} data={[{"col0":"<code class=\"code-inline\">TransportRequirement</code>","col1":"independent identified subject or governed subordinate entity; ownership must be declared"},{"col0":"<code class=\"code-inline\">RouteOption</code>","col1":"independent identified subject or governed subordinate entity; ownership must be declared"},{"col0":"<code class=\"code-inline\">TransportQuote</code>","col1":"independent identified subject or governed subordinate entity; ownership must be declared"},{"col0":"<code class=\"code-inline\">CarrierSelectionDecision</code>","col1":"independent identified subject or governed subordinate entity; ownership must be declared"},{"col0":"<code class=\"code-inline\">Booking</code>","col1":"independent identified subject or governed subordinate entity; ownership must be declared"},{"col0":"<code class=\"code-inline\">BookingVersion</code>","col1":"independent identified subject or governed subordinate entity; ownership must be declared"},{"col0":"<code class=\"code-inline\">CapacityConfirmation</code>","col1":"independent identified subject or governed subordinate entity; ownership must be declared"},{"col0":"<code class=\"code-inline\">ShipmentPlan</code>","col1":"independent identified subject or governed subordinate entity; ownership must be declared"}]} />
+<br />
+<p>Reference aggregate:</p>
+<br />
+<CodeBlock code={"TransportRequirement {\n  aggregateId\n  tenantId\n  organizationContext\n  canonicalSubjectRefs[]\n  sourceVersionRefs[]\n  lifecycleState\n  decisionRefs[]\n  intentRefs[]\n  evidenceSetRef\n  knowledgeCutoff\n  policyRefs[]\n  authorityRef\n  jurisdictionRefs[]\n  createdAt\n  effectiveAt\n  updatedAt\n  version\n  correctionOf?\n  correlationId\n}"} language="text" />
+<br />
+<h3 id="31-identity-and-relationship-rules">3.1 Identity and relationship rules</h3>
+<br />
+<p>- a display name, document number, provider reference, barcode, or URL is not automatically canonical identity;</p>
+<p>- relationships such as custody, mandate, allocation, publication, reservation, or obligation are independent facts;</p>
+<p>- cross-Domain references use stable IDs and qualified snapshots, not shared-table mutation;</p>
+<p>- external identifiers retain issuer and namespace;</p>
+<p>- merge, split, correction, and supersession preserve lineage.</p>
+<br />
+<h3 id="32-invariants">3.2 Invariants</h3>
+<br />
+<p>1. Submitted, approved, accepted, issued, or signed versions are immutable.</p>
+<p>2. State changes occur through authorized Commands.</p>
+<p>3. Completed-fact Events use past-tense semantics.</p>
+<p>4. A Recommendation cannot self-promote to a Decision.</p>
+<p>5. An external outcome retains its source authority.</p>
+<p>6. Derived projections cannot become authoritative by repeated copying.</p>
+<p>7. All writes are tenant-, organization-, facility-, and authority-scoped as applicable.</p>
+<p>8. Retried writes are idempotent.</p>
+<p>9. Outcome Unknown is not converted to success or failure by assumption.</p>
+<p>10. Corrections reference the corrected fact and downstream impact.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="4-lifecycle-state-model">4. Lifecycle State Model</h2>
+<br />
+<h3 id="41-state-vocabulary">4.1 State vocabulary</h3>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"State","sortable":true},{"key":"col1","label":"Meaning","sortable":true}]} data={[{"col0":"<code class=\"code-inline\">REQUIREMENT_READY</code>","col1":"distinct governed condition; exact entry, exit, timeout, and correction semantics require a Domain specification"},{"col0":"<code class=\"code-inline\">OPTIONS_REQUESTED</code>","col1":"distinct governed condition; exact entry, exit, timeout, and correction semantics require a Domain specification"},{"col0":"<code class=\"code-inline\">OPTIONS_RECEIVED</code>","col1":"distinct governed condition; exact entry, exit, timeout, and correction semantics require a Domain specification"},{"col0":"<code class=\"code-inline\">SELECTION_PENDING</code>","col1":"distinct governed condition; exact entry, exit, timeout, and correction semantics require a Domain specification"},{"col0":"<code class=\"code-inline\">BOOKING_REQUESTED</code>","col1":"distinct governed condition; exact entry, exit, timeout, and correction semantics require a Domain specification"},{"col0":"<code class=\"code-inline\">CONFIRMATION_PENDING</code>","col1":"distinct governed condition; exact entry, exit, timeout, and correction semantics require a Domain specification"},{"col0":"<code class=\"code-inline\">CONFIRMED</code>","col1":"distinct governed condition; exact entry, exit, timeout, and correction semantics require a Domain specification"},{"col0":"<code class=\"code-inline\">AMENDMENT_PENDING</code>","col1":"distinct governed condition; exact entry, exit, timeout, and correction semantics require a Domain specification"},{"col0":"<code class=\"code-inline\">CANCELLED</code>","col1":"distinct governed condition; exact entry, exit, timeout, and correction semantics require a Domain specification"},{"col0":"<code class=\"code-inline\">FAILED</code>","col1":"distinct governed condition; exact entry, exit, timeout, and correction semantics require a Domain specification"}]} />
+<br />
+<h3 id="42-reference-state-machine">4.2 Reference state machine</h3>
+<br />
+<DiagramBlock src="/diagrams/architecture-overview.svg" alt="Mermaid Diagram" caption="Workflow / State Diagram" />
+<br />
+<p>The diagram shows a readable primary path. A conformant implementation may include parallel approvals, amendment, suspension, timeout, appeal, rejection, partial completion, reconciliation, and correction paths, but it must preserve the same semantic distinctions.</p>
+<br />
+<h3 id="43-transition-matrix">4.3 Transition matrix</h3>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"From","sortable":true},{"key":"col1","label":"To","sortable":true},{"key":"col2","label":"Minimum guard","sortable":true}]} data={[{"col0":"<code class=\"code-inline\">REQUIREMENT_READY</code>","col1":"<code class=\"code-inline\">OPTIONS_REQUESTED</code>","col2":"authorized Command, expected version, applicable Policy, required Evidence, and idempotency guard"},{"col0":"<code class=\"code-inline\">OPTIONS_REQUESTED</code>","col1":"<code class=\"code-inline\">OPTIONS_RECEIVED</code>","col2":"authorized Command, expected version, applicable Policy, required Evidence, and idempotency guard"},{"col0":"<code class=\"code-inline\">OPTIONS_RECEIVED</code>","col1":"<code class=\"code-inline\">SELECTION_PENDING</code>","col2":"authorized Command, expected version, applicable Policy, required Evidence, and idempotency guard"},{"col0":"<code class=\"code-inline\">SELECTION_PENDING</code>","col1":"<code class=\"code-inline\">BOOKING_REQUESTED</code>","col2":"authorized Command, expected version, applicable Policy, required Evidence, and idempotency guard"},{"col0":"<code class=\"code-inline\">BOOKING_REQUESTED</code>","col1":"<code class=\"code-inline\">CONFIRMATION_PENDING</code>","col2":"authorized Command, expected version, applicable Policy, required Evidence, and idempotency guard"},{"col0":"<code class=\"code-inline\">CONFIRMATION_PENDING</code>","col1":"<code class=\"code-inline\">CONFIRMED</code>","col2":"authorized Command, expected version, applicable Policy, required Evidence, and idempotency guard"},{"col0":"<code class=\"code-inline\">CONFIRMED</code>","col1":"<code class=\"code-inline\">AMENDMENT_PENDING</code>","col2":"authorized Command, expected version, applicable Policy, required Evidence, and idempotency guard"},{"col0":"<code class=\"code-inline\">AMENDMENT_PENDING</code>","col1":"<code class=\"code-inline\">CANCELLED</code>","col2":"authorized Command, expected version, applicable Policy, required Evidence, and idempotency guard"},{"col0":"<code class=\"code-inline\">CANCELLED</code>","col1":"<code class=\"code-inline\">FAILED</code>","col2":"authorized Command, expected version, applicable Policy, required Evidence, and idempotency guard"}]} />
+<br />
+<h3 id="44-forbidden-state-behavior">4.4 Forbidden state behavior</h3>
+<br />
+<p>- direct arbitrary assignment from a Portal request;</p>
+<p>- using one status to represent lifecycle, approval, payment, document, provider, and dispute state simultaneously;</p>
+<p>- deleting terminal history to reopen a process;</p>
+<p>- inferring completion from elapsed time or an AI prediction;</p>
+<p>- moving past a mandatory gate because a downstream system already acted.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="5-decision-policy-and-authority">5. Decision, Policy, and Authority</h2>
+<br />
+<p>Material Decisions in this stage include readiness, eligibility, approval, exception, amendment, correction, and downstream activation decisions.</p>
+<br />
+<p>Reference Decision:</p>
+<br />
+<CodeBlock code={"Decision {\n  decisionId\n  decisionType\n  subjectRef\n  sourceVersionRefs[]\n  knowledgeCutoff\n  evidenceSetRef\n  policyVersionRefs[]\n  recommendationRefs[]\n  principalId\n  representedOrganizationId\n  mandateRef\n  rationale\n  outcome\n  decidedAt\n  effectiveAt\n  correctionOf?\n}"} language="text" />
+<br />
+<h3 id="decision-rules">Decision rules</h3>
+<br />
+<p>- the Decision references exact source versions;</p>
+<p>- authority and delegation are evaluated at Decision time;</p>
+<p>- a Policy version and jurisdiction context are recorded;</p>
+<p>- mandatory-gate failure blocks progression unless a lawful exception exists;</p>
+<p>- dissent, uncertainty, and missing Evidence remain visible;</p>
+<p>- Decision correction does not erase the original Decision;</p>
+<p>- AI may prepare a briefing, but cannot manufacture authority.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="6-evidence-documents-and-knowledge-cutoff">6. Evidence, Documents, and Knowledge Cutoff</h2>
+<br />
+<p>Every binding or high-impact action requires an Evidence Set containing:</p>
+<br />
+<p>- evidence identity and integrity hash where required;</p>
+<p>- issuing, observing, or signing party;</p>
+<p>- observed time, received time, and effective-time interval;</p>
+<p>- subject and source-version relationships;</p>
+<p>- qualification, confidence, and limitations;</p>
+<p>- contradiction, retraction, supersession, and correction links;</p>
+<p>- jurisdiction, classification, retention, and residency;</p>
+<p>- chain of custody for physical or high-integrity evidence;</p>
+<p>- the knowledge cutoff used by the Decision.</p>
+<br />
+<p>A document is not automatically truth. It is an Artifact containing Claims. Its legal or operational effect depends on issuer, mandate, signature, version, applicable rules, and external authority.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="7-commands-events-and-queries">7. Commands, Events, and Queries</h2>
+<br />
+<h3 id="71-commands">7.1 Commands</h3>
+<br />
+<p>- <code class="code-inline">CreateTransportRequirement</code></p>
+<p>- <code class="code-inline">RequestTransportOptions</code></p>
+<p>- <code class="code-inline">SelectTransportOption</code></p>
+<p>- <code class="code-inline">RequestBooking</code></p>
+<p>- <code class="code-inline">ConfirmBooking</code></p>
+<p>- <code class="code-inline">AmendBooking</code></p>
+<p>- <code class="code-inline">CancelBooking</code></p>
+<br />
+<p>Each Command shall contain an idempotency key, actor identity, represented principal, tenant and organization context, correlation ID, expected version where relevant, reason for privileged action, and exact target subject.</p>
+<br />
+<h3 id="72-events">7.2 Events</h3>
+<br />
+<p>- <code class="code-inline">TransportRequirementCreated</code></p>
+<p>- <code class="code-inline">TransportOptionsReceived</code></p>
+<p>- <code class="code-inline">TransportOptionSelected</code></p>
+<p>- <code class="code-inline">BookingRequested</code></p>
+<p>- <code class="code-inline">BookingConfirmed</code></p>
+<p>- <code class="code-inline">BookingAmended</code></p>
+<p>- <code class="code-inline">BookingCancelled</code></p>
+<p>- <code class="code-inline">BookingFailed</code></p>
+<br />
+<p>Events describe completed facts or explicitly qualified observations. A request, proposed action, timer, or prediction is not a completed-fact Event.</p>
+<br />
+<h3 id="73-queries-and-perspectives">7.3 Queries and perspectives</h3>
+<br />
+<p>- <code class="code-inline">GetTransportRequirement</code></p>
+<p>- <code class="code-inline">ListTransportRequirementRecords</code></p>
+<p>- <code class="code-inline">GetTransportRequirementTimeline</code></p>
+<p>- <code class="code-inline">GetTransportRequirementEvidence</code></p>
+<p>- <code class="code-inline">GetTransportRequirementDecisionPackage</code></p>
+<p>- <code class="code-inline">GetTransportRequirementExceptions</code></p>
+<p>- <code class="code-inline">GetTransportRequirementAuditTrail</code></p>
+<p>- <code class="code-inline">GetTransportRequirementCurrentPerspective</code></p>
+<br />
+<p>Every query response states data freshness, source cutoff, version, and whether values are authoritative, observed, derived, predicted, or disputed.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="8-workflow-timeout-and-compensation">8. Workflow, Timeout, and Compensation</h2>
+<br />
+<DiagramBlock src="/diagrams/architecture-overview.svg" alt="Mermaid Diagram" caption="Workflow / State Diagram" />
+<br />
+<p>Required workflow behavior:</p>
+<br />
+<p>- durable process and correlation identity;</p>
+<p>- persisted approvals and timers;</p>
+<p>- bounded retries and retry budgets;</p>
+<p>- idempotent command submission;</p>
+<p>- safe restart after deployment or outage;</p>
+<p>- compensation that records new Intent instead of deleting history;</p>
+<p>- visible stalled, orphaned, and manually intervened processes;</p>
+<p>- operator access to source responses and downstream impact;</p>
+<p>- reconciliation before repeating an external financial, legal, or physical action.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="9-target-api-contract">9. Target API Contract</h2>
+<br />
+<p>Reference surface:</p>
+<br />
+<CodeBlock code={"POST /api/v1/transport_planning_booking_and_capacity/commands\nGET  /api/v1/transport_planning_booking_and_capacity/{id}\nGET  /api/v1/transport_planning_booking_and_capacity/{id}/timeline\nGET  /api/v1/transport_planning_booking_and_capacity/{id}/evidence\nGET  /api/v1/transport_planning_booking_and_capacity/{id}/decisions\nPOST /api/v1/transport_planning_booking_and_capacity/{id}/exceptions\nPOST /api/v1/transport_planning_booking_and_capacity/{id}/corrections"} language="text" />
+<br />
+<p>These are reference endpoints, not claims that the exact routes exist.</p>
+<br />
+<p>Contract requirements:</p>
+<br />
+<p>- typed request and response schemas;</p>
+<p>- action-level authorization;</p>
+<p>- trusted authentication context for tenant identity;</p>
+<p>- idempotency for writes;</p>
+<p>- optimistic concurrency or equivalent aggregate guard;</p>
+<p>- RFC problem-details or governed equivalent;</p>
+<p>- stable pagination and sorting;</p>
+<p>- versioning and deprecation policy;</p>
+<p>- trace, correlation, and causation propagation;</p>
+<p>- explicit Outcome Unknown response when external completion is unresolved.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="10-target-persistence-and-data-ownership">10. Target Persistence and Data Ownership</h2>
+<br />
+<p>Reference table families:</p>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Table family","sortable":true},{"key":"col1","label":"Purpose","sortable":true}]} data={[{"col0":"<code class=\"code-inline\">stage_aggregate</code>","col1":"authoritative lifecycle subject"},{"col0":"<code class=\"code-inline\">stage_version</code>","col1":"immutable approved/submitted/issued versions"},{"col0":"<code class=\"code-inline\">stage_decision</code>","col1":"binding Decisions and rationale"},{"col0":"<code class=\"code-inline\">stage_evidence_link</code>","col1":"evidence and provenance relationships"},{"col0":"<code class=\"code-inline\">stage_event_outbox</code>","col1":"transactional Event publication"},{"col0":"<code class=\"code-inline\">stage_idempotency</code>","col1":"duplicate-write protection"},{"col0":"<code class=\"code-inline\">stage_exception</code>","col1":"exception, claim, hold, or dispute"},{"col0":"<code class=\"code-inline\">stage_correction</code>","col1":"correction and supersession lineage"},{"col0":"<code class=\"code-inline\">stage_audit</code>","col1":"privileged action evidence"}]} />
+<br />
+<p>Data rules:</p>
+<br />
+<p>- the owning service controls its schema and migrations;</p>
+<p>- foreign keys stay inside an ownership boundary;</p>
+<p>- cross-Domain relationships use stable IDs or contracts;</p>
+<p>- effective-time and recorded-time are separate when needed;</p>
+<p>- binding versions are immutable;</p>
+<p>- indexes support tenant, owner, state, correlation, external reference, and effective time;</p>
+<p>- retention, legal hold, privacy, residency, backup, and restore are documented;</p>
+<p>- analytics, search, reports, and vector stores are projections.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="11-portal-and-experience-architecture">11. Portal and Experience Architecture</h2>
+<br />
+<p>Required Portal behavior:</p>
+<br />
+<p>- display exact version, owner, state, and last-updated time;</p>
+<p>- distinguish authoritative, observed, derived, predicted, and disputed values;</p>
+<p>- expose required action and authority;</p>
+<p>- show loading, empty, partial, stale, error, timeout, Outcome Unknown, and permission-denied states;</p>
+<p>- provide accessible keyboard and screen-reader behavior;</p>
+<p>- handle locale, currency, units, dates, and RTL/LTR correctly;</p>
+<p>- preserve evidence and download audit;</p>
+<p>- never trust a browser-provided tenant header as authority;</p>
+<p>- prevent double submission while still supporting safe retry;</p>
+<p>- show correction and supersession history.</p>
+<br />
+<p>Operator surfaces additionally expose correlation, source responses, retry budget, replay status, compensation options, and affected downstream subjects.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="12-ai-participation-and-tool-governance">12. AI Participation and Tool Governance</h2>
+<br />
+<p>Permitted AI tasks:</p>
+<br />
+<p>- compare routes</p>
+<p>- predict ETA and delay</p>
+<p>- normalize transport cost</p>
+<p>- recommend capacity options</p>
+<br />
+<p>AI may also summarize evidence, detect gaps, recommend next actions, and draft human-readable explanations.</p>
+<br />
+<p>AI shall not:</p>
+<br />
+<p>- own or directly mutate Domain databases;</p>
+<p>- fabricate external-provider, carrier, bank, customs, inspection, or delivery outcomes;</p>
+<p>- grant itself permission or mandate;</p>
+<p>- silently change an approved or issued version;</p>
+<p>- suppress uncertainty, contradictions, policy failures, or human dissent;</p>
+<p>- execute high-impact actions outside typed tools and approval policy;</p>
+<p>- create shadow records for canonical subjects.</p>
+<br />
+<p>Reference automation:</p>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Task","sortable":true},{"key":"col1","label":"Maximum default","sortable":true}]} data={[{"col0":"extraction and classification","col1":"A2, automatic with reviewable evidence"},{"col0":"anomaly detection and recommendation","col1":"A2/A3 according to risk"},{"col0":"binding commercial, legal, financial, quality, or custody Decision","col1":"A0/A1, human authority required"},{"col0":"external execution","col1":"typed tool, policy, approval, idempotency, and outcome observation"},{"col0":"correction of authoritative truth","col1":"governed human-authorized workflow"}]} />
+<br />
+<p>Every Agent Run records prompt/model/tool versions, context sources, policy evaluation, approvals, tool calls, structured outputs, uncertainty, final observed outcome, and recovery actions.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="13-security-privacy-and-trust-boundaries">13. Security, Privacy, and Trust Boundaries</h2>
+<br />
+<p>Minimum controls:</p>
+<br />
+<p>- authenticated human, service, organization, device, and AI identities;</p>
+<p>- represented principal and effective mandate validation;</p>
+<p>- least privilege, ABAC/ReBAC where appropriate, and separation of duties;</p>
+<p>- tenant, organization, facility, channel, and jurisdiction isolation;</p>
+<p>- integrity protection for binding documents and Evidence;</p>
+<p>- external callback signature and replay verification;</p>
+<p>- confidential handling of commercial, personal, financial, transport, and regulatory data;</p>
+<p>- secret isolation and no sensitive values in logs or prompts;</p>
+<p>- privileged-action audit and emergency-access review;</p>
+<p>- threat models for impersonation, tampering, replay, confused deputy, fraud, exfiltration, and prompt injection.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="14-reliability-slos-and-operations">14. Reliability, SLOs, and Operations</h2>
+<br />
+<p>Reference objectives:</p>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"SLI","sortable":true},{"key":"col1","label":"Reference objective","sortable":true}]} data={[{"col0":"authoritative read availability","col1":"99.9% monthly unless a stricter tier applies"},{"col0":"acknowledged command durability","col1":"no acknowledged write may be silently lost"},{"col0":"Event publication","col1":"99.9% within five minutes after committed fact"},{"col0":"duplicate prevention","col1":"100% for same tenant, Command class, and idempotency key"},{"col0":"binding Decision audit completeness","col1":"100%"},{"col0":"stale-state detection","col1":"bounded by the business deadline of the stage"}]} />
+<br />
+<p>Operational requirements include dashboards, alerts, runbooks, ownership, dependency health, retry budgets, DLQ/replay controls, Event outbox/inbox, workflow restart, reconciliation, capacity, backup/restore, incident command, and post-incident correction.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="15-failure-modes-and-recovery">15. Failure Modes and Recovery</h2>
+<br />
+<p>Representative failures:</p>
+<br />
+<p>- stale or wrong source version;</p>
+<p>- duplicate submission or replay;</p>
+<p>- external timeout after possible success;</p>
+<p>- contradictory source observations;</p>
+<p>- lost Event after committed state;</p>
+<p>- approval or mandate revoked during execution;</p>
+<p>- downstream action performed before a mandatory gate;</p>
+<p>- partial completion across multiple subjects;</p>
+<p>- evidence later retracted or corrected;</p>
+<p>- tenant, facility, or jurisdiction mismatch.</p>
+<br />
+<p>Recovery principles:</p>
+<br />
+<p>1. Query the authoritative source before repeating an external action.</p>
+<p>2. Preserve partial success.</p>
+<p>3. Use compensating Intent instead of destructive history rewrite.</p>
+<p>4. Publish correction Events when distributed facts change.</p>
+<p>5. Quarantine high-impact ambiguity.</p>
+<p>6. Escalate when authority or legal effect is unclear.</p>
+<p>7. Record business impact, affected subjects, and final reconciliation.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="16-testing-and-conformance">16. Testing and Conformance</h2>
+<br />
+<p>Required tests:</p>
+<br />
+<p>- aggregate invariant and transition tests;</p>
+<p>- authorization, mandate, separation-of-duties, and tenant-isolation tests;</p>
+<p>- idempotency and optimistic-concurrency tests;</p>
+<p>- migration, constraint, index, and rollback tests;</p>
+<p>- outbox/inbox, ordering, duplicate, replay, and DLQ tests;</p>
+<p>- workflow restart, timeout, compensation, and manual-intervention tests;</p>
+<p>- provider callback verification and Outcome Unknown tests;</p>
+<p>- Portal E2E for success, partial, stale, denied, and error journeys;</p>
+<p>- accessibility, locale, currency, unit, and RTL tests;</p>
+<p>- security adversarial and data-exfiltration tests;</p>
+<p>- AI evaluation, prompt-injection, policy-bypass, and unauthorized-tool tests;</p>
+<p>- historical reconstruction and correction tests;</p>
+<p>- performance, capacity, disaster-recovery, and operational exercise evidence.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="17-repository-review-boundary-and-previously-inspected-evidence">17. Repository Review Boundary and Previously Inspected Evidence</h2>
+<br />
+<p>- Shipping, provider, workflow, and event capabilities are registered.</p>
+<p>- Carrier integrations and booking schemas require direct evidence before implementation status can be upgraded.</p>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Area","sortable":true},{"key":"col1","label":"Classification for this chapter","sortable":true}]} data={[{"col0":"Target aggregate, API, tables, state model, and workflow","col1":"<code class=\"code-inline\">REFERENCE_ARCHITECTURE</code>"},{"col0":"Registered supporting modules","col1":"<code class=\"code-inline\">DOCUMENTATION_ONLY_CLAIM</code> until executable files are inspected"},{"col0":"Concrete behavior already established in earlier repository-grounded chapters","col1":"retain the original classification and evidence"},{"col0":"Exact integration paths not inspected for this stage","col1":"<code class=\"code-inline\">REQUIRES_REPOSITORY_REVIEW</code>"},{"col0":"External authority or provider outcome","col1":"qualified external observation, never platform-owned truth"}]} />
+<br />
+<p>No statement in this chapter upgrades an implementation status merely because a module name, frontend route, README, plan, or database catalog entry exists.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="18-worked-scenario">18. Worked Scenario</h2>
+<br />
+<p>An upstream governed commitment enters the stage with exact subject and version references. The initiating principal is authenticated, and its mandate is checked at command time. Evidence is gathered and evaluated against the applicable policy version and jurisdiction.</p>
+<br />
+<p>A recommendation may be produced, but an authorized Decision remains separate. The Domain accepts an idempotent Command and records state plus an outbox entry atomically. When an external party participates, a timeout creates <code class="code-inline">Outcome Unknown</code>; the workflow queries the external source or waits for a verified callback instead of repeating execution blindly.</p>
+<br />
+<p>On success or failure, the system records a completed fact, publishes a stable Event, updates downstream projections, and preserves source and knowledge cutoff. Later corrections append new facts and identify downstream impact rather than replacing history. AI assists through typed tools and cannot own the subject, grant authority, or invent an outcome.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="19-conformance-checklist">19. Conformance Checklist</h2>
+<br />
+<p>- [ ] Stable subject and version identities are explicit.</p>
+<p>- [ ] Proposition ownership and external authority are named.</p>
+<p>- [ ] Entry and exit criteria are testable.</p>
+<p>- [ ] State, Recommendation, Decision, Intent, execution, and outcome remain distinct.</p>
+<p>- [ ] Commands are authorized, version-guarded, and idempotent.</p>
+<p>- [ ] Events describe completed facts.</p>
+<p>- [ ] Evidence includes provenance, time, integrity, and correction links.</p>
+<p>- [ ] Portals show freshness, uncertainty, and Outcome Unknown.</p>
+<p>- [ ] AI uses typed tools and approved autonomy.</p>
+<p>- [ ] Security, privacy, tenant, facility, and jurisdiction boundaries are enforced.</p>
+<p>- [ ] Reconciliation precedes risky duplicate execution.</p>
+<p>- [ ] Corrections preserve history.</p>
+<p>- [ ] Tests prove invariants, security, failure, and recovery.</p>
+<p>- [ ] Implementation status is not upgraded without executable repository evidence.</p>
+<br />
+<hr className="section-divider" />
+<br />
+<h2 id="20-status-vocabulary">20. Status Vocabulary</h2>
+<br />
+<p>- <code class="code-inline">VERIFIED_IMPLEMENTED</code>: executable source and the relevant behavior were inspected.</p>
+<p>- <code class="code-inline">IMPLEMENTED_WITH_GAP</code>: executable behavior exists with a material governance or completeness gap.</p>
+<p>- <code class="code-inline">PARTIAL_IMPLEMENTATION</code>: only part of the target capability is evidenced.</p>
+<p>- <code class="code-inline">REFERENCE_ARCHITECTURE</code>: normative target behavior; no claim that it exists today.</p>
+<p>- <code class="code-inline">PLANNED_NOT_IMPLEMENTED</code>: explicitly planned but not evidenced as executable.</p>
+<p>- <code class="code-inline">DOCUMENTATION_ONLY_CLAIM</code>: documentation or a client contract claims behavior without verified backend evidence.</p>
+<p>- <code class="code-inline">CONFLICT_REQUIRES_CANONICALIZATION</code>: sources disagree and no final owner has been established.</p>
+<p>- <code class="code-inline">REQUIRES_REPOSITORY_REVIEW</code>: the necessary executable evidence has not yet been inspected.</p>
+<br />
+<br />
+</ContentPage>

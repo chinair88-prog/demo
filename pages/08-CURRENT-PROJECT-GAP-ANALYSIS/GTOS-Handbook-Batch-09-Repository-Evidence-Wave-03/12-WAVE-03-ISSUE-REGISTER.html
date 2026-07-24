@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="| ID | Severity | Area | Finding | Required action |
+|---|---|---|---|---|
+| W3-001 | Critical | Catalog | ProductEntity has no tenant/company field | Add canonical tenant ownership or explicitly global product governance. |
+| W3-002 | Critical | Catalog | Product update can set…">
+<meta name="color-scheme" content="light dark">
+<title>12 — Wave 03 Issue Register · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/12-WAVE-03-ISSUE-REGISTER.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 09 Repository Evidence Wave 03</span><span class="sep">/</span><span>12 — Wave 03 Issue Register</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>1,055 words</span></div>
+        <h1>12 — Wave 03 Issue Register</h1>
+        <p class="lede">| ID | Severity | Area | Finding | Required action |
+|---|---|---|---|---|
+| W3-001 | Critical | Catalog | ProductEntity has no tenant/company field | Add canonical tenant ownership or explicitly global product governance. |
+| W3-002 | Critical | Catalog | Product update can set…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Severity</th>
+<th>Area</th>
+<th>Finding</th>
+<th>Required action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W3-001</td>
+<td>Critical</td>
+<td>Catalog</td>
+<td>ProductEntity has no tenant/company field</td>
+<td>Add canonical tenant ownership or explicitly global product governance.</td>
+</tr>
+<tr>
+<td>W3-002</td>
+<td>Critical</td>
+<td>Catalog</td>
+<td>Product update can set status directly</td>
+<td>Remove status from generic update and enforce transition/role policy.</td>
+</tr>
+<tr>
+<td>W3-003</td>
+<td>High</td>
+<td>Catalog</td>
+<td>Product status update lacks visible authorization and transition matrix</td>
+<td>Require actor role, allowed transitions, reason and version.</td>
+</tr>
+<tr>
+<td>W3-004</td>
+<td>High</td>
+<td>Catalog</td>
+<td>Product has no optimistic version</td>
+<td>Add @Version and conflict handling.</td>
+</tr>
+<tr>
+<td>W3-005</td>
+<td>Critical</td>
+<td>Catalog</td>
+<td>Resell-from-purchase does not verify source ownership or stock eligibility</td>
+<td>Validate order ownership, receipt, quality and resale rights.</td>
+</tr>
+<tr>
+<td>W3-006</td>
+<td>Critical</td>
+<td>Catalog</td>
+<td>Three product/catalog representations compete</td>
+<td>Canonicalize Product Master, Marketplace projection and Offer.</td>
+</tr>
+<tr>
+<td>W3-007</td>
+<td>High</td>
+<td>Marketplace Catalog</td>
+<td>Tenant/company and verification flags come from request</td>
+<td>Derive identity and restrict verified/featured changes.</td>
+</tr>
+<tr>
+<td>W3-008</td>
+<td>Critical</td>
+<td>Marketplace Catalog</td>
+<td>Get/update/delete by ID are not visibly tenant-scoped</td>
+<td>Use tenant-qualified repository methods.</td>
+</tr>
+<tr>
+<td>W3-009</td>
+<td>High</td>
+<td>Marketplace Catalog</td>
+<td>Hard delete removes catalog evidence</td>
+<td>Use archive/supersession and retention policy.</td>
+</tr>
+<tr>
+<td>W3-010</td>
+<td>Critical</td>
+<td>Offer</td>
+<td>No independent Marketplace Offer aggregate found</td>
+<td>Implement seller/product/price/availability/terms snapshot.</td>
+</tr>
+<tr>
+<td>W3-011</td>
+<td>Critical</td>
+<td>Pricing</td>
+<td>Pricing authority is split across Product, Marketplace Catalog, Target Price and Smart Pricing</td>
+<td>Create canonical PriceVersion ownership.</td>
+</tr>
+<tr>
+<td>W3-012</td>
+<td>Critical</td>
+<td>Pricing</td>
+<td>Tenant IDs are accepted from request/query</td>
+<td>Use trusted tenant context.</td>
+</tr>
+<tr>
+<td>W3-013</td>
+<td>High</td>
+<td>Pricing</td>
+<td>Rule get/update/delete by ID are unscoped</td>
+<td>Use tenant-qualified lookup.</td>
+</tr>
+<tr>
+<td>W3-014</td>
+<td>High</td>
+<td>Pricing</td>
+<td>Category and warehouse scopes match all rules</td>
+<td>Implement real category/warehouse matching.</td>
+</tr>
+<tr>
+<td>W3-015</td>
+<td>High</td>
+<td>Pricing</td>
+<td>Calculation response currency is hard-coded USD</td>
+<td>Preserve and validate currency.</td>
+</tr>
+<tr>
+<td>W3-016</td>
+<td>High</td>
+<td>Pricing</td>
+<td>Manual adjustments have no approval/limit evidence</td>
+<td>Add policy, authorization and audit.</td>
+</tr>
+<tr>
+<td>W3-017</td>
+<td>High</td>
+<td>Pricing</td>
+<td>Hard-coded volume tiers exist in multiple services</td>
+<td>Govern pricing rule versions centrally.</td>
+</tr>
+<tr>
+<td>W3-018</td>
+<td>Critical</td>
+<td>Cart</td>
+<td>Cart ownership relies on request user/session/cart IDs</td>
+<td>Bind carts to authenticated principal/session token.</td>
+</tr>
+<tr>
+<td>W3-019</td>
+<td>Critical</td>
+<td>Cart</td>
+<td>Client supplies SKU, unitPrice, provider and currency</td>
+<td>Resolve authoritative offer server-side.</td>
+</tr>
+<tr>
+<td>W3-020</td>
+<td>High</td>
+<td>Cart</td>
+<td>Coupon code is stored without validation</td>
+<td>Integrate governed promotion service.</td>
+</tr>
+<tr>
+<td>W3-021</td>
+<td>High</td>
+<td>Cart</td>
+<td>Quantity and availability policy is absent</td>
+<td>Validate MOQ, max, inventory and channel rules.</td>
+</tr>
+<tr>
+<td>W3-022</td>
+<td>Critical</td>
+<td>Checkout</td>
+<td>Checkout converts client-priced cart directly to Order</td>
+<td>Reprice and snapshot offer before order creation.</td>
+</tr>
+<tr>
+<td>W3-023</td>
+<td>Critical</td>
+<td>Checkout</td>
+<td>confirm-payment can directly mark Order paid</td>
+<td>Require signed provider outcome, amount/currency match and idempotency.</td>
+</tr>
+<tr>
+<td>W3-024</td>
+<td>High</td>
+<td>Checkout</td>
+<td>Price validation is only zero-price warning</td>
+<td>Compare PriceVersion and quote expiry.</td>
+</tr>
+<tr>
+<td>W3-025</td>
+<td>High</td>
+<td>Checkout AI</td>
+<td>AI insights are simulated but exposed as AI-powered</td>
+<td>Label simulation and separate production adapter.</td>
+</tr>
+<tr>
+<td>W3-026</td>
+<td>High</td>
+<td>Checkout AI</td>
+<td>AI decisions are logged but not governed/persisted</td>
+<td>Store advisory decision provenance or remove claim.</td>
+</tr>
+<tr>
+<td>W3-027</td>
+<td>Critical</td>
+<td>Order</td>
+<td>Tenant-scoped list executes repository.findAll</td>
+<td>Fix repository call and add isolation test.</td>
+</tr>
+<tr>
+<td>W3-028</td>
+<td>Critical</td>
+<td>Order</td>
+<td>Bulk approve/cancel/refund use unscoped findAllById</td>
+<td>Use tenant-scoped bulk lookup.</td>
+</tr>
+<tr>
+<td>W3-029</td>
+<td>High</td>
+<td>Order</td>
+<td>System context is fail-open</td>
+<td>Require explicit privileged system identity.</td>
+</tr>
+<tr>
+<td>W3-030</td>
+<td>High</td>
+<td>Order</td>
+<td>History transition records current status for both from/to</td>
+<td>Use captured old status and test history.</td>
+</tr>
+<tr>
+<td>W3-031</td>
+<td>Critical</td>
+<td>Order</td>
+<td>markPaid lacks payment outcome guards</td>
+<td>Move payment truth to Payment service.</td>
+</tr>
+<tr>
+<td>W3-032</td>
+<td>High</td>
+<td>Order</td>
+<td>Auto-approval threshold ignores currency and risk</td>
+<td>Use normalized amount and policy engine.</td>
+</tr>
+<tr>
+<td>W3-033</td>
+<td>Critical</td>
+<td>Order Saga</td>
+<td>Inventory/payment/fulfilment steps are comments only</td>
+<td>Implement durable saga and compensation.</td>
+</tr>
+<tr>
+<td>W3-034</td>
+<td>High</td>
+<td>Order Events</td>
+<td>Only local Spring events are published</td>
+<td>Add durable outbox/broker.</td>
+</tr>
+<tr>
+<td>W3-035</td>
+<td>Critical</td>
+<td>Fulfilment</td>
+<td>Deprecated SalesOrder get/update is unscoped</td>
+<td>Remove or tenant-scope during migration.</td>
+</tr>
+<tr>
+<td>W3-036</td>
+<td>Critical</td>
+<td>PickPack</td>
+<td>Task/wave IDs are not tenant-scoped</td>
+<td>Use tenant/warehouse-qualified lookup.</td>
+</tr>
+<tr>
+<td>W3-037</td>
+<td>High</td>
+<td>PickPack</td>
+<td>Over-pick is accepted as PICKED</td>
+<td>Reject or explicitly handle excess quantity.</td>
+</tr>
+<tr>
+<td>W3-038</td>
+<td>Critical</td>
+<td>PickPack</td>
+<td>No inventory reservation consumption found</td>
+<td>Integrate Inventory ledger and idempotency.</td>
+</tr>
+<tr>
+<td>W3-039</td>
+<td>High</td>
+<td>PickPack</td>
+<td>Pack references are not validated</td>
+<td>Verify order/shipment/warehouse relation.</td>
+</tr>
+<tr>
+<td>W3-040</td>
+<td>High</td>
+<td>Last Mile</td>
+<td>Carrier rates and profiles are static in memory</td>
+<td>Use versioned provider quotes and live adapters.</td>
+</tr>
+<tr>
+<td>W3-041</td>
+<td>Critical</td>
+<td>Delivery</td>
+<td>Order can become DELIVERED without POD</td>
+<td>Require qualified carrier/POD observation.</td>
+</tr>
+<tr>
+<td>W3-042</td>
+<td>Critical</td>
+<td>Returns</td>
+<td>Returns are auto-approved on creation</td>
+<td>Implement eligibility and authorization decision.</td>
+</tr>
+<tr>
+<td>W3-043</td>
+<td>Critical</td>
+<td>Returns</td>
+<td>Actors are random UUIDs</td>
+<td>Use authenticated actor identity.</td>
+</tr>
+<tr>
+<td>W3-044</td>
+<td>Critical</td>
+<td>Returns</td>
+<td>Receive/inspect paths lack visible tenant guard</td>
+<td>Tenant-scope return and receipt operations.</td>
+</tr>
+<tr>
+<td>W3-045</td>
+<td>High</td>
+<td>Returns</td>
+<td>Receive sets all requested quantity as received</td>
+<td>Capture item/package discrepancies.</td>
+</tr>
+<tr>
+<td>W3-046</td>
+<td>Critical</td>
+<td>Returns</td>
+<td>RESTOCK only logs; Inventory is not updated</td>
+<td>Execute idempotent Inventory posting.</td>
+</tr>
+<tr>
+<td>W3-047</td>
+<td>High</td>
+<td>Disputes</td>
+<td>Detail/evidence/rebuttal/decision paths query case by ID without tenant predicate</td>
+<td>Enforce case ownership.</td>
+</tr>
+<tr>
+<td>W3-048</td>
+<td>High</td>
+<td>Disputes</td>
+<td>Evidence and timeline are mutable JSON</td>
+<td>Use append-only evidence records.</td>
+</tr>
+<tr>
+<td>W3-049</td>
+<td>Critical</td>
+<td>Settlement</td>
+<td>Marketplace and Payment settlement ownership overlaps</td>
+<td>Separate seller ledger from money movement.</td>
+</tr>
+<tr>
+<td>W3-050</td>
+<td>Critical</td>
+<td>Settlement</td>
+<td>Marketplace cycle/transaction ID operations are unscoped</td>
+<td>Tenant-scope every operation.</td>
+</tr>
+<tr>
+<td>W3-051</td>
+<td>Critical</td>
+<td>Settlement</td>
+<td>Transaction tenant/company may differ from cycle</td>
+<td>Derive scope from cycle and validate reference.</td>
+</tr>
+<tr>
+<td>W3-052</td>
+<td>High</td>
+<td>Settlement</td>
+<td>Dashboard totalCycles is global</td>
+<td>Use tenant-scoped count.</td>
+</tr>
+<tr>
+<td>W3-053</td>
+<td>High</td>
+<td>Settlement</td>
+<td>Dashboard monetary values are zero placeholders</td>
+<td>Calculate real tenant metrics.</td>
+</tr>
+<tr>
+<td>W3-054</td>
+<td>Critical</td>
+<td>Payment Settlement</td>
+<td>All captured payments can be grouped globally</td>
+<td>Partition by tenant, seller, currency and payout destination.</td>
+</tr>
+<tr>
+<td>W3-055</td>
+<td>Critical</td>
+<td>Payout</td>
+<td>SETTLED state has no verified provider transfer</td>
+<td>Separate approval from payout outcome.</td>
+</tr>
+<tr>
+<td>W3-056</td>
+<td>Critical</td>
+<td>ESG</td>
+<td>Goal ID operations and getAll are unscoped</td>
+<td>Use trusted tenant context and role policy.</td>
+</tr>
+<tr>
+<td>W3-057</td>
+<td>High</td>
+<td>ESG</td>
+<td>Progress accepts self-reported currentValue without evidence</td>
+<td>Attach measurement source and methodology.</td>
+</tr>
+<tr>
+<td>W3-058</td>
+<td>High</td>
+<td>ESG</td>
+<td>Progress formula may compare percentage to absolute target</td>
+<td>Define target semantics and validate units.</td>
+</tr>
+<tr>
+<td>W3-059</td>
+<td>High</td>
+<td>ESG</td>
+<td>Science-based/SBTi status is self-asserted</td>
+<td>Store external assurance evidence.</td>
+</tr>
+<tr>
+<td>W3-060</td>
+<td>High</td>
+<td>ESG</td>
+<td>Kafka failure is swallowed and payload is minimal</td>
+<td>Use outbox and governed event envelope.</td>
+</tr>
+<tr>
+<td>W3-061</td>
+<td>Critical</td>
+<td>ESG</td>
+<td>Duplicate Sustainability Goal models exist</td>
+<td>Canonicalize Compliance and specialized Carbon ownership.</td>
+</tr>
+<tr>
+<td>W3-062</td>
+<td>Critical</td>
+<td>AI Evaluation</td>
+<td>Evaluations-by-run ignore tenant header</td>
+<td>Query by tenant and run.</td>
+</tr>
+<tr>
+<td>W3-063</td>
+<td>Critical</td>
+<td>AI Evaluation</td>
+<td>Evaluator identity is client-supplied</td>
+<td>Use authenticated reviewer identity and role.</td>
+</tr>
+<tr>
+<td>W3-064</td>
+<td>High</td>
+<td>AI Evaluation</td>
+<td>Agent run existence and tenant ownership are not verified</td>
+<td>Link evaluation to immutable run record.</td>
+</tr>
+<tr>
+<td>W3-065</td>
+<td>High</td>
+<td>AI Evaluation</td>
+<td>Scores have no range validation</td>
+<td>Validate 0-100 and missing-value policy.</td>
+</tr>
+<tr>
+<td>W3-066</td>
+<td>High</td>
+<td>AI Evaluation</td>
+<td>Duplicate/conflicting evaluations are unrestricted</td>
+<td>Define reviewer and revision policy.</td>
+</tr>
+<tr>
+<td>W3-067</td>
+<td>High</td>
+<td>AI Evaluation</td>
+<td>Model/prompt/tool/dataset versions are not snapshotted</td>
+<td>Bind evaluation to reproducible run context.</td>
+</tr>
+<tr>
+<td>W3-068</td>
+<td>High</td>
+<td>Cross-domain</td>
+<td>No durable outbox found across reviewed workflows</td>
+<td>Standardize outbox/inbox and replay controls.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+        
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="11-IMPLEMENTATION-STATUS-MATRIX.html"><span>Previous</span><strong>11 — Implementation Status Matrix</strong></a>
+        <a class="next" href="13-WAVE-03-TRACEABILITY-MATRIX.html"><span>Next</span><strong>13 — Wave 03 Traceability Matrix</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

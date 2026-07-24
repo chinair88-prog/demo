@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI-Native Architecture · GTOS Handbook</title>
+<meta name="description" content="AINative Architecture AI control plane GTOS AI consists of: AI Gateway and provider abstraction; Model Router and policyaware selection; Context Builder and gov">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/01-NORMATIVE-CORE/index.html">NORMATIVE CORE</a> <span class="sep">›</span> <span>AI-Native Architecture</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Normative Core</span>
+        </div>
+        <h1>AI-Native Architecture</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#ai-control-plane">AI control plane</a></li><li class="toc-level-2"><a href="#autonomy-levels">Autonomy levels</a></li><li class="toc-level-2"><a href="#agent-run-record">Agent run record</a></li><li class="toc-level-2"><a href="#rag-and-memory">RAG and memory</a></li><li class="toc-level-2"><a href="#evaluation">Evaluation</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="ai-native-architecture">AI-Native Architecture</h1>
+<br>
+<h2 id="ai-control-plane">AI control plane <a href="#ai-control-plane" class="heading-anchor">#</a></h2>
+<br>
+<p>GTOS AI consists of:</p>
+<br>
+<li>AI Gateway and provider abstraction;</li>
+<li>Model Router and policy-aware selection;</li>
+<li>Context Builder and governed retrieval;</li>
+<li>Prompt and instruction registry;</li>
+<li>Agent Runtime and state machine;</li>
+<li>Planner, critic, verifier, and supervisor;</li>
+<li>Tool Registry and execution gateway;</li>
+<li>short-term, episodic, semantic, and organizational memory;</li>
+<li>evaluation, observability, safety, incident, and kill-switch systems.</li>
+<br>
+<h2 id="autonomy-levels">Autonomy levels <a href="#autonomy-levels" class="heading-anchor">#</a></h2>
+<br>
+<li>A0: information only;</li>
+<li>A1: recommendation requiring human Decision;</li>
+<li>A2: automatic low-risk action with reviewable evidence;</li>
+<li>A3: bounded workflow autonomy under policy and approval thresholds;</li>
+<li>A4: exceptional high autonomy allowed only for explicitly certified domains.</li>
+<br>
+<p>Financial, legal, customs, quality release, custody, privileged security, and authoritative correction actions default to A0 or A1.</p>
+<br>
+<h2 id="agent-run-record">Agent run record <a href="#agent-run-record" class="heading-anchor">#</a></h2>
+<br>
+<p>Every run records tenant, principal, purpose, input, knowledge cutoff, context sources, prompt/model/tool versions, policy evaluations, approvals, tool calls, structured outputs, uncertainty, costs, observed outcomes, corrections, and evaluation.</p>
+<br>
+<h2 id="rag-and-memory">RAG and memory <a href="#rag-and-memory" class="heading-anchor">#</a></h2>
+<br>
+<p>Retrieved text is evidence, not authority. Sources require access control, version, effective time, provenance, and freshness. Memory cannot silently create canonical business facts.</p>
+<br>
+<h2 id="evaluation">Evaluation <a href="#evaluation" class="heading-anchor">#</a></h2>
+<br>
+<p>Evaluate quality, factuality, safety, security, policy compliance, tool correctness, business outcome, latency, cost, drift, and subgroup performance. Promotions require sample thresholds, human approval, rollback, and incident controls.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

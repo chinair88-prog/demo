@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="StockBalanceEntity یک composite identity دارد: tenant - company - warehouse - SKU - bin - batch on hand - available - reserved - damaged - QC hold - blocked - in transit وجود @Version optimistic locking را در سطح Entity فراهم می‌کند. InventoryPostingService رفتارهای transactional…">
+<meta name="color-scheme" content="light dark">
+<title>07 — Inventory Synchronization, Reservation, and QC Disposition · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/07-INVENTORY-SYNCHRONIZATION-RESERVATION-AND-QC.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 08 Repository Evidence Wave 02</span><span class="sep">/</span><span>07 — Inventory Synchronization, Reservation, and QC Disposition</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>318 words</span></div>
+        <h1>07 — Inventory Synchronization, Reservation, and QC Disposition</h1>
+        <p class="lede">StockBalanceEntity یک composite identity دارد: tenant - company - warehouse - SKU - bin - batch on hand - available - reserved - damaged - QC hold - blocked - in transit وجود @Version optimistic locking را در سطح Entity فراهم می‌کند. InventoryPostingService رفتارهای transactional…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="stock-model">Stock Model<a aria-label="Link to section" class="heading-anchor" href="#stock-model">#</a></h2>
+<p><code>StockBalanceEntity</code> یک composite identity دارد:</p>
+<ul>
+<li>tenant</li>
+<li>company</li>
+<li>warehouse</li>
+<li>SKU</li>
+<li>bin</li>
+<li>batch</li>
+</ul>
+<p>مقادیر زیر جدا نگهداری می‌شوند:</p>
+<ul>
+<li>on hand</li>
+<li>available</li>
+<li>reserved</li>
+<li>damaged</li>
+<li>QC hold</li>
+<li>blocked</li>
+<li>in transit</li>
+</ul>
+<p>وجود <code>@Version</code> optimistic locking را در سطح Entity فراهم می‌کند.</p>
+<h2 id="inventory-posting">Inventory Posting<a aria-label="Link to section" class="heading-anchor" href="#inventory-posting">#</a></h2>
+<p><code>InventoryPostingService</code> رفتارهای transactional زیر را دارد:</p>
+<ul>
+<li>Receipt؛</li>
+<li>Transfer؛</li>
+<li>Adjustment؛</li>
+<li>انتقال Available به QC Hold؛</li>
+<li>QC PASS به Available؛</li>
+<li>QC FAIL به Damaged یا Blocked؛</li>
+<li>ثبت Stock Ledger.</li>
+</ul>
+<h2 id="reservation">Reservation<a aria-label="Link to section" class="heading-anchor" href="#reservation">#</a></h2>
+<p><code>ReservationService</code>:</p>
+<ul>
+<li>quantity مثبت را validate می‌کند؛</li>
+<li>balanceهای tenant/company/warehouse/SKU را می‌خواند؛</li>
+<li>اولین balance دارای available کافی را انتخاب می‌کند؛</li>
+<li>Available را کم و Reserved را زیاد می‌کند؛</li>
+<li>Reservation با state <code>ACTIVE</code> می‌سازد؛</li>
+<li>در Release مقدار آزادشدنی را به Available برمی‌گرداند.</li>
+</ul>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h2 id="نقاط-قوت">نقاط قوت<a aria-label="Link to section" class="heading-anchor" href="#نقاط-قوت">#</a></h2>
+<ul>
+<li>stock states صریح و تفکیک‌شده؛</li>
+<li>tenant/company در composite key؛</li>
+<li>optimistic locking؛</li>
+<li>ledger دارای source و idempotency field؛</li>
+<li>insufficient-stock check برای reservation و QC hold؛</li>
+<li>Reservation Entity مستقل.</li>
+</ul>
+<h2 id="gapهای-بحرانی">Gapهای بحرانی<a aria-label="Link to section" class="heading-anchor" href="#gapهای-بحرانی">#</a></h2>
+<ol>
+<li>Controller، tenant، company و user را از query parameter می‌گیرد؛ این اطلاعات authority قابل اعتماد نیستند.</li>
+<li><code>GET /stock/ledger</code> در Controller بررسی‌شده بدون tenant filter است.</li>
+<li>Posting APIهای عمومی در همان Controller دیده نشدند و caller/orchestration هنوز verify نشده است.</li>
+<li>idempotency key در ledger ذخیره می‌شود، اما قبل از balance mutation duplicate lookup انجام نمی‌شود.</li>
+<li>Transfer و Adjustment می‌توانند quantity منفی بسازند.</li>
+<li>Reservation اولین balance مناسب را بدون policy مشخص انتخاب می‌کند.</li>
+<li>retry strategy برای optimistic-lock conflict پیدا نشد.</li>
+<li>Receipt، good quantity را فوراً Available می‌کند و quarantine/quality gate اجباری ندارد.</li>
+<li>Event/outbox برای Inventory facts پیدا نشد.</li>
+<li>Provider WMS و Warehouse Receiving با Inventory ownership مرز روشن ندارند.</li>
+</ol>
+<h2 id="اصلاح-لازم">اصلاح لازم<a aria-label="Link to section" class="heading-anchor" href="#اصلاح-لازم">#</a></h2>
+<p>Warehouse Receipt باید ورودی governed برای Inventory باشد. Availability باید با Policyهایی مانند Quality، Quarantine، Lot، Expiry، Compliance و Channel Eligibility محاسبه شود؛ نه صرفاً با receipt فیزیکی.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#stock-model">Stock Model</a><a class="toc-level-2" href="#inventory-posting">Inventory Posting</a><a class="toc-level-2" href="#reservation">Reservation</a><a class="toc-level-2" href="#نقاط-قوت">نقاط قوت</a><a class="toc-level-2" href="#gapهای-بحرانی">Gapهای بحرانی</a><a class="toc-level-2" href="#اصلاح-لازم">اصلاح لازم</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="06-WAREHOUSE-RECEIVING-AND-RECEIPT.html"><span>Previous</span><strong>06 — Warehouse Receiving and Receipt</strong></a>
+        <a class="next" href="08-CROSS-DOMAIN-CONTRADICTIONS.html"><span>Next</span><strong>08 — Cross-Domain Contradictions and Canonicalization Register</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

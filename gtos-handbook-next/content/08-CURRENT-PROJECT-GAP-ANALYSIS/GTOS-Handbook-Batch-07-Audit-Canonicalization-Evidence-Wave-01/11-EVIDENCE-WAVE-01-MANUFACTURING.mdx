@@ -1,0 +1,55 @@
+---
+title: "Repository Evidence Wave 01 - Manufacturing"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="Repository Evidence Wave 01 - Manufacturing"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "Repository Evidence Wave 01 - Manufacturing" }
+  ]}
+>
+
+<br />
+<h2 id="evidence-baseline">Evidence baseline</h2>
+<br />
+<p>Inspected files:</p>
+<br />
+<p>- <code class="code-inline">backend/domain/commerce/manufacturing-service/src/main/java/com/allinb2c/commerce/manufacturing/model/entity/ProductionOrderEntity.java</code></p>
+<p>- <code class="code-inline">backend/domain/commerce/manufacturing-service/src/main/java/com/allinb2c/commerce/manufacturing/service/ProductionOrderService.java</code></p>
+<p>- <code class="code-inline">backend/domain/commerce/manufacturing-service/src/main/java/com/allinb2c/commerce/manufacturing/controller/ProductionOrderController.java</code></p>
+<br />
+<p>Search also found a second <code class="code-inline">ProductionOrderEntity</code> in <code class="code-inline">warehouse-service</code>, requiring ownership review.</p>
+<br />
+<h2 id="verified-implementation">Verified implementation</h2>
+<br />
+<p>The manufacturing Entity maps to <code class="code-inline">manufacturing.tb_production_order</code>. It records production-order number, purchase order, supplier, product, quantity, unit, planned and actual dates, status, priority, notes, company, and timestamps.</p>
+<br />
+<p>The service implements:</p>
+<br />
+<p>- production-order list/get/create/update/delete;</p>
+<p>- production materials with required, purchased, and received quantities;</p>
+<p>- production progress with stage, percentage, completed and defective quantity, images, videos, reporter, and time;</p>
+<p>- production schedules with line, date, shift, planned output, actual output, and status.</p>
+<br />
+<p>The controller exposes production-order, material, progress, and schedule routes under <code class="code-inline">/api/manufacturing/production-orders</code>.</p>
+<br />
+<h2 id="verified-gaps">Verified gaps</h2>
+<br />
+<p>- No tenant field exists on the inspected production-order Entity; company ID is supplied in requests.</p>
+<p>- Controller and service methods shown do not establish authorization or company-scope validation.</p>
+<p>- Full update permits arbitrary status and field replacement without transition guards.</p>
+<p>- Delete removes materials, progress, schedules, and the order, conflicting with history-preservation principles.</p>
+<p>- No optimistic lock/version field was found.</p>
+<p>- No Events or transactional outbox were found in the inspected service.</p>
+<p>- Capacity commitment, factory qualification, BOM/routing, work orders, lot genealogy, quality hold points, and immutable baseline/rebaseline are not modeled in the inspected files.</p>
+<p>- A second Production Order implementation under Warehouse indicates an ownership conflict.</p>
+<br />
+<h2 id="status-decision">Status decision</h2>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Capability","sortable":true},{"key":"col1","label":"Status","sortable":true}]} data={[{"col0":"production-order persistence and CRUD","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"material, progress and schedule records","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"Portal/API route surface","col1":"<code class=\"code-inline\">VERIFIED_IMPLEMENTED</code>"},{"col0":"tenant and authority enforcement","col1":"<code class=\"code-inline\">REQUIRES_REPOSITORY_REVIEW</code>"},{"col0":"history preservation and lifecycle guards","col1":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"manufacturing Events/outbox","col1":"<code class=\"code-inline\">PLANNED_NOT_IMPLEMENTED</code> in inspected service"},{"col0":"capacity and immutable production planning","col1":"<code class=\"code-inline\">PARTIAL_IMPLEMENTATION</code>"},{"col0":"canonical Production Order ownership","col1":"<code class=\"code-inline\">CONFLICT_REQUIRES_CANONICALIZATION</code>"}]} />
+<br />
+</ContentPage>

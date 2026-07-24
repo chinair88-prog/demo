@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Security, Privacy, and Compliance · GTOS Handbook</title>
+<meta name="description" content="Security, Privacy, and Compliance Identity GTOS recognizes human, organization, service, workload, device, provider, and AI Agent identities. Authentication use">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/01-NORMATIVE-CORE/index.html">NORMATIVE CORE</a> <span class="sep">›</span> <span>Security, Privacy, and Compliance</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Normative Core</span>
+        </div>
+        <h1>Security, Privacy, and Compliance</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#identity">Identity</a></li><li class="toc-level-2"><a href="#authorization">Authorization</a></li><li class="toc-level-2"><a href="#tenant-isolation">Tenant isolation</a></li><li class="toc-level-2"><a href="#data-protection">Data protection</a></li><li class="toc-level-2"><a href="#application-and-integration-security">Application and integration security</a></li><li class="toc-level-2"><a href="#audit-and-non-repudiation">Audit and non-repudiation</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="security-privacy-and-compliance">Security, Privacy, and Compliance</h1>
+<br>
+<h2 id="identity">Identity <a href="#identity" class="heading-anchor">#</a></h2>
+<br>
+<p>GTOS recognizes human, organization, service, workload, device, provider, and AI Agent identities. Authentication uses standards-based federation, strong service identity, MFA for privileged users, and managed session lifecycles.</p>
+<br>
+<h2 id="authorization">Authorization <a href="#authorization" class="heading-anchor">#</a></h2>
+<br>
+<p>Authorization evaluates principal, represented party, tenant, organization, relationship, role, attributes, delegation, mandate, purpose, resource, action, jurisdiction, risk, and time. High-impact actions require separation of duties and step-up authentication.</p>
+<br>
+<h2 id="tenant-isolation">Tenant isolation <a href="#tenant-isolation" class="heading-anchor">#</a></h2>
+<br>
+<p>Tenant context is established at the trusted edge, cryptographically or operationally bound to identity, propagated through calls and Events, and enforced in every repository query, cache key, search index, object path, log, metric, and analytical dataset. Tests attempt cross-tenant access continuously.</p>
+<br>
+<h2 id="data-protection">Data protection <a href="#data-protection" class="heading-anchor">#</a></h2>
+<br>
+<p>Classify data, minimize collection, encrypt in transit and at rest, tokenize high-risk values, isolate keys and secrets, rotate credentials, prevent sensitive logs/prompts, and enforce purpose, consent, retention, residency, legal hold, export, and deletion rules.</p>
+<br>
+<h2 id="application-and-integration-security">Application and integration security <a href="#application-and-integration-security" class="heading-anchor">#</a></h2>
+<br>
+<p>Apply threat modeling, secure coding, dependency and container scanning, signed artifacts, SBOM, rate limits, abuse detection, webhook verification, SSRF protection, file scanning, browser sandboxing, prompt-injection defenses, and privileged tool controls.</p>
+<br>
+<h2 id="audit-and-non-repudiation">Audit and non-repudiation <a href="#audit-and-non-repudiation" class="heading-anchor">#</a></h2>
+<br>
+<p>Binding Decisions, document issuance, payments, customs submissions, quality release, custody, settlement, access-policy changes, AI tool execution, and emergency access require immutable audit with actor, authority, source, time, reason, before/after, and integrity evidence.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

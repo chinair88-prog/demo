@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="GTOS recognizes human, organization, service, workload, device, provider, and AI Agent identities. Authentication uses standards-based federation, strong service identity, MFA for privileged users, and managed session lifecycles. Authorization evaluates principal, represented par…">
+<meta name="color-scheme" content="light dark">
+<title>Security, Privacy, and Compliance · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/search-index.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/01-NORMATIVE-CORE/10-SECURITY-PRIVACY-AND-COMPLIANCE.html" data-root="../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../index.html"><img src="../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../pdf-library.html">PDFs</a>
+    <a href="../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../index.html">Home</a><span class="sep">/</span><span>Normative Core</span><span class="sep">/</span><span>Security, Privacy, and Compliance</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Normative Core</span><span>211 words</span></div>
+        <h1>Security, Privacy, and Compliance</h1>
+        <p class="lede">GTOS recognizes human, organization, service, workload, device, provider, and AI Agent identities. Authentication uses standards-based federation, strong service identity, MFA for privileged users, and managed session lifecycles. Authorization evaluates principal, represented par…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="identity">Identity<a aria-label="Link to section" class="heading-anchor" href="#identity">#</a></h2>
+<p>GTOS recognizes human, organization, service, workload, device, provider, and AI Agent identities. Authentication uses standards-based federation, strong service identity, MFA for privileged users, and managed session lifecycles.</p>
+<h2 id="authorization">Authorization<a aria-label="Link to section" class="heading-anchor" href="#authorization">#</a></h2>
+<p>Authorization evaluates principal, represented party, tenant, organization, relationship, role, attributes, delegation, mandate, purpose, resource, action, jurisdiction, risk, and time. High-impact actions require separation of duties and step-up authentication.</p>
+<h2 id="tenant-isolation">Tenant isolation<a aria-label="Link to section" class="heading-anchor" href="#tenant-isolation">#</a></h2>
+<p>Tenant context is established at the trusted edge, cryptographically or operationally bound to identity, propagated through calls and Events, and enforced in every repository query, cache key, search index, object path, log, metric, and analytical dataset. Tests attempt cross-tenant access continuously.</p>
+<h2 id="data-protection">Data protection<a aria-label="Link to section" class="heading-anchor" href="#data-protection">#</a></h2>
+<p>Classify data, minimize collection, encrypt in transit and at rest, tokenize high-risk values, isolate keys and secrets, rotate credentials, prevent sensitive logs/prompts, and enforce purpose, consent, retention, residency, legal hold, export, and deletion rules.</p>
+<h2 id="application-and-integration-security">Application and integration security<a aria-label="Link to section" class="heading-anchor" href="#application-and-integration-security">#</a></h2>
+<p>Apply threat modeling, secure coding, dependency and container scanning, signed artifacts, SBOM, rate limits, abuse detection, webhook verification, SSRF protection, file scanning, browser sandboxing, prompt-injection defenses, and privileged tool controls.</p>
+<h2 id="audit-and-non-repudiation">Audit and non-repudiation<a aria-label="Link to section" class="heading-anchor" href="#audit-and-non-repudiation">#</a></h2>
+<p>Binding Decisions, document issuance, payments, customs submissions, quality release, custody, settlement, access-policy changes, AI tool execution, and emergency access require immutable audit with actor, authority, source, time, reason, before/after, and integrity evidence.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#identity">Identity</a><a class="toc-level-2" href="#authorization">Authorization</a><a class="toc-level-2" href="#tenant-isolation">Tenant isolation</a><a class="toc-level-2" href="#data-protection">Data protection</a><a class="toc-level-2" href="#application-and-integration-security">Application and integration security</a><a class="toc-level-2" href="#audit-and-non-repudiation">Audit and non-repudiation</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="09-AI-NATIVE-ARCHITECTURE.html"><span>Previous</span><strong>AI-Native Architecture</strong></a>
+        <a class="next" href="11-RELIABILITY-SRE-AND-OPERATIONS.html"><span>Next</span><strong>Reliability, SRE, and Operations</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

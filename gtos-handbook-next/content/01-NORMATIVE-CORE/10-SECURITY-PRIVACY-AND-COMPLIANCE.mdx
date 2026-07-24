@@ -1,0 +1,41 @@
+---
+title: "Security, Privacy, and Compliance"
+section: "Normative Core"
+---
+
+<ContentPage
+  title="Security, Privacy, and Compliance"
+  section="Normative Core"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Normative Core", href: "/content" },
+    { label: "Security, Privacy, and Compliance" }
+  ]}
+>
+
+<br />
+<h2 id="identity">Identity</h2>
+<br />
+<p>GTOS recognizes human, organization, service, workload, device, provider, and AI Agent identities. Authentication uses standards-based federation, strong service identity, MFA for privileged users, and managed session lifecycles.</p>
+<br />
+<h2 id="authorization">Authorization</h2>
+<br />
+<p>Authorization evaluates principal, represented party, tenant, organization, relationship, role, attributes, delegation, mandate, purpose, resource, action, jurisdiction, risk, and time. High-impact actions require separation of duties and step-up authentication.</p>
+<br />
+<h2 id="tenant-isolation">Tenant isolation</h2>
+<br />
+<p>Tenant context is established at the trusted edge, cryptographically or operationally bound to identity, propagated through calls and Events, and enforced in every repository query, cache key, search index, object path, log, metric, and analytical dataset. Tests attempt cross-tenant access continuously.</p>
+<br />
+<h2 id="data-protection">Data protection</h2>
+<br />
+<p>Classify data, minimize collection, encrypt in transit and at rest, tokenize high-risk values, isolate keys and secrets, rotate credentials, prevent sensitive logs/prompts, and enforce purpose, consent, retention, residency, legal hold, export, and deletion rules.</p>
+<br />
+<h2 id="application-and-integration-security">Application and integration security</h2>
+<br />
+<p>Apply threat modeling, secure coding, dependency and container scanning, signed artifacts, SBOM, rate limits, abuse detection, webhook verification, SSRF protection, file scanning, browser sandboxing, prompt-injection defenses, and privileged tool controls.</p>
+<br />
+<h2 id="audit-and-non-repudiation">Audit and non-repudiation</h2>
+<br />
+<p>Binding Decisions, document issuance, payments, customs submissions, quality release, custody, settlement, access-policy changes, AI tool execution, and emergency access require immutable audit with actor, authority, source, time, reason, before/after, and integrity evidence.</p>
+<br />
+</ContentPage>

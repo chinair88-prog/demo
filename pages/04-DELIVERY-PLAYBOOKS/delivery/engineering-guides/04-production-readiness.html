@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The Production Readiness Review establishes that a capability can safely carry real trade decisions and effects. It combines architecture, engineering, security, data, AI, and operations evidence. The service has an accountable product owner, domain owner, engineering owner, secu…">
+<meta name="color-scheme" content="light dark">
+<title>Production Readiness Review · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../../site.webmanifest">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/search-index.js"></script>
+<script defer src="../../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/04-production-readiness.html" data-root="../../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../../index.html"><img src="../../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <a href="../../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Delivery</span><span class="sep">/</span><span>Engineering Guides</span><span class="sep">/</span><span>Production Readiness Review</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>260 words</span></div>
+        <h1>Production Readiness Review</h1>
+        <p class="lede">The Production Readiness Review establishes that a capability can safely carry real trade decisions and effects. It combines architecture, engineering, security, data, AI, and operations evidence. The service has an accountable product owner, domain owner, engineering owner, secu…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="purpose">Purpose<a aria-label="Link to section" class="heading-anchor" href="#purpose">#</a></h2>
+<p>The Production Readiness Review establishes that a capability can safely carry real trade decisions and effects. It combines architecture, engineering, security, data, AI, and operations evidence.</p>
+<h2 id="service-ownership">Service Ownership<a aria-label="Link to section" class="heading-anchor" href="#service-ownership">#</a></h2>
+<p>The service has an accountable product owner, domain owner, engineering owner, security contact, and on-call rotation. Escalation paths include partner, regulatory, financial, and executive contacts where applicable.</p>
+<h2 id="functional-integrity">Functional Integrity<a aria-label="Link to section" class="heading-anchor" href="#functional-integrity">#</a></h2>
+<p>State models and invariants are implemented and tested. Commands are idempotent. Events represent completed facts. Corrections preserve history. Domain and contract versions are registered. Data migration and reconciliation are complete.</p>
+<h2 id="security-and-privacy">Security and Privacy<a aria-label="Link to section" class="heading-anchor" href="#security-and-privacy">#</a></h2>
+<p>Threat models are current. Identities, credentials, delegation, policy, purpose, classification, secrets, encryption, audit, and incident containment are tested. Administrative capabilities use stronger controls. AI tools cannot bypass external policy enforcement.</p>
+<h2 id="reliability">Reliability<a aria-label="Link to section" class="heading-anchor" href="#reliability">#</a></h2>
+<p>SLOs and error budgets reflect business journeys. Capacity covers peak, replay, recovery, and partner delay. Dependencies have timeout, retry, circuit, degradation, and ownership. Backups and restoration have been tested. Recovery includes business reconciliation.</p>
+<h2 id="observability">Observability<a aria-label="Link to section" class="heading-anchor" href="#observability">#</a></h2>
+<p>Dashboards show availability, latency, errors, saturation, Event freshness, queue age, business state age, policy denial, evidence gaps, decision outcomes, and correction backlog. Alerts map to runbooks and accountable responders.</p>
+<h2 id="change-and-rollback">Change and Rollback<a aria-label="Link to section" class="heading-anchor" href="#change-and-rollback">#</a></h2>
+<p>Deployment is staged and observable. Rollback criteria are objective. Rollback SHALL not delete new business facts or re-enable incompatible contracts. Feature flags, policy switches, tool disablement, or traffic controls support containment.</p>
+<h2 id="go-no-go">Go/No-Go<a aria-label="Link to section" class="heading-anchor" href="#go-no-go">#</a></h2>
+<p>Critical findings block launch. Major findings require approved compensating controls and dates. The decision record captures attendees, evidence, dissent, risks, authority, and conditions. A successful review is valid only for the declared release, environment, and scope.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#purpose">Purpose</a><a class="toc-level-2" href="#service-ownership">Service Ownership</a><a class="toc-level-2" href="#functional-integrity">Functional Integrity</a><a class="toc-level-2" href="#security-and-privacy">Security and Privacy</a><a class="toc-level-2" href="#reliability">Reliability</a><a class="toc-level-2" href="#observability">Observability</a><a class="toc-level-2" href="#change-and-rollback">Change and Rollback</a><a class="toc-level-2" href="#go-no-go">Go/No-Go</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="03-contract-testing.html"><span>Previous</span><strong>Contract Testing Guide</strong></a>
+        <a class="next" href="05-cutover-command-center.html"><span>Next</span><strong>Cutover Command Center Guide</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

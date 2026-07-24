@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTOS Batch 09 — Repository Evidence Wave 03 Combined Edition · GTOS Handbook</title>
+<meta name="description" content="GTOS Batch 09 — Repository Evidence Wave 03 Combined Edition &lt;! SOURCE: 00SCOPEMETHODANDSNAPSHOT.md 00 — Scope, Method, and Snapshot Field Value Repository chin">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/index.html">GTOS Handbook Batch 09 Repository Evidence Wave 03</a> <span class="sep">›</span> <span>GTOS Batch 09 — Repository Evidence Wave 03 Combined Edition</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>GTOS Batch 09 — Repository Evidence Wave 03 Combined Edition</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#evidence-method">Evidence Method</a></li><li class="toc-level-2"><a href="#limitations">Limitations</a></li><li class="toc-level-2"><a href="#three-overlapping-product-representations">Three overlapping product representations</a></li><li class="toc-level-2"><a href="#product-catalog-service">Product Catalog Service</a></li><li class="toc-level-2"><a href="#critical-catalog-findings">Critical catalog findings</a></li><li class="toc-level-2"><a href="#marketplace-product-catalog">Marketplace Product Catalog</a></li><li class="toc-level-2"><a href="#missing-offer-aggregate">Missing Offer aggregate</a></li><li class="toc-level-2"><a href="#implemented-pricing-capabilities">Implemented pricing capabilities</a></li><li class="toc-level-3"><a href="#pricing-service-target-price">Pricing Service Target Price</a></li><li class="toc-level-3"><a href="#marketplace-smart-pricing">Marketplace Smart Pricing</a></li><li class="toc-level-2"><a href="#critical-pricing-findings">Critical pricing findings</a></li><li class="toc-level-2"><a href="#canonical-pricing-model">Canonical pricing model</a></li><li class="toc-level-2"><a href="#cart-implementation">Cart implementation</a></li><li class="toc-level-2"><a href="#cart-security-and-commercial-integrity-gaps">Cart security and commercial integrity gaps</a></li><li class="toc-level-2"><a href="#checkout-implementation">Checkout implementation</a></li><li class="toc-level-2"><a href="#simulated-ai">Simulated AI</a></li><li class="toc-level-2"><a href="#required-checkout-contract">Required checkout contract</a></li><li class="toc-level-2"><a href="#implemented-order-model">Implemented order model</a></li><li class="toc-level-2"><a href="#positive-controls">Positive controls</a></li><li class="toc-level-2"><a href="#critical-findings">Critical findings</a></li><li class="toc-level-2"><a href="#correct-truth-boundaries">Correct truth boundaries</a></li><li class="toc-level-2"><a href="#allocation">Allocation</a></li><li class="toc-level-2"><a href="#legacy-fulfilment">Legacy Fulfilment</a></li><li class="toc-level-2"><a href="#pick-and-pack">Pick and Pack</a></li><li class="toc-level-2"><a href="#pickpack-gaps">Pick/Pack gaps</a></li><li class="toc-level-2"><a href="#last-mile-optimizer">Last-Mile Optimizer</a></li><li class="toc-level-2"><a href="#delivery-proof">Delivery Proof</a></li><li class="toc-level-2"><a href="#returns-implementation">Returns implementation</a></li><li class="toc-level-2"><a href="#strong-structural-evidence">Strong structural evidence</a></li><li class="toc-level-2"><a href="#critical-returns-findings">Critical returns findings</a></li><li class="toc-level-2"><a href="#canonical-return-flow">Canonical return flow</a></li><li class="toc-level-2"><a href="#competing-settlement-owners">Competing settlement owners</a></li><li class="toc-level-2"><a href="#marketplace-settlement">Marketplace Settlement</a></li><li class="toc-level-3"><a href="#material-gaps">Material gaps</a></li><li class="toc-level-2"><a href="#payment-settlement">Payment Settlement</a></li><li class="toc-level-3"><a href="#material-gaps">Material gaps</a></li><li class="toc-level-2"><a href="#canonical-boundary">Canonical boundary</a></li><li class="toc-level-2"><a href="#implemented-goal-management">Implemented goal management</a></li><li class="toc-level-2"><a href="#critical-esg-findings">Critical ESG findings</a></li><li class="toc-level-2"><a href="#assurance-boundary">Assurance boundary</a></li><li class="toc-level-2"><a href="#implemented-evaluation-capability">Implemented evaluation capability</a></li><li class="toc-level-2"><a href="#positive-evidence">Positive evidence</a></li><li class="toc-level-2"><a href="#critical-evaluation-findings">Critical evaluation findings</a></li><li class="toc-level-2"><a href="#governed-learning-boundary">Governed learning boundary</a></li><li class="toc-level-2"><a href="#priority-0-security-and-commercial-integrity">Priority 0 — Security and Commercial Integrity</a></li><li class="toc-level-2"><a href="#priority-1-canonical-ownership">Priority 1 — Canonical Ownership</a></li><li class="toc-level-2"><a href="#priority-2-reliable-execution">Priority 2 — Reliable Execution</a></li><li class="toc-level-2"><a href="#required-verification">Required verification</a></li><li class="toc-level-2"><a href="#repository-evidence-wave-03">Repository Evidence Wave 03</a></li><li class="toc-level-2"><a href="#principal-conclusions">Principal conclusions</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="gtos-batch-09-repository-evidence-wave-03-combined-edition">GTOS Batch 09 — Repository Evidence Wave 03 Combined Edition</h1>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 00-SCOPE-METHOD-AND-SNAPSHOT.md --></p>
+<br>
+<h1 id="00-scope-method-and-snapshot">00 — Scope, Method, and Snapshot</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Field</th>
+<th class="table-sort">Value</th>
+</tr></thead><tbody>
+<tr>
+<td>Repository</td>
+<td><code>chinair88-prog/allinb2c</code></td>
+</tr>
+<tr>
+<td>Snapshot</td>
+<td><code>14cc83805e7386c3d5cdec6ad191b1078fd502ff</code></td>
+</tr>
+<tr>
+<td>Branch for handbook artifacts</td>
+<td><code>gtos/handbook-repository-grounded-expansion-v2</code></td>
+</tr>
+<tr>
+<td>Review date</td>
+<td><code>2026-07-23</code></td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Catalog → Pricing → Checkout → Order → Fulfilment → Returns → Settlement → ESG → AI Evaluation</td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="evidence-method">Evidence Method <a href="#evidence-method" class="heading-anchor">#</a></h2>
+<br>
+<p>فایل‌های Java، TypeScript و SQL پس از Repository search مستقیماً خوانده شدند. Classification فقط به کوچک‌ترین ادعای قابل دفاع اختصاص یافت.</p>
+<br>
+<p>تمایزهای اجباری:</p>
+<br>
+<li>Product master در برابر Marketplace catalog entry و Offer؛</li>
+<li>calculated price در برابر published/accepted Price Version؛</li>
+<li>cart item price در برابر authoritative checkout quote؛</li>
+<li>Order state در برابر Inventory/Payment/Fulfilment outcome؛</li>
+<li>shipped/delivered status در برابر carrier observation یا Proof of Delivery؛</li>
+<li>return inspection record در برابر inventory restock execution؛</li>
+<li>settlement calculation در برابر payout execution؛</li>
+<li>sustainability target در برابر independently verified ESG metric؛</li>
+<li>evaluation submission در برابر trustworthy model evaluation and governance decision.</li>
+<br>
+<h2 id="limitations">Limitations <a href="#limitations" class="heading-anchor">#</a></h2>
+<br>
+<li>Runtime configuration، migration execution و CI results مستقل اجرا نشده‌اند.</li>
+<li>وجود Test file به معنی pass بودن نیست.</li>
+<li>External payment، carrier، customer delivery، sustainability assurance و model-evaluation authority اثبات نشده‌اند.</li>
+<li>Header یا request field فقط در صورت اتصال به trusted identity context، authority محسوب می‌شود.</li>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 01-PRODUCT-CATALOG-MARKETPLACE-AND-OFFER.md --></p>
+<br>
+<h1 id="01-product-catalog-marketplace-catalog-and-offer">01 — Product Catalog, Marketplace Catalog, and Offer</h1>
+<br>
+<h2 id="three-overlapping-product-representations">Three overlapping product representations <a href="#three-overlapping-product-representations" class="heading-anchor">#</a></h2>
+<br>
+<p>سه representation اجرایی وجود دارد:</p>
+<br>
+<li><code>catalog.products</code> در <code>product-catalog-service</code> با <code>ProductEntity</code>.</li>
+<li>یک read mapping دیگر روی همان جدول در <code>marketplace-service</code> با <code>CatalogProductEntity</code>.</li>
+<li><code>marketplace.product_catalog_entries</code> با tenant/company، unit price، MOQ، lead time و verification fields.</li>
+<br>
+<p>این وضعیت برای Product Master و Marketplace Offer برابر است با:</p>
+<br>
+<p><code>CONFLICT_REQUIRES_CANONICALIZATION</code></p>
+<br>
+<h2 id="product-catalog-service">Product Catalog Service <a href="#product-catalog-service" class="heading-anchor">#</a></h2>
+<br>
+<p><code>ProductController</code> و <code>ProductService</code> رفتارهای زیر را ارائه می‌کنند:</p>
+<br>
+<li>list/search/filter؛</li>
+<li>get by ID و slug؛</li>
+<li>create/update/archive؛</li>
+<li>update status؛</li>
+<li>resell from purchase؛</li>
+<li>similar products؛</li>
+<li>tiered pricing.</li>
+<br>
+<p><code>ProductEntity</code> شامل multilingual names، SKU، category، supplier، brand، origin، HS code، status، visibility، base/compare/cost price، dimensions، MOQ، tax، approval fields و source tracking است.</p>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="critical-catalog-findings">Critical catalog findings <a href="#critical-catalog-findings" class="heading-anchor">#</a></h2>
+<br>
+<li><code>ProductEntity</code> tenant/company field ندارد.</li>
+<li><code>@Version</code> روی Product دیده نشد.</li>
+<li>Controller authorization annotation اجرایی دیده نشد و actor fallback برابر <code>anonymous</code> است.</li>
+<li><code>updateProduct</code> می‌تواند status را مستقیم از request تنظیم کند و dedicated status workflow را دور بزند.</li>
+<li><code>updateProductStatus</code> transition matrix یا role guard آشکار ندارد.</li>
+<li><code>resellFromPurchase</code> ownership منبع، Inventory possession، Quality eligibility یا legal resale eligibility را verify نمی‌کند.</li>
+<li>Product خود base/cost/compare price نگه می‌دارد، درحالی‌که Pricing و Marketplace نیز pricing دارند.</li>
+<li>Product tier prices hard-coded هستند و Price Version مستقل نیستند.</li>
+<br>
+<h2 id="marketplace-product-catalog">Marketplace Product Catalog <a href="#marketplace-product-catalog" class="heading-anchor">#</a></h2>
+<br>
+<p><code>marketplace.product_catalog_entries</code> tenant/company-aware است و API CRUD، overview و category listing دارد. بااین‌حال:</p>
+<br>
+<li>create tenant/company را از request می‌پذیرد؛</li>
+<li>get/update/delete by ID tenant predicate آشکار ندارند؛</li>
+<li><code>isVerified</code> و <code>isFeatured</code> از request قابل تنظیم‌اند؛</li>
+<li>hard delete وجود دارد؛</li>
+<li><code>unitPrice</code> داخل Catalog Entry ذخیره می‌شود.</li>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="missing-offer-aggregate">Missing Offer aggregate <a href="#missing-offer-aggregate" class="heading-anchor">#</a></h2>
+<br>
+<p>یک Marketplace Offer canonical که Seller، Product Version، Price Version، Inventory Eligibility، Channel، Region، Terms، Availability Window و Publication Decision را immutable snapshot کند، در شواهد بررسی‌شده پیدا نشد.</p>
+<br>
+<p>Target boundary:</p>
+<br>
+<pre><code class="language-text">
+ProductMaster
+
+→ ProductVersion
+
+→ SellerAssortmentEligibility
+
+→ PriceVersion
+
+→ MarketplaceOffer
+
+→ OfferPublicationDecision
+
+→ CheckoutOfferSnapshot
+
+</code></pre>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 02-PRICING-PRICE-VERSION-AND-COMMERCIAL-SNAPSHOT.md --></p>
+<br>
+<h1 id="02-pricing-price-version-and-commercial-snapshot">02 — Pricing, Price Version, and Commercial Snapshot</h1>
+<br>
+<h2 id="implemented-pricing-capabilities">Implemented pricing capabilities <a href="#implemented-pricing-capabilities" class="heading-anchor">#</a></h2>
+<br>
+<p>دو implementation اصلی وجود دارد:</p>
+<br>
+<h3 id="pricing-service-target-price">Pricing Service Target Price <a href="#pricing-service-target-price" class="heading-anchor">#</a></h3>
+<br>
+<p><code>TargetPriceController</code> و <code>TargetPriceService</code>:</p>
+<br>
+<li>create/update/delete policy؛</li>
+<li>list by tenant/product؛</li>
+<li>lookup active target price.</li>
+<br>
+<h3 id="marketplace-smart-pricing">Marketplace Smart Pricing <a href="#marketplace-smart-pricing" class="heading-anchor">#</a></h3>
+<br>
+<p><code>SmartPricingService</code> و <code>SmartPricingController</code>:</p>
+<br>
+<li>Price Rule CRUD؛</li>
+<li>Landed Cost CRUD؛</li>
+<li>Market Price Snapshot؛</li>
+<li>competitor averages؛</li>
+<li>price calculation؛</li>
+<li>pricing overview.</li>
+<br>
+<p>Strategies شامل Cost Plus، Market Based، Dynamic، Penetration، Skimming، Volume Tiered، Promotional و Bundle هستند.</p>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="critical-pricing-findings">Critical pricing findings <a href="#critical-pricing-findings" class="heading-anchor">#</a></h2>
+<br>
+<li>tenant/company در Target Price و Smart Pricing از request/query گرفته می‌شوند.</li>
+<li>get/update/delete rule by ID tenant-scoped نیستند.</li>
+<li>Target Price status string آزاد است.</li>
+<li>Catalog Product و Marketplace Catalog Entry نیز قیمت مستقل ذخیره می‌کنند.</li>
+<li>Category و Warehouse rule matching در engine عملاً <code>true</code> و با comment <code>simplified</code> اجرا می‌شود؛ در نتیجه rule می‌تواند خارج از scope اعمال شود.</li>
+<li>Volume tiers hard-coded هستند.</li>
+<li>manual discount/surcharge از request پذیرفته می‌شود.</li>
+<li>response currency در محاسبه Smart Pricing به USD hard-code شده است.</li>
+<li>competitor source authenticity، timestamp policy و observation confidence محدود است.</li>
+<li>Price Version، approval، publication، effective interval، supersession و accepted checkout quote مستقل پیدا نشد.</li>
+<br>
+<h2 id="canonical-pricing-model">Canonical pricing model <a href="#canonical-pricing-model" class="heading-anchor">#</a></h2>
+<br>
+<pre><code class="language-text">
+CostObservation
+
++ LandedCostVersion
+
++ MarketPriceObservation
+
++ PricingRuleVersion
+
+→ PriceCalculation
+
+→ PriceApprovalDecision
+
+→ PriceVersion
+
+→ OfferPrice
+
+→ CheckoutPriceSnapshot
+
+</code></pre>
+<br>
+<p>Cart و Order باید Price Snapshot را با rule/version/effective time ذخیره کنند، نه اینکه <code>unitPrice</code> Client را حقیقت تلقی کنند.</p>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 03-CART-CHECKOUT-AND-AI-INSIGHTS.md --></p>
+<br>
+<h1 id="03-cart-checkout-and-ai-insights">03 — Cart, Checkout, and AI Insights</h1>
+<br>
+<h2 id="cart-implementation">Cart implementation <a href="#cart-implementation" class="heading-anchor">#</a></h2>
+<br>
+<p><code>CartController</code> و <code>CartService</code> رفتارهای زیر را دارند:</p>
+<br>
+<li>create/get cart by user or session؛</li>
+<li>get by cart ID؛</li>
+<li>add/update/remove item؛</li>
+<li>coupon attach/remove؛</li>
+<li>guest-to-user merge؛</li>
+<li>clear and expiry cleanup.</li>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_CRITICAL_GAPS</code>.</p>
+<br>
+<h2 id="cart-security-and-commercial-integrity-gaps">Cart security and commercial integrity gaps <a href="#cart-security-and-commercial-integrity-gaps" class="heading-anchor">#</a></h2>
+<br>
+<li>userId، sessionId و cartId از request پذیرفته می‌شوند.</li>
+<li>get/update/delete by cart ID ownership check آشکار ندارند.</li>
+<li>Cart item فیلدهای SKU، name، unitPrice، currency، providerId و attributes را از Client می‌پذیرد.</li>
+<li>Catalog/Offer/Inventory lookup قبل از add دیده نشد.</li>
+<li>MOQ، maximum quantity، channel eligibility و availability validate نمی‌شوند.</li>
+<li>Coupon فقط به cart attach می‌شود؛ comment صریحاً می‌گوید validation واقعی بعداً توسط CouponService انجام می‌شود.</li>
+<li>guest merge با userId/sessionId ارسالی Caller انجام می‌شود.</li>
+<br>
+<h2 id="checkout-implementation">Checkout implementation <a href="#checkout-implementation" class="heading-anchor">#</a></h2>
+<br>
+<p><code>CheckoutController</code>:</p>
+<br>
+<li>checkout start؛</li>
+<li>cart-to-order conversion؛</li>
+<li>checkout validation؛</li>
+<li>order verification؛</li>
+<li>payment confirmation؛</li>
+<li>AI insights.</li>
+<br>
+<p>اما checkout قیمت‌های Cart را مستقیماً به Order Item منتقل می‌کند. comparison واقعی با Catalog/Offer انجام نمی‌شود. tenantId نیز از Checkout request وارد Order می‌شود، مگر TenantContext در Order layer آن را override کند.</p>
+<br>
+<p><code>confirm-payment</code> مستقیماً Order را paid می‌کند و در فایل بررسی‌شده signed provider callback، idempotency، amount/currency reconciliation یا Payment Intent ownership اثبات نشد.</p>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_CRITICAL_GAPS</code>.</p>
+<br>
+<h2 id="simulated-ai">Simulated AI <a href="#simulated-ai" class="heading-anchor">#</a></h2>
+<br>
+<p>کد صریحاً AI analysis را <code>reference implementation that simulates AI decisions</code> معرفی می‌کند.</p>
+<br>
+<p>Fraud score، ETA، payment suggestion، warehouse routing و upsell با ruleهای محلی و hard-coded ساخته می‌شوند؛ برای نمونه warehouseهای <code>wh-main</code> و <code>wh-special</code> و carrierهای فرضی انتخاب می‌شوند.</p>
+<br>
+<p>Classification:</p>
+<br>
+<li>AI checkout advice: <code>SIMULATED_REFERENCE_IMPLEMENTATION</code></li>
+<li>persisted AI decision: <code>PLANNED_NOT_IMPLEMENTED</code>؛ کد فقط آن را log می‌کند.</li>
+<br>
+<h2 id="required-checkout-contract">Required checkout contract <a href="#required-checkout-contract" class="heading-anchor">#</a></h2>
+<br>
+<p>Checkout باید:</p>
+<br>
+<li>actor/cart ownership را verify کند؛</li>
+<li>Offer و Price Version را دوباره resolve کند؛</li>
+<li>availability و reservation را اجرا کند؛</li>
+<li>shipping/tax/discount را authoritative محاسبه کند؛</li>
+<li>quote expiry و idempotency داشته باشد؛</li>
+<li>Payment Intent بسازد؛</li>
+<li>Order Snapshot immutable ایجاد کند؛</li>
+<li>AI output را advisory و traceable نگه دارد.</li>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 04-CUSTOMER-ORDER-AND-WORKFLOW.md --></p>
+<br>
+<h1 id="04-customer-order-and-workflow">04 — Customer Order and Workflow</h1>
+<br>
+<h2 id="implemented-order-model">Implemented order model <a href="#implemented-order-model" class="heading-anchor">#</a></h2>
+<br>
+<p><code>OrderEntity</code> دارای:</p>
+<br>
+<li>Order، Payment و Fulfilment statusهای جدا؛</li>
+<li>tenantId؛</li>
+<li>monetary totals و currency؛</li>
+<li>item/address snapshots؛</li>
+<li>payment/shipping references؛</li>
+<li>history؛</li>
+<li><code>@Version</code> optimistic locking؛</li>
+<li>transition methods برای approve/process/ship/deliver/cancel/hold/refund/return.</li>
+<br>
+<p><code>OrderApplicationService</code> CRUD، workflow، analytics، import و editing را facade می‌کند.</p>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_CRITICAL_GAPS</code>.</p>
+<br>
+<h2 id="positive-controls">Positive controls <a href="#positive-controls" class="heading-anchor">#</a></h2>
+<br>
+<li>several state transitions validate current state؛</li>
+<li>entity uses enums؛</li>
+<li>optimistic version exists؛</li>
+<li>per-ID reads and workflow commands use TenantContext-aware lookup when context exists؛</li>
+<li>cache keys often include tenant key؛</li>
+<li>order history entity exists.</li>
+<br>
+<h2 id="critical-findings">Critical findings <a href="#critical-findings" class="heading-anchor">#</a></h2>
+<br>
+<li><code>OrderCrudService.list()</code> در هر دو branch شرط، <code>repository.findAll()</code> اجرا می‌کند؛ tenant-scoped list عملاً leak دارد.</li>
+<li>bulk approve/cancel/refund از <code>findAllById</code> بدون tenant filter استفاده می‌کنند.</li>
+<li>system/internal context عمداً fail-open است.</li>
+<li>Order Items قیمت و snapshot را از request می‌پذیرند.</li>
+<li><code>recordTransition</code> پس از تغییر status، همان status فعلی را برای from و to می‌خواند؛ local variable <code>from</code> استفاده نمی‌شود.</li>
+<li><code>markPaid</code> state، amount، currency، transaction uniqueness یا provider signature guard ندارد.</li>
+<li>hold از هر status قابل اعمال است.</li>
+<li>local Spring Event استفاده می‌شود؛ broker/outbox وجود ندارد.</li>
+<li><code>OrderWorkflowOrchestrator</code> مراحل Inventory Reservation، Payment Capture، Fulfilment، Settlement و Returns را فقط در comment ثبت کرده است.</li>
+<li>auto-approval threshold برابر 1000 است، بدون currency normalization و risk policy.</li>
+<br>
+<h2 id="correct-truth-boundaries">Correct truth boundaries <a href="#correct-truth-boundaries" class="heading-anchor">#</a></h2>
+<br>
+<p>Order باید تعهد تجاری را نگه دارد؛ اما:</p>
+<br>
+<li>Payment outcome متعلق به Payment Domain است.</li>
+<li>Inventory reservation متعلق به Inventory است.</li>
+<li>Pick/Pack متعلق به Warehouse است.</li>
+<li>Shipment/Delivery observation متعلق به Shipping/Carrier integration است.</li>
+<li>Settlement متعلق به Finance/Marketplace settlement owner است.</li>
+<br>
+<p>Order status باید projection این facts باشد، نه جایگزین آن‌ها.</p>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 05-ALLOCATION-FULFILMENT-PICK-PACK-AND-LAST-MILE.md --></p>
+<br>
+<h1 id="05-allocation-fulfilment-pick-pack-and-last-mile">05 — Allocation, Fulfilment, Pick, Pack, and Last Mile</h1>
+<br>
+<h2 id="allocation">Allocation <a href="#allocation" class="heading-anchor">#</a></h2>
+<br>
+<p>Inventory Reservation در Wave 02 وجود داشت، اما اتصال واقعی Order به Inventory در <code>OrderWorkflowOrchestrator</code> فقط comment است:</p>
+<br>
+<li>validate products؛</li>
+<li>reserve inventory؛</li>
+<li>pre-authorize/capture payment؛</li>
+<li>create fulfilment order.</li>
+<br>
+<p>بنابراین Order-driven Allocation برابر است با <code>PLANNED_NOT_IMPLEMENTED</code>.</p>
+<br>
+<h2 id="legacy-fulfilment">Legacy Fulfilment <a href="#legacy-fulfilment" class="heading-anchor">#</a></h2>
+<br>
+<p>Warehouse <code>FulfillmentService</code>:</p>
+<br>
+<li>deprecated و forRemoval است؛</li>
+<li>Sales Order list/get/update status دارد؛</li>
+<li>get/update by ID tenant scope آشکار ندارند؛</li>
+<li>status string آزاد است.</li>
+<br>
+<p>Classification: <code>DEPRECATED_IMPLEMENTATION</code>.</p>
+<br>
+<h2 id="pick-and-pack">Pick and Pack <a href="#pick-and-pack" class="heading-anchor">#</a></h2>
+<br>
+<p><code>PickPackService</code> و Controller واقعاً این Subjects را مدیریت می‌کنند:</p>
+<br>
+<li>Pick Wave؛</li>
+<li>Pick Task؛</li>
+<li>Pack Task؛</li>
+<li>assign/start/complete/cancel؛</li>
+<li>picked quantity و short pick؛</li>
+<li>tracking number، shipping label، weight، volume و box count.</li>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="pickpack-gaps">Pick/Pack gaps <a href="#pickpack-gaps" class="heading-anchor">#</a></h2>
+<br>
+<li>tenantId از request گرفته می‌شود.</li>
+<li>get/update operations by ID tenant-scoped نیستند.</li>
+<li>statusها string و transitionها محدود/ناهمگون‌اند.</li>
+<li>confirmPick over-pick را منع نمی‌کند؛ quantity برابر یا بزرگ‌تر از requested، <code>PICKED</code> می‌شود.</li>
+<li>Inventory reservation consumption/decrement دیده نشد.</li>
+<li>wave/task creation به Order/Inventory entitlement متصل نیست.</li>
+<li>Pack Task order/shipment references را verify نمی‌کند.</li>
+<li>Event/outbox برای Picked/Packed پیدا نشد.</li>
+<li>Dispatch/Handover از Pack completion جدا و canonical نشده است.</li>
+<br>
+<h2 id="last-mile-optimizer">Last-Mile Optimizer <a href="#last-mile-optimizer" class="heading-anchor">#</a></h2>
+<br>
+<p><code>LastMileCarrierOptimizer</code>:</p>
+<br>
+<li>Carrier profileهای DHL، FedEx، UPS و China Post را در memory seed می‌کند؛</li>
+<li>static rate table دارد؛</li>
+<li>rate shopping، composite scoring، fallback chain و delivery promise می‌سازد.</li>
+<br>
+<p>این یک static decision engine است، نه live carrier integration.</p>
+<br>
+<p>Classification: <code>SIMULATED_REFERENCE_IMPLEMENTATION</code>.</p>
+<br>
+<p>موارد مفقود:</p>
+<br>
+<li>negotiated/live rates؛</li>
+<li>currency و quote expiry؛</li>
+<li>serviceability/capacity؛</li>
+<li>carrier booking/label purchase؛</li>
+<li>provider request/response IDs؛</li>
+<li>pickup acceptance؛</li>
+<li>tracking webhook؛</li>
+<li>delivery exception؛</li>
+<li>Proof of Delivery.</li>
+<br>
+<h2 id="delivery-proof">Delivery Proof <a href="#delivery-proof" class="heading-anchor">#</a></h2>
+<br>
+<p><code>OrderEntity.deliver()</code> فقط از SHIPPED به DELIVERED تغییر می‌دهد و timestamp ثبت می‌کند. Signature، recipient identity، delivery photo، geo/location، carrier event reference یا correction flow پیدا نشد.</p>
+<br>
+<p>Classification:</p>
+<br>
+<li>Order delivery status: <code>IMPLEMENTED_WITH_GAP</code></li>
+<li>Proof of Delivery: <code>PLANNED_NOT_IMPLEMENTED</code></li>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 06-RETURNS-INSPECTION-DISPUTES-AND-REFUND.md --></p>
+<br>
+<h1 id="06-returns-inspection-disputes-and-refund">06 — Returns, Inspection, Disputes, and Refund</h1>
+<br>
+<h2 id="returns-implementation">Returns implementation <a href="#returns-implementation" class="heading-anchor">#</a></h2>
+<br>
+<p><code>ReturnsController</code> و <code>ReturnsService</code> رفتارهای زیر را دارند:</p>
+<br>
+<li>create return/RMA؛</li>
+<li>create return lines؛</li>
+<li>receive at warehouse؛</li>
+<li>inspect received items؛</li>
+<li>create return-to-stock decision؛</li>
+<li>dispute claim، evidence، rebuttal، decision و appeal workspace.</li>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_CRITICAL_GAPS</code>.</p>
+<br>
+<h2 id="strong-structural-evidence">Strong structural evidence <a href="#strong-structural-evidence" class="heading-anchor">#</a></h2>
+<br>
+<li>Return، Return Item، Receipt، Inspection و Return-to-Stock Decision entities جدا هستند.</li>
+<li>tenant/company روی Return و Receipt ذخیره می‌شود.</li>
+<li>classification به RESTOCK/HOLD/DAMAGED/SCRAP نگاشت می‌شود.</li>
+<li>dispute workspace evidence/timeline، liability، financial impact و appeal دارد.</li>
+<br>
+<h2 id="critical-returns-findings">Critical returns findings <a href="#critical-returns-findings" class="heading-anchor">#</a></h2>
+<br>
+<li>هر Return در create فوراً <code>authorizationStatus = APPROVED</code> می‌گیرد.</li>
+<li><code>createdBy</code>، <code>receivedBy</code>، <code>inspectedBy</code> و <code>executedBy</code> با UUID تصادفی تولید می‌شوند، نه actor واقعی.</li>
+<li>source order line، customer/supplier و SKU ownership/eligibility verify نمی‌شود.</li>
+<li>receive by returnId و inspect by receiptId tenant/company guard آشکار ندارند.</li>
+<li>receive تمام requested quantity را بدون scan/discrepancy برابر received می‌کند.</li>
+<li>Inspection result/classification از request پذیرفته می‌شود و authority/calibration/evidence ندارد.</li>
+<li>RESTOCK فقط log می‌شود؛ Inventory posting در comment به آینده موکول شده است.</li>
+<li>Refund execution به Payment Domain متصل نیست.</li>
+<li>dispute detail، evidence، rebuttal، decision و appeal در چند مسیر record را by ID بدون tenant predicate می‌خوانند.</li>
+<li>workspace برای Returnها <code>findAll()</code> و in-memory tenant filtering دارد.</li>
+<li>evidence/timeline در JSON mutable ذخیره می‌شود.</li>
+<li>Dispute financial decision به payout/refund execution وصل نیست.</li>
+<br>
+<h2 id="canonical-return-flow">Canonical return flow <a href="#canonical-return-flow" class="heading-anchor">#</a></h2>
+<br>
+<pre><code class="language-text">
+ReturnRequest
+
+→ EligibilityDecision
+
+→ ReturnAuthorization
+
+→ InboundShipment/Receipt
+
+→ Item-Level Inspection Evidence
+
+→ Disposition Decision
+
+→ Inventory Posting or Scrap/Repair
+
+→ Refund/Replacement Intent
+
+→ Payment Outcome
+
+→ Resolution and Appeal
+
+</code></pre>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 07-SETTLEMENT-RECONCILIATION-AND-PAYOUT.md --></p>
+<br>
+<h1 id="07-settlement-reconciliation-and-payout">07 — Settlement, Reconciliation, and Payout</h1>
+<br>
+<h2 id="competing-settlement-owners">Competing settlement owners <a href="#competing-settlement-owners" class="heading-anchor">#</a></h2>
+<br>
+<p>دو Settlement Service اجرایی وجود دارد:</p>
+<br>
+<li>Marketplace Settlement:</li>
+<p>   - cycles؛</p>
+<p>   - transactions؛</p>
+<p>   - commission/discount aggregation؛</p>
+<p>   - reconciliation؛</p>
+<p>   - dashboard؛</p>
+<p>   - scheduler.</p>
+<li>Payment Settlement:</li>
+<p>   - batch کردن Payment Captureهای <code>CAPTURED</code>؛</p>
+<p>   - gross/fee/net calculation؛</p>
+<p>   - اتصال captureها به batch.</p>
+<br>
+<p>وضعیت ownership:</p>
+<br>
+<p><code>CONFLICT_REQUIRES_CANONICALIZATION</code></p>
+<br>
+<h2 id="marketplace-settlement">Marketplace Settlement <a href="#marketplace-settlement" class="heading-anchor">#</a></h2>
+<br>
+<p>نقاط مثبت:</p>
+<br>
+<li>state transition map؛</li>
+<li>cycle calculation؛</li>
+<li>audit و metrics؛</li>
+<li>reconciliation records؛</li>
+<li>auto-generation با overlap check؛</li>
+<li>tenant-aware list endpoints.</li>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h3 id="material-gaps">Material gaps <a href="#material-gaps" class="heading-anchor">#</a></h3>
+<br>
+<li>tenant/company از request وارد create می‌شوند.</li>
+<li>get/update/calculate cycle by ID tenant guard آشکار ندارد.</li>
+<li>addTransaction بررسی نمی‌کند request tenant/company با cycle یکسان باشد.</li>
+<li>transaction reference authenticity و idempotency دیده نشد.</li>
+<li>Dashboard <code>totalCycles</code> را با global <code>cycleRepository.count()</code> می‌سازد و می‌تواند cross-tenant count leak کند.</li>
+<li>dashboard monetary summaries صفر hard-code شده‌اند.</li>
+<li>status <code>SETTLED</code> فقط state update است؛ bank/payout provider execution پیدا نشد.</li>
+<li>reconciliation actualAmount و resolvedBy از request پذیرفته می‌شوند.</li>
+<li>LLM settlement disabled است.</li>
+<li>multi-currency aggregation normalization دیده نشد.</li>
+<br>
+<h2 id="payment-settlement">Payment Settlement <a href="#payment-settlement" class="heading-anchor">#</a></h2>
+<br>
+<p>Payment service captureهای تسویه‌نشده را globally جمع می‌کند، fee rate را اعمال و Settlement Batch می‌سازد.</p>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h3 id="material-gaps">Material gaps <a href="#material-gaps" class="heading-anchor">#</a></h3>
+<br>
+<li>list و run settlement tenant/company scope ندارند.</li>
+<li>capture grouping بر اساس seller، tenant، currency یا payout destination نیست.</li>
+<li>تمام CAPTURED records در یک batch جمع می‌شوند.</li>
+<li>payout execution، provider transfer، retry، reconciliation و failure recovery دیده نشد.</li>
+<li>overlap با Marketplace Settlement روشن نشده است.</li>
+<br>
+<h2 id="canonical-boundary">Canonical boundary <a href="#canonical-boundary" class="heading-anchor">#</a></h2>
+<br>
+<p>Payment باید money movement و provider facts را مالک باشد. Marketplace باید seller ledger، commission، entitlement و reconciliation را مالک باشد. Settlement approval نباید خودبه‌خود به معنی payout success باشد.</p>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 08-ESG-SUSTAINABILITY-GOALS-AND-ASSURANCE.md --></p>
+<br>
+<h1 id="08-esg-sustainability-goals-and-assurance">08 — ESG, Sustainability Goals, and Assurance</h1>
+<br>
+<h2 id="implemented-goal-management">Implemented goal management <a href="#implemented-goal-management" class="heading-anchor">#</a></h2>
+<br>
+<p>Compliance Service برای Sustainability Goal این رفتارها را دارد:</p>
+<br>
+<li>create/update؛</li>
+<li>activate؛</li>
+<li>update progress؛</li>
+<li>archive/delete؛</li>
+<li>get/list/filter by tenant/status/type؛</li>
+<li>Kafka send برای goal events.</li>
+<br>
+<p>Goal شامل baseline، target، year، scope، reduction type، framework، SBTi flag، plan، milestones، owner، budget و progress است.</p>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="critical-esg-findings">Critical ESG findings <a href="#critical-esg-findings" class="heading-anchor">#</a></h2>
+<br>
+<li>Controller authorization و trusted tenant context آشکار ندارد.</li>
+<li>tenantId از request/path گرفته می‌شود.</li>
+<li>get/update/activate/delete by ID tenant-scoped نیستند.</li>
+<li><code>getAllGoals()</code> global است.</li>
+<li>currentValue از request parameter مستقیم پذیرفته می‌شود؛ Measurement Source، methodology، evidence و assurance وجود ندارد.</li>
+<li>progress formula target semantics را مخلوط می‌کند: درصد کاهش محاسبه‌شده با <code>targetValue</code> مقایسه می‌شود، درحالی‌که targetValue ممکن است absolute target باشد.</li>
+<li>statusهای ON_TRACK/BEHIND_SCHEDULE فقط با threshold ثابت 75 تعیین می‌شوند و timeline نسبت به targetYear لحاظ نمی‌شود.</li>
+<li><code>isScienceBased</code> و SBTi fields self-asserted هستند.</li>
+<li>Event payload فقط string نوع و ID است؛ failure catch/log می‌شود و outbox ندارد.</li>
+<li>hard delete برای ESG goal وجود دارد.</li>
+<li>یک SustainabilityGoal Entity دیگر در <code>specialized/carbon-tracking-service</code> وجود دارد؛ ownership conflict باید حل شود.</li>
+<br>
+<h2 id="assurance-boundary">Assurance boundary <a href="#assurance-boundary" class="heading-anchor">#</a></h2>
+<br>
+<p>یک Goal record به‌تنهایی ESG disclosure، verified carbon footprint یا SBTi validation نیست.</p>
+<br>
+<p>مدل هدف:</p>
+<br>
+<pre><code class="language-text">
+MeasurementSource
+
+→ ActivityData
+
+→ EmissionFactorVersion
+
+→ CalculationMethodVersion
+
+→ SustainabilityMetricObservation
+
+→ AssuranceEvidence
+
+→ GoalProgressAssessment
+
+→ DisclosureVersion
+
+</code></pre>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 09-AI-EVALUATION-AND-GOVERNED-LEARNING.md --></p>
+<br>
+<h1 id="09-ai-evaluation-and-governed-learning">09 — AI Evaluation and Governed Learning</h1>
+<br>
+<h2 id="implemented-evaluation-capability">Implemented evaluation capability <a href="#implemented-evaluation-capability" class="heading-anchor">#</a></h2>
+<br>
+<p>AI Orchestrator این رفتارها را دارد:</p>
+<br>
+<li>submit human evaluation برای Agent Run؛</li>
+<li>recent evaluations by tenant؛</li>
+<li>evaluations by run؛</li>
+<li>use-case stats؛</li>
+<li>autonomy-level recommendation.</li>
+<br>
+<p>Evaluation شامل rating، accuracy، safety، usefulness، comment، corrections و tags است. Rolling averages و recommendation ruleها نیز اجرا می‌شوند.</p>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="positive-evidence">Positive evidence <a href="#positive-evidence" class="heading-anchor">#</a></h2>
+<br>
+<li>rating enum-like validation دارد.</li>
+<li>aggregate stats per tenant/use case ذخیره می‌شود.</li>
+<li>high/low safety and accuracy thresholds recommendation تولید می‌کنند.</li>
+<li>minimum sample sizes برای برخی escalationها در نظر گرفته شده است.</li>
+<br>
+<h2 id="critical-evaluation-findings">Critical evaluation findings <a href="#critical-evaluation-findings" class="heading-anchor">#</a></h2>
+<br>
+<li>evaluatorUserId از request پذیرفته و فقط با prefix <code>human:</code> ذخیره می‌شود.</li>
+<li>Agent Run existence، completion، tenant ownership و use-case match verify نمی‌شود.</li>
+<li><code>GET evaluations/{runId}</code> header tenant را می‌گیرد ولی Service فقط بر اساس runId query می‌کند.</li>
+<li>accuracy/safety/usefulness score range validate نمی‌شود.</li>
+<li>duplicate evaluation یا evaluator conflict policy دیده نشد.</li>
+<li>evaluation independence، reviewer role، blind review و conflict-of-interest وجود ندارد.</li>
+<li>corrections/tags به‌صورت strings/JSON ذخیره می‌شوند.</li>
+<li>recommendation فقط heuristic است و policy change خودکار/approval governance کامل ندارد.</li>
+<li>default current autonomy level برابر 3 است، حتی بدون profile evidence.</li>
+<li>evaluation quality، dataset version، model version، prompt/tool configuration و output artifact به‌طور صریح snapshot نشده‌اند.</li>
+<br>
+<h2 id="governed-learning-boundary">Governed learning boundary <a href="#governed-learning-boundary" class="heading-anchor">#</a></h2>
+<br>
+<p>Evaluation feedback نباید مستقیماً Model یا Autonomy را تغییر دهد. Recommendation باید با evidence window، model/run version، reviewer authority، safety veto، approval و rollback همراه باشد.</p>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 10-CROSS-DOMAIN-CONFLICTS-AND-CANONICALIZATION.md --></p>
+<br>
+<h1 id="10-cross-domain-conflicts-and-canonicalization">10 — Cross-Domain Conflicts and Canonicalization</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">ID</th>
+<th class="table-sort">Conflict</th>
+<th class="table-sort">Canonical decision required</th>
+</tr></thead><tbody>
+<tr>
+<td>C-301</td>
+<td>Product master در catalog.products و marketplace.product_catalog_entries تکرار شده</td>
+<td>Product Master، Offer Projection و migration owner تعیین شود</td>
+</tr>
+<tr>
+<td>C-302</td>
+<td>قیمت در Product، Marketplace Catalog، Target Price و Smart Pricing وجود دارد</td>
+<td>Price Version و Pricing authority واحد تعریف شود</td>
+</tr>
+<tr>
+<td>C-303</td>
+<td>Cart unit price را از Client می‌پذیرد</td>
+<td>Checkout باید Offer/Price Snapshot authoritative بسازد</td>
+</tr>
+<tr>
+<td>C-304</td>
+<td>confirm-payment مستقیماً Order را Paid می‌کند</td>
+<td>Payment provider outcome تنها منبع Payment truth باشد</td>
+</tr>
+<tr>
+<td>C-305</td>
+<td>Order list و bulk operations tenant leak دارند</td>
+<td>تمام repository accessها fail-closed tenant-scoped شوند</td>
+</tr>
+<tr>
+<td>C-306</td>
+<td>Order Saga فقط comment است</td>
+<td>Inventory/Payment/Fulfilment orchestration واقعی و compensating actions ساخته شود</td>
+</tr>
+<tr>
+<td>C-307</td>
+<td>Warehouse Sales Order deprecated با Customer Order overlap دارد</td>
+<td>Fulfilment Order boundary و migration تعیین شود</td>
+</tr>
+<tr>
+<td>C-308</td>
+<td>Pick/Pack به Inventory consumption متصل نیست</td>
+<td>Reservation consumption و stock ledger contract پیاده شود</td>
+</tr>
+<tr>
+<td>C-309</td>
+<td>Delivered بدون POD ثبت می‌شود</td>
+<td>Delivery Observation و POD مستقل ایجاد شود</td>
+</tr>
+<tr>
+<td>C-310</td>
+<td>Return RESTOCK فقط log است</td>
+<td>Return disposition به Inventory Posting متصل شود</td>
+</tr>
+<tr>
+<td>C-311</td>
+<td>Refund در Order/Return با Payment execution جداست</td>
+<td>Refund Intent و Provider Outcome canonical شود</td>
+</tr>
+<tr>
+<td>C-312</td>
+<td>Marketplace و Payment هر دو Settlement owner هستند</td>
+<td>Seller ledger و money movement ownership جدا شود</td>
+</tr>
+<tr>
+<td>C-313</td>
+<td>Sustainability Goal در دو Service وجود دارد</td>
+<td>ESG/Carbon owner و projectionها تعیین شوند</td>
+</tr>
+<tr>
+<td>C-314</td>
+<td>AI evaluation run lookup tenant-scoped نیست</td>
+<td>Evaluation identity و run ownership سخت‌گیری شود</td>
+</tr>
+<tr>
+<td>C-315</td>
+<td>local/in-memory/static engines به‌عنوان AI/Carrier behavior معرفی می‌شوند</td>
+<td>Simulation label و production provider boundary اجباری شود</td>
+</tr>
+</tbody></table></div>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 11-IMPLEMENTATION-STATUS-MATRIX.md --></p>
+<br>
+<h1 id="11-implementation-status-matrix">11 — Implementation Status Matrix</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Area</th>
+<th class="table-sort">Narrow verified capability</th>
+<th class="table-sort">Classification</th>
+</tr></thead><tbody>
+<tr>
+<td>Product Catalog Service</td>
+<td>CRUD/status/resell/similar</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Marketplace Product Catalog</td>
+<td>tenant-aware table and CRUD</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Canonical Marketplace Offer</td>
+<td>Not found as independent aggregate</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>Target Pricing</td>
+<td>Policy CRUD and lookup</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Smart Pricing</td>
+<td>Rules, landed cost, market snapshots, calculation</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Price Version / Checkout Quote</td>
+<td>No immutable accepted version</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>Cart</td>
+<td>CRUD, merge, coupon attachment</td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td>Checkout</td>
+<td>Cart-to-order and validation</td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td>Checkout AI</td>
+<td>Hard-coded local rules</td>
+<td><code>SIMULATED_REFERENCE_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td>Customer Order</td>
+<td>Entity, workflow, history, optimistic lock</td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td>Order Saga</td>
+<td>Comments only for cross-service steps</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>Allocation</td>
+<td>Inventory reservation exists, order orchestration absent</td>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td>Legacy Fulfilment Sales Order</td>
+<td>Deprecated CRUD/status</td>
+<td><code>DEPRECATED_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td>Pick/Pack</td>
+<td>Waves/tasks/confirm/pack/verify</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Last-Mile Optimizer</td>
+<td>Static in-memory rates and profiles</td>
+<td><code>SIMULATED_REFERENCE_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td>Proof of Delivery</td>
+<td>Not found</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>Returns/RMA</td>
+<td>Return, receipt, inspection, disposition</td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td>Disputes</td>
+<td>Evidence, rebuttal, decision, appeal</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Marketplace Settlement</td>
+<td>Cycles, transactions, calculation, reconciliation</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Payment Settlement</td>
+<td>Capture batching</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Payout Execution</td>
+<td>Not verified</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>ESG Goals</td>
+<td>CRUD, progress, events</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td>Verified ESG Metrics</td>
+<td>Not found</td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>AI Evaluation</td>
+<td>Feedback, stats, recommendations</td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+</tbody></table></div>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 12-WAVE-03-ISSUE-REGISTER.md --></p>
+<br>
+<h1 id="12-wave-03-issue-register">12 — Wave 03 Issue Register</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">ID</th>
+<th class="table-sort">Severity</th>
+<th class="table-sort">Area</th>
+<th class="table-sort">Finding</th>
+<th class="table-sort">Required action</th>
+</tr></thead><tbody>
+<tr>
+<td>W3-001</td>
+<td>Critical</td>
+<td>Catalog</td>
+<td>ProductEntity has no tenant/company field</td>
+<td>Add canonical tenant ownership or explicitly global product governance.</td>
+</tr>
+<tr>
+<td>W3-002</td>
+<td>Critical</td>
+<td>Catalog</td>
+<td>Product update can set status directly</td>
+<td>Remove status from generic update and enforce transition/role policy.</td>
+</tr>
+<tr>
+<td>W3-003</td>
+<td>High</td>
+<td>Catalog</td>
+<td>Product status update lacks visible authorization and transition matrix</td>
+<td>Require actor role, allowed transitions, reason and version.</td>
+</tr>
+<tr>
+<td>W3-004</td>
+<td>High</td>
+<td>Catalog</td>
+<td>Product has no optimistic version</td>
+<td>Add @Version and conflict handling.</td>
+</tr>
+<tr>
+<td>W3-005</td>
+<td>Critical</td>
+<td>Catalog</td>
+<td>Resell-from-purchase does not verify source ownership or stock eligibility</td>
+<td>Validate order ownership, receipt, quality and resale rights.</td>
+</tr>
+<tr>
+<td>W3-006</td>
+<td>Critical</td>
+<td>Catalog</td>
+<td>Three product/catalog representations compete</td>
+<td>Canonicalize Product Master, Marketplace projection and Offer.</td>
+</tr>
+<tr>
+<td>W3-007</td>
+<td>High</td>
+<td>Marketplace Catalog</td>
+<td>Tenant/company and verification flags come from request</td>
+<td>Derive identity and restrict verified/featured changes.</td>
+</tr>
+<tr>
+<td>W3-008</td>
+<td>Critical</td>
+<td>Marketplace Catalog</td>
+<td>Get/update/delete by ID are not visibly tenant-scoped</td>
+<td>Use tenant-qualified repository methods.</td>
+</tr>
+<tr>
+<td>W3-009</td>
+<td>High</td>
+<td>Marketplace Catalog</td>
+<td>Hard delete removes catalog evidence</td>
+<td>Use archive/supersession and retention policy.</td>
+</tr>
+<tr>
+<td>W3-010</td>
+<td>Critical</td>
+<td>Offer</td>
+<td>No independent Marketplace Offer aggregate found</td>
+<td>Implement seller/product/price/availability/terms snapshot.</td>
+</tr>
+<tr>
+<td>W3-011</td>
+<td>Critical</td>
+<td>Pricing</td>
+<td>Pricing authority is split across Product, Marketplace Catalog, Target Price and Smart Pricing</td>
+<td>Create canonical PriceVersion ownership.</td>
+</tr>
+<tr>
+<td>W3-012</td>
+<td>Critical</td>
+<td>Pricing</td>
+<td>Tenant IDs are accepted from request/query</td>
+<td>Use trusted tenant context.</td>
+</tr>
+<tr>
+<td>W3-013</td>
+<td>High</td>
+<td>Pricing</td>
+<td>Rule get/update/delete by ID are unscoped</td>
+<td>Use tenant-qualified lookup.</td>
+</tr>
+<tr>
+<td>W3-014</td>
+<td>High</td>
+<td>Pricing</td>
+<td>Category and warehouse scopes match all rules</td>
+<td>Implement real category/warehouse matching.</td>
+</tr>
+<tr>
+<td>W3-015</td>
+<td>High</td>
+<td>Pricing</td>
+<td>Calculation response currency is hard-coded USD</td>
+<td>Preserve and validate currency.</td>
+</tr>
+<tr>
+<td>W3-016</td>
+<td>High</td>
+<td>Pricing</td>
+<td>Manual adjustments have no approval/limit evidence</td>
+<td>Add policy, authorization and audit.</td>
+</tr>
+<tr>
+<td>W3-017</td>
+<td>High</td>
+<td>Pricing</td>
+<td>Hard-coded volume tiers exist in multiple services</td>
+<td>Govern pricing rule versions centrally.</td>
+</tr>
+<tr>
+<td>W3-018</td>
+<td>Critical</td>
+<td>Cart</td>
+<td>Cart ownership relies on request user/session/cart IDs</td>
+<td>Bind carts to authenticated principal/session token.</td>
+</tr>
+<tr>
+<td>W3-019</td>
+<td>Critical</td>
+<td>Cart</td>
+<td>Client supplies SKU, unitPrice, provider and currency</td>
+<td>Resolve authoritative offer server-side.</td>
+</tr>
+<tr>
+<td>W3-020</td>
+<td>High</td>
+<td>Cart</td>
+<td>Coupon code is stored without validation</td>
+<td>Integrate governed promotion service.</td>
+</tr>
+<tr>
+<td>W3-021</td>
+<td>High</td>
+<td>Cart</td>
+<td>Quantity and availability policy is absent</td>
+<td>Validate MOQ, max, inventory and channel rules.</td>
+</tr>
+<tr>
+<td>W3-022</td>
+<td>Critical</td>
+<td>Checkout</td>
+<td>Checkout converts client-priced cart directly to Order</td>
+<td>Reprice and snapshot offer before order creation.</td>
+</tr>
+<tr>
+<td>W3-023</td>
+<td>Critical</td>
+<td>Checkout</td>
+<td>confirm-payment can directly mark Order paid</td>
+<td>Require signed provider outcome, amount/currency match and idempotency.</td>
+</tr>
+<tr>
+<td>W3-024</td>
+<td>High</td>
+<td>Checkout</td>
+<td>Price validation is only zero-price warning</td>
+<td>Compare PriceVersion and quote expiry.</td>
+</tr>
+<tr>
+<td>W3-025</td>
+<td>High</td>
+<td>Checkout AI</td>
+<td>AI insights are simulated but exposed as AI-powered</td>
+<td>Label simulation and separate production adapter.</td>
+</tr>
+<tr>
+<td>W3-026</td>
+<td>High</td>
+<td>Checkout AI</td>
+<td>AI decisions are logged but not governed/persisted</td>
+<td>Store advisory decision provenance or remove claim.</td>
+</tr>
+<tr>
+<td>W3-027</td>
+<td>Critical</td>
+<td>Order</td>
+<td>Tenant-scoped list executes repository.findAll</td>
+<td>Fix repository call and add isolation test.</td>
+</tr>
+<tr>
+<td>W3-028</td>
+<td>Critical</td>
+<td>Order</td>
+<td>Bulk approve/cancel/refund use unscoped findAllById</td>
+<td>Use tenant-scoped bulk lookup.</td>
+</tr>
+<tr>
+<td>W3-029</td>
+<td>High</td>
+<td>Order</td>
+<td>System context is fail-open</td>
+<td>Require explicit privileged system identity.</td>
+</tr>
+<tr>
+<td>W3-030</td>
+<td>High</td>
+<td>Order</td>
+<td>History transition records current status for both from/to</td>
+<td>Use captured old status and test history.</td>
+</tr>
+<tr>
+<td>W3-031</td>
+<td>Critical</td>
+<td>Order</td>
+<td>markPaid lacks payment outcome guards</td>
+<td>Move payment truth to Payment service.</td>
+</tr>
+<tr>
+<td>W3-032</td>
+<td>High</td>
+<td>Order</td>
+<td>Auto-approval threshold ignores currency and risk</td>
+<td>Use normalized amount and policy engine.</td>
+</tr>
+<tr>
+<td>W3-033</td>
+<td>Critical</td>
+<td>Order Saga</td>
+<td>Inventory/payment/fulfilment steps are comments only</td>
+<td>Implement durable saga and compensation.</td>
+</tr>
+<tr>
+<td>W3-034</td>
+<td>High</td>
+<td>Order Events</td>
+<td>Only local Spring events are published</td>
+<td>Add durable outbox/broker.</td>
+</tr>
+<tr>
+<td>W3-035</td>
+<td>Critical</td>
+<td>Fulfilment</td>
+<td>Deprecated SalesOrder get/update is unscoped</td>
+<td>Remove or tenant-scope during migration.</td>
+</tr>
+<tr>
+<td>W3-036</td>
+<td>Critical</td>
+<td>PickPack</td>
+<td>Task/wave IDs are not tenant-scoped</td>
+<td>Use tenant/warehouse-qualified lookup.</td>
+</tr>
+<tr>
+<td>W3-037</td>
+<td>High</td>
+<td>PickPack</td>
+<td>Over-pick is accepted as PICKED</td>
+<td>Reject or explicitly handle excess quantity.</td>
+</tr>
+<tr>
+<td>W3-038</td>
+<td>Critical</td>
+<td>PickPack</td>
+<td>No inventory reservation consumption found</td>
+<td>Integrate Inventory ledger and idempotency.</td>
+</tr>
+<tr>
+<td>W3-039</td>
+<td>High</td>
+<td>PickPack</td>
+<td>Pack references are not validated</td>
+<td>Verify order/shipment/warehouse relation.</td>
+</tr>
+<tr>
+<td>W3-040</td>
+<td>High</td>
+<td>Last Mile</td>
+<td>Carrier rates and profiles are static in memory</td>
+<td>Use versioned provider quotes and live adapters.</td>
+</tr>
+<tr>
+<td>W3-041</td>
+<td>Critical</td>
+<td>Delivery</td>
+<td>Order can become DELIVERED without POD</td>
+<td>Require qualified carrier/POD observation.</td>
+</tr>
+<tr>
+<td>W3-042</td>
+<td>Critical</td>
+<td>Returns</td>
+<td>Returns are auto-approved on creation</td>
+<td>Implement eligibility and authorization decision.</td>
+</tr>
+<tr>
+<td>W3-043</td>
+<td>Critical</td>
+<td>Returns</td>
+<td>Actors are random UUIDs</td>
+<td>Use authenticated actor identity.</td>
+</tr>
+<tr>
+<td>W3-044</td>
+<td>Critical</td>
+<td>Returns</td>
+<td>Receive/inspect paths lack visible tenant guard</td>
+<td>Tenant-scope return and receipt operations.</td>
+</tr>
+<tr>
+<td>W3-045</td>
+<td>High</td>
+<td>Returns</td>
+<td>Receive sets all requested quantity as received</td>
+<td>Capture item/package discrepancies.</td>
+</tr>
+<tr>
+<td>W3-046</td>
+<td>Critical</td>
+<td>Returns</td>
+<td>RESTOCK only logs; Inventory is not updated</td>
+<td>Execute idempotent Inventory posting.</td>
+</tr>
+<tr>
+<td>W3-047</td>
+<td>High</td>
+<td>Disputes</td>
+<td>Detail/evidence/rebuttal/decision paths query case by ID without tenant predicate</td>
+<td>Enforce case ownership.</td>
+</tr>
+<tr>
+<td>W3-048</td>
+<td>High</td>
+<td>Disputes</td>
+<td>Evidence and timeline are mutable JSON</td>
+<td>Use append-only evidence records.</td>
+</tr>
+<tr>
+<td>W3-049</td>
+<td>Critical</td>
+<td>Settlement</td>
+<td>Marketplace and Payment settlement ownership overlaps</td>
+<td>Separate seller ledger from money movement.</td>
+</tr>
+<tr>
+<td>W3-050</td>
+<td>Critical</td>
+<td>Settlement</td>
+<td>Marketplace cycle/transaction ID operations are unscoped</td>
+<td>Tenant-scope every operation.</td>
+</tr>
+<tr>
+<td>W3-051</td>
+<td>Critical</td>
+<td>Settlement</td>
+<td>Transaction tenant/company may differ from cycle</td>
+<td>Derive scope from cycle and validate reference.</td>
+</tr>
+<tr>
+<td>W3-052</td>
+<td>High</td>
+<td>Settlement</td>
+<td>Dashboard totalCycles is global</td>
+<td>Use tenant-scoped count.</td>
+</tr>
+<tr>
+<td>W3-053</td>
+<td>High</td>
+<td>Settlement</td>
+<td>Dashboard monetary values are zero placeholders</td>
+<td>Calculate real tenant metrics.</td>
+</tr>
+<tr>
+<td>W3-054</td>
+<td>Critical</td>
+<td>Payment Settlement</td>
+<td>All captured payments can be grouped globally</td>
+<td>Partition by tenant, seller, currency and payout destination.</td>
+</tr>
+<tr>
+<td>W3-055</td>
+<td>Critical</td>
+<td>Payout</td>
+<td>SETTLED state has no verified provider transfer</td>
+<td>Separate approval from payout outcome.</td>
+</tr>
+<tr>
+<td>W3-056</td>
+<td>Critical</td>
+<td>ESG</td>
+<td>Goal ID operations and getAll are unscoped</td>
+<td>Use trusted tenant context and role policy.</td>
+</tr>
+<tr>
+<td>W3-057</td>
+<td>High</td>
+<td>ESG</td>
+<td>Progress accepts self-reported currentValue without evidence</td>
+<td>Attach measurement source and methodology.</td>
+</tr>
+<tr>
+<td>W3-058</td>
+<td>High</td>
+<td>ESG</td>
+<td>Progress formula may compare percentage to absolute target</td>
+<td>Define target semantics and validate units.</td>
+</tr>
+<tr>
+<td>W3-059</td>
+<td>High</td>
+<td>ESG</td>
+<td>Science-based/SBTi status is self-asserted</td>
+<td>Store external assurance evidence.</td>
+</tr>
+<tr>
+<td>W3-060</td>
+<td>High</td>
+<td>ESG</td>
+<td>Kafka failure is swallowed and payload is minimal</td>
+<td>Use outbox and governed event envelope.</td>
+</tr>
+<tr>
+<td>W3-061</td>
+<td>Critical</td>
+<td>ESG</td>
+<td>Duplicate Sustainability Goal models exist</td>
+<td>Canonicalize Compliance and specialized Carbon ownership.</td>
+</tr>
+<tr>
+<td>W3-062</td>
+<td>Critical</td>
+<td>AI Evaluation</td>
+<td>Evaluations-by-run ignore tenant header</td>
+<td>Query by tenant and run.</td>
+</tr>
+<tr>
+<td>W3-063</td>
+<td>Critical</td>
+<td>AI Evaluation</td>
+<td>Evaluator identity is client-supplied</td>
+<td>Use authenticated reviewer identity and role.</td>
+</tr>
+<tr>
+<td>W3-064</td>
+<td>High</td>
+<td>AI Evaluation</td>
+<td>Agent run existence and tenant ownership are not verified</td>
+<td>Link evaluation to immutable run record.</td>
+</tr>
+<tr>
+<td>W3-065</td>
+<td>High</td>
+<td>AI Evaluation</td>
+<td>Scores have no range validation</td>
+<td>Validate 0-100 and missing-value policy.</td>
+</tr>
+<tr>
+<td>W3-066</td>
+<td>High</td>
+<td>AI Evaluation</td>
+<td>Duplicate/conflicting evaluations are unrestricted</td>
+<td>Define reviewer and revision policy.</td>
+</tr>
+<tr>
+<td>W3-067</td>
+<td>High</td>
+<td>AI Evaluation</td>
+<td>Model/prompt/tool/dataset versions are not snapshotted</td>
+<td>Bind evaluation to reproducible run context.</td>
+</tr>
+<tr>
+<td>W3-068</td>
+<td>High</td>
+<td>Cross-domain</td>
+<td>No durable outbox found across reviewed workflows</td>
+<td>Standardize outbox/inbox and replay controls.</td>
+</tr>
+</tbody></table></div>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 13-WAVE-03-TRACEABILITY-MATRIX.md --></p>
+<br>
+<h1 id="13-wave-03-traceability-matrix">13 — Wave 03 Traceability Matrix</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Evidence ID</th>
+<th class="table-sort">Repository path</th>
+<th class="table-sort">Blob SHA</th>
+<th class="table-sort">Classification</th>
+</tr></thead><tbody>
+<tr>
+<td><code>CATALOG-PRODUCT-CONTROLLER</code></td>
+<td><code>backend/domain/commerce/product-catalog-service/src/main/java/com/allinb2c/commerce/productcatalog/api/ProductController.java</code></td>
+<td><code>5d1153964968cc4a51674833c808616bd51325e2</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>CATALOG-PRODUCT-SERVICE</code></td>
+<td><code>backend/domain/commerce/product-catalog-service/src/main/java/com/allinb2c/commerce/productcatalog/service/ProductService.java</code></td>
+<td><code>54b0cbc821d6480be31585254405a1d000e06b7a</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>CATALOG-PRODUCT-ENTITY</code></td>
+<td><code>backend/domain/commerce/product-catalog-service/src/main/java/com/allinb2c/commerce/productcatalog/entity/ProductEntity.java</code></td>
+<td><code>bad889f79bbcbb281e5f0afaec1360183b927b95</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>MARKETPLACE-CATALOG-MAPPING</code></td>
+<td><code>backend/domain/commerce/marketplace-service/src/main/java/com/allinb2c/commerce/marketplace/catalog/CatalogProductEntity.java</code></td>
+<td><code>5a78fddadc333c2b49458e3d8df7b60cb5580100</code></td>
+<td><code>CONFLICT_REQUIRES_CANONICALIZATION</code></td>
+</tr>
+<tr>
+<td><code>MARKETPLACE-ECOSYSTEM-DDL</code></td>
+<td><code>backend/domain/commerce/marketplace-service/src/main/resources/db/migration/V8__phase_h_marketplace_ecosystem.sql</code></td>
+<td><code>e3f04355db77b411a03d77ff1b7c7f20c1b96727</code></td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td><code>MARKETPLACE-CATALOG-CONTROLLER</code></td>
+<td><code>backend/domain/commerce/marketplace-service/src/main/java/com/allinb2c/commerce/marketplace/controller/ProductCatalogController.java</code></td>
+<td><code>6b7a2675f1283e2fece8ca1a997d4deabd20126f</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>MARKETPLACE-CATALOG-SERVICE</code></td>
+<td><code>backend/domain/commerce/marketplace-service/src/main/java/com/allinb2c/commerce/marketplace/service/ProductCatalogService.java</code></td>
+<td><code>1d5c280c0e5086c5fd7ed34e944fe0cb782951df</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>TARGET-PRICE-CONTROLLER</code></td>
+<td><code>backend/domain/commerce/pricing-service/src/main/java/com/allinb2c/commerce/pricing/controller/TargetPriceController.java</code></td>
+<td><code>4dd2bf14a963a27d9a4276df4e55703d61dca56b</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>TARGET-PRICE-SERVICE</code></td>
+<td><code>backend/domain/commerce/pricing-service/src/main/java/com/allinb2c/commerce/pricing/service/TargetPriceService.java</code></td>
+<td><code>8e1dfde40c29a53dcae6cd4e72993a5c22595d19</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>SMART-PRICING-CONTROLLER</code></td>
+<td><code>backend/domain/commerce/marketplace-service/src/main/java/com/allinb2c/commerce/marketplace/controller/SmartPricingController.java</code></td>
+<td><code>20079cc399fcc65d9512715c50e339f183945045</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>SMART-PRICING-SERVICE</code></td>
+<td><code>backend/domain/commerce/marketplace-service/src/main/java/com/allinb2c/commerce/marketplace/service/SmartPricingService.java</code></td>
+<td><code>8be4df025c3836f5395284415149268a45ca69ef</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>CART-CONTROLLER</code></td>
+<td><code>backend/domain/commerce/order-service/src/main/java/com/allinb2c/commerce/order/api/CartController.java</code></td>
+<td><code>2f1f550db8296746b41f6e87eadf4899615fd0d3</code></td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td><code>CART-SERVICE</code></td>
+<td><code>backend/domain/commerce/order-service/src/main/java/com/allinb2c/commerce/order/service/CartService.java</code></td>
+<td><code>9f7194377156c248973ebb46a9507b4eb50f5060</code></td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td><code>CHECKOUT-CONTROLLER</code></td>
+<td><code>backend/domain/commerce/order-service/src/main/java/com/allinb2c/commerce/order/api/CheckoutController.java</code></td>
+<td><code>77cf28681bd107a6cc0227938328d18d86b1836e</code></td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td><code>ORDER-APPLICATION</code></td>
+<td><code>backend/domain/commerce/order-service/src/main/java/com/allinb2c/commerce/order/service/OrderApplicationService.java</code></td>
+<td><code>7fba54d4dfb94afcc8d2f575191d10ab95b3ff60</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>ORDER-ENTITY</code></td>
+<td><code>backend/domain/commerce/order-service/src/main/java/com/allinb2c/commerce/order/entity/OrderEntity.java</code></td>
+<td><code>1f3efa66e3830dc2c7e85866faab8cd8a604b552</code></td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td><code>ORDER-CRUD</code></td>
+<td><code>backend/domain/commerce/order-service/src/main/java/com/allinb2c/commerce/order/service/OrderCrudService.java</code></td>
+<td><code>df6182d7681f495b4ba7915adb46cc281fe56735</code></td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td><code>ORDER-WORKFLOW</code></td>
+<td><code>backend/domain/commerce/order-service/src/main/java/com/allinb2c/commerce/order/service/OrderWorkflowService.java</code></td>
+<td><code>925e9a08b779fa5bb3fae3e2fbc10417d1fdd930</code></td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td><code>ORDER-EVENT-PUBLISHER</code></td>
+<td><code>backend/domain/commerce/order-service/src/main/java/com/allinb2c/commerce/order/event/OrderEventPublisher.java</code></td>
+<td><code>2e845993a7a7f582bf29c5f5eca411419c28e98f</code></td>
+<td><code>LOCAL_EVENT_ONLY</code></td>
+</tr>
+<tr>
+<td><code>ORDER-ORCHESTRATOR</code></td>
+<td><code>backend/domain/commerce/order-service/src/main/java/com/allinb2c/commerce/order/service/OrderWorkflowOrchestrator.java</code></td>
+<td><code>85b7b03ac88825db7ad2862e2f0be311a63df015</code></td>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td><code>LEGACY-FULFILMENT</code></td>
+<td><code>backend/domain/fulfillment/warehouse-service/src/main/java/com/allinb2c/fulfillment/warehouse/service/FulfillmentService.java</code></td>
+<td><code>9f7906ea15fb5b7717bc03dbc47d20c0b7c0b084</code></td>
+<td><code>DEPRECATED_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td><code>PICK-PACK-SERVICE</code></td>
+<td><code>backend/domain/fulfillment/warehouse-service/src/main/java/com/allinb2c/fulfillment/warehouse/service/PickPackService.java</code></td>
+<td><code>b34fe872f1b365d1fe81bd42ea09f7262d030873</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>PICK-PACK-CONTROLLER</code></td>
+<td><code>backend/domain/fulfillment/warehouse-service/src/main/java/com/allinb2c/fulfillment/warehouse/controller/PickPackController.java</code></td>
+<td><code>19619f06c31753480139e2abb65669418e9006af</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>LAST-MILE-OPTIMIZER</code></td>
+<td><code>backend/domain/fulfillment/warehouse-service/src/main/java/com/allinb2c/fulfillment/warehouse/routing/LastMileCarrierOptimizer.java</code></td>
+<td><code>b937fc261f5f0b36017526b4e50087e3d18cc727</code></td>
+<td><code>SIMULATED_REFERENCE_IMPLEMENTATION</code></td>
+</tr>
+<tr>
+<td><code>RETURNS-CONTROLLER</code></td>
+<td><code>backend/domain/commerce/returns-service/src/main/java/com/allinb2c/commerce/returns/controller/ReturnsController.java</code></td>
+<td><code>1dfa9a38b5aa5ea897983f57a8677d5b98c46969</code></td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td><code>RETURNS-SERVICE</code></td>
+<td><code>backend/domain/commerce/returns-service/src/main/java/com/allinb2c/commerce/returns/service/ReturnsService.java</code></td>
+<td><code>56f7daeb6050444bcf661de67e59ee9789934478</code></td>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+</tr>
+<tr>
+<td><code>RETURNS-WORKSPACE</code></td>
+<td><code>backend/domain/commerce/returns-service/src/main/java/com/allinb2c/commerce/returns/service/ReturnsResolutionWorkspaceService.java</code></td>
+<td><code>5e2054b768d6714eb97a6fade8a8c2f24ed97628</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>MARKETPLACE-SETTLEMENT-CONTROLLER</code></td>
+<td><code>backend/domain/commerce/marketplace-service/src/main/java/com/allinb2c/commerce/marketplace/controller/SettlementController.java</code></td>
+<td><code>b7c07f242f699f22817ef1fa8a6f23a049469a4a</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>MARKETPLACE-SETTLEMENT-SERVICE</code></td>
+<td><code>backend/domain/commerce/marketplace-service/src/main/java/com/allinb2c/commerce/marketplace/service/SettlementService.java</code></td>
+<td><code>e1a9c2bc7fa3d534d6473c8fd8efd7c56bc03616</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>PAYMENT-SETTLEMENT-SERVICE</code></td>
+<td><code>backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/service/SettlementService.java</code></td>
+<td><code>d22c93a39b7bef2beabc33a5e028d8986dbf2b2f</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>ESG-GOAL-CONTROLLER</code></td>
+<td><code>backend/domain/engagement/compliance-service/src/main/java/com/allinb2c/engagement/compliance/carbontracking/api/SustainabilityGoalController.java</code></td>
+<td><code>6adbd69c94842195498fad0a7bbafa0cbe9dea6c</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>ESG-GOAL-SERVICE</code></td>
+<td><code>backend/domain/engagement/compliance-service/src/main/java/com/allinb2c/engagement/compliance/carbontracking/service/SustainabilityGoalService.java</code></td>
+<td><code>f57f361dd603d06487a7584fa9ed7f06d40949ae</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>AI-EVALUATION-CONTROLLER</code></td>
+<td><code>backend/domain/intelligence/ai-orchestrator/src/main/java/com/allinb2c/intelligence/orchestrator/evaluation/EvaluationController.java</code></td>
+<td><code>4477c54867d7113c70c7f93cd37d35070c459a28</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+<tr>
+<td><code>AI-EVALUATION-SERVICE</code></td>
+<td><code>backend/domain/intelligence/ai-orchestrator/src/main/java/com/allinb2c/intelligence/orchestrator/evaluation/EvaluationService.java</code></td>
+<td><code>66445f266f5aae7347cf1bd1c6b0945f8787904a</code></td>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+</tr>
+</tbody></table></div>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 14-REMEDIATION-AND-VERIFICATION-PLAN.md --></p>
+<br>
+<h1 id="14-remediation-and-verification-plan">14 — Remediation and Verification Plan</h1>
+<br>
+<h2 id="priority-0-security-and-commercial-integrity">Priority 0 — Security and Commercial Integrity <a href="#priority-0-security-and-commercial-integrity" class="heading-anchor">#</a></h2>
+<br>
+<li>Fix Order <code>list()</code> tenant leak and all bulk operation leaks.</li>
+<li>Scope Cart, Marketplace Catalog, Pricing, Fulfilment, Returns, Settlement, ESG and AI Evaluation ID lookups to trusted tenant context.</li>
+<li>Stop accepting authoritative price, user, payment and verification state from Client input.</li>
+<li>Disable or protect direct <code>confirm-payment</code>, direct product approval and self-verified catalog fields.</li>
+<li>Correct Order history from/to status recording.</li>
+<li>Replace random actor UUIDs in Returns with authenticated actor identity.</li>
+<li>Require POD before Order becomes Delivered.</li>
+<br>
+<h2 id="priority-1-canonical-ownership">Priority 1 — Canonical Ownership <a href="#priority-1-canonical-ownership" class="heading-anchor">#</a></h2>
+<br>
+<li>Product Master versus Marketplace Catalog/Offer.</li>
+<li>Price authority and immutable Price Version.</li>
+<li>Customer Order versus Warehouse Fulfilment Order.</li>
+<li>Marketplace settlement ledger versus Payment payout execution.</li>
+<li>Compliance ESG versus specialized Carbon service.</li>
+<li>Return disposition versus Inventory stock posting.</li>
+<br>
+<h2 id="priority-2-reliable-execution">Priority 2 — Reliable Execution <a href="#priority-2-reliable-execution" class="heading-anchor">#</a></h2>
+<br>
+<li>Transactional outbox/inbox for Order، Pick/Pack، Returns، Settlement و ESG.</li>
+<li>Order Saga with inventory reservation, payment authorization, fulfilment creation and compensation.</li>
+<li>Idempotent Checkout، Payment confirmation، Return receive/inspect and Settlement transaction ingestion.</li>
+<li>Live carrier adapter، quote expiry، booking، tracking webhook and POD.</li>
+<li>Immutable evidence journals instead of mutable JSON timelines.</li>
+<li>Multi-currency normalization and financial reconciliation.</li>
+<br>
+<h2 id="required-verification">Required verification <a href="#required-verification" class="heading-anchor">#</a></h2>
+<br>
+<li>tenant isolation tests including list/bulk/cache paths؛</li>
+<li>client price tampering E2E؛</li>
+<li>duplicate checkout/payment webhook tests؛</li>
+<li>order saga failure/compensation tests؛</li>
+<li>concurrent stock allocation and over-pick tests؛</li>
+<li>return quantity discrepancy and duplicate restock tests؛</li>
+<li>settlement cross-tenant/currency/provider reconciliation؛</li>
+<li>ESG methodology/version/assurance tests؛</li>
+<li>AI evaluation run ownership, score range and duplicate-review tests؛</li>
+<li>CI logs and migration upgrade evidence.</li>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: 15-NEXT-WAVE-PLAN.md --></p>
+<br>
+<h1 id="15-repository-evidence-wave-04-plan">15 — Repository Evidence Wave 04 Plan</h1>
+<br>
+<p>Wave 04 باید زیرساخت cross-cutting را بررسی کند:</p>
+<br>
+<li>Identity، Authentication، Authorization و Tenant Isolation</li>
+<li>Audit، Evidence Integrity و Non-Repudiation</li>
+<li>Event Bus، Outbox/Inbox، Idempotency و Replay</li>
+<li>API Gateway، Rate Limiting و Abuse Protection</li>
+<li>Secrets، Key Management و Encryption</li>
+<li>Observability، SLO، Incident و Disaster Recovery</li>
+<li>Database ownership، migration safety و backup/restore</li>
+<li>Data Privacy، Retention، Consent و Residency</li>
+<li>CI/CD، Supply Chain Security و Deployment Evidence</li>
+<li>Production Readiness and Go-Live Evidence</li>
+<br>
+<p>بدون Wave 04 هیچ Stage تجاری نباید production-certified اعلام شود.</p>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: IMPLEMENTATION-STATUS-VOCABULARY.md --></p>
+<br>
+<h1 id="implementation-and-evidence-status-vocabulary">Implementation and Evidence Status Vocabulary</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Status</th>
+<th class="table-sort">Meaning</th>
+</tr></thead><tbody>
+<tr>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+<td>Executable code or migration supports the narrow claim</td>
+</tr>
+<tr>
+<td><code>IMPLEMENTED_WITH_GAP</code></td>
+<td>Executable behavior exists with material gaps</td>
+</tr>
+<tr>
+<td><code>IMPLEMENTED_WITH_CRITICAL_GAPS</code></td>
+<td>Executable behavior exists but security or truth-integrity defects block safe use</td>
+</tr>
+<tr>
+<td><code>PARTIAL_IMPLEMENTATION</code></td>
+<td>Only a subset of the capability is executable</td>
+</tr>
+<tr>
+<td><code>DEPRECATED_IMPLEMENTATION</code></td>
+<td>Executable but explicitly deprecated or pending removal</td>
+</tr>
+<tr>
+<td><code>LOCAL_EVENT_ONLY</code></td>
+<td>In-process event exists without durable broker/outbox evidence</td>
+</tr>
+<tr>
+<td><code>SIMULATED_REFERENCE_IMPLEMENTATION</code></td>
+<td>Static, in-memory, or rule simulation; not a production external integration</td>
+</tr>
+<tr>
+<td><code>PLANNED_NOT_IMPLEMENTED</code></td>
+<td>Intent/comments/contracts exist without executable end-to-end behavior</td>
+</tr>
+<tr>
+<td><code>CONFLICT_REQUIRES_CANONICALIZATION</code></td>
+<td>Competing owners or Systems of Record exist</td>
+</tr>
+<tr>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+<td>Evidence remains insufficient</td>
+</tr>
+<tr>
+<td><code>TEST_FILE_DISCOVERED</code></td>
+<td>Test source exists; execution result is unverified</td>
+</tr>
+</tbody></table></div>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: README.md --></p>
+<br>
+<h1 id="gtos-handbook-batch-09">GTOS Handbook — Batch 09</h1>
+<br>
+<h2 id="repository-evidence-wave-03">Repository Evidence Wave 03 <a href="#repository-evidence-wave-03" class="heading-anchor">#</a></h2>
+<br>
+<p>این بسته بخش Customer-facing Commerce را بر اساس کد اجرایی Repository بررسی می‌کند:</p>
+<br>
+<li>Product Catalog and Marketplace Catalog</li>
+<li>Pricing and Price Calculation</li>
+<li>Cart and Checkout</li>
+<li>Customer Order</li>
+<li>Allocation, Pick, Pack, Fulfilment</li>
+<li>Last-Mile and Delivery Proof</li>
+<li>Returns, Inspection, Disputes</li>
+<li>Settlement and Reconciliation</li>
+<li>ESG / Sustainability Goals</li>
+<li>AI Evaluation and Governed Learning</li>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Field</th>
+<th class="table-sort">Value</th>
+</tr></thead><tbody>
+<tr>
+<td>Repository</td>
+<td><code>chinair88-prog/allinb2c</code></td>
+</tr>
+<tr>
+<td>Evidence snapshot</td>
+<td><code>14cc83805e7386c3d5cdec6ad191b1078fd502ff</code></td>
+</tr>
+<tr>
+<td>GitHub branch</td>
+<td><code>gtos/handbook-repository-grounded-expansion-v2</code></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>Batch 09 / Evidence Wave 03</td>
+</tr>
+<tr>
+<td>Publication maturity</td>
+<td>Code-grounded review artifact</td>
+</tr>
+</tbody></table></div>
+<br>
+<p>این بسته Deployment، CI success، provider outcome یا production certification را اثبات نمی‌کند.</p>
+<br>
+<br>
+<hr>
+<br>
+<p><!-- SOURCE: RELEASE-REPORT.md --></p>
+<br>
+<h1 id="batch-09-release-report">Batch 09 Release Report</h1>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Field</th>
+<th class="table-sort">Value</th>
+</tr></thead><tbody>
+<tr>
+<td>Release</td>
+<td>Repository Evidence Wave 03</td>
+</tr>
+<tr>
+<td>Repository snapshot</td>
+<td><code>14cc83805e7386c3d5cdec6ad191b1078fd502ff</code></td>
+</tr>
+<tr>
+<td>GitHub branch</td>
+<td><code>gtos/handbook-repository-grounded-expansion-v2</code></td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Catalog through AI Evaluation</td>
+</tr>
+<tr>
+<td>Maturity</td>
+<td>Review artifact, not production certification</td>
+</tr>
+</tbody></table></div>
+<br>
+<h2 id="principal-conclusions">Principal conclusions <a href="#principal-conclusions" class="heading-anchor">#</a></h2>
+<br>
+<li>Product/Catalog and Pricing have multiple competing authorities.</li>
+<li>Cart and Checkout trust Client-supplied identity and price.</li>
+<li>Customer Order has a tenant leak in list and unscoped bulk workflows.</li>
+<li>Cross-service Order Saga is not implemented.</li>
+<li>Pick/Pack is executable but not connected to Inventory consumption.</li>
+<li>Last-Mile is a static in-memory optimizer and POD is absent.</li>
+<li>Returns creates useful records but auto-approves, invents actor IDs, and does not execute restock/refund.</li>
+<li>Marketplace and Payment both implement Settlement with unclear ownership.</li>
+<li>ESG Goal tracking is self-reported and duplicated across services.</li>
+<li>AI Evaluation is executable but run ownership, reviewer identity, score bounds and reproducibility are incomplete.</li>
+<br>
+<p>No area in this Wave is certified end-to-end complete.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

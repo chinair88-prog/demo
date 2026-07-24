@@ -1,0 +1,11 @@
+digraph G {
+rankdir=TB; graph [bgcolor="transparent", pad="0.4", ranksep="0.65", nodesep="0.45", splines="ortho"];
+node [fontname="Arial", fontsize=11, shape=rect, style="rounded,filled", penwidth=1.5, margin="0.16,0.10"];
+edge [color="#607D86", penwidth=1.4, arrowsize=0.75];
+subgraph cluster_exp {label="Experience & Channels"; color="#9CCBD4"; style="rounded"; fillcolor="#F4FBFC"; Portal [label="Customer & Partner Portals", fillcolor="#E9F7F9", color="#2D7A88"]; API [label="API & Integration Channels", fillcolor="#E9F7F9", color="#2D7A88"];}
+subgraph cluster_com {label="Commerce & Trade Domains"; color="#D7B36A"; style="rounded"; Catalog [label="Product • Offer • Pricing", fillcolor="#FFF8E8", color="#A86E12"]; Order [label="Cart • Checkout • Order", fillcolor="#FFF8E8", color="#A86E12"]; Finance [label="Payment • Settlement", fillcolor="#FFF8E8", color="#A86E12"]; Trade [label="Procurement • Documents • Customs", fillcolor="#FFF8E8", color="#A86E12"];}
+subgraph cluster_ful {label="Fulfilment & Supply Chain"; color="#91B98B"; style="rounded"; Inventory [label="Inventory • Warehouse", fillcolor="#F0F8EE", color="#4C8447"]; Shipping [label="Shipping • Delivery • Returns", fillcolor="#F0F8EE", color="#4C8447"];}
+subgraph cluster_ai {label="Intelligence & Governance"; color="#B09AC7"; style="rounded"; AI [label="AI Orchestrator • Agents • RAG", fillcolor="#F7F1FB", color="#78589A"]; Gov [label="Policy • Evaluation • Human Oversight", fillcolor="#F7F1FB", color="#78589A"];}
+subgraph cluster_platform {label="Platform Foundation"; color="#95A7B2"; style="rounded"; Identity [label="Identity • Tenant • Authorization", fillcolor="#F1F5F7", color="#526C78"]; Data [label="Data • Events • Workflows", fillcolor="#F1F5F7", color="#526C78"]; Ops [label="Security • Observability • SRE • CI/CD", fillcolor="#F1F5F7", color="#526C78"];}
+Portal -> Catalog; API -> Order; Catalog -> Order; Order -> Finance; Order -> Trade; Trade -> Inventory; Inventory -> Shipping; AI -> Catalog; AI -> Order; Gov -> AI; Identity -> Portal; Identity -> API; Data -> Order; Data -> Inventory; Ops -> Data;
+}

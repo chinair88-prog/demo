@@ -1,0 +1,51 @@
+---
+title: "Engineering Acceptance and Handover"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Engineering Acceptance and Handover"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Engineering Acceptance and Handover" }
+  ]}
+>
+
+<br />
+<h2 id="purpose">Purpose</h2>
+<br />
+<p>Engineering acceptance confirms that a GTOS capability is not merely implemented but ready to become an owned, supportable, auditable part of the operating system. Acceptance transfers responsibility from a temporary delivery arrangement to durable product and operations ownership.</p>
+<br />
+<h2 id="acceptance-package">Acceptance Package</h2>
+<br />
+<p>The package includes approved domain and solution design, Canon traceability, ADRs, contracts, schemas, source repositories, build and deployment definitions, dependency inventory, test evidence, threat model, data classification, migration and reconciliation evidence, dashboards, SLOs, alerts, runbooks, support rota, known risks, architecture debt, partner contacts, and recovery results.</p>
+<br />
+<h2 id="knowledge-transfer">Knowledge Transfer</h2>
+<br />
+<p>Handover combines documentation with practical demonstration. Receiving engineers deploy the capability, diagnose a simulated failure, trace a business outcome, execute a runbook, inspect a Decision Record, replay or rebuild a projection safely, and explain correction behavior. Attendance at a presentation does not prove operational competence.</p>
+<br />
+<h2 id="ownership-transfer">Ownership Transfer</h2>
+<br />
+<p>The Product Owner accepts outcome and roadmap. The Domain Owner accepts authoritative meaning and policy. Engineering accepts code and delivery pipelines. Data accepts contracts, lineage, quality, retention, and access. Security accepts controls and residual risk. Operations accepts SLOs, runbooks, on-call, recovery, and incident escalation.</p>
+<br />
+<h2 id="open-items">Open Items</h2>
+<br />
+<p>Open defects, exceptions, debt, manual controls, temporary credentials, feature flags, migration bridges, and unsupported consumers remain visible with owner, impact, due date, and escalation. Hidden unfinished work invalidates acceptance.</p>
+<br />
+<h2 id="acceptance-decision">Acceptance Decision</h2>
+<br />
+<p>The acceptance Decision identifies scope, release, environment, evidence, conditions, dissent, and effective date. Conditional acceptance has measurable exit criteria. Critical non-conformance cannot be converted into acceptance merely because a project deadline has arrived.</p>
+<br />
+<h2 id="post-acceptance-verification">Post-Acceptance Verification</h2>
+<br />
+<p>Within the agreed period, the receiving team reviews production outcomes, SLOs, incidents, partner behavior, data reconciliation, AI quality, costs, and benefit measures. Material divergence triggers remediation or a new architecture Decision. Temporary project access and elevated permissions are removed after verified transfer.</p>
+<br />
+<h2 id="final-verification-questions">Final Verification Questions</h2>
+<br />
+<p>Can the receiving team identify every production owner and escalation path? Can it explain which data is authoritative and which is derived? Can it safely stop automated execution without losing evidence? Can it recover from backup, replay Events, reconcile business state, and prove completion? Can it trace a user-visible outcome to policy, Decision, Intent, Command, Event, deployment, and operational telemetry? Can it identify all temporary controls and their expiry? If any answer is unknown, the handover remains incomplete and the delivery team retains responsibility for closing the gap.</p>
+<br />
+<p>Acceptance evidence SHALL remain accessible, versioned, attributable, and reviewable throughout the operational life of the capability.</p>
+<br />
+</ContentPage>

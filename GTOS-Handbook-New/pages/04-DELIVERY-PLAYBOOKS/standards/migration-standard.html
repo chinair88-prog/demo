@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Semantic Migration Standard · GTOS Handbook</title>
+<meta name="description" content="Semantic Migration Standard Scope Migration includes database change, service extraction, platform replacement, partner transition, schema evolution, identity m">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/standards/index.html">Standards</a> <span class="sep">›</span> <span>Semantic Migration Standard</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Semantic Migration Standard</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#scope">Scope</a></li><li class="toc-level-2"><a href="#required-plan">Required Plan</a></li><li class="toc-level-2"><a href="#dual-operation">Dual Operation</a></li><li class="toc-level-2"><a href="#historical-data">Historical Data</a></li><li class="toc-level-2"><a href="#cutover">Cutover</a></li><li class="toc-level-2"><a href="#ai-and-analytics">AI and Analytics</a></li><li class="toc-level-2"><a href="#completion">Completion</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="semantic-migration-standard">Semantic Migration Standard</h1>
+<br>
+<h2 id="scope">Scope <a href="#scope" class="heading-anchor">#</a></h2>
+<br>
+<p>Migration includes database change, service extraction, platform replacement, partner transition, schema evolution, identity merge, policy change, and model upgrade.</p>
+<br>
+<h2 id="required-plan">Required Plan <a href="#required-plan" class="heading-anchor">#</a></h2>
+<br>
+<p>A migration plan defines source and target semantics, ownership, mapping, temporal treatment, correction behavior, compatibility, validation, cutover, rollback, reconciliation, and retirement.</p>
+<br>
+<h2 id="dual-operation">Dual Operation <a href="#dual-operation" class="heading-anchor">#</a></h2>
+<br>
+<p>During dual run, one truth owner remains explicit. Dual writes require deterministic conflict handling and reconciliation. Comparing record counts is insufficient; propositions and outcomes are compared.</p>
+<br>
+<h2 id="historical-data">Historical Data <a href="#historical-data" class="heading-anchor">#</a></h2>
+<br>
+<p>Historical data retains original identifiers, source, time, and meaning. Transformations record lineage. Present-day rules SHALL not silently reinterpret historical facts.</p>
+<br>
+<h2 id="cutover">Cutover <a href="#cutover" class="heading-anchor">#</a></h2>
+<br>
+<p>Cutover criteria include data completeness, invariant validity, consumer readiness, operational telemetry, rollback window, and unresolved exceptions.</p>
+<br>
+<h2 id="ai-and-analytics">AI and Analytics <a href="#ai-and-analytics" class="heading-anchor">#</a></h2>
+<br>
+<p>Feature and model migrations require point-in-time validation and decision comparison. Vector embeddings or summaries SHALL not become the only retained representation of evidence.</p>
+<br>
+<h2 id="completion">Completion <a href="#completion" class="heading-anchor">#</a></h2>
+<br>
+<p>Migration completes only after old write paths are disabled, consumers are migrated, evidence is archived, reconciliation passes, and ownership is updated.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

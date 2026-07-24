@@ -1,0 +1,68 @@
+---
+title: "04 — Customer Order and Workflow"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="04 — Customer Order and Workflow"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "04 — Customer Order and Workflow" }
+  ]}
+>
+
+<br />
+<h2 id="implemented-order-model">Implemented order model</h2>
+<br />
+<p><code class="code-inline">OrderEntity</code> دارای:</p>
+<br />
+<p>- Order، Payment و Fulfilment statusهای جدا؛</p>
+<p>- tenantId؛</p>
+<p>- monetary totals و currency؛</p>
+<p>- item/address snapshots؛</p>
+<p>- payment/shipping references؛</p>
+<p>- history؛</p>
+<p>- <code class="code-inline">@Version</code> optimistic locking؛</p>
+<p>- transition methods برای approve/process/ship/deliver/cancel/hold/refund/return.</p>
+<br />
+<p><code class="code-inline">OrderApplicationService</code> CRUD، workflow، analytics، import و editing را facade می‌کند.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_CRITICAL_GAPS</code>.</p>
+<br />
+<h2 id="positive-controls">Positive controls</h2>
+<br />
+<p>- several state transitions validate current state؛</p>
+<p>- entity uses enums؛</p>
+<p>- optimistic version exists؛</p>
+<p>- per-ID reads and workflow commands use TenantContext-aware lookup when context exists؛</p>
+<p>- cache keys often include tenant key؛</p>
+<p>- order history entity exists.</p>
+<br />
+<h2 id="critical-findings">Critical findings</h2>
+<br />
+<p>1. <code class="code-inline">OrderCrudService.list()</code> در هر دو branch شرط، <code class="code-inline">repository.findAll()</code> اجرا می‌کند؛ tenant-scoped list عملاً leak دارد.</p>
+<p>2. bulk approve/cancel/refund از <code class="code-inline">findAllById</code> بدون tenant filter استفاده می‌کنند.</p>
+<p>3. system/internal context عمداً fail-open است.</p>
+<p>4. Order Items قیمت و snapshot را از request می‌پذیرند.</p>
+<p>5. <code class="code-inline">recordTransition</code> پس از تغییر status، همان status فعلی را برای from و to می‌خواند؛ local variable <code class="code-inline">from</code> استفاده نمی‌شود.</p>
+<p>6. <code class="code-inline">markPaid</code> state، amount، currency، transaction uniqueness یا provider signature guard ندارد.</p>
+<p>7. hold از هر status قابل اعمال است.</p>
+<p>8. local Spring Event استفاده می‌شود؛ broker/outbox وجود ندارد.</p>
+<p>9. <code class="code-inline">OrderWorkflowOrchestrator</code> مراحل Inventory Reservation، Payment Capture، Fulfilment، Settlement و Returns را فقط در comment ثبت کرده است.</p>
+<p>10. auto-approval threshold برابر 1000 است، بدون currency normalization و risk policy.</p>
+<br />
+<h2 id="correct-truth-boundaries">Correct truth boundaries</h2>
+<br />
+<p>Order باید تعهد تجاری را نگه دارد؛ اما:</p>
+<br />
+<p>- Payment outcome متعلق به Payment Domain است.</p>
+<p>- Inventory reservation متعلق به Inventory است.</p>
+<p>- Pick/Pack متعلق به Warehouse است.</p>
+<p>- Shipment/Delivery observation متعلق به Shipping/Carrier integration است.</p>
+<p>- Settlement متعلق به Finance/Marketplace settlement owner است.</p>
+<br />
+<p>Order status باید projection این facts باشد، نه جایگزین آن‌ها.</p>
+<br />
+</ContentPage>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Event Evolution Pattern · GTOS Handbook</title>
+<meta name="description" content="Event Evolution Pattern Objective Event schemas must evolve without changing the meaning of facts already published. Compatibility Additive optional fields are ">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/reference-patterns/index.html">Reference Patterns</a> <span class="sep">›</span> <span>Event Evolution Pattern</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Event Evolution Pattern</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#objective">Objective</a></li><li class="toc-level-2"><a href="#compatibility">Compatibility</a></li><li class="toc-level-2"><a href="#rules">Rules</a></li><li class="toc-level-2"><a href="#semantic-review">Semantic Review</a></li><li class="toc-level-2"><a href="#replay">Replay</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="event-evolution-pattern">Event Evolution Pattern</h1>
+<br>
+<h2 id="objective">Objective <a href="#objective" class="heading-anchor">#</a></h2>
+<br>
+<p>Event schemas must evolve without changing the meaning of facts already published.</p>
+<br>
+<h2 id="compatibility">Compatibility <a href="#compatibility" class="heading-anchor">#</a></h2>
+<br>
+<p>Additive optional fields are generally compatible. Renaming, changing units, changing identifier scope, altering temporal meaning, or changing authority semantics are breaking even when JSON remains parseable.</p>
+<br>
+<h2 id="rules">Rules <a href="#rules" class="heading-anchor">#</a></h2>
+<br>
+<li>Event identity and historical payload remain immutable.</li>
+<li>Producers publish a schema version.</li>
+<li>Consumers declare supported versions.</li>
+<li>Transformations preserve original event reference.</li>
+<li>A corrected business fact is a new Event, not a rewritten old Event.</li>
+<li>Deprecated versions have owners, consumers, sunset dates, and replay plans.</li>
+<br>
+<h2 id="semantic-review">Semantic Review <a href="#semantic-review" class="heading-anchor">#</a></h2>
+<br>
+<p>Reviewers SHALL ask whether a consumer built under the old meaning would reach a different business conclusion. If yes, the change is semantically breaking.</p>
+<br>
+<h2 id="replay">Replay <a href="#replay" class="heading-anchor">#</a></h2>
+<br>
+<p>Before replaying historical Events into new consumers, teams SHALL evaluate whether new code interprets old facts using historically appropriate semantics. Reprocessing with present-day rules may produce a new derived perspective but SHALL not masquerade as the original historical result.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

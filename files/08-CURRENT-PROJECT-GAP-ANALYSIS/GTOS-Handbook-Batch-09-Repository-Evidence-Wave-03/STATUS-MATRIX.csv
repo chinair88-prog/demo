@@ -1,0 +1,20 @@
+area,classification,reason
+Product Catalog,IMPLEMENTED_WITH_GAP,CRUD and workflow exist; tenant/approval conflicts
+Marketplace Catalog,IMPLEMENTED_WITH_GAP,Tenant fields exist; ID operations and verification unsafe
+Marketplace Offer,PLANNED_NOT_IMPLEMENTED,No independent offer aggregate found
+Pricing,IMPLEMENTED_WITH_GAP,Multiple authorities and simplified rule scopes
+Price Version,PLANNED_NOT_IMPLEMENTED,No immutable accepted commercial snapshot
+Cart,IMPLEMENTED_WITH_CRITICAL_GAPS,Client identity and prices trusted
+Checkout,IMPLEMENTED_WITH_CRITICAL_GAPS,No authoritative repricing; payment spoof risk
+Checkout AI,SIMULATED_REFERENCE_IMPLEMENTATION,Hard-coded local rules
+Customer Order,IMPLEMENTED_WITH_CRITICAL_GAPS,"Tenant leaks, history/payment/event gaps"
+Order Saga,PLANNED_NOT_IMPLEMENTED,Cross-service steps are comments
+Pick/Pack,IMPLEMENTED_WITH_GAP,Real tasks; no tenant/inventory integration
+Last Mile,SIMULATED_REFERENCE_IMPLEMENTATION,Static in-memory carrier rates
+Proof of Delivery,PLANNED_NOT_IMPLEMENTED,No qualified POD evidence found
+Returns,IMPLEMENTED_WITH_CRITICAL_GAPS,"Auto approval, random actors, no restock execution"
+Disputes,IMPLEMENTED_WITH_GAP,Workflow exists; ID scope/evidence integrity gaps
+Marketplace Settlement,IMPLEMENTED_WITH_GAP,Calculation/reconciliation; no payout proof
+Payment Settlement,IMPLEMENTED_WITH_GAP,Global capture batching risk
+ESG Goals,IMPLEMENTED_WITH_GAP,Self-reported progress and duplicate ownership
+AI Evaluation,IMPLEMENTED_WITH_GAP,Stats/recommendation exist; run/evaluator governance gaps

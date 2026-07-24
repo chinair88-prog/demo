@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Repository Evidence Wave 01 - Payment · GTOS Handbook</title>
+<meta name="description" content="Repository Evidence Wave 01 Payment Evidence baseline Inspected files: backend/domain/commerce/paymentservice/src/main/java/com/allinb2c/commerce/payment/entity">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-07-Audit-Canonicalization-Evidence-Wave-01/index.html">GTOS Handbook Batch 07 Audit Canonicalization Evidence Wave 01</a> <span class="sep">›</span> <span>Repository Evidence Wave 01 - Payment</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>Repository Evidence Wave 01 - Payment</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#evidence-baseline">Evidence baseline</a></li><li class="toc-level-2"><a href="#verified-implementation">Verified implementation</a></li><li class="toc-level-2"><a href="#verified-gaps-and-risks">Verified gaps and risks</a></li><li class="toc-level-2"><a href="#status-decision">Status decision</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="repository-evidence-wave-01-payment">Repository Evidence Wave 01 - Payment</h1>
+<br>
+<h2 id="evidence-baseline">Evidence baseline <a href="#evidence-baseline" class="heading-anchor">#</a></h2>
+<br>
+<p>Inspected files:</p>
+<br>
+<li><code>backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/entity/PaymentIntentEntity.java</code></li>
+<li><code>backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/service/PaymentIntentService.java</code></li>
+<li><code>backend/domain/commerce/payment-service/src/main/java/com/allinb2c/commerce/payment/api/PaymentController.java</code></li>
+<br>
+<h2 id="verified-implementation">Verified implementation <a href="#verified-implementation" class="heading-anchor">#</a></h2>
+<br>
+<p><code>PaymentIntentEntity</code> maps to <code>payment_service_intents</code> and defines indexes for order, status, provider, customer, creation, expiry, and tenant. It records amount, currency, capture mode, status, provider, provider reference, customer, description, expiry, errors, metadata, a unique idempotency key, and a JPA optimistic-lock version.</p>
+<br>
+<p>Lifecycle methods support captured, partially captured, cancelled, expired, and failed states. Captured intents cannot be cancelled.</p>
+<br>
+<p><code>PaymentIntentService</code> implements creation, idempotency lookup, tenant-aware queries, pagination, provider/customer/status filters, and cancellation. The service obtains tenant context from a gateway-injected header and uses unscoped behavior when the context is absent for internal flows.</p>
+<br>
+<p><code>PaymentController</code> exposes payment intents, capture, refund, settlement, payout, webhook, dispute, summary, and provider information under <code>/api/payments</code>.</p>
+<br>
+<h2 id="verified-gaps-and-risks">Verified gaps and risks <a href="#verified-gaps-and-risks" class="heading-anchor">#</a></h2>
+<br>
+<li>Legacy/internal unscoped access is deliberately preserved and requires strong trusted-caller controls.</li>
+<li>Tenant context depends on a gateway-injected header; direct-service access must be prevented or independently authenticated.</li>
+<li>Idempotency lookup is by idempotency key without an inspected tenant predicate; a global unique key may cause cross-tenant behavior unless keys are globally namespaced and responses are protected.</li>
+<li>The inspected payment-intent status model starts at <code>REQUIRES_CAPTURE</code>; separate authorization, risk approval, and Outcome Unknown states are not part of this Entity.</li>
+<li>No formal PI risk-approval Decision aggregate was established in the inspected files.</li>
+<li>Webhook signature verification and provider-outcome reconciliation require inspection of additional classes.</li>
+<br>
+<h2 id="status-decision">Status decision <a href="#status-decision" class="heading-anchor">#</a></h2>
+<br>
+<div class="table-wrap"><table><thead><tr>
+<th class="table-sort">Capability</th>
+<th class="table-sort">Status</th>
+</tr></thead><tbody>
+<tr>
+<td>payment-intent entity, indexes, expiry and lifecycle methods</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>idempotency key and optimistic locking</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>tenant-aware intent reads</td>
+<td><code>VERIFIED_IMPLEMENTED</code> with legacy unscoped path</td>
+</tr>
+<tr>
+<td>intent/capture/refund/settlement/payout/webhook API surface</td>
+<td><code>VERIFIED_IMPLEMENTED</code></td>
+</tr>
+<tr>
+<td>trusted gateway and direct-access enforcement</td>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+<tr>
+<td>PI payment-risk approval workflow</td>
+<td><code>PARTIAL_IMPLEMENTATION</code> / separate capability not verified</td>
+</tr>
+<tr>
+<td>provider signature and Outcome Unknown reconciliation</td>
+<td><code>REQUIRES_REPOSITORY_REVIEW</code></td>
+</tr>
+</tbody></table></div>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

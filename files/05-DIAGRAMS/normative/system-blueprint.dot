@@ -1,0 +1,20 @@
+
+digraph G {
+  graph [rankdir=TB, bgcolor="transparent", pad=0.25, nodesep=0.35, ranksep=0.55];
+  node [shape=box, style="rounded,filled", fillcolor="#eef4fb", color="#244b74", fontname="DejaVu Sans", fontsize=10];
+  edge [color="#496b8c", arrowsize=0.7];
+  Experience [label="Experience Plane\nCustomer | Partner | Provider | Operator | Warehouse | Admin | Developer"];
+  Domains [label="Business Domain Plane\nCommerce | Trade | Supply Chain | Finance | Engagement"];
+  Integration [label="Integration Plane\nAPI Gateway | Event Bus | Workflow | Adapters | MCP Tools"];
+  Intelligence [label="Intelligence Plane\nAI Gateway | RAG | Agents | Evaluation | Safety"];
+  Platform [label="Platform Plane\nIdentity | Data | Security | Observability | Cloud | Developer Platform"];
+  External [label="External Authorities and Providers\nBanks | Customs | Carriers | Labs | Marketplaces", fillcolor="#fff3db", color="#9a6b1f"];
+  Experience -> Domains;
+  Domains -> Integration;
+  Intelligence -> Integration [dir=both];
+  Platform -> Experience [dir=both];
+  Platform -> Domains [dir=both];
+  Platform -> Integration [dir=both];
+  Platform -> Intelligence [dir=both];
+  Integration -> External [dir=both];
+}

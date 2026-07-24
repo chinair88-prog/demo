@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Policy expresses permission, prohibition, obligation, required approval, threshold, routing, or evidence requirement. A policy has identity, owner, authority basis, scope, effective time, version, inputs, rule logic, result types, explanation template, tests, and retirement state…">
+<meta name="color-scheme" content="light dark">
+<title>GTOS Policy Standard · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/standards/policy-standard.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Standards</span><span class="sep">/</span><span>GTOS Policy Standard</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>215 words</span></div>
+        <h1>GTOS Policy Standard</h1>
+        <p class="lede">Policy expresses permission, prohibition, obligation, required approval, threshold, routing, or evidence requirement. A policy has identity, owner, authority basis, scope, effective time, version, inputs, rule logic, result types, explanation template, tests, and retirement state…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="purpose">Purpose<a aria-label="Link to section" class="heading-anchor" href="#purpose">#</a></h2>
+<p>Policy expresses permission, prohibition, obligation, required approval, threshold, routing, or evidence requirement.</p>
+<h2 id="policy-anatomy">Policy Anatomy<a aria-label="Link to section" class="heading-anchor" href="#policy-anatomy">#</a></h2>
+<p>A policy has identity, owner, authority basis, scope, effective time, version, inputs, rule logic, result types, explanation template, tests, and retirement state.</p>
+<h2 id="input-context">Input Context<a aria-label="Link to section" class="heading-anchor" href="#input-context">#</a></h2>
+<p>Inputs may include actor identity, organizational Relationship, delegation, resource, action, purpose, jurisdiction, time, classification, risk, evidence, and operational state.</p>
+<h2 id="results">Results<a aria-label="Link to section" class="heading-anchor" href="#results">#</a></h2>
+<p>A result includes permit, deny, require approval, require evidence, or permit with obligations. The result records policy version, material inputs, reason codes, and decision time.</p>
+<h2 id="separation">Separation<a aria-label="Link to section" class="heading-anchor" href="#separation">#</a></h2>
+<p>Policy evaluation is not always a business Decision. A policy may provide a required control used by an authorized Decision process. Where policy automatically produces a binding determination, the evaluation is recorded as a Decision with authority.</p>
+<h2 id="testing">Testing<a aria-label="Link to section" class="heading-anchor" href="#testing">#</a></h2>
+<p>Policies require positive, negative, boundary, temporal, jurisdiction, delegation, and conflict tests. Production policy changes use staged rollout and decision comparison.</p>
+<h2 id="conflict-resolution">Conflict Resolution<a aria-label="Link to section" class="heading-anchor" href="#conflict-resolution">#</a></h2>
+<p>Conflicts are resolved by explicit priority and authority, not rule order accident. More restrictive rules do not automatically win when jurisdictions or legal authorities differ; the applicable authority model determines precedence.</p>
+<h2 id="explainability">Explainability<a aria-label="Link to section" class="heading-anchor" href="#explainability">#</a></h2>
+<p>Explanations identify the governing rule and material facts without exposing secrets or enabling control evasion.</p>
+<h2 id="lifecycle">Lifecycle<a aria-label="Link to section" class="heading-anchor" href="#lifecycle">#</a></h2>
+<p>Policies are reviewed when law, contract, risk, business model, or evidence changes. Expired policy SHALL not remain silently active.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#purpose">Purpose</a><a class="toc-level-2" href="#policy-anatomy">Policy Anatomy</a><a class="toc-level-2" href="#input-context">Input Context</a><a class="toc-level-2" href="#results">Results</a><a class="toc-level-2" href="#separation">Separation</a><a class="toc-level-2" href="#testing">Testing</a><a class="toc-level-2" href="#conflict-resolution">Conflict Resolution</a><a class="toc-level-2" href="#explainability">Explainability</a><a class="toc-level-2" href="#lifecycle">Lifecycle</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="observability-standard.html"><span>Previous</span><strong>End-to-End Observability Standard</strong></a>
+        <a class="next" href="privacy-and-purpose-standard.html"><span>Next</span><strong>Privacy and Purpose Standard</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

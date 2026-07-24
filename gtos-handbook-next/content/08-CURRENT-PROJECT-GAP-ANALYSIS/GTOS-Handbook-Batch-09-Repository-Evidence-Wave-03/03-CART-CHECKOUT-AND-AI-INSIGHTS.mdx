@@ -1,0 +1,81 @@
+---
+title: "03 — Cart, Checkout, and AI Insights"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="03 — Cart, Checkout, and AI Insights"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "03 — Cart, Checkout, and AI Insights" }
+  ]}
+>
+
+<br />
+<h2 id="cart-implementation">Cart implementation</h2>
+<br />
+<p><code class="code-inline">CartController</code> و <code class="code-inline">CartService</code> رفتارهای زیر را دارند:</p>
+<br />
+<p>- create/get cart by user or session؛</p>
+<p>- get by cart ID؛</p>
+<p>- add/update/remove item؛</p>
+<p>- coupon attach/remove؛</p>
+<p>- guest-to-user merge؛</p>
+<p>- clear and expiry cleanup.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_CRITICAL_GAPS</code>.</p>
+<br />
+<h2 id="cart-security-and-commercial-integrity-gaps">Cart security and commercial integrity gaps</h2>
+<br />
+<p>- userId، sessionId و cartId از request پذیرفته می‌شوند.</p>
+<p>- get/update/delete by cart ID ownership check آشکار ندارند.</p>
+<p>- Cart item فیلدهای SKU، name، unitPrice، currency، providerId و attributes را از Client می‌پذیرد.</p>
+<p>- Catalog/Offer/Inventory lookup قبل از add دیده نشد.</p>
+<p>- MOQ، maximum quantity، channel eligibility و availability validate نمی‌شوند.</p>
+<p>- Coupon فقط به cart attach می‌شود؛ comment صریحاً می‌گوید validation واقعی بعداً توسط CouponService انجام می‌شود.</p>
+<p>- guest merge با userId/sessionId ارسالی Caller انجام می‌شود.</p>
+<br />
+<h2 id="checkout-implementation">Checkout implementation</h2>
+<br />
+<p><code class="code-inline">CheckoutController</code>:</p>
+<br />
+<p>- checkout start؛</p>
+<p>- cart-to-order conversion؛</p>
+<p>- checkout validation؛</p>
+<p>- order verification؛</p>
+<p>- payment confirmation؛</p>
+<p>- AI insights.</p>
+<br />
+<p>اما checkout قیمت‌های Cart را مستقیماً به Order Item منتقل می‌کند. comparison واقعی با Catalog/Offer انجام نمی‌شود. tenantId نیز از Checkout request وارد Order می‌شود، مگر TenantContext در Order layer آن را override کند.</p>
+<br />
+<p><code class="code-inline">confirm-payment</code> مستقیماً Order را paid می‌کند و در فایل بررسی‌شده signed provider callback، idempotency، amount/currency reconciliation یا Payment Intent ownership اثبات نشد.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_CRITICAL_GAPS</code>.</p>
+<br />
+<h2 id="simulated-ai">Simulated AI</h2>
+<br />
+<p>کد صریحاً AI analysis را <code class="code-inline">reference implementation that simulates AI decisions</code> معرفی می‌کند.</p>
+<br />
+<p>Fraud score، ETA، payment suggestion، warehouse routing و upsell با ruleهای محلی و hard-coded ساخته می‌شوند؛ برای نمونه warehouseهای <code class="code-inline">wh-main</code> و <code class="code-inline">wh-special</code> و carrierهای فرضی انتخاب می‌شوند.</p>
+<br />
+<p>Classification:</p>
+<br />
+<p>- AI checkout advice: <code class="code-inline">SIMULATED_REFERENCE_IMPLEMENTATION</code></p>
+<p>- persisted AI decision: <code class="code-inline">PLANNED_NOT_IMPLEMENTED</code>؛ کد فقط آن را log می‌کند.</p>
+<br />
+<h2 id="required-checkout-contract">Required checkout contract</h2>
+<br />
+<p>Checkout باید:</p>
+<br />
+<p>1. actor/cart ownership را verify کند؛</p>
+<p>2. Offer و Price Version را دوباره resolve کند؛</p>
+<p>3. availability و reservation را اجرا کند؛</p>
+<p>4. shipping/tax/discount را authoritative محاسبه کند؛</p>
+<p>5. quote expiry و idempotency داشته باشد؛</p>
+<p>6. Payment Intent بسازد؛</p>
+<p>7. Order Snapshot immutable ایجاد کند؛</p>
+<p>8. AI output را advisory و traceable نگه دارد.</p>
+<br />
+</ContentPage>

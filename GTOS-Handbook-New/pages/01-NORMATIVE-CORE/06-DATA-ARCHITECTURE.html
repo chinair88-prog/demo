@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data Architecture · GTOS Handbook</title>
+<meta name="description" content="Data Architecture Principles database ownership follows Domain ownership; identifiers are stable, opaque, and namespaceaware; recorded time and effective time a">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/01-NORMATIVE-CORE/index.html">NORMATIVE CORE</a> <span class="sep">›</span> <span>Data Architecture</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Normative Core</span>
+        </div>
+        <h1>Data Architecture</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#principles">Principles</a></li><li class="toc-level-2"><a href="#storage-patterns">Storage patterns</a></li><li class="toc-level-2"><a href="#schema-design">Schema design</a></li><li class="toc-level-2"><a href="#migration-standard">Migration standard</a></li><li class="toc-level-2"><a href="#recovery">Recovery</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="data-architecture">Data Architecture</h1>
+<br>
+<h2 id="principles">Principles <a href="#principles" class="heading-anchor">#</a></h2>
+<br>
+<li>database ownership follows Domain ownership;</li>
+<li>identifiers are stable, opaque, and namespace-aware;</li>
+<li>recorded time and effective time are distinct;</li>
+<li>binding versions are immutable;</li>
+<li>corrections append rather than overwrite;</li>
+<li>lineage is first-class;</li>
+<li>sensitive data is classified and minimized;</li>
+<li>analytical and AI stores are projections.</li>
+<br>
+<h2 id="storage-patterns">Storage patterns <a href="#storage-patterns" class="heading-anchor">#</a></h2>
+<br>
+<li>relational databases for transactional aggregates and constraints;</li>
+<li>object storage for documents, evidence, large media, and signed artifacts;</li>
+<li>search indexes for discovery and text retrieval;</li>
+<li>time-series systems for metrics and telemetry;</li>
+<li>graph or relationship projections where relationship traversal is central;</li>
+<li>vector indexes for governed retrieval, never as source of truth;</li>
+<li>warehouse/lakehouse for analytical and regulatory reporting.</li>
+<br>
+<h2 id="schema-design">Schema design <a href="#schema-design" class="heading-anchor">#</a></h2>
+<br>
+<p>Every table has tenant or ownership scope where applicable, primary key, business-key uniqueness, version or concurrency mechanism, timestamps, classification, and retention policy. Monetary values store amount plus currency. Physical measures store value plus unit. External references store issuer and namespace.</p>
+<br>
+<h2 id="migration-standard">Migration standard <a href="#migration-standard" class="heading-anchor">#</a></h2>
+<br>
+<p>Migrations are forward-only, reviewable, repeatable in CI, compatible with rolling deployment, and tested against empty and realistic upgrade datasets. Destructive changes require export, backfill, validation, cutover, rollback, and retention approval.</p>
+<br>
+<h2 id="recovery">Recovery <a href="#recovery" class="heading-anchor">#</a></h2>
+<br>
+<p>Each datastore defines RPO, RTO, backup schedule, encryption, restore test, regional strategy, corruption detection, and reconciliation process.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

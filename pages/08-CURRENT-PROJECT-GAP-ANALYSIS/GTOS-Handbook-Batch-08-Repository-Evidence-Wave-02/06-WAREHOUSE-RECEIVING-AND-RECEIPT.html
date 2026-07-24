@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="AsnEntity این اطلاعات را ذخیره می‌کند: ASN number و reference؛ - Purchase Order، warehouse، tenant و supplier؛ - carrier و tracking؛ - pallet count، line count و expected quantity؛ - estimated/actual arrival؛ - dock appointment؛ - line items در JSON؛ - status و timestamps. create…">
+<meta name="color-scheme" content="light dark">
+<title>06 — Warehouse Receiving and Receipt · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-08-Repository-Evidence-Wave-02/06-WAREHOUSE-RECEIVING-AND-RECEIPT.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 08 Repository Evidence Wave 02</span><span class="sep">/</span><span>06 — Warehouse Receiving and Receipt</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>275 words</span></div>
+        <h1>06 — Warehouse Receiving and Receipt</h1>
+        <p class="lede">AsnEntity این اطلاعات را ذخیره می‌کند: ASN number و reference؛ - Purchase Order، warehouse، tenant و supplier؛ - carrier و tracking؛ - pallet count، line count و expected quantity؛ - estimated/actual arrival؛ - dock appointment؛ - line items در JSON؛ - status و timestamps. create…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="warehouse-service">Warehouse Service<a aria-label="Link to section" class="heading-anchor" href="#warehouse-service">#</a></h2>
+<p><code>AsnEntity</code> این اطلاعات را ذخیره می‌کند:</p>
+<ul>
+<li>ASN number و reference؛</li>
+<li>Purchase Order، warehouse، tenant و supplier؛</li>
+<li>carrier و tracking؛</li>
+<li>pallet count، line count و expected quantity؛</li>
+<li>estimated/actual arrival؛</li>
+<li>dock appointment؛</li>
+<li>line items در JSON؛</li>
+<li>status و timestamps.</li>
+</ul>
+<p><code>AsnService</code> رفتارهای زیر را دارد:</p>
+<ul>
+<li>create ASN؛</li>
+<li>update status؛</li>
+<li>link به Dock Appointment؛</li>
+<li>get/list/pending؛</li>
+<li>conflict detection برای dock؛</li>
+<li>create/check-in/complete/cancel appointment؛</li>
+<li>receiving summary.</li>
+</ul>
+<p><code>AsnController</code> مسیرهای <code>/api/v1/warehouse/receiving</code> را ارائه می‌دهد.</p>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<h2 id="provider-wms">Provider WMS<a aria-label="Link to section" class="heading-anchor" href="#provider-wms">#</a></h2>
+<p>Migration V16 در Provider schema نیز این‌ها را ایجاد می‌کند:</p>
+<ul>
+<li><code>wms_inbound_orders</code></li>
+<li><code>wms_inbound_items</code></li>
+<li><code>warehouse_receipts</code></li>
+</ul>
+<p>این مدل با Warehouse Service هم‌پوشانی دارد و وضعیت آن <code>CONFLICT_REQUIRES_CANONICALIZATION</code> است.</p>
+<h2 id="gapهای-قطعی">Gapهای قطعی<a aria-label="Link to section" class="heading-anchor" href="#gapهای-قطعی">#</a></h2>
+<ul>
+<li>ASN status مستقیماً از string درخواست پذیرفته می‌شود.</li>
+<li>get/update/link بر اساس ID، tenant scope آشکار ندارند.</li>
+<li>optimistic lock روی ASN یا Dock Appointment دیده نشد.</li>
+<li>Event/outbox برای اتصال Receiving به Inventory پیدا نشد.</li>
+<li>line items در TEXT/JSON ذخیره می‌شوند.</li>
+<li>summary تعداد کل dock door را همیشه ۱۰ فرض می‌کند.</li>
+<li>receipt line scan، package identity، damage evidence، quarantine، discrepancy و signed proof در Service بررسی‌شده وجود ندارند.</li>
+<li>Provider warehouse receipt می‌تواند به System of Record دوم تبدیل شود.</li>
+<li>Delivery/POD و Warehouse Receipt از هم به‌وضوح تفکیک نشده‌اند.</li>
+</ul>
+<h2 id="مرز-canonical">مرز canonical<a aria-label="Link to section" class="heading-anchor" href="#مرز-canonical">#</a></h2>
+<p>Warehouse باید Physical Receiving Execution و Receipt Observation را مالک باشد. Inventory باید Stock Position را مالک بماند. Provider tableها باید integration projection باشند، مگر اینکه تصمیم معماری خلاف آن را رسماً ثبت کند.</p>
+<p>جریان هدف:</p>
+<div class="code-block"><div class="code-toolbar"><span>text</span><button class="copy-code" type="button">Copy</button></div><div class="highlight"><pre><span></span>ASN + Dock Appointment
+→ Arrival Observation
+→ Package/Line Receiving
+→ Damage/Discrepancy/Quarantine
+→ Authorized Warehouse Receipt
+→ Inventory Posting Command
+→ Stock Position and Ledger
+</pre></div>
+</div></div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#warehouse-service">Warehouse Service</a><a class="toc-level-2" href="#provider-wms">Provider WMS</a><a class="toc-level-2" href="#gapهای-قطعی">Gapهای قطعی</a><a class="toc-level-2" href="#مرز-canonical">مرز canonical</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="05-TRANSPORT-BOOKING-HANDOVER-SHIPMENT-AND-TRACKING.html"><span>Previous</span><strong>05 — Transport Booking, Handover, Shipment, and Tracking</strong></a>
+        <a class="next" href="07-INVENTORY-SYNCHRONIZATION-RESERVATION-AND-QC.html"><span>Next</span><strong>07 — Inventory Synchronization, Reservation, and QC Disposition</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

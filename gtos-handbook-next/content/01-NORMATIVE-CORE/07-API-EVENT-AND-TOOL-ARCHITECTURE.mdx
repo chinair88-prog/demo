@@ -1,0 +1,39 @@
+---
+title: "API, Event, and Tool Architecture"
+section: "Normative Core"
+---
+
+<ContentPage
+  title="API, Event, and Tool Architecture"
+  section="Normative Core"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Normative Core", href: "/content" },
+    { label: "API, Event, and Tool Architecture" }
+  ]}
+>
+
+<br />
+<h2 id="rest-and-bff">REST and BFF</h2>
+<br />
+<p>APIs use resource or command-oriented contracts with explicit versions, idempotency, optimistic concurrency, pagination, filtering, problem details, authorization, and trace propagation. Tenant identity is derived from trusted authentication context, never from an untrusted browser header.</p>
+<br />
+<h2 id="events">Events</h2>
+<br />
+<p>Every Event includes event ID, type, schema version, subject, tenant, producer, occurred time, recorded time, correlation, causation, trace context, source version, and payload.</p>
+<br />
+<p>Events are immutable completed facts. Consumers must tolerate duplicates and unknown fields. Breaking semantic changes require a new Event type or governed version migration.</p>
+<br />
+<h2 id="webhooks-and-external-callbacks">Webhooks and external callbacks</h2>
+<br />
+<p>Verify provider identity, signature, timestamp, nonce/replay protection, payload schema, and correlation. Store the original message. Respond quickly, process asynchronously, and reconcile missing or contradictory outcomes.</p>
+<br />
+<h2 id="files-and-edi">Files and EDI</h2>
+<br />
+<p>File exchanges define format, encoding, naming, checksums, signatures, encryption, partial-file handling, duplicate detection, acknowledgement, retention, and reconciliation.</p>
+<br />
+<h2 id="ai-and-mcp-tools">AI and MCP tools</h2>
+<br />
+<p>Tools expose narrow typed operations with schemas, policy, authorization, approval, idempotency, timeout, cost limit, audit, and outcome observation. Models never receive direct database credentials.</p>
+<br />
+</ContentPage>

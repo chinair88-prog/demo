@@ -1,0 +1,91 @@
+---
+title: "05 — Transport Booking, Handover, Shipment, and Tracking"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="05 — Transport Booking, Handover, Shipment, and Tracking"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "05 — Transport Booking, Handover, Shipment, and Tracking" }
+  ]}
+>
+
+<br />
+<h2 id="context-">Contextهای اجرایی</h2>
+<br />
+<p>دو Context اصلی وجود دارد:</p>
+<br />
+<p>1. <code class="code-inline">provider-service</code> برای Partner logistics و Booking؛</p>
+<p>2. <code class="code-inline">shipping-service</code> برای <code class="code-inline">shipping.trade_shipments</code> و API حمل B2B.</p>
+<br />
+<p>مرزهای Booking، Shipment، Carrier Observation، Handover و Custody هنوز canonical نشده‌اند.</p>
+<br />
+<h2 id="booking">Booking</h2>
+<br />
+<p>Migration <code class="code-inline">partner.bookings</code> اطلاعات carrier، mode، vessel/flight، container، ports، dates، transit estimate، agent، confirmation، status، Partner و metadata را ذخیره می‌کند.</p>
+<br />
+<p>Export Handover Portal از API واقعی <code class="code-inline">/api/v1/logistics/bookings</code> استفاده می‌کند و این stateها را نمایش می‌دهد:</p>
+<br />
+<p>- <code class="code-inline">REQUESTED</code></p>
+<p>- <code class="code-inline">CONFIRMED</code></p>
+<p>- <code class="code-inline">LOADED</code></p>
+<p>- <code class="code-inline">HANDED_OVER</code></p>
+<p>- <code class="code-inline">CANCELLED</code></p>
+<br />
+<p>Portal همچنین pickup address، loading time، contact، seal number و referenceهای Packing List و Commercial Invoice را می‌گیرد.</p>
+<br />
+<p>این journey اجرایی مفید است، اما <code class="code-inline">HANDED_OVER</code> به‌تنهایی Custody Transfer معتبر نیست.</p>
+<br />
+<h2 id="trade-shipment">Trade Shipment</h2>
+<br />
+<p><code class="code-inline">TradeShipmentEntity</code> شامل این داده‌هاست:</p>
+<br />
+<p>- Purchase Order و Trade Order reference؛</p>
+<p>- carrier و tracking number؛</p>
+<p>- transport mode و booking reference؛</p>
+<p>- master/house bill؛</p>
+<p>- container count و forwarder؛</p>
+<p>- origin/destination؛</p>
+<p>- status، ETA و actual delivery؛</p>
+<p>- weight، volume و package count؛</p>
+<p>- metadata و tenant.</p>
+<br />
+<p>Service رفتار create، list/filter، get، update، tracking append، stats و Kafka send را دارد. Controller نیز <code class="code-inline">/api/shipping/trade/shipments</code> را ارائه می‌دهد.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_GAP</code>.</p>
+<br />
+<h2 id="-">یافته‌های بحرانی کد</h2>
+<br />
+<p>- هنگام ساخت Shipment Item، <code class="code-inline">tenantId</code> برابر Shipment UUID قرار داده می‌شود، نه tenant واقعی.</p>
+<p>- list/get/update/track در Service بررسی‌شده tenant-scoped نیستند.</p>
+<p>- items با <code class="code-inline">findAll()</code> گرفته و in-memory فیلتر می‌شوند.</p>
+<p>- status string بدون transition guard است.</p>
+<p>- tracking history در metadata JSON mutable ذخیره می‌شود.</p>
+<p>- متد publish پارامتر <code class="code-inline">eventType</code> می‌گیرد، اما آن را داخل payload قرار نمی‌دهد.</p>
+<p>- خطای Kafka catch و log می‌شود و DB transaction می‌تواند بدون Event موفق بماند.</p>
+<p>- outbox تراکنشی پیدا نشد.</p>
+<p>- delayed count برابر صفر hard-code شده است.</p>
+<p>- observationهای carrier فاقد source event ID، observed/received time، confidence و correction lineage هستند.</p>
+<br />
+<h2 id="custody">Custody</h2>
+<br />
+<p>وضعیت <code class="code-inline">HANDED_OVER</code> در Booking و Portal دیده می‌شود، اما Aggregate مستقل Custody پیدا نشد.</p>
+<br />
+<p>Custody معتبر باید شامل این موارد باشد:</p>
+<br />
+<p>- Cargo/Package Set مشخص؛</p>
+<p>- handing party و mandate؛</p>
+<p>- receiving party و mandate؛</p>
+<p>- time و location؛</p>
+<p>- seal، package count و weight observation؛</p>
+<p>- attestation دو طرف یا exception؛</p>
+<p>- refusal/discrepancy؛</p>
+<p>- correction؛</p>
+<p>- onward transfer یا custody termination.</p>
+<br />
+<p>نتیجه: Booking و Shipment <code class="code-inline">IMPLEMENTED_WITH_GAP</code>؛ Custody <code class="code-inline">REFERENCE_ARCHITECTURE</code>.</p>
+<br />
+</ContentPage>

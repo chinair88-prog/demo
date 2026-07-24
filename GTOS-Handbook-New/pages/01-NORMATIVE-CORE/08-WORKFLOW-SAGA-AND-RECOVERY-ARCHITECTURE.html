@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Workflow, Saga, and Recovery Architecture · GTOS Handbook</title>
+<meta name="description" content="Workflow, Saga, and Recovery Architecture Workflow responsibilities A workflow coordinates time, dependencies, approvals, external calls, retries, and compensat">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/01-NORMATIVE-CORE/index.html">NORMATIVE CORE</a> <span class="sep">›</span> <span>Workflow, Saga, and Recovery Architecture</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Normative Core</span>
+        </div>
+        <h1>Workflow, Saga, and Recovery Architecture</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#workflow-responsibilities">Workflow responsibilities</a></li><li class="toc-level-2"><a href="#required-workflow-state">Required workflow state</a></li><li class="toc-level-2"><a href="#outcome-unknown">Outcome Unknown</a></li><li class="toc-level-2"><a href="#compensation">Compensation</a></li><li class="toc-level-2"><a href="#operational-requirements">Operational requirements</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="workflow-saga-and-recovery-architecture">Workflow, Saga, and Recovery Architecture</h1>
+<br>
+<h2 id="workflow-responsibilities">Workflow responsibilities <a href="#workflow-responsibilities" class="heading-anchor">#</a></h2>
+<br>
+<p>A workflow coordinates time, dependencies, approvals, external calls, retries, and compensation. It does not own the business facts produced by Domain services.</p>
+<br>
+<h2 id="required-workflow-state">Required workflow state <a href="#required-workflow-state" class="heading-anchor">#</a></h2>
+<br>
+<li>process ID and business correlation;</li>
+<li>participating subjects and exact versions;</li>
+<li>current step and deadlines;</li>
+<li>submitted Commands and idempotency keys;</li>
+<li>observed Events and external responses;</li>
+<li>approvals and authority;</li>
+<li>retry budget and next action;</li>
+<li>compensation status;</li>
+<li>operator interventions;</li>
+<li>final outcome and audit.</li>
+<br>
+<h2 id="outcome-unknown">Outcome Unknown <a href="#outcome-unknown" class="heading-anchor">#</a></h2>
+<br>
+<p>When a call times out after possible external execution, the workflow records Outcome Unknown. It queries the provider, waits for a verified callback, or opens reconciliation. It does not retry a financial, customs, custody, or irreversible physical action blindly.</p>
+<br>
+<h2 id="compensation">Compensation <a href="#compensation" class="heading-anchor">#</a></h2>
+<br>
+<p>Compensation creates a new authorized Intent: release reservation, cancel booking, reverse ledger entry, issue correction, or request refund. It never deletes the original completed fact.</p>
+<br>
+<h2 id="operational-requirements">Operational requirements <a href="#operational-requirements" class="heading-anchor">#</a></h2>
+<br>
+<p>Workflows must survive process restart, deployment, broker outage, duplicate Event, late Event, timer loss, and manual intervention. Stalled and orphaned instances are observable and recoverable.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

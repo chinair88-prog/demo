@@ -1,0 +1,19 @@
+---
+title: "10 — Cross-Domain Conflicts and Canonicalization"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="10 — Cross-Domain Conflicts and Canonicalization"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "10 — Cross-Domain Conflicts and Canonicalization" }
+  ]}
+>
+
+<br />
+<PremiumTable columns={[{"key":"col0","label":"ID","sortable":true},{"key":"col1","label":"Conflict","sortable":true},{"key":"col2","label":"Canonical decision required","sortable":true}]} data={[{"col0":"C-301","col1":"Product master در catalog.products و marketplace.product_catalog_entries تکرار شده","col2":"Product Master، Offer Projection و migration owner تعیین شود"},{"col0":"C-302","col1":"قیمت در Product، Marketplace Catalog، Target Price و Smart Pricing وجود دارد","col2":"Price Version و Pricing authority واحد تعریف شود"},{"col0":"C-303","col1":"Cart unit price را از Client می‌پذیرد","col2":"Checkout باید Offer/Price Snapshot authoritative بسازد"},{"col0":"C-304","col1":"confirm-payment مستقیماً Order را Paid می‌کند","col2":"Payment provider outcome تنها منبع Payment truth باشد"},{"col0":"C-305","col1":"Order list و bulk operations tenant leak دارند","col2":"تمام repository accessها fail-closed tenant-scoped شوند"},{"col0":"C-306","col1":"Order Saga فقط comment است","col2":"Inventory/Payment/Fulfilment orchestration واقعی و compensating actions ساخته شود"},{"col0":"C-307","col1":"Warehouse Sales Order deprecated با Customer Order overlap دارد","col2":"Fulfilment Order boundary و migration تعیین شود"},{"col0":"C-308","col1":"Pick/Pack به Inventory consumption متصل نیست","col2":"Reservation consumption و stock ledger contract پیاده شود"},{"col0":"C-309","col1":"Delivered بدون POD ثبت می‌شود","col2":"Delivery Observation و POD مستقل ایجاد شود"},{"col0":"C-310","col1":"Return RESTOCK فقط log است","col2":"Return disposition به Inventory Posting متصل شود"},{"col0":"C-311","col1":"Refund در Order/Return با Payment execution جداست","col2":"Refund Intent و Provider Outcome canonical شود"},{"col0":"C-312","col1":"Marketplace و Payment هر دو Settlement owner هستند","col2":"Seller ledger و money movement ownership جدا شود"},{"col0":"C-313","col1":"Sustainability Goal در دو Service وجود دارد","col2":"ESG/Carbon owner و projectionها تعیین شوند"},{"col0":"C-314","col1":"AI evaluation run lookup tenant-scoped نیست","col2":"Evaluation identity و run ownership سخت‌گیری شود"},{"col0":"C-315","col1":"local/in-memory/static engines به‌عنوان AI/Carrier behavior معرفی می‌شوند","col2":"Simulation label و production provider boundary اجباری شود"}]} />
+<br />
+</ContentPage>

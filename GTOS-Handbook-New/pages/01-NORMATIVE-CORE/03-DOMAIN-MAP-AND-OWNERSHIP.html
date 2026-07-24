@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Domain Map and Ownership · GTOS Handbook</title>
+<meta name="description" content="Domain Map and Ownership Core commercial domains Product Catalog owns canonical product identity and versioned product content. Marketplace owns seller/channel ">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/01-NORMATIVE-CORE/index.html">NORMATIVE CORE</a> <span class="sep">›</span> <span>Domain Map and Ownership</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Normative Core</span>
+        </div>
+        <h1>Domain Map and Ownership</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#core-commercial-domains">Core commercial domains</a></li><li class="toc-level-2"><a href="#trade-execution-domains">Trade execution domains</a></li><li class="toc-level-2"><a href="#fulfilment-domains">Fulfilment domains</a></li><li class="toc-level-2"><a href="#supporting-domains">Supporting domains</a></li><li class="toc-level-2"><a href="#ownership-rule">Ownership rule</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="domain-map-and-ownership">Domain Map and Ownership</h1>
+<br>
+<h2 id="core-commercial-domains">Core commercial domains <a href="#core-commercial-domains" class="heading-anchor">#</a></h2>
+<br>
+<li><strong>Product Catalog</strong> owns canonical product identity and versioned product content.</li>
+<li><strong>Marketplace</strong> owns seller/channel offers and publication eligibility.</li>
+<li><strong>Pricing</strong> owns Price Versions and pricing policies.</li>
+<li><strong>Cart and Checkout</strong> own shopping intent and authoritative checkout quotes.</li>
+<li><strong>Order</strong> owns accepted customer commercial obligations.</li>
+<li><strong>Payment</strong> owns Payment Intent and provider financial outcomes.</li>
+<li><strong>Settlement</strong> owns financial entitlements, reconciliation, payout Intent, and settlement state.</li>
+<br>
+<h2 id="trade-execution-domains">Trade execution domains <a href="#trade-execution-domains" class="heading-anchor">#</a></h2>
+<br>
+<li><strong>Procurement</strong> owns RFQ, supplier invitations, and Purchase Orders.</li>
+<li><strong>Quotation</strong> owns supplier commercial proposals and versions.</li>
+<li><strong>Contract</strong> owns negotiated binding terms.</li>
+<li><strong>Trade Documents</strong> owns Proforma Invoice, Packing List, Commercial Invoice, certificates, and document versions.</li>
+<li><strong>Manufacturing</strong> owns production plans, orders, lots, progress, and capacity commitments.</li>
+<li><strong>Quality</strong> owns inspection, measurements, nonconformance, and quality-release Decisions.</li>
+<li><strong>Regulatory and Customs</strong> own platform declarations and authority observations.</li>
+<li><strong>Shipping</strong> owns shipment, legs, booking relationships, transport observations, and exceptions.</li>
+<br>
+<h2 id="fulfilment-domains">Fulfilment domains <a href="#fulfilment-domains" class="heading-anchor">#</a></h2>
+<br>
+<li><strong>Warehouse</strong> owns physical receiving, storage operations, pick, pack, and dispatch handover.</li>
+<li><strong>Inventory</strong> owns stock positions, reservations, allocations, movements, and adjustments.</li>
+<li><strong>Fulfilment</strong> coordinates accepted demand to physical execution without taking ownership of Order or Inventory truth.</li>
+<li><strong>Delivery</strong> owns last-mile attempts and qualified Proof of Delivery observations.</li>
+<li><strong>Returns</strong> owns return authorization, reverse logistics, inspection, disposition, claims, and disputes.</li>
+<br>
+<h2 id="supporting-domains">Supporting domains <a href="#supporting-domains" class="heading-anchor">#</a></h2>
+<br>
+<li>Identity, Organization, Tenant, Customer, Supplier, Provider, CRM, Communications, Reporting, ESG, and AI Evaluation.</li>
+<br>
+<h2 id="ownership-rule">Ownership rule <a href="#ownership-rule" class="heading-anchor">#</a></h2>
+<br>
+<p>A shared concept may appear in several contexts as a reference or projection. Only one context owns each authoritative proposition. Ownership is recorded in the Domain Catalogue and enforced by contracts and database boundaries.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

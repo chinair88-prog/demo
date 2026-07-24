@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Auditors, operators, and AI reviewers frequently need to know not only the current state but what was true, what was recorded, and what was knowable at a previous time. valid-from and valid-to; - observed-at; - recorded-at; - corrected-at; - supersedes reference; - source and aut…">
+<meta name="color-scheme" content="light dark">
+<title>Temporal Reconstruction Pattern · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/reference-patterns/temporal-reconstruction.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Reference Patterns</span><span class="sep">/</span><span>Temporal Reconstruction Pattern</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>177 words</span></div>
+        <h1>Temporal Reconstruction Pattern</h1>
+        <p class="lede">Auditors, operators, and AI reviewers frequently need to know not only the current state but what was true, what was recorded, and what was knowable at a previous time. valid-from and valid-to; - observed-at; - recorded-at; - corrected-at; - supersedes reference; - source and aut…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="purpose">Purpose<a aria-label="Link to section" class="heading-anchor" href="#purpose">#</a></h2>
+<p>Auditors, operators, and AI reviewers frequently need to know not only the current state but what was true, what was recorded, and what was knowable at a previous time.</p>
+<h2 id="model">Model<a aria-label="Link to section" class="heading-anchor" href="#model">#</a></h2>
+<p>A governed record may include:</p>
+<ul>
+<li>valid-from and valid-to;</li>
+<li>observed-at;</li>
+<li>recorded-at;</li>
+<li>corrected-at;</li>
+<li>supersedes reference;</li>
+<li>source and authority;</li>
+<li>transaction sequence.</li>
+</ul>
+<p>The reconstruction service accepts a subject, business-time boundary, knowledge-time boundary, and perspective. It returns the state derivable from assertions valid under those boundaries.</p>
+<h2 id="example">Example<a aria-label="Link to section" class="heading-anchor" href="#example">#</a></h2>
+<p>A customs release was legally effective at 10:00. GTOS received the release at 10:08. A carrier decision made at 10:05 could not legitimately rely on the release even though a present-day query shows the cargo as released at 10:00.</p>
+<h2 id="requirements">Requirements<a aria-label="Link to section" class="heading-anchor" href="#requirements">#</a></h2>
+<p>Reconstruction SHALL use the same rules and schema versions applicable to the historical period or explicitly disclose reinterpretation. Late data and corrections SHALL not be silently back-projected into a decision-time knowledge view. Queries SHALL name their temporal semantics.</p>
+<h2 id="operational-use">Operational Use<a aria-label="Link to section" class="heading-anchor" href="#operational-use">#</a></h2>
+<p>Temporal reconstruction supports incident analysis, legal evidence, model evaluation, customer dispute resolution, correction propagation, and recovery reconciliation.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#purpose">Purpose</a><a class="toc-level-2" href="#model">Model</a><a class="toc-level-2" href="#example">Example</a><a class="toc-level-2" href="#requirements">Requirements</a><a class="toc-level-2" href="#operational-use">Operational Use</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="relationship-aware-access.html"><span>Previous</span><strong>Relationship-Aware Access Pattern</strong></a>
+        <a class="next" href="../scenarios/customs-release.html"><span>Next</span><strong>Scenario — Customs Declaration and Release</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

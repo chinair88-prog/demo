@@ -1,0 +1,41 @@
+---
+title: "Correction Propagation Pattern"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Correction Propagation Pattern"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Correction Propagation Pattern" }
+  ]}
+>
+
+<br />
+<h2 id="problem">Problem</h2>
+<br />
+<p>A corrected fact may have influenced projections, decisions, documents, payments, risk scores, or downstream participants.</p>
+<br />
+<h2 id="pattern">Pattern</h2>
+<br />
+<p>The correction Event references the original assertion and reason. An impact service identifies dependent artifacts through lineage. Each owner decides whether to recompute, appeal, notify, compensate, or retain the prior result as historically valid.</p>
+<br />
+<h2 id="distinctions">Distinctions</h2>
+<br />
+<p>- A corrected Observation may change Knowledge.</p>
+<p>- New Knowledge may justify a new Decision.</p>
+<p>- A new Decision may create remediation Intent.</p>
+<p>- Remediation Execution produces new Outcomes.</p>
+<p>- None of these erase the prior chain.</p>
+<br />
+<h2 id="controls">Controls</h2>
+<br />
+<p>Propagation SHALL be prioritized by legal and business impact. Automated recomputation SHALL not retroactively rewrite signed documents or completed decisions without authority. Consumers SHALL record correction-handling status.</p>
+<br />
+<h2 id="measure">Measure</h2>
+<br />
+<p>Correction closure includes detection time, affected artifact count, unresolved high-impact dependencies, notification completion, and reconciliation evidence.</p>
+<br />
+</ContentPage>

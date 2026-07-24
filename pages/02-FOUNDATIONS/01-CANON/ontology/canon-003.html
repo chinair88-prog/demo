@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="An Entity SHALL be independently identifiable before GTOS establishes a Relationship involving that Entity. An Entity SHALL be independently identifiable before GTOS establishes a Relationship involving that Entity. - Implementations SHALL preserve the distinctions defined by thi…">
+<meta name="color-scheme" content="light dark">
+<title>CANON-003 — Identity Precedes Relationship · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../../site.webmanifest">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/search-index.js"></script>
+<script defer src="../../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/02-FOUNDATIONS/01-CANON/ontology/canon-003.html" data-root="../../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../../index.html"><img src="../../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <a href="../../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../../index.html">Home</a><span class="sep">/</span><span>Foundations</span><span class="sep">/</span><span>Canon</span><span class="sep">/</span><span>Ontology</span><span class="sep">/</span><span>CANON-003 — Identity Precedes Relationship</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Foundations</span><span>840 words</span></div>
+        <h1>CANON-003 — Identity Precedes Relationship</h1>
+        <p class="lede">An Entity SHALL be independently identifiable before GTOS establishes a Relationship involving that Entity. An Entity SHALL be independently identifiable before GTOS establishes a Relationship involving that Entity. - Implementations SHALL preserve the distinctions defined by thi…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="canon-statement">Canon Statement<a aria-label="Link to section" class="heading-anchor" href="#canon-statement">#</a></h2>
+<blockquote>
+<p><strong>An Entity SHALL be independently identifiable before GTOS establishes a Relationship involving that Entity.</strong></p>
+</blockquote>
+<h2 id="classification">Classification<a aria-label="Link to section" class="heading-anchor" href="#classification">#</a></h2>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canon ID</td>
+<td>CANON-003</td>
+</tr>
+<tr>
+<td>Plane</td>
+<td>Ontology</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Absolute</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Entire GTOS Ecosystem</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Normative</td>
+</tr>
+<tr>
+<td>Depends On</td>
+<td>CANON-001</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="normative-statements">Normative Statements<a aria-label="Link to section" class="heading-anchor" href="#normative-statements">#</a></h2>
+<ul>
+<li>An Entity SHALL be independently identifiable before GTOS establishes a Relationship involving that Entity.</li>
+<li>Implementations SHALL preserve the distinctions defined by this Canon across APIs, data, events, AI behavior, security policy, and operations.</li>
+<li>A derived view SHALL NOT claim greater authority than its governed source.</li>
+<li>Conformance evidence SHALL be inspectable and reproducible.</li>
+</ul>
+<h2 id="historical-context">Historical Context<a aria-label="Link to section" class="heading-anchor" href="#historical-context">#</a></h2>
+<p>Systems frequently identify parties or assets only through their current relationship, causing identity loss when ownership, contracts, or roles change.</p>
+<p>The resulting failures are not merely data-quality issues. They create invalid authority, incorrect automation, misleading analytics, and brittle integration. This Canon establishes the conceptual boundary required to prevent those failures.</p>
+<h2 id="core-philosophy">Core Philosophy<a aria-label="Link to section" class="heading-anchor" href="#core-philosophy">#</a></h2>
+<p>An Entity SHALL be independently identifiable before GTOS establishes a Relationship involving that Entity.</p>
+<p>The Canon is independent of implementation style. A monolith, distributed platform, event-driven system, or agentic architecture may conform, but each must preserve the same semantic distinctions.</p>
+<h2 id="formal-definitions">Formal Definitions<a aria-label="Link to section" class="heading-anchor" href="#formal-definitions">#</a></h2>
+<h3 id="entity">Entity<a aria-label="Link to section" class="heading-anchor" href="#entity">#</a></h3>
+<p>A distinguishable participant, object, place, instrument, document, or concept.</p>
+<h3 id="identity">Identity<a aria-label="Link to section" class="heading-anchor" href="#identity">#</a></h3>
+<p>Continuity through which an Entity remains distinguishable across change.</p>
+<h3 id="identifier">Identifier<a aria-label="Link to section" class="heading-anchor" href="#identifier">#</a></h3>
+<p>A governed symbol referring to an Identity.</p>
+<h2 id="formal-invariants">Formal Invariants<a aria-label="Link to section" class="heading-anchor" href="#formal-invariants">#</a></h2>
+<ol>
+<li>The concept defined by this Canon SHALL have explicit ownership and scope.</li>
+<li>Its identity and temporal meaning SHALL remain stable across representation changes.</li>
+<li>Any derived assertion SHALL retain provenance to its inputs.</li>
+<li>Corrections SHALL preserve historical evidence.</li>
+<li>Authority SHALL NOT be inferred from technical possession or processing.</li>
+</ol>
+<h2 id="engineering-interpretation">Engineering Interpretation<a aria-label="Link to section" class="heading-anchor" href="#engineering-interpretation">#</a></h2>
+<p>The Canon affects aggregate design, data contracts, event envelopes, authorization policy, observability, AI prompts and tools, audit records, and migration procedures.</p>
+<p>Engineering teams SHALL encode the required distinctions in types and contracts rather than relying only on prose. Invalid states and invalid transitions SHOULD be rejected as early as practical.</p>
+<h2 id="business-interpretation">Business Interpretation<a aria-label="Link to section" class="heading-anchor" href="#business-interpretation">#</a></h2>
+<p>Business language remains authoritative for meaning. Technical teams SHALL demonstrate that domain experts can recognize the represented concept, its owner, its lifecycle, and its exceptions.</p>
+<p>A business rule that changes by jurisdiction, agreement, commodity, participant, or time SHALL be modeled as governed policy rather than hidden application logic.</p>
+<h2 id="ai-interpretation">AI Interpretation<a aria-label="Link to section" class="heading-anchor" href="#ai-interpretation">#</a></h2>
+<p>AI systems SHALL classify outputs as retrieval, inference, prediction, recommendation, decision, or execution request. Evidence, confidence, authority, and knowledge-time boundaries SHALL remain explicit.</p>
+<p>An AI-generated statement does not become a fact, authoritative truth, or decision merely because it is fluent or highly probable.</p>
+<h2 id="architectural-consequences">Architectural Consequences<a aria-label="Link to section" class="heading-anchor" href="#architectural-consequences">#</a></h2>
+<ul>
+<li>Domain boundaries must reflect authority boundaries.</li>
+<li>APIs and events must preserve semantic types and temporal meaning.</li>
+<li>Data lineage must connect projections to authoritative claims.</li>
+<li>Security must distinguish access, authority, delegation, and purpose.</li>
+<li>Operations must preserve evidence during failure and recovery.</li>
+<li>Architecture reviews must demonstrate Canon traceability.</li>
+</ul>
+<h2 id="trade-example">Trade Example<a aria-label="Link to section" class="heading-anchor" href="#trade-example">#</a></h2>
+<p>A freight forwarder remains the same legal party after changing carriers, offices, or customer relationships. Those changes affect relationships and attributes, not foundational identity.</p>
+<h2 id="failure-modes-and-risks">Failure Modes and Risks<a aria-label="Link to section" class="heading-anchor" href="#failure-modes-and-risks">#</a></h2>
+<ul>
+<li>Duplicate parties evade controls.</li>
+<li>Relationship termination appears to delete an Entity.</li>
+<li>Audit chains break across identifier changes.</li>
+</ul>
+<h2 id="design-rules">Design Rules<a aria-label="Link to section" class="heading-anchor" href="#design-rules">#</a></h2>
+<ol>
+<li>Model the business concept before choosing storage or messaging technology.</li>
+<li>Record identity, owner, source, scope, and time.</li>
+<li>Separate authoritative claims from observations and projections.</li>
+<li>Preserve corrections and contradictions.</li>
+<li>Test business invariants at domain boundaries.</li>
+<li>Require explicit authority before decision or execution.</li>
+<li>Make conformance observable.</li>
+</ol>
+<h2 id="anti-patterns">Anti-Patterns<a aria-label="Link to section" class="heading-anchor" href="#anti-patterns">#</a></h2>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Anti-Pattern</th>
+<th>Why It Fails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Database-as-reality</td>
+<td>Confuses persistence with existence</td>
+</tr>
+<tr>
+<td>Status-field compression</td>
+<td>Erases scope, owner, and transition semantics</td>
+</tr>
+<tr>
+<td>Silent overwrite</td>
+<td>Destroys history</td>
+</tr>
+<tr>
+<td>Message-name ambiguity</td>
+<td>Confuses request, event, and outcome</td>
+</tr>
+<tr>
+<td>AI answer as authority</td>
+<td>Collapses knowledge, recommendation, and decision</td>
+</tr>
+<tr>
+<td>Shared table ownership</td>
+<td>Creates competing truth owners</td>
+</tr>
+<tr>
+<td>Implementation-defined policy</td>
+<td>Hides business governance</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="compliance-requirements">Compliance Requirements<a aria-label="Link to section" class="heading-anchor" href="#compliance-requirements">#</a></h2>
+<p>A conforming implementation SHALL provide:</p>
+<ul>
+<li>a model or contract expressing this Canon;</li>
+<li>accountable ownership;</li>
+<li>temporal and provenance metadata;</li>
+<li>testable invariants;</li>
+<li>audit or lineage evidence;</li>
+<li>documented exceptions;</li>
+<li>traceability to affected services, schemas, policies, and runbooks.</li>
+</ul>
+<h2 id="conformance-tests">Conformance Tests<a aria-label="Link to section" class="heading-anchor" href="#conformance-tests">#</a></h2>
+<ul>
+<li>[ ] Can the Entity be referenced independently of any current Relationship?</li>
+<li>[ ] Are identifier scope and issuer recorded?</li>
+<li>[ ] Can merges and splits preserve history?</li>
+</ul>
+<h2 id="traceability">Traceability<a aria-label="Link to section" class="heading-anchor" href="#traceability">#</a></h2>
+<div class="table-wrap"><table class="data-table">
+<thead>
+<tr>
+<th>Derived Volume</th>
+<th>Primary Derivation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Constitution</td>
+<td>Authority, ownership, amendment, and conformance</td>
+</tr>
+<tr>
+<td>Business Architecture</td>
+<td>Capabilities, decision rights, value streams</td>
+</tr>
+<tr>
+<td>Domain Architecture</td>
+<td>Boundaries, aggregates, commands, events, invariants</td>
+</tr>
+<tr>
+<td>AI Architecture</td>
+<td>Evidence, uncertainty, authority, decision discipline</td>
+</tr>
+<tr>
+<td>Data Architecture</td>
+<td>Temporal modeling, lineage, quality, retention</td>
+</tr>
+<tr>
+<td>Security Architecture</td>
+<td>Identity, delegation, authorization, audit</td>
+</tr>
+<tr>
+<td>Engineering</td>
+<td>Contract tests and architecture evidence</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>Reconstruction, recovery, and incident evidence</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="architect-s-notes">Architect's Notes<a aria-label="Link to section" class="heading-anchor" href="#architect-s-notes">#</a></h2>
+<h3 id="architectural-observation">Architectural Observation<a aria-label="Link to section" class="heading-anchor" href="#architectural-observation">#</a></h3>
+<p>This Canon is valuable only when it changes design behavior. Repeating the statement without encoding ownership, data semantics, policy, and verification is non-conformance.</p>
+<h3 id="rejected-alternatives">Rejected Alternatives<a aria-label="Link to section" class="heading-anchor" href="#rejected-alternatives">#</a></h3>
+<ul>
+<li>Treating the distinction as documentation-only.</li>
+<li>Allowing every service to redefine the concept.</li>
+<li>Inferring authority from possession of data.</li>
+<li>Removing inconvenient history during correction.</li>
+<li>Deferring semantic validation to analytics.</li>
+</ul>
+<h3 id="related-canons">Related Canons<a aria-label="Link to section" class="heading-anchor" href="#related-canons">#</a></h3>
+<p>Dependencies are listed in Classification. Downstream relationships are published in the Traceability Registry.</p>
+<h2 id="review-checklist">Review Checklist<a aria-label="Link to section" class="heading-anchor" href="#review-checklist">#</a></h2>
+<ul>
+<li>[ ] Does the Canon remain independent?</li>
+<li>[ ] Would removing it make GTOS incoherent?</li>
+<li>[ ] Are definitions non-circular?</li>
+<li>[ ] Are invariants testable?</li>
+<li>[ ] Are examples specific to trade?</li>
+<li>[ ] Are AI and authority consequences explicit?</li>
+<li>[ ] Is implementation traceability available?</li>
+</ul>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#canon-statement">Canon Statement</a><a class="toc-level-2" href="#classification">Classification</a><a class="toc-level-2" href="#normative-statements">Normative Statements</a><a class="toc-level-2" href="#historical-context">Historical Context</a><a class="toc-level-2" href="#core-philosophy">Core Philosophy</a><a class="toc-level-2" href="#formal-definitions">Formal Definitions</a><a class="toc-level-3" href="#entity">Entity</a><a class="toc-level-3" href="#identity">Identity</a><a class="toc-level-3" href="#identifier">Identifier</a><a class="toc-level-2" href="#formal-invariants">Formal Invariants</a><a class="toc-level-2" href="#engineering-interpretation">Engineering Interpretation</a><a class="toc-level-2" href="#business-interpretation">Business Interpretation</a><a class="toc-level-2" href="#ai-interpretation">AI Interpretation</a><a class="toc-level-2" href="#architectural-consequences">Architectural Consequences</a><a class="toc-level-2" href="#trade-example">Trade Example</a><a class="toc-level-2" href="#failure-modes-and-risks">Failure Modes and Risks</a><a class="toc-level-2" href="#design-rules">Design Rules</a><a class="toc-level-2" href="#anti-patterns">Anti-Patterns</a><a class="toc-level-2" href="#compliance-requirements">Compliance Requirements</a><a class="toc-level-2" href="#conformance-tests">Conformance Tests</a><a class="toc-level-2" href="#traceability">Traceability</a><a class="toc-level-2" href="#architect-s-notes">Architect&#39;s Notes</a><a class="toc-level-3" href="#architectural-observation">Architectural Observation</a><a class="toc-level-3" href="#rejected-alternatives">Rejected Alternatives</a><a class="toc-level-3" href="#related-canons">Related Canons</a><a class="toc-level-2" href="#review-checklist">Review Checklist</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="../index.html"><span>Previous</span><strong>Volume 00 — The GTOS Canon</strong></a>
+        <a class="next" href="canon-004.html"><span>Next</span><strong>CANON-004 — Time Is a First-Class Business Dimension</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

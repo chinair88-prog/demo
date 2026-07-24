@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exception and Case Management Pattern · GTOS Handbook</title>
+<meta name="description" content="Exception and Case Management Pattern Context Not every trade condition can be automated safely. Missing documents, conflicting identities, damaged cargo, polic">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/reference-patterns/index.html">Reference Patterns</a> <span class="sep">›</span> <span>Exception and Case Management Pattern</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Exception and Case Management Pattern</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#context">Context</a></li><li class="toc-level-2"><a href="#case-structure">Case Structure</a></li><li class="toc-level-2"><a href="#rules">Rules</a></li><li class="toc-level-2"><a href="#closure">Closure</a></li><li class="toc-level-2"><a href="#ai">AI</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="exception-and-case-management-pattern">Exception and Case Management Pattern</h1>
+<br>
+<h2 id="context">Context <a href="#context" class="heading-anchor">#</a></h2>
+<br>
+<p>Not every trade condition can be automated safely. Missing documents, conflicting identities, damaged cargo, policy ambiguity, suspected fraud, and partner disagreement require collaborative resolution.</p>
+<br>
+<h2 id="case-structure">Case Structure <a href="#case-structure" class="heading-anchor">#</a></h2>
+<br>
+<p>A Case contains issues, subjects, participants, authority, severity, tasks, evidence requests, decisions, communications, deadlines, and resolution.</p>
+<br>
+<h2 id="rules">Rules <a href="#rules" class="heading-anchor">#</a></h2>
+<br>
+<p>A Case SHALL not become a second source of domain truth. It references domain facts and publishes authorized Decisions and Outcomes back to owning domains. Case notes are Observations unless formally asserted under authority.</p>
+<br>
+<h2 id="closure">Closure <a href="#closure" class="heading-anchor">#</a></h2>
+<br>
+<p>Closure requires resolution criteria, authority, downstream remediation, and evidence completeness. Reopening creates new history. Metrics include age, blocked time, evidence wait, decision reversal, and recurrence.</p>
+<br>
+<h2 id="ai">AI <a href="#ai" class="heading-anchor">#</a></h2>
+<br>
+<p>AI may summarize, classify, identify missing evidence, or recommend next action. It SHALL not fabricate closure evidence or silently decide high-impact disputes.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Order، Payment و Fulfilment statusهای جدا؛ - tenantId؛ - monetary totals و currency؛ - item/address snapshots؛ - payment/shipping references؛ - history؛ - @Version optimistic locking؛ - transition methods برای approve/process/ship/deliver/cancel/hold/refund/return. OrderApplicati…">
+<meta name="color-scheme" content="light dark">
+<title>04 — Customer Order and Workflow · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/04-CUSTOMER-ORDER-AND-WORKFLOW.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Current Project Gap Analysis</span><span class="sep">/</span><span>Gtos Handbook Batch 09 Repository Evidence Wave 03</span><span class="sep">/</span><span>04 — Customer Order and Workflow</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge warning">Project Reality Appendix</span><span>Current Project Gap Analysis</span><span>282 words</span></div>
+        <h1>04 — Customer Order and Workflow</h1>
+        <p class="lede">Order، Payment و Fulfilment statusهای جدا؛ - tenantId؛ - monetary totals و currency؛ - item/address snapshots؛ - payment/shipping references؛ - history؛ - @Version optimistic locking؛ - transition methods برای approve/process/ship/deliver/cancel/hold/refund/return. OrderApplicati…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="implemented-order-model">Implemented order model<a aria-label="Link to section" class="heading-anchor" href="#implemented-order-model">#</a></h2>
+<p><code>OrderEntity</code> دارای:</p>
+<ul>
+<li>Order، Payment و Fulfilment statusهای جدا؛</li>
+<li>tenantId؛</li>
+<li>monetary totals و currency؛</li>
+<li>item/address snapshots؛</li>
+<li>payment/shipping references؛</li>
+<li>history؛</li>
+<li><code>@Version</code> optimistic locking؛</li>
+<li>transition methods برای approve/process/ship/deliver/cancel/hold/refund/return.</li>
+</ul>
+<p><code>OrderApplicationService</code> CRUD، workflow، analytics، import و editing را facade می‌کند.</p>
+<p>Classification: <code>IMPLEMENTED_WITH_CRITICAL_GAPS</code>.</p>
+<h2 id="positive-controls">Positive controls<a aria-label="Link to section" class="heading-anchor" href="#positive-controls">#</a></h2>
+<ul>
+<li>several state transitions validate current state؛</li>
+<li>entity uses enums؛</li>
+<li>optimistic version exists؛</li>
+<li>per-ID reads and workflow commands use TenantContext-aware lookup when context exists؛</li>
+<li>cache keys often include tenant key؛</li>
+<li>order history entity exists.</li>
+</ul>
+<h2 id="critical-findings">Critical findings<a aria-label="Link to section" class="heading-anchor" href="#critical-findings">#</a></h2>
+<ol>
+<li><code>OrderCrudService.list()</code> در هر دو branch شرط، <code>repository.findAll()</code> اجرا می‌کند؛ tenant-scoped list عملاً leak دارد.</li>
+<li>bulk approve/cancel/refund از <code>findAllById</code> بدون tenant filter استفاده می‌کنند.</li>
+<li>system/internal context عمداً fail-open است.</li>
+<li>Order Items قیمت و snapshot را از request می‌پذیرند.</li>
+<li><code>recordTransition</code> پس از تغییر status، همان status فعلی را برای from و to می‌خواند؛ local variable <code>from</code> استفاده نمی‌شود.</li>
+<li><code>markPaid</code> state، amount، currency، transaction uniqueness یا provider signature guard ندارد.</li>
+<li>hold از هر status قابل اعمال است.</li>
+<li>local Spring Event استفاده می‌شود؛ broker/outbox وجود ندارد.</li>
+<li><code>OrderWorkflowOrchestrator</code> مراحل Inventory Reservation، Payment Capture، Fulfilment، Settlement و Returns را فقط در comment ثبت کرده است.</li>
+<li>auto-approval threshold برابر 1000 است، بدون currency normalization و risk policy.</li>
+</ol>
+<h2 id="correct-truth-boundaries">Correct truth boundaries<a aria-label="Link to section" class="heading-anchor" href="#correct-truth-boundaries">#</a></h2>
+<p>Order باید تعهد تجاری را نگه دارد؛ اما:</p>
+<ul>
+<li>Payment outcome متعلق به Payment Domain است.</li>
+<li>Inventory reservation متعلق به Inventory است.</li>
+<li>Pick/Pack متعلق به Warehouse است.</li>
+<li>Shipment/Delivery observation متعلق به Shipping/Carrier integration است.</li>
+<li>Settlement متعلق به Finance/Marketplace settlement owner است.</li>
+</ul>
+<p>Order status باید projection این facts باشد، نه جایگزین آن‌ها.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#implemented-order-model">Implemented order model</a><a class="toc-level-2" href="#positive-controls">Positive controls</a><a class="toc-level-2" href="#critical-findings">Critical findings</a><a class="toc-level-2" href="#correct-truth-boundaries">Correct truth boundaries</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="03-CART-CHECKOUT-AND-AI-INSIGHTS.html"><span>Previous</span><strong>03 — Cart, Checkout, and AI Insights</strong></a>
+        <a class="next" href="05-ALLOCATION-FULFILMENT-PICK-PACK-AND-LAST-MILE.html"><span>Next</span><strong>05 — Allocation, Fulfilment, Pick, Pack, and Last Mile</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

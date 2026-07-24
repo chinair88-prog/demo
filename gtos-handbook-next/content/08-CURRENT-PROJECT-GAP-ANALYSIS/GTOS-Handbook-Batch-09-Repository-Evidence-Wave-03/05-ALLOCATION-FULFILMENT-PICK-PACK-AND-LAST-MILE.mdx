@@ -1,0 +1,97 @@
+---
+title: "05 — Allocation, Fulfilment, Pick, Pack, and Last Mile"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="05 — Allocation, Fulfilment, Pick, Pack, and Last Mile"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "05 — Allocation, Fulfilment, Pick, Pack, and Last Mile" }
+  ]}
+>
+
+<br />
+<h2 id="allocation">Allocation</h2>
+<br />
+<p>Inventory Reservation در Wave 02 وجود داشت، اما اتصال واقعی Order به Inventory در <code class="code-inline">OrderWorkflowOrchestrator</code> فقط comment است:</p>
+<br />
+<p>- validate products؛</p>
+<p>- reserve inventory؛</p>
+<p>- pre-authorize/capture payment؛</p>
+<p>- create fulfilment order.</p>
+<br />
+<p>بنابراین Order-driven Allocation برابر است با <code class="code-inline">PLANNED_NOT_IMPLEMENTED</code>.</p>
+<br />
+<h2 id="legacy-fulfilment">Legacy Fulfilment</h2>
+<br />
+<p>Warehouse <code class="code-inline">FulfillmentService</code>:</p>
+<br />
+<p>- deprecated و forRemoval است؛</p>
+<p>- Sales Order list/get/update status دارد؛</p>
+<p>- get/update by ID tenant scope آشکار ندارند؛</p>
+<p>- status string آزاد است.</p>
+<br />
+<p>Classification: <code class="code-inline">DEPRECATED_IMPLEMENTATION</code>.</p>
+<br />
+<h2 id="pick-and-pack">Pick and Pack</h2>
+<br />
+<p><code class="code-inline">PickPackService</code> و Controller واقعاً این Subjects را مدیریت می‌کنند:</p>
+<br />
+<p>- Pick Wave؛</p>
+<p>- Pick Task؛</p>
+<p>- Pack Task؛</p>
+<p>- assign/start/complete/cancel؛</p>
+<p>- picked quantity و short pick؛</p>
+<p>- tracking number، shipping label، weight، volume و box count.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_GAP</code>.</p>
+<br />
+<h2 id="pickpack-gaps">Pick/Pack gaps</h2>
+<br />
+<p>- tenantId از request گرفته می‌شود.</p>
+<p>- get/update operations by ID tenant-scoped نیستند.</p>
+<p>- statusها string و transitionها محدود/ناهمگون‌اند.</p>
+<p>- confirmPick over-pick را منع نمی‌کند؛ quantity برابر یا بزرگ‌تر از requested، <code class="code-inline">PICKED</code> می‌شود.</p>
+<p>- Inventory reservation consumption/decrement دیده نشد.</p>
+<p>- wave/task creation به Order/Inventory entitlement متصل نیست.</p>
+<p>- Pack Task order/shipment references را verify نمی‌کند.</p>
+<p>- Event/outbox برای Picked/Packed پیدا نشد.</p>
+<p>- Dispatch/Handover از Pack completion جدا و canonical نشده است.</p>
+<br />
+<h2 id="last-mile-optimizer">Last-Mile Optimizer</h2>
+<br />
+<p><code class="code-inline">LastMileCarrierOptimizer</code>:</p>
+<br />
+<p>- Carrier profileهای DHL، FedEx، UPS و China Post را در memory seed می‌کند؛</p>
+<p>- static rate table دارد؛</p>
+<p>- rate shopping، composite scoring، fallback chain و delivery promise می‌سازد.</p>
+<br />
+<p>این یک static decision engine است، نه live carrier integration.</p>
+<br />
+<p>Classification: <code class="code-inline">SIMULATED_REFERENCE_IMPLEMENTATION</code>.</p>
+<br />
+<p>موارد مفقود:</p>
+<br />
+<p>- negotiated/live rates؛</p>
+<p>- currency و quote expiry؛</p>
+<p>- serviceability/capacity؛</p>
+<p>- carrier booking/label purchase؛</p>
+<p>- provider request/response IDs؛</p>
+<p>- pickup acceptance؛</p>
+<p>- tracking webhook؛</p>
+<p>- delivery exception؛</p>
+<p>- Proof of Delivery.</p>
+<br />
+<h2 id="delivery-proof">Delivery Proof</h2>
+<br />
+<p><code class="code-inline">OrderEntity.deliver()</code> فقط از SHIPPED به DELIVERED تغییر می‌دهد و timestamp ثبت می‌کند. Signature، recipient identity، delivery photo، geo/location، carrier event reference یا correction flow پیدا نشد.</p>
+<br />
+<p>Classification:</p>
+<br />
+<p>- Order delivery status: <code class="code-inline">IMPLEMENTED_WITH_GAP</code></p>
+<p>- Proof of Delivery: <code class="code-inline">PLANNED_NOT_IMPLEMENTED</code></p>
+<br />
+</ContentPage>

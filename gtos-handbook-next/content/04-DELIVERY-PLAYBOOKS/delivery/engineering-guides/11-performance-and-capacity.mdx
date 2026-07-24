@@ -1,0 +1,45 @@
+---
+title: "Performance and Capacity Engineering"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Performance and Capacity Engineering"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Performance and Capacity Engineering" }
+  ]}
+>
+
+<br />
+<h2 id="business-workload-model">Business Workload Model</h2>
+<br />
+<p>Capacity begins with trade volumes, lifecycle peaks, partner deadlines, jurisdictional cutoffs, document size, Event fan-out, workflow duration, analytical demand, and AI usage. Average requests per second alone is insufficient.</p>
+<br />
+<h2 id="critical-paths">Critical Paths</h2>
+<br />
+<p>Identify synchronous decision paths, asynchronous flow paths, batch deadlines, recovery replay, and user investigation. Each has latency and throughput objectives. External authorities may dominate latency; the system must expose blocked dependency rather than appear generally slow.</p>
+<br />
+<h2 id="load-profiles">Load Profiles</h2>
+<br />
+<p>Test normal, peak, burst, partner reconnect, backlog drain, Event replay, migration, incident diagnostics, and regional failover. Include large Relationships, long histories, high-cardinality searches, and worst-case policy evaluation.</p>
+<br />
+<h2 id="resource-controls">Resource Controls</h2>
+<br />
+<p>Apply quotas, fairness, backpressure, rate limits, queue isolation, workload priority, and AI token or tool budgets. One tenant, partner, Agent, or replay SHALL not exhaust shared capacity.</p>
+<br />
+<h2 id="degradation">Degradation</h2>
+<br />
+<p>Define which functions can serve stale projections, queue work, require manual review, or suspend action. Degradation SHALL not bypass authorization, evidence, or invariant checks.</p>
+<br />
+<h2 id="cost">Cost</h2>
+<br />
+<p>Track unit cost by business outcome, domain, partner, data product, and AI use case. Cost controls SHALL not delete required history, reduce audit, disable security, or route sensitive data through unapproved processors.</p>
+<br />
+<h2 id="capacity-review">Capacity Review</h2>
+<br />
+<p>Review before major seasonal peaks, partner launches, policy changes, model expansion, or migrations. Evidence includes forecasts, tests, observed headroom, dependency limits, and contingency.</p>
+<br />
+</ContentPage>

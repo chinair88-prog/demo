@@ -1,0 +1,55 @@
+---
+title: "12 — Remediation and Verification Plan"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="12 — Remediation and Verification Plan"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "12 — Remediation and Verification Plan" }
+  ]}
+>
+
+<br />
+<h2 id="priority-0-false-authority">Priority 0 — جلوگیری از False Authority</h2>
+<br />
+<p>1. PO یا declaration application status نباید legal customs release نامیده شود.</p>
+<p>2. tenant/company/user از request به‌عنوان authority پذیرفته نشود.</p>
+<p>3. Shipping، Warehouse، Inventory و Partner SQL کاملاً tenant-scoped شوند.</p>
+<p>4. مالکیت Packing List، Warehouse Receipt، Shipment و Customs canonical شود.</p>
+<p>5. tenant assignment اشتباه Shipment Item اصلاح و داده موجود migrate شود.</p>
+<br />
+<h2 id="priority-1-truth-preservation-execution-safety">Priority 1 — Truth Preservation و Execution Safety</h2>
+<br />
+<p>1. document version/signature immutable اضافه شود.</p>
+<p>2. outbox/inbox برای Trade Documents، Customs، Shipping، Warehouse و Inventory ایجاد شود.</p>
+<p>3. JSON history با append-only journal جایگزین شود.</p>
+<p>4. idempotency قبل از stock mutation بررسی شود.</p>
+<p>5. state transition guard و optimistic version predicate اضافه شود.</p>
+<p>6. external outcome دارای source reference، observed time، received time و correction باشد.</p>
+<br />
+<h2 id="priority-2-capability">Priority 2 — تکمیل Capability</h2>
+<br />
+<p>1. Trade Quality Aggregate ساخته شود.</p>
+<p>2. Commercial Invoice create و PL-to-CI reconciliation پیاده‌سازی شود.</p>
+<p>3. customs document و authority-response ingestion ساخته شود.</p>
+<p>4. CustodyRelationship با attestations پیاده شود.</p>
+<p>5. Warehouse Receipt با typed contract به Inventory متصل شود.</p>
+<p>6. quarantine و channel eligibility قبل از availability اعمال شود.</p>
+<br />
+<h2 id="evidence-status">Evidence لازم برای ارتقای Status</h2>
+<br />
+<p>- migration روی empty و upgrade database؛</p>
+<p>- tenant-isolation tests؛</p>
+<p>- concurrent posting/reservation tests؛</p>
+<p>- duplicate/replay tests؛</p>
+<p>- outbox failure/recovery؛</p>
+<p>- customs/provider signature verification؛</p>
+<p>- cross-document reconciliation؛</p>
+<p>- Portal E2E بدون mock fallback؛</p>
+<p>- audit reconstruction و backup/restore.</p>
+<br />
+</ContentPage>

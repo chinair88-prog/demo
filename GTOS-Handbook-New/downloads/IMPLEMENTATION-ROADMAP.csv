@@ -1,0 +1,8 @@
+phase,name,scope,owner,priority
+0,Governance and Foundations,"Canon, Constitution, ownership, identity, ADR, standards, catalogues",Architecture governance,P0
+1,Platform Paved Roads,"Gateway, identity, secrets, observability, Events, workflows, migrations, developer platform",Platform teams,P0
+2,Core Commerce,"Product, Offer, Price, Cart, Checkout, Order, Payment, Inventory reservation",Commerce teams,P0
+3,Trade and Supply Chain,Procurement through warehouse and fulfilment,Trade and supply-chain teams,P1
+4,After-sales and Finance,"Delivery evidence, returns, settlement, reporting, ESG",Finance and after-sales teams,P1
+5,AI-native Operations,"RAG, agents, tools, evaluation, safety, supervised autonomy",AI platform and domain teams,P2
+6,Global Scale and Certification,"Multi-region, jurisdictions, certification, cost and resilience","Platform, security, compliance",P2

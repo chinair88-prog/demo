@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="database ownership follows Domain ownership; - identifiers are stable, opaque, and namespace-aware; - recorded time and effective time are distinct; - binding versions are immutable; - corrections append rather than overwrite; - lineage is first-class; - sensitive data is classif…">
+<meta name="color-scheme" content="light dark">
+<title>Data Architecture · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/search-index.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/01-NORMATIVE-CORE/06-DATA-ARCHITECTURE.html" data-root="../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../index.html"><img src="../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../pdf-library.html">PDFs</a>
+    <a href="../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../index.html">Home</a><span class="sep">/</span><span>Normative Core</span><span class="sep">/</span><span>Data Architecture</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Normative Core</span><span>195 words</span></div>
+        <h1>Data Architecture</h1>
+        <p class="lede">database ownership follows Domain ownership; - identifiers are stable, opaque, and namespace-aware; - recorded time and effective time are distinct; - binding versions are immutable; - corrections append rather than overwrite; - lineage is first-class; - sensitive data is classif…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="principles">Principles<a aria-label="Link to section" class="heading-anchor" href="#principles">#</a></h2>
+<ul>
+<li>database ownership follows Domain ownership;</li>
+<li>identifiers are stable, opaque, and namespace-aware;</li>
+<li>recorded time and effective time are distinct;</li>
+<li>binding versions are immutable;</li>
+<li>corrections append rather than overwrite;</li>
+<li>lineage is first-class;</li>
+<li>sensitive data is classified and minimized;</li>
+<li>analytical and AI stores are projections.</li>
+</ul>
+<h2 id="storage-patterns">Storage patterns<a aria-label="Link to section" class="heading-anchor" href="#storage-patterns">#</a></h2>
+<ul>
+<li>relational databases for transactional aggregates and constraints;</li>
+<li>object storage for documents, evidence, large media, and signed artifacts;</li>
+<li>search indexes for discovery and text retrieval;</li>
+<li>time-series systems for metrics and telemetry;</li>
+<li>graph or relationship projections where relationship traversal is central;</li>
+<li>vector indexes for governed retrieval, never as source of truth;</li>
+<li>warehouse/lakehouse for analytical and regulatory reporting.</li>
+</ul>
+<h2 id="schema-design">Schema design<a aria-label="Link to section" class="heading-anchor" href="#schema-design">#</a></h2>
+<p>Every table has tenant or ownership scope where applicable, primary key, business-key uniqueness, version or concurrency mechanism, timestamps, classification, and retention policy. Monetary values store amount plus currency. Physical measures store value plus unit. External references store issuer and namespace.</p>
+<h2 id="migration-standard">Migration standard<a aria-label="Link to section" class="heading-anchor" href="#migration-standard">#</a></h2>
+<p>Migrations are forward-only, reviewable, repeatable in CI, compatible with rolling deployment, and tested against empty and realistic upgrade datasets. Destructive changes require export, backfill, validation, cutover, rollback, and retention approval.</p>
+<h2 id="recovery">Recovery<a aria-label="Link to section" class="heading-anchor" href="#recovery">#</a></h2>
+<p>Each datastore defines RPO, RTO, backup schedule, encryption, restore test, regional strategy, corruption detection, and reconciliation process.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#principles">Principles</a><a class="toc-level-2" href="#storage-patterns">Storage patterns</a><a class="toc-level-2" href="#schema-design">Schema design</a><a class="toc-level-2" href="#migration-standard">Migration standard</a><a class="toc-level-2" href="#recovery">Recovery</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="05-SERVICE-ARCHITECTURE.html"><span>Previous</span><strong>Service Architecture</strong></a>
+        <a class="next" href="07-API-EVENT-AND-TOOL-ARCHITECTURE.html"><span>Next</span><strong>API, Event, and Tool Architecture</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

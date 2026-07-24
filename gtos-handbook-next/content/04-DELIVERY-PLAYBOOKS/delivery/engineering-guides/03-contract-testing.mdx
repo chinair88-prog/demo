@@ -1,0 +1,45 @@
+---
+title: "Contract Testing Guide"
+section: "Delivery Playbooks"
+---
+
+<ContentPage
+  title="Contract Testing Guide"
+  section="Delivery Playbooks"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Delivery Playbooks", href: "/content" },
+    { label: "Contract Testing Guide" }
+  ]}
+>
+
+<br />
+<h2 id="scope">Scope</h2>
+<br />
+<p>Contract testing protects meaning exchanged through APIs, Commands, Events, data products, policy interfaces, and AI tools. Syntax validation is necessary but insufficient. A consumer may parse a payload while reaching the wrong business conclusion because units, temporal meaning, authority, or defaults changed.</p>
+<br />
+<h2 id="test-layers">Test Layers</h2>
+<br />
+<p>Schema tests validate required fields, types, formats, and structural compatibility. Semantic tests validate examples, units, identifier scope, state meaning, temporal interpretation, and authority. Provider tests prove production behavior conforms to the contract. Consumer tests prove supported versions and expected conclusions. Negative tests cover unauthorized subjects, stale evidence, invalid transitions, unknown enum values, and prohibited fields.</p>
+<br />
+<h2 id="event-tests">Event Tests</h2>
+<br />
+<p>Event tests verify past-tense semantics, immutable identity, subject, source, occurrence and recording time, schema version, replay, ordering scope, duplicate handling, and correction references. A consumer SHALL tolerate at-least-once delivery and explicit version evolution.</p>
+<br />
+<h2 id="api-tests">API Tests</h2>
+<br />
+<p>API tests verify authentication, relationship-aware authorization, idempotency, concurrency, pagination order, error categories, deprecation headers, and temporal query semantics. Commands test rejection and conflict as first-class outcomes.</p>
+<br />
+<h2 id="data-product-tests">Data Product Tests</h2>
+<br />
+<p>Data products test grain, uniqueness, point-in-time correctness, lineage, quality thresholds, access classification, and backward compatibility. Analytical output SHALL not silently become authoritative operational truth.</p>
+<br />
+<h2 id="certification">Certification</h2>
+<br />
+<p>External partners receive a conformance pack containing schemas, examples, test endpoints or fixtures, security requirements, replay and retry behavior, version policy, and support contacts. Certification results are versioned and expire when a breaking change or trust change occurs.</p>
+<br />
+<h2 id="release-gate">Release Gate</h2>
+<br />
+<p>A release fails when material consumers are unknown, semantic changes lack migration, or contract tests do not cover authority and time. Temporary waivers identify affected consumers and sunset dates.</p>
+<br />
+</ContentPage>

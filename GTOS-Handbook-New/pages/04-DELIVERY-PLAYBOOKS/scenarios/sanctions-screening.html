@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scenario — Sanctions and Restricted-Party Screening · GTOS Handbook</title>
+<meta name="description" content="Scenario — Sanctions and RestrictedParty Screening Context Trade participants and beneficial owners are screened against external lists that change over time an">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/scenarios/index.html">Scenarios</a> <span class="sep">›</span> <span>Scenario — Sanctions and Restricted-Party Screening</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Scenario — Sanctions and Restricted-Party Screening</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#context">Context</a></li><li class="toc-level-2"><a href="#knowledge-discipline">Knowledge Discipline</a></li><li class="toc-level-2"><a href="#decision">Decision</a></li><li class="toc-level-2"><a href="#temporal-behavior">Temporal Behavior</a></li><li class="toc-level-2"><a href="#correction">Correction</a></li><li class="toc-level-2"><a href="#ai">AI</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="scenario-sanctions-and-restricted-party-screening">Scenario — Sanctions and Restricted-Party Screening</h1>
+<br>
+<h2 id="context">Context <a href="#context" class="heading-anchor">#</a></h2>
+<br>
+<p>Trade participants and beneficial owners are screened against external lists that change over time and contain uncertain identity information.</p>
+<br>
+<h2 id="knowledge-discipline">Knowledge Discipline <a href="#knowledge-discipline" class="heading-anchor">#</a></h2>
+<br>
+<p>A screening match is a Claim or risk signal, not proof that the party is sanctioned. The system preserves list edition, matching method, identifiers, confidence, and analyst evidence.</p>
+<br>
+<h2 id="decision">Decision <a href="#decision" class="heading-anchor">#</a></h2>
+<br>
+<p>Policy defines thresholds for automatic clear, evidence request, human review, or prohibition. A binding decision requires authority and records the knowledge cutoff.</p>
+<br>
+<h2 id="temporal-behavior">Temporal Behavior <a href="#temporal-behavior" class="heading-anchor">#</a></h2>
+<br>
+<p>A party may be clear when an order is accepted and later listed before shipment. GTOS distinguishes decision time, policy effective time, and execution time. Controls may require re-screening at defined lifecycle points.</p>
+<br>
+<h2 id="correction">Correction <a href="#correction" class="heading-anchor">#</a></h2>
+<br>
+<p>False-positive resolution records evidence and authority. It does not remove the fact that a match occurred and influenced earlier operations.</p>
+<br>
+<h2 id="ai">AI <a href="#ai" class="heading-anchor">#</a></h2>
+<br>
+<p>AI may assist entity resolution and evidence summarization, but SHALL not promote probabilistic similarity into legal identity without the approved decision path.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

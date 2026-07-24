@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence Chain Pattern · GTOS Handbook</title>
+<meta name="description" content="Evidence Chain Pattern Purpose Trade decisions often depend on documents, sensor data, attestations, external registries, and human statements. Evidence must re">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/reference-patterns/index.html">Reference Patterns</a> <span class="sep">›</span> <span>Evidence Chain Pattern</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Evidence Chain Pattern</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#purpose">Purpose</a></li><li class="toc-level-2"><a href="#evidence-record">Evidence Record</a></li><li class="toc-level-2"><a href="#transformations">Transformations</a></li><li class="toc-level-2"><a href="#chain-of-custody">Chain of Custody</a></li><li class="toc-level-2"><a href="#decision-use">Decision Use</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="evidence-chain-pattern">Evidence Chain Pattern</h1>
+<br>
+<h2 id="purpose">Purpose <a href="#purpose" class="heading-anchor">#</a></h2>
+<br>
+<p>Trade decisions often depend on documents, sensor data, attestations, external registries, and human statements. Evidence must remain trustworthy even when copied or transformed.</p>
+<br>
+<h2 id="evidence-record">Evidence Record <a href="#evidence-record" class="heading-anchor">#</a></h2>
+<br>
+<p>An Evidence Item records source identity, collection method, original location, content hash or integrity proof, time, classification, retention, access policy, transformations, attestations, and related Claims.</p>
+<br>
+<h2 id="transformations">Transformations <a href="#transformations" class="heading-anchor">#</a></h2>
+<br>
+<p>Extraction, translation, OCR, summarization, and AI interpretation create derived evidence artifacts. They SHALL reference the source and declare method and quality. A derived summary SHALL NOT replace the original evidence.</p>
+<br>
+<h2 id="chain-of-custody">Chain of Custody <a href="#chain-of-custody" class="heading-anchor">#</a></h2>
+<br>
+<p>Transfers of evidence custody or storage SHALL be recorded where legal or investigative use requires it. Access and alteration attempts are auditable.</p>
+<br>
+<h2 id="decision-use">Decision Use <a href="#decision-use" class="heading-anchor">#</a></h2>
+<br>
+<p>Decision Records reference evidence versions actually considered. Later corrected evidence does not silently change the historical Decision Record, although it may trigger appeal or remediation.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

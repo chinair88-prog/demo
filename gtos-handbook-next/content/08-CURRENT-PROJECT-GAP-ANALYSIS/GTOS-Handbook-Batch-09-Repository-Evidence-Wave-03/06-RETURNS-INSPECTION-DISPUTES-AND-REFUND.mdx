@@ -1,0 +1,56 @@
+---
+title: "06 — Returns, Inspection, Disputes, and Refund"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="06 — Returns, Inspection, Disputes, and Refund"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "06 — Returns, Inspection, Disputes, and Refund" }
+  ]}
+>
+
+<br />
+<h2 id="returns-implementation">Returns implementation</h2>
+<br />
+<p><code class="code-inline">ReturnsController</code> و <code class="code-inline">ReturnsService</code> رفتارهای زیر را دارند:</p>
+<br />
+<p>- create return/RMA؛</p>
+<p>- create return lines؛</p>
+<p>- receive at warehouse؛</p>
+<p>- inspect received items؛</p>
+<p>- create return-to-stock decision؛</p>
+<p>- dispute claim، evidence، rebuttal، decision و appeal workspace.</p>
+<br />
+<p>Classification: <code class="code-inline">IMPLEMENTED_WITH_CRITICAL_GAPS</code>.</p>
+<br />
+<h2 id="strong-structural-evidence">Strong structural evidence</h2>
+<br />
+<p>- Return، Return Item، Receipt، Inspection و Return-to-Stock Decision entities جدا هستند.</p>
+<p>- tenant/company روی Return و Receipt ذخیره می‌شود.</p>
+<p>- classification به RESTOCK/HOLD/DAMAGED/SCRAP نگاشت می‌شود.</p>
+<p>- dispute workspace evidence/timeline، liability، financial impact و appeal دارد.</p>
+<br />
+<h2 id="critical-returns-findings">Critical returns findings</h2>
+<br />
+<p>1. هر Return در create فوراً <code class="code-inline">authorizationStatus = APPROVED</code> می‌گیرد.</p>
+<p>2. <code class="code-inline">createdBy</code>، <code class="code-inline">receivedBy</code>، <code class="code-inline">inspectedBy</code> و <code class="code-inline">executedBy</code> با UUID تصادفی تولید می‌شوند، نه actor واقعی.</p>
+<p>3. source order line، customer/supplier و SKU ownership/eligibility verify نمی‌شود.</p>
+<p>4. receive by returnId و inspect by receiptId tenant/company guard آشکار ندارند.</p>
+<p>5. receive تمام requested quantity را بدون scan/discrepancy برابر received می‌کند.</p>
+<p>6. Inspection result/classification از request پذیرفته می‌شود و authority/calibration/evidence ندارد.</p>
+<p>7. RESTOCK فقط log می‌شود؛ Inventory posting در comment به آینده موکول شده است.</p>
+<p>8. Refund execution به Payment Domain متصل نیست.</p>
+<p>9. dispute detail، evidence، rebuttal، decision و appeal در چند مسیر record را by ID بدون tenant predicate می‌خوانند.</p>
+<p>10. workspace برای Returnها <code class="code-inline">findAll()</code> و in-memory tenant filtering دارد.</p>
+<p>11. evidence/timeline در JSON mutable ذخیره می‌شود.</p>
+<p>12. Dispute financial decision به payout/refund execution وصل نیست.</p>
+<br />
+<h2 id="canonical-return-flow">Canonical return flow</h2>
+<br />
+<CodeBlock code={"ReturnRequest\n→ EligibilityDecision\n→ ReturnAuthorization\n→ InboundShipment/Receipt\n→ Item-Level Inspection Evidence\n→ Disposition Decision\n→ Inventory Posting or Scrap/Repair\n→ Refund/Replacement Intent\n→ Payment Outcome\n→ Resolution and Appeal"} language="text" />
+<br />
+</ContentPage>

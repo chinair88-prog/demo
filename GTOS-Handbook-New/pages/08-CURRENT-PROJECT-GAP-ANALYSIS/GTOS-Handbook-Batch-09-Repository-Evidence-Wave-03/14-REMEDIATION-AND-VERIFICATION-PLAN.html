@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>14 — Remediation and Verification Plan · GTOS Handbook</title>
+<meta name="description" content="14 — Remediation and Verification Plan Priority 0 — Security and Commercial Integrity 1. Fix Order list tenant leak and all bulk operation leaks. 2. Scope Cart,">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/index.html">GTOS Handbook Batch 09 Repository Evidence Wave 03</a> <span class="sep">›</span> <span>14 — Remediation and Verification Plan</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>14 — Remediation and Verification Plan</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#priority-0-security-and-commercial-integrity">Priority 0 — Security and Commercial Integrity</a></li><li class="toc-level-2"><a href="#priority-1-canonical-ownership">Priority 1 — Canonical Ownership</a></li><li class="toc-level-2"><a href="#priority-2-reliable-execution">Priority 2 — Reliable Execution</a></li><li class="toc-level-2"><a href="#required-verification">Required verification</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="14-remediation-and-verification-plan">14 — Remediation and Verification Plan</h1>
+<br>
+<h2 id="priority-0-security-and-commercial-integrity">Priority 0 — Security and Commercial Integrity <a href="#priority-0-security-and-commercial-integrity" class="heading-anchor">#</a></h2>
+<br>
+<li>Fix Order <code>list()</code> tenant leak and all bulk operation leaks.</li>
+<li>Scope Cart, Marketplace Catalog, Pricing, Fulfilment, Returns, Settlement, ESG and AI Evaluation ID lookups to trusted tenant context.</li>
+<li>Stop accepting authoritative price, user, payment and verification state from Client input.</li>
+<li>Disable or protect direct <code>confirm-payment</code>, direct product approval and self-verified catalog fields.</li>
+<li>Correct Order history from/to status recording.</li>
+<li>Replace random actor UUIDs in Returns with authenticated actor identity.</li>
+<li>Require POD before Order becomes Delivered.</li>
+<br>
+<h2 id="priority-1-canonical-ownership">Priority 1 — Canonical Ownership <a href="#priority-1-canonical-ownership" class="heading-anchor">#</a></h2>
+<br>
+<li>Product Master versus Marketplace Catalog/Offer.</li>
+<li>Price authority and immutable Price Version.</li>
+<li>Customer Order versus Warehouse Fulfilment Order.</li>
+<li>Marketplace settlement ledger versus Payment payout execution.</li>
+<li>Compliance ESG versus specialized Carbon service.</li>
+<li>Return disposition versus Inventory stock posting.</li>
+<br>
+<h2 id="priority-2-reliable-execution">Priority 2 — Reliable Execution <a href="#priority-2-reliable-execution" class="heading-anchor">#</a></h2>
+<br>
+<li>Transactional outbox/inbox for Order، Pick/Pack، Returns، Settlement و ESG.</li>
+<li>Order Saga with inventory reservation, payment authorization, fulfilment creation and compensation.</li>
+<li>Idempotent Checkout، Payment confirmation، Return receive/inspect and Settlement transaction ingestion.</li>
+<li>Live carrier adapter، quote expiry، booking، tracking webhook and POD.</li>
+<li>Immutable evidence journals instead of mutable JSON timelines.</li>
+<li>Multi-currency normalization and financial reconciliation.</li>
+<br>
+<h2 id="required-verification">Required verification <a href="#required-verification" class="heading-anchor">#</a></h2>
+<br>
+<li>tenant isolation tests including list/bulk/cache paths؛</li>
+<li>client price tampering E2E؛</li>
+<li>duplicate checkout/payment webhook tests؛</li>
+<li>order saga failure/compensation tests؛</li>
+<li>concurrent stock allocation and over-pick tests؛</li>
+<li>return quantity discrepancy and duplicate restock tests؛</li>
+<li>settlement cross-tenant/currency/provider reconciliation؛</li>
+<li>ESG methodology/version/assurance tests؛</li>
+<li>AI evaluation run ownership, score range and duplicate-review tests؛</li>
+<li>CI logs and migration upgrade evidence.</li>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

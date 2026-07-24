@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Implementation Roadmap · GTOS Handbook</title>
+<meta name="description" content="Implementation Roadmap Phase 0 Governance and foundations Adopt Canon, Constitution, Domain ownership, identity model, tenant model, engineering standards, ADR ">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script defer src="../../assets/js/nav-data.js"></script>
+<script defer src="../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../architecture-atlas.html">Atlas</a>
+    <a href="../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../index.html">Home</a> <span class="sep">›</span> <a href="../../pages/01-NORMATIVE-CORE/index.html">NORMATIVE CORE</a> <span class="sep">›</span> <span>Implementation Roadmap</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Normative Core</span>
+        </div>
+        <h1>Implementation Roadmap</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#phase-0-governance-and-foundations">Phase 0 - Governance and foundations</a></li><li class="toc-level-2"><a href="#phase-1-platform-paved-roads">Phase 1 - Platform paved roads</a></li><li class="toc-level-2"><a href="#phase-2-core-commerce">Phase 2 - Core commerce</a></li><li class="toc-level-2"><a href="#phase-3-trade-and-supply-chain">Phase 3 - Trade and supply chain</a></li><li class="toc-level-2"><a href="#phase-4-after-sales-and-finance">Phase 4 - After-sales and finance</a></li><li class="toc-level-2"><a href="#phase-5-ai-native-operations">Phase 5 - AI-native operations</a></li><li class="toc-level-2"><a href="#phase-6-global-scale-and-certification">Phase 6 - Global scale and certification</a></li><li class="toc-level-2"><a href="#prioritization-rule">Prioritization rule</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="implementation-roadmap">Implementation Roadmap</h1>
+<br>
+<h2 id="phase-0-governance-and-foundations">Phase 0 - Governance and foundations <a href="#phase-0-governance-and-foundations" class="heading-anchor">#</a></h2>
+<br>
+<p>Adopt Canon, Constitution, Domain ownership, identity model, tenant model, engineering standards, ADR process, catalogues, CI quality gates, and production-readiness policy.</p>
+<br>
+<h2 id="phase-1-platform-paved-roads">Phase 1 - Platform paved roads <a href="#phase-1-platform-paved-roads" class="heading-anchor">#</a></h2>
+<br>
+<p>Deliver identity, service templates, API gateway, secrets, observability, Event Bus, outbox/inbox, workflow engine, database migration framework, developer environment, test harnesses, and deployment platform.</p>
+<br>
+<h2 id="phase-2-core-commerce">Phase 2 - Core commerce <a href="#phase-2-core-commerce" class="heading-anchor">#</a></h2>
+<br>
+<p>Implement Product, Marketplace Offer, Price Version, Cart, Checkout Quote, Customer Order, Payment Intent, Inventory Reservation, and reliable Order saga.</p>
+<br>
+<h2 id="phase-3-trade-and-supply-chain">Phase 3 - Trade and supply chain <a href="#phase-3-trade-and-supply-chain" class="heading-anchor">#</a></h2>
+<br>
+<p>Implement RFQ, Quotation, Contract, PI, PO, Manufacturing, Quality, documents, customs, shipping, custody, warehouse receiving, inventory, and fulfilment.</p>
+<br>
+<h2 id="phase-4-after-sales-and-finance">Phase 4 - After-sales and finance <a href="#phase-4-after-sales-and-finance" class="heading-anchor">#</a></h2>
+<br>
+<p>Implement delivery evidence, returns, claims, refund, settlement, reconciliation, reporting, and ESG evidence.</p>
+<br>
+<h2 id="phase-5-ai-native-operations">Phase 5 - AI-native operations <a href="#phase-5-ai-native-operations" class="heading-anchor">#</a></h2>
+<br>
+<p>Introduce retrieval, recommendations, planning, typed tools, supervised agents, evaluation, safety, and bounded autonomy after the underlying Domain controls are mature.</p>
+<br>
+<h2 id="phase-6-global-scale-and-certification">Phase 6 - Global scale and certification <a href="#phase-6-global-scale-and-certification" class="heading-anchor">#</a></h2>
+<br>
+<p>Add multi-region, jurisdiction profiles, advanced resilience, partner certification, data residency, high-assurance controls, cost optimization, and formal compliance evidence.</p>
+<br>
+<h2 id="prioritization-rule">Prioritization rule <a href="#prioritization-rule" class="heading-anchor">#</a></h2>
+<br>
+<p>Build the smallest complete vertical slice, not isolated tables or screens. Platform foundations must be delivered just ahead of the slices that require them, avoiding both premature platform construction and repeated local reinvention.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

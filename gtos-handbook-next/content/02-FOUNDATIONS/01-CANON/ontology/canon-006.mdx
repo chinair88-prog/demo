@@ -1,0 +1,172 @@
+---
+title: "CANON-006 — Relationships Are Independent Business Facts"
+section: "Foundations"
+---
+
+<ContentPage
+  title="CANON-006 — Relationships Are Independent Business Facts"
+  section="Foundations"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Foundations", href: "/content" },
+    { label: "CANON-006 — Relationships Are Independent Business Facts" }
+  ]}
+>
+
+<br />
+<h2 id="canon-statement">Canon Statement</h2>
+<br />
+<CalloutBlock type="info"><strong>A business-significant Relationship SHALL be modeled as an independent fact with roles, attributes, lifecycle, validity, and history.</strong></CalloutBlock>
+<br />
+<h2 id="classification">Classification</h2>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Property","sortable":true},{"key":"col1","label":"Value","sortable":true}]} data={[{"col0":"Canon ID","col1":"CANON-006"},{"col0":"Plane","col1":"Ontology"},{"col0":"Priority","col1":"Absolute"},{"col0":"Scope","col1":"Entire GTOS Ecosystem"},{"col0":"Status","col1":"Normative"},{"col0":"Depends On","col1":"CANON-003, CANON-004, CANON-005"}]} />
+<br />
+<h2 id="normative-statements">Normative Statements</h2>
+<br />
+<p>- A business-significant Relationship SHALL be modeled as an independent fact with roles, attributes, lifecycle, validity, and history.</p>
+<p>- Implementations SHALL preserve the distinctions defined by this Canon across APIs, data, events, AI behavior, security policy, and operations.</p>
+<p>- A derived view SHALL NOT claim greater authority than its governed source.</p>
+<p>- Conformance evidence SHALL be inspectable and reproducible.</p>
+<br />
+<h2 id="historical-context">Historical Context</h2>
+<br />
+<p>Foreign-key modeling hides contractual terms, delegation, custody, qualification, and obligations that belong to the relationship itself.</p>
+<br />
+<p>The resulting failures are not merely data-quality issues. They create invalid authority, incorrect automation, misleading analytics, and brittle integration. This Canon establishes the conceptual boundary required to prevent those failures.</p>
+<br />
+<h2 id="core-philosophy">Core Philosophy</h2>
+<br />
+<p>A business-significant Relationship SHALL be modeled as an independent fact with roles, attributes, lifecycle, validity, and history.</p>
+<br />
+<p>The Canon is independent of implementation style. A monolith, distributed platform, event-driven system, or agentic architecture may conform, but each must preserve the same semantic distinctions.</p>
+<br />
+<h2 id="formal-definitions">Formal Definitions</h2>
+<br />
+<h3 id="relationship">Relationship</h3>
+<br />
+<p>A meaningful association among independently identified Entities.</p>
+<br />
+<h3 id="role">Role</h3>
+<br />
+<p>Participation semantics within a Relationship.</p>
+<br />
+<h3 id="relationship-state">Relationship State</h3>
+<br />
+<p>The scoped condition of a Relationship.</p>
+<br />
+<h3 id="relationship-validity">Relationship Validity</h3>
+<br />
+<p>The time during which the Relationship has effect.</p>
+<br />
+<br />
+<h2 id="formal-invariants">Formal Invariants</h2>
+<br />
+<p>1. The concept defined by this Canon SHALL have explicit ownership and scope.</p>
+<p>2. Its identity and temporal meaning SHALL remain stable across representation changes.</p>
+<p>3. Any derived assertion SHALL retain provenance to its inputs.</p>
+<p>4. Corrections SHALL preserve historical evidence.</p>
+<p>5. Authority SHALL NOT be inferred from technical possession or processing.</p>
+<br />
+<h2 id="engineering-interpretation">Engineering Interpretation</h2>
+<br />
+<p>The Canon affects aggregate design, data contracts, event envelopes, authorization policy, observability, AI prompts and tools, audit records, and migration procedures.</p>
+<br />
+<p>Engineering teams SHALL encode the required distinctions in types and contracts rather than relying only on prose. Invalid states and invalid transitions SHOULD be rejected as early as practical.</p>
+<br />
+<h2 id="business-interpretation">Business Interpretation</h2>
+<br />
+<p>Business language remains authoritative for meaning. Technical teams SHALL demonstrate that domain experts can recognize the represented concept, its owner, its lifecycle, and its exceptions.</p>
+<br />
+<p>A business rule that changes by jurisdiction, agreement, commodity, participant, or time SHALL be modeled as governed policy rather than hidden application logic.</p>
+<br />
+<h2 id="ai-interpretation">AI Interpretation</h2>
+<br />
+<p>AI systems SHALL classify outputs as retrieval, inference, prediction, recommendation, decision, or execution request. Evidence, confidence, authority, and knowledge-time boundaries SHALL remain explicit.</p>
+<br />
+<p>An AI-generated statement does not become a fact, authoritative truth, or decision merely because it is fluent or highly probable.</p>
+<br />
+<h2 id="architectural-consequences">Architectural Consequences</h2>
+<br />
+<p>- Domain boundaries must reflect authority boundaries.</p>
+<p>- APIs and events must preserve semantic types and temporal meaning.</p>
+<p>- Data lineage must connect projections to authoritative claims.</p>
+<p>- Security must distinguish access, authority, delegation, and purpose.</p>
+<p>- Operations must preserve evidence during failure and recovery.</p>
+<p>- Architecture reviews must demonstrate Canon traceability.</p>
+<br />
+<h2 id="trade-example">Trade Example</h2>
+<br />
+<p>A supplier qualification links buyer and supplier but has its own audit evidence, scope, approval, expiry, suspension, and renewal history.</p>
+<br />
+<h2 id="failure-modes-and-risks">Failure Modes and Risks</h2>
+<br />
+<p>- Contract terms are stored on the wrong party.</p>
+<p>- Delegation cannot be revoked cleanly.</p>
+<p>- Network risk cannot be analyzed.</p>
+<br />
+<h2 id="design-rules">Design Rules</h2>
+<br />
+<p>1. Model the business concept before choosing storage or messaging technology.</p>
+<p>2. Record identity, owner, source, scope, and time.</p>
+<p>3. Separate authoritative claims from observations and projections.</p>
+<p>4. Preserve corrections and contradictions.</p>
+<p>5. Test business invariants at domain boundaries.</p>
+<p>6. Require explicit authority before decision or execution.</p>
+<p>7. Make conformance observable.</p>
+<br />
+<h2 id="anti-patterns">Anti-Patterns</h2>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Anti-Pattern","sortable":true},{"key":"col1","label":"Why It Fails","sortable":true}]} data={[{"col0":"Database-as-reality","col1":"Confuses persistence with existence"},{"col0":"Status-field compression","col1":"Erases scope, owner, and transition semantics"},{"col0":"Silent overwrite","col1":"Destroys history"},{"col0":"Message-name ambiguity","col1":"Confuses request, event, and outcome"},{"col0":"AI answer as authority","col1":"Collapses knowledge, recommendation, and decision"},{"col0":"Shared table ownership","col1":"Creates competing truth owners"},{"col0":"Implementation-defined policy","col1":"Hides business governance"}]} />
+<br />
+<h2 id="compliance-requirements">Compliance Requirements</h2>
+<br />
+<p>A conforming implementation SHALL provide:</p>
+<br />
+<p>- a model or contract expressing this Canon;</p>
+<p>- accountable ownership;</p>
+<p>- temporal and provenance metadata;</p>
+<p>- testable invariants;</p>
+<p>- audit or lineage evidence;</p>
+<p>- documented exceptions;</p>
+<p>- traceability to affected services, schemas, policies, and runbooks.</p>
+<br />
+<h2 id="conformance-tests">Conformance Tests</h2>
+<br />
+<p>- [ ] Do relationship attributes belong to neither participant independently?</p>
+<p>- [ ] Can multiple Relationships coexist between the same parties?</p>
+<p>- [ ] Is relationship history preserved?</p>
+<br />
+<h2 id="traceability">Traceability</h2>
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Derived Volume","sortable":true},{"key":"col1","label":"Primary Derivation","sortable":true}]} data={[{"col0":"Constitution","col1":"Authority, ownership, amendment, and conformance"},{"col0":"Business Architecture","col1":"Capabilities, decision rights, value streams"},{"col0":"Domain Architecture","col1":"Boundaries, aggregates, commands, events, invariants"},{"col0":"AI Architecture","col1":"Evidence, uncertainty, authority, decision discipline"},{"col0":"Data Architecture","col1":"Temporal modeling, lineage, quality, retention"},{"col0":"Security Architecture","col1":"Identity, delegation, authorization, audit"},{"col0":"Engineering","col1":"Contract tests and architecture evidence"},{"col0":"Operations","col1":"Reconstruction, recovery, and incident evidence"}]} />
+<br />
+<h2 id="architects-notes">Architect's Notes</h2>
+<br />
+<h3 id="architectural-observation">Architectural Observation</h3>
+<br />
+<p>This Canon is valuable only when it changes design behavior. Repeating the statement without encoding ownership, data semantics, policy, and verification is non-conformance.</p>
+<br />
+<h3 id="rejected-alternatives">Rejected Alternatives</h3>
+<br />
+<p>- Treating the distinction as documentation-only.</p>
+<p>- Allowing every service to redefine the concept.</p>
+<p>- Inferring authority from possession of data.</p>
+<p>- Removing inconvenient history during correction.</p>
+<p>- Deferring semantic validation to analytics.</p>
+<br />
+<h3 id="related-canons">Related Canons</h3>
+<br />
+<p>Dependencies are listed in Classification. Downstream relationships are published in the Traceability Registry.</p>
+<br />
+<h2 id="review-checklist">Review Checklist</h2>
+<br />
+<p>- [ ] Does the Canon remain independent?</p>
+<p>- [ ] Would removing it make GTOS incoherent?</p>
+<p>- [ ] Are definitions non-circular?</p>
+<p>- [ ] Are invariants testable?</p>
+<p>- [ ] Are examples specific to trade?</p>
+<p>- [ ] Are AI and authority consequences explicit?</p>
+<p>- [ ] Is implementation traceability available?</p>
+<br />
+</ContentPage>

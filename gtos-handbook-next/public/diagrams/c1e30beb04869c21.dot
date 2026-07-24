@@ -1,0 +1,25 @@
+digraph G {
+rankdir=LR;
+graph [bgcolor="transparent", pad="0.35", nodesep="0.34", ranksep="0.60", splines="spline"];
+node [fontname="Arial", fontsize=10, shape=rect, color="#4B5D8A", penwidth=1.45, style="rounded,filled", fillcolor="#F5F6FC", fontcolor="#253150", margin="0.15,0.09"];
+edge [color="#6677A5", penwidth=1.35, arrowsize=0.72];
+"CANCELLED" [label="CANCELLED"];
+"CANCEL_PENDING" [label="CANCEL PENDING"];
+"CART_ACTIVE" [label="CART ACTIVE"];
+"CHECKOUT_STARTED" [label="CHECKOUT STARTED"];
+"FULFILMENT_PENDING" [label="FULFILMENT PENDING"];
+"ORDER_ACCEPTED" [label="ORDER ACCEPTED"];
+"ORDER_REJECTED" [label="ORDER REJECTED"];
+"PAYMENT_PENDING" [label="PAYMENT PENDING"];
+"VALIDATION_PENDING" [label="VALIDATION PENDING"];
+"__start_0" [shape=circle, width=0.14, fixedsize=true, label="", fillcolor="#30476F", color="#30476F", style=filled];
+"__start_0" -> "CART_ACTIVE";
+"CART_ACTIVE" -> "CHECKOUT_STARTED";
+"CHECKOUT_STARTED" -> "VALIDATION_PENDING";
+"VALIDATION_PENDING" -> "PAYMENT_PENDING";
+"PAYMENT_PENDING" -> "ORDER_ACCEPTED";
+"ORDER_ACCEPTED" -> "ORDER_REJECTED";
+"ORDER_REJECTED" -> "CANCEL_PENDING";
+"CANCEL_PENDING" -> "CANCELLED";
+"CANCELLED" -> "FULFILMENT_PENDING";
+}

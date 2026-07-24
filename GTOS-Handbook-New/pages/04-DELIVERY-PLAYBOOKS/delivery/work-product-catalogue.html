@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Work Product Catalogue · GTOS Handbook</title>
+<meta name="description" content="Work Product Catalogue Foundational Products Reference Theory adoption record Canon dependency model constitutional exception register glossary and semantic dec">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <span>Work Product Catalogue</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Work Product Catalogue</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#foundational-products">Foundational Products</a></li><li class="toc-level-2"><a href="#business-products">Business Products</a></li><li class="toc-level-2"><a href="#domain-products">Domain Products</a></li><li class="toc-level-2"><a href="#data-and-ai-products">Data and AI Products</a></li><li class="toc-level-2"><a href="#security-and-operations-products">Security and Operations Products</a></li><li class="toc-level-2"><a href="#delivery-evidence">Delivery Evidence</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="work-product-catalogue">Work Product Catalogue</h1>
+<br>
+<h2 id="foundational-products">Foundational Products <a href="#foundational-products" class="heading-anchor">#</a></h2>
+<br>
+<li>Reference Theory adoption record</li>
+<li>Canon dependency model</li>
+<li>constitutional exception register</li>
+<li>glossary and semantic decision log</li>
+<br>
+<h2 id="business-products">Business Products <a href="#business-products" class="heading-anchor">#</a></h2>
+<br>
+<li>capability map</li>
+<li>value-stream model</li>
+<li>actor and Relationship map</li>
+<li>truth ownership matrix</li>
+<li>decision-right catalogue</li>
+<li>business service and outcome catalogue</li>
+<br>
+<h2 id="domain-products">Domain Products <a href="#domain-products" class="heading-anchor">#</a></h2>
+<br>
+<li>domain charter</li>
+<li>aggregate and invariant model</li>
+<li>lifecycle and state diagrams</li>
+<li>Command and Event catalogue</li>
+<li>policy catalogue</li>
+<li>API and data contracts</li>
+<li>domain SLOs</li>
+<br>
+<h2 id="data-and-ai-products">Data and AI Products <a href="#data-and-ai-products" class="heading-anchor">#</a></h2>
+<br>
+<li>conceptual and logical data models</li>
+<li>data contracts and lineage</li>
+<li>quality rules</li>
+<li>AI use-case and risk classification</li>
+<li>Agent mandate and tool registry</li>
+<li>evaluation and monitoring plan</li>
+<li>Decision Record schema</li>
+<br>
+<h2 id="security-and-operations-products">Security and Operations Products <a href="#security-and-operations-products" class="heading-anchor">#</a></h2>
+<br>
+<li>threat model</li>
+<li>identity, delegation, and authorization model</li>
+<li>data protection assessment</li>
+<li>runbooks and SLOs</li>
+<li>recovery and reconciliation plan</li>
+<li>incident and continuity exercises</li>
+<br>
+<h2 id="delivery-evidence">Delivery Evidence <a href="#delivery-evidence" class="heading-anchor">#</a></h2>
+<br>
+<p>Each work product SHALL declare version, owner, status, scope, dependencies, reviewers, and approval date. Obsolete work products remain archived when required for historical reconstruction.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

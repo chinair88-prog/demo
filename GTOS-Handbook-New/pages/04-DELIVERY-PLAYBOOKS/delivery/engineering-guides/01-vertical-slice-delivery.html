@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vertical Slice Delivery Guide · GTOS Handbook</title>
+<meta name="description" content="Vertical Slice Delivery Guide Objective A vertical slice proves one meaningful business outcome across user interaction, domain logic, contract, persistence, po">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script defer src="../../../../assets/js/nav-data.js"></script>
+<script defer src="../../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/index.html">Delivery</a> <span class="sep">›</span> <a href="../../../../pages/04-DELIVERY-PLAYBOOKS/delivery/engineering-guides/index.html">Engineering Guides</a> <span class="sep">›</span> <span>Vertical Slice Delivery Guide</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Vertical Slice Delivery Guide</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#objective">Objective</a></li><li class="toc-level-2"><a href="#slice-selection">Slice Selection</a></li><li class="toc-level-2"><a href="#required-design">Required Design</a></li><li class="toc-level-2"><a href="#implementation-sequence">Implementation Sequence</a></li><li class="toc-level-2"><a href="#review-questions">Review Questions</a></li><li class="toc-level-2"><a href="#completion">Completion</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="vertical-slice-delivery-guide">Vertical Slice Delivery Guide</h1>
+<br>
+<h2 id="objective">Objective <a href="#objective" class="heading-anchor">#</a></h2>
+<br>
+<p>A vertical slice proves one meaningful business outcome across user interaction, domain logic, contract, persistence, policy, observability, and operation. It is not a thin user-interface prototype connected to placeholder logic. The slice must demonstrate that the architecture can carry a real governed fact from observation or command through outcome and evidence.</p>
+<br>
+<h2 id="slice-selection">Slice Selection <a href="#slice-selection" class="heading-anchor">#</a></h2>
+<br>
+<p>Choose a slice with a clear subject, one or two critical invariants, a known truth owner, a small number of partner dependencies, and an observable business outcome. Avoid selecting the easiest technical endpoint if it bypasses identity, time, state, authority, or correction. A useful early slice often includes one Command, one Decision or policy check, two or three Events, a projection, and an operational alert.</p>
+<br>
+<h2 id="required-design">Required Design <a href="#required-design" class="heading-anchor">#</a></h2>
+<br>
+<p>The slice SHALL define the domain aggregate, identifiers, temporal fields, Command contract, Event contract, authorization context, failure behavior, idempotency, data classification, SLO, and recovery test. If AI is involved, the output type, evidence source, evaluation, and execution boundary are explicit.</p>
+<br>
+<h2 id="implementation-sequence">Implementation Sequence <a href="#implementation-sequence" class="heading-anchor">#</a></h2>
+<br>
+<li>Write scenario examples and acceptance evidence.</li>
+<li>Define state and invariants before data tables.</li>
+<li>Publish contract drafts and consumer expectations.</li>
+<li>Implement domain behavior with invariant tests.</li>
+<li>Add persistence and Event publication through an outbox or equivalent reliable pattern.</li>
+<li>Build the projection and user or partner interface.</li>
+<li>Add policy, security, telemetry, and runbook.</li>
+<li>Exercise retry, duplicate, late data, correction, and dependency failure.</li>
+<li>Demonstrate the end-to-end trace and business outcome.</li>
+<br>
+<h2 id="review-questions">Review Questions <a href="#review-questions" class="heading-anchor">#</a></h2>
+<br>
+<p>Can a domain expert explain every state transition? Is an Event a completed fact rather than a request? Can a repeated Command create a duplicate effect? What happens when the response is lost? Can an operator see why the slice is blocked? Can a historical decision be reviewed using knowledge available at the time?</p>
+<br>
+<h2 id="completion">Completion <a href="#completion" class="heading-anchor">#</a></h2>
+<br>
+<p>A vertical slice is complete when it runs in a production-like environment, contract tests pass, observability exposes technical and business state, security controls are enforced, a runbook is exercised, and Canon traceability is inspectable.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

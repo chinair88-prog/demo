@@ -1,0 +1,19 @@
+---
+title: "11 — Implementation Status Matrix"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="11 — Implementation Status Matrix"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "11 — Implementation Status Matrix" }
+  ]}
+>
+
+<br />
+<PremiumTable columns={[{"key":"col0","label":"Area","sortable":true},{"key":"col1","label":"Narrow verified capability","sortable":true},{"key":"col2","label":"Classification","sortable":true}]} data={[{"col0":"Product Catalog Service","col1":"CRUD/status/resell/similar","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Marketplace Product Catalog","col1":"tenant-aware table and CRUD","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Canonical Marketplace Offer","col1":"Not found as independent aggregate","col2":"<code class=\"code-inline\">PLANNED_NOT_IMPLEMENTED</code>"},{"col0":"Target Pricing","col1":"Policy CRUD and lookup","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Smart Pricing","col1":"Rules, landed cost, market snapshots, calculation","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Price Version / Checkout Quote","col1":"No immutable accepted version","col2":"<code class=\"code-inline\">PLANNED_NOT_IMPLEMENTED</code>"},{"col0":"Cart","col1":"CRUD, merge, coupon attachment","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_CRITICAL_GAPS</code>"},{"col0":"Checkout","col1":"Cart-to-order and validation","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_CRITICAL_GAPS</code>"},{"col0":"Checkout AI","col1":"Hard-coded local rules","col2":"<code class=\"code-inline\">SIMULATED_REFERENCE_IMPLEMENTATION</code>"},{"col0":"Customer Order","col1":"Entity, workflow, history, optimistic lock","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_CRITICAL_GAPS</code>"},{"col0":"Order Saga","col1":"Comments only for cross-service steps","col2":"<code class=\"code-inline\">PLANNED_NOT_IMPLEMENTED</code>"},{"col0":"Allocation","col1":"Inventory reservation exists, order orchestration absent","col2":"<code class=\"code-inline\">PARTIAL_IMPLEMENTATION</code>"},{"col0":"Legacy Fulfilment Sales Order","col1":"Deprecated CRUD/status","col2":"<code class=\"code-inline\">DEPRECATED_IMPLEMENTATION</code>"},{"col0":"Pick/Pack","col1":"Waves/tasks/confirm/pack/verify","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Last-Mile Optimizer","col1":"Static in-memory rates and profiles","col2":"<code class=\"code-inline\">SIMULATED_REFERENCE_IMPLEMENTATION</code>"},{"col0":"Proof of Delivery","col1":"Not found","col2":"<code class=\"code-inline\">PLANNED_NOT_IMPLEMENTED</code>"},{"col0":"Returns/RMA","col1":"Return, receipt, inspection, disposition","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_CRITICAL_GAPS</code>"},{"col0":"Disputes","col1":"Evidence, rebuttal, decision, appeal","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Marketplace Settlement","col1":"Cycles, transactions, calculation, reconciliation","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Payment Settlement","col1":"Capture batching","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Payout Execution","col1":"Not verified","col2":"<code class=\"code-inline\">PLANNED_NOT_IMPLEMENTED</code>"},{"col0":"ESG Goals","col1":"CRUD, progress, events","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"},{"col0":"Verified ESG Metrics","col1":"Not found","col2":"<code class=\"code-inline\">PLANNED_NOT_IMPLEMENTED</code>"},{"col0":"AI Evaluation","col1":"Feedback, stats, recommendations","col2":"<code class=\"code-inline\">IMPLEMENTED_WITH_GAP</code>"}]} />
+<br />
+</ContentPage>

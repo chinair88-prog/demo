@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>02 — Pricing, Price Version, and Commercial Snapshot · GTOS Handbook</title>
+<meta name="description" content="02 — Pricing, Price Version, and Commercial Snapshot Implemented pricing capabilities دو implementation اصلی وجود دارد: Pricing Service Target Price TargetPrice">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/index.html">CURRENT PROJECT GAP ANALYSIS</a> <span class="sep">›</span> <a href="../../../pages/08-CURRENT-PROJECT-GAP-ANALYSIS/GTOS-Handbook-Batch-09-Repository-Evidence-Wave-03/index.html">GTOS Handbook Batch 09 Repository Evidence Wave 03</a> <span class="sep">›</span> <span>02 — Pricing, Price Version, and Commercial Snapshot</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Gap Analysis</span>
+        </div>
+        <h1>02 — Pricing, Price Version, and Commercial Snapshot</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#implemented-pricing-capabilities">Implemented pricing capabilities</a></li><li class="toc-level-3"><a href="#pricing-service-target-price">Pricing Service Target Price</a></li><li class="toc-level-3"><a href="#marketplace-smart-pricing">Marketplace Smart Pricing</a></li><li class="toc-level-2"><a href="#critical-pricing-findings">Critical pricing findings</a></li><li class="toc-level-2"><a href="#canonical-pricing-model">Canonical pricing model</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="02-pricing-price-version-and-commercial-snapshot">02 — Pricing, Price Version, and Commercial Snapshot</h1>
+<br>
+<h2 id="implemented-pricing-capabilities">Implemented pricing capabilities <a href="#implemented-pricing-capabilities" class="heading-anchor">#</a></h2>
+<br>
+<p>دو implementation اصلی وجود دارد:</p>
+<br>
+<h3 id="pricing-service-target-price">Pricing Service Target Price <a href="#pricing-service-target-price" class="heading-anchor">#</a></h3>
+<br>
+<p><code>TargetPriceController</code> و <code>TargetPriceService</code>:</p>
+<br>
+<li>create/update/delete policy؛</li>
+<li>list by tenant/product؛</li>
+<li>lookup active target price.</li>
+<br>
+<h3 id="marketplace-smart-pricing">Marketplace Smart Pricing <a href="#marketplace-smart-pricing" class="heading-anchor">#</a></h3>
+<br>
+<p><code>SmartPricingService</code> و <code>SmartPricingController</code>:</p>
+<br>
+<li>Price Rule CRUD؛</li>
+<li>Landed Cost CRUD؛</li>
+<li>Market Price Snapshot؛</li>
+<li>competitor averages؛</li>
+<li>price calculation؛</li>
+<li>pricing overview.</li>
+<br>
+<p>Strategies شامل Cost Plus، Market Based، Dynamic، Penetration، Skimming، Volume Tiered، Promotional و Bundle هستند.</p>
+<br>
+<p>Classification: <code>IMPLEMENTED_WITH_GAP</code>.</p>
+<br>
+<h2 id="critical-pricing-findings">Critical pricing findings <a href="#critical-pricing-findings" class="heading-anchor">#</a></h2>
+<br>
+<li>tenant/company در Target Price و Smart Pricing از request/query گرفته می‌شوند.</li>
+<li>get/update/delete rule by ID tenant-scoped نیستند.</li>
+<li>Target Price status string آزاد است.</li>
+<li>Catalog Product و Marketplace Catalog Entry نیز قیمت مستقل ذخیره می‌کنند.</li>
+<li>Category و Warehouse rule matching در engine عملاً <code>true</code> و با comment <code>simplified</code> اجرا می‌شود؛ در نتیجه rule می‌تواند خارج از scope اعمال شود.</li>
+<li>Volume tiers hard-coded هستند.</li>
+<li>manual discount/surcharge از request پذیرفته می‌شود.</li>
+<li>response currency در محاسبه Smart Pricing به USD hard-code شده است.</li>
+<li>competitor source authenticity، timestamp policy و observation confidence محدود است.</li>
+<li>Price Version، approval، publication، effective interval، supersession و accepted checkout quote مستقل پیدا نشد.</li>
+<br>
+<h2 id="canonical-pricing-model">Canonical pricing model <a href="#canonical-pricing-model" class="heading-anchor">#</a></h2>
+<br>
+<pre><code class="language-text">
+CostObservation
+
++ LandedCostVersion
+
++ MarketPriceObservation
+
++ PricingRuleVersion
+
+→ PriceCalculation
+
+→ PriceApprovalDecision
+
+→ PriceVersion
+
+→ OfferPrice
+
+→ CheckoutPriceSnapshot
+
+</code></pre>
+<br>
+<p>Cart و Order باید Price Snapshot را با rule/version/effective time ذخیره کنند، نه اینکه <code>unitPrice</code> Client را حقیقت تلقی کنند.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

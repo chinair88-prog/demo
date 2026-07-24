@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reference Deployment Blueprint · GTOS Handbook</title>
+<meta name="description" content="Reference Deployment Blueprint Logical Zones A reference deployment contains edge access, identity and policy, API and Event ingress, domain runtime, workflow, ">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/app.js"></script>
+</head>
+<body>
+<div class="reading-progress"><div class="bar"></div></div>
+<header class="topbar">
+  <button class="menu-toggle">☰</button>
+  <a class="brand" href="../../../index.html">
+    <span class="logo-icon">G</span>
+    <span><strong>GTOS</strong><small>Engineering Handbook</small></span>
+  </a>
+  <button class="search-trigger" onclick="openSearch()">
+    <span>Search architecture, domains, APIs…</span>
+    <kbd>Ctrl K</kbd>
+  </button>
+  <div class="top-actions">
+    <a href="../../../architecture-atlas.html">Atlas</a>
+    <a href="../../../pdf-library.html">PDFs</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Contents</strong>
+      <button class="sidebar-close">×</button>
+    </div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…">
+    <nav id="handbook-nav"></nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="page-container">
+      <nav class="breadcrumbs"><a href="../../../index.html">Home</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/index.html">DELIVERY PLAYBOOKS</a> <span class="sep">›</span> <a href="../../../pages/04-DELIVERY-PLAYBOOKS/implementation-blueprints/index.html">Implementation Blueprints</a> <span class="sep">›</span> <span>Reference Deployment Blueprint</span></nav>
+      <header class="page-header">
+        <div class="status-row">
+          <span class="status-badge info">Delivery Playbooks</span>
+        </div>
+        <h1>Reference Deployment Blueprint</h1>
+      </header>
+      
+<div class="page-toc">
+  <strong>📑 Table of Contents</strong>
+  <ul><li class="toc-level-2"><a href="#logical-zones">Logical Zones</a></li><li class="toc-level-2"><a href="#trust-boundaries">Trust Boundaries</a></li><li class="toc-level-2"><a href="#data-planes">Data Planes</a></li><li class="toc-level-2"><a href="#regional-design">Regional Design</a></li><li class="toc-level-2"><a href="#control-plane">Control Plane</a></li><li class="toc-level-2"><a href="#availability">Availability</a></li><li class="toc-level-2"><a href="#recovery">Recovery</a></li></ul>
+</div>
+      <div class="prose">
+        <h1 id="reference-deployment-blueprint">Reference Deployment Blueprint</h1>
+<br>
+<h2 id="logical-zones">Logical Zones <a href="#logical-zones" class="heading-anchor">#</a></h2>
+<br>
+<p>A reference deployment contains edge access, identity and policy, API and Event ingress, domain runtime, workflow, AI runtime, data services, evidence services, observability, and administrative control planes.</p>
+<br>
+<h2 id="trust-boundaries">Trust Boundaries <a href="#trust-boundaries" class="heading-anchor">#</a></h2>
+<br>
+<p>External participants authenticate through federated identity or partner credentials. Workload identity is used internally. AI tools cross a dedicated execution gateway. Administrative access is separated from business access.</p>
+<br>
+<h2 id="data-planes">Data Planes <a href="#data-planes" class="heading-anchor">#</a></h2>
+<br>
+<p>Authoritative domain stores remain within domain control. Event transport distributes facts. Search, analytics, and AI indexes are derived perspectives. Evidence storage applies stronger integrity and retention.</p>
+<br>
+<h2 id="regional-design">Regional Design <a href="#regional-design" class="heading-anchor">#</a></h2>
+<br>
+<p>Regional cells limit failure and support residency. Global services hold only data appropriate for global scope. Cross-region replication declares consistency, authority, encryption, and recovery.</p>
+<br>
+<h2 id="control-plane">Control Plane <a href="#control-plane" class="heading-anchor">#</a></h2>
+<br>
+<p>Configuration, policy, schema, model routing, secrets, and deployment are governed through versioned control planes. Control-plane failure SHALL not produce unauthorized business action.</p>
+<br>
+<h2 id="availability">Availability <a href="#availability" class="heading-anchor">#</a></h2>
+<br>
+<p>Critical synchronous dependencies are minimized. Workflows tolerate delayed partners. Commands use idempotency. Events support replay. Degraded modes identify which decisions or executions are suspended.</p>
+<br>
+<h2 id="recovery">Recovery <a href="#recovery" class="heading-anchor">#</a></h2>
+<br>
+<p>Recovery order protects identity, policy, authoritative stores, Event transport, workflows, projections, AI services, and external exchange. Reconciliation confirms business completeness.</p>
+<br>
+      </div>
+      <nav class="page-nav">
+        <a class="prev" href="../../../index.html"><span>←</span> <strong>Back to Home</strong></a>
+        <a class="next" href="../../../architecture-atlas.html"><strong>Architecture Atlas</strong> <span>→</span></a>
+      </nav>
+    </article>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <div class="search-bar">
+      <input type="search" placeholder="Search across the complete handbook…">
+      <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+    <div class="search-meta">Type to search across all 850+ handbook pages.</div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<!-- Diagram Modal -->
+<div class="diagram-modal" aria-hidden="true">
+  <button class="diagram-modal-close" onclick="closeDiagramModal()">×</button>
+  <div class="diagram-modal-content"></div>
+</div>
+
+<footer class="site-footer">
+  <span>GTOS Enterprise Engineering Handbook · Edition 1.0</span>
+  <span>Target Architecture & Implementation Guide</span>
+</footer>
+</body>
+</html>

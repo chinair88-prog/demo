@@ -1,0 +1,36 @@
+---
+title: "Production Readiness Standard"
+section: "Normative Core"
+---
+
+<ContentPage
+  title="Production Readiness Standard"
+  section="Normative Core"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Normative Core", href: "/content" },
+    { label: "Production Readiness Standard" }
+  ]}
+>
+
+<br />
+<p>A capability may enter production only when:</p>
+<br />
+<p>- ownership and on-call are assigned;</p>
+<p>- threat model and privacy review are complete;</p>
+<p>- authentication, authorization, tenant isolation, rate limiting, and audit are tested;</p>
+<p>- migrations are upgrade-tested and rollback/backout is defined;</p>
+<p>- idempotency and concurrency behavior are proven;</p>
+<p>- Events and workflows survive duplicate, loss, delay, restart, and replay;</p>
+<p>- dependencies have timeouts, circuit breakers, and fallback/reconciliation;</p>
+<p>- SLOs, dashboards, alerts, runbooks, and capacity exist;</p>
+<p>- backup and restore have been exercised;</p>
+<p>- performance and failure tests meet thresholds;</p>
+<p>- Portal E2E and accessibility pass;</p>
+<p>- AI evaluations and kill switches pass where AI is used;</p>
+<p>- release, rollback, and communication plans are approved;</p>
+<p>- known risks and exceptions are recorded with expiry.</p>
+<br />
+<p>Production readiness is a joint Decision by the Domain owner, platform owner, security, SRE, and relevant business authority.</p>
+<br />
+</ContentPage>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Multiple orders from different sellers are consolidated into cargo units, transported across legs, deconsolidated, and delivered to multiple buyers. Orders, shipments, consignments, cargo units, transport legs, and custody Relationships retain independent identity. A container is…">
+<meta name="color-scheme" content="light dark">
+<title>Scenario — Multi-Party Shipment Consolidation · GTOS Engineering Handbook</title>
+<link rel="icon" href="../../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script defer src="../../../assets/js/nav-data.js"></script>
+<script defer src="../../../assets/js/search-index.js"></script>
+<script defer src="../../../assets/js/site.js"></script>
+</head>
+<body data-current="/pages/04-DELIVERY-PLAYBOOKS/scenarios/multi-party-shipment.html" data-root="../../../">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <button class="icon-button mobile-nav-toggle" aria-label="Open navigation">☰</button>
+  <a class="brand" href="../../../index.html"><img src="../../../assets/icons/logo.svg" alt="GTOS"><span><strong>GTOS</strong><small>Engineering Handbook</small></span></a>
+  <button class="search-trigger" type="button"><span>Search the handbook</span><kbd>Ctrl K</kbd></button>
+  <nav class="top-actions">
+    <a href="../../../pdf-library.html">PDFs</a>
+    <a href="../../../architecture-atlas.html">Architecture Atlas</a>
+    <button class="icon-button print-page" aria-label="Print page">⎙</button>
+    <button class="icon-button theme-toggle" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+<div class="reading-progress"><span></span></div>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Handbook navigation">
+    <div class="sidebar-head"><strong>Contents</strong><button class="sidebar-close" aria-label="Close navigation">×</button></div>
+    <input class="nav-filter" type="search" placeholder="Filter contents…" aria-label="Filter navigation">
+    <nav id="handbook-nav"></nav>
+    <div class="sidebar-footer"><a href="../../../downloads/GTOS-Final-Handbook-Catalogue.xlsx">Catalogue XLSX</a><a href="../../../deployment-guide.html">Deploy this site</a></div>
+  </aside>
+  <main id="main-content" class="main-content">
+    <div class="breadcrumbs"><a href="../../../index.html">Home</a><span class="sep">/</span><span>Delivery Playbooks</span><span class="sep">/</span><span>Scenarios</span><span class="sep">/</span><span>Scenario — Multi-Party Shipment Consolidation</span></div>
+    <article class="doc-page">
+      <header class="doc-header">
+        <div class="status-row"><span class="status-badge success">Target Architecture 1.0</span><span>Delivery Playbooks</span><span>148 words</span></div>
+        <h1>Scenario — Multi-Party Shipment Consolidation</h1>
+        <p class="lede">Multiple orders from different sellers are consolidated into cargo units, transported across legs, deconsolidated, and delivered to multiple buyers. Orders, shipments, consignments, cargo units, transport legs, and custody Relationships retain independent identity. A container is…</p>
+      </header>
+      <div class="doc-layout">
+        <div class="doc-body prose">
+<h2 id="context">Context<a aria-label="Link to section" class="heading-anchor" href="#context">#</a></h2>
+<p>Multiple orders from different sellers are consolidated into cargo units, transported across legs, deconsolidated, and delivered to multiple buyers.</p>
+<h2 id="modeling">Modeling<a aria-label="Link to section" class="heading-anchor" href="#modeling">#</a></h2>
+<p>Orders, shipments, consignments, cargo units, transport legs, and custody Relationships retain independent identity. A container is not the shipment, and a shipment is not the transport service.</p>
+<h2 id="events">Events<a aria-label="Link to section" class="heading-anchor" href="#events">#</a></h2>
+<p><code>CargoUnitPacked</code>, <code>ShipmentConsolidated</code>, <code>CustodyTransferred</code>, <code>TransportDeparted</code>, <code>TransportArrived</code>, and <code>ShipmentDelivered</code> describe distinct facts. Schedule updates are not actual movement events.</p>
+<h2 id="state">State<a aria-label="Link to section" class="heading-anchor" href="#state">#</a></h2>
+<p>A consolidated shipment may contain one held consignment and several releasable consignments. State is scoped; one universal status would either block too much or release too much.</p>
+<h2 id="recovery">Recovery<a aria-label="Link to section" class="heading-anchor" href="#recovery">#</a></h2>
+<p>If a message is duplicated, domain invariants and event identity prevent duplicate custody transfer. If events arrive out of order, occurrence time and sequence scope permit reconstruction while preserving receipt order.</p>
+<h2 id="analytics">Analytics<a aria-label="Link to section" class="heading-anchor" href="#analytics">#</a></h2>
+<p>A control tower projects end-to-end progress but does not own order, customs, payment, or physical movement truth.</p>
+</div>
+        <aside class="page-toc"><strong>On this page</strong><nav><a class="toc-level-2" href="#context">Context</a><a class="toc-level-2" href="#modeling">Modeling</a><a class="toc-level-2" href="#events">Events</a><a class="toc-level-2" href="#state">State</a><a class="toc-level-2" href="#recovery">Recovery</a><a class="toc-level-2" href="#analytics">Analytics</a></nav></aside>
+      </div>
+      <footer class="page-nav">
+        <a class="prev" href="index.html"><span>Previous</span><strong>End-to-End Trade Scenarios</strong></a>
+        <a class="next" href="pharmaceutical-cold-chain.html"><span>Next</span><strong>Scenario — Pharmaceutical Cold Chain</strong></a>
+      </footer>
+    </article>
+  </main>
+</div>
+<div class="search-modal" aria-hidden="true"><div class="search-panel"><div class="search-bar"><input type="search" placeholder="Search architecture, domains, APIs, workflows…" aria-label="Search"><button class="search-close" aria-label="Close search">×</button></div><div class="search-meta"></div><div class="search-results"></div></div></div>
+<div class="diagram-modal" aria-hidden="true"><button class="diagram-modal-close">×</button><div class="diagram-modal-content"></div></div>
+<footer class="site-footer"><span>GTOS Enterprise Engineering Handbook · Edition 1.0</span><span>Target Architecture & Implementation Guide</span></footer>
+</body></html>

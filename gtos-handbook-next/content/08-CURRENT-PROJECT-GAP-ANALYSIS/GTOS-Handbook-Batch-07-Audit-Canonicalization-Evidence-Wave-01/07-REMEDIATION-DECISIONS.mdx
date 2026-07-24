@@ -1,0 +1,38 @@
+---
+title: "Remediation Decisions"
+section: "Gap Analysis"
+---
+
+<ContentPage
+  title="Remediation Decisions"
+  section="Gap Analysis"
+  breadcrumbs={[
+    { label: "Home", href: "/" },
+    { label: "Gap Analysis", href: "/content" },
+    { label: "Remediation Decisions" }
+  ]}
+>
+
+<br />
+<h2 id="completed-in-this-batch">Completed in this Batch</h2>
+<br />
+<p>- audited all available final Batch Markdown files line by line programmatically;</p>
+<p>- verified ZIP CRC and Manifest hashes;</p>
+<p>- inspected the prior PDF visually and structurally;</p>
+<p>- inspected the XLSX workbook structure and formulas;</p>
+<p>- created corrected <code class="code-inline">AUDITED-v2</code> packages for Batches 01-06;</p>
+<p>- changed overstated maturity labels;</p>
+<p>- created corrected Master <code class="code-inline">AUDITED-v2</code>;</p>
+<p>- began repository evidence enrichment for PI, Payment, PO, and Manufacturing.</p>
+<br />
+<h2 id="mandatory-next-actions">Mandatory next actions</h2>
+<br />
+<p>1. Enrich one Domain or lifecycle area at a time from executable evidence.</p>
+<p>2. Calculate a chapter evidence score and template-residual score.</p>
+<p>3. Replace generic aggregate/API/table sections with repository-specific and target-specific sections.</p>
+<p>4. Resolve ownership conflicts through explicit ADRs.</p>
+<p>5. Add exact tests, migrations, routes, schemas, Portals, and operational evidence.</p>
+<p>6. Regenerate catalogues from direct source reads.</p>
+<p>7. Build PDF only after deduplication and content review.</p>
+<br />
+</ContentPage>
